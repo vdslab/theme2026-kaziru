@@ -5,6 +5,7 @@ import {
   countBandsByAlgorithm,
   createSummary,
 } from "./utils/statistics";
+import { computeBeeswarm } from "./utils/beeswarm";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -40,11 +41,12 @@ export default function App() {
           "difficulty",
         );
 
-        const filteredRows = rows.filter((row) => {
-          const diff = Number(row[diffCol]);
-
-          return !Number.isNaN(diff) && diff < 2000;
-        });
+        const filteredRows = rows
+          .map((row) => ({
+            ...row,
+            [diffCol]: Math.max(0, Number(row[diffCol])),
+          }))
+          .filter((row) => row[diffCol] < 2000);
 
         const groups = groupByAlgorithm(filteredRows, algoCol, diffCol);
 
@@ -56,18 +58,11 @@ export default function App() {
 
         const summaryData = createSummary(groups, bandCounts);
 
-        summaryData.forEach((item) => {
-          const total =
-            item.Gray + item.Brown + item.Green + item.Cyan + item.Blue;
+        const plottedData = computeBeeswarm(summaryData);
 
-          if (total !== item.n) {
-            console.log(item.algo, total, item.n);
-          }
-        });
+        console.log(plottedData);
 
-        console.log(summaryData);
-
-        setSummary(summaryData);
+        setSummary(plottedData);
       } catch (error) {
         console.error(error);
       }
