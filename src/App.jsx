@@ -12,7 +12,6 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [rows, setRows] = useState([]);
   const [summary, setSummary] = useState([]);
 
   useEffect(() => {
@@ -51,17 +50,6 @@ export default function App() {
             diffCalc: Math.max(0, Number(row[diffCol])),
           }))
           .filter((row) => row.diffCalc < 2000);
-
-        const accum = processedRows
-          .filter((r) => r.tag === "累積和")
-          .map((r) => r.diffCalc)
-          .sort((a, b) => a - b);
-
-        const accumUnique = new Set(
-          processedRows
-            .filter((r) => r.tag === "累積和")
-            .map((r) => r.problem_id),
-        );
 
         const groups = groupByAlgorithm(processedRows, algoCol);
 
