@@ -29,12 +29,12 @@ export function diffToBand(diff) {
 }
 
 // グループ化
-export function groupByAlgorithm(rows, algoCol, diffCol) {
+export function groupByAlgorithm(rows, algoCol) {
   const groups = {};
 
   for (const row of rows) {
     const algo = row[algoCol];
-    const diff = Number(row[diffCol]);
+    const diff = row.diffCalc;
 
     if (!algo || Number.isNaN(diff)) {
       continue;
@@ -122,12 +122,12 @@ export function createSummary(groups, bandCounts) {
 }
 
 // アルゴリズムごとにdifficulty帯の件数をカウント
-export function countBandsByAlgorithm(rows, algoCol, diffCol) {
+export function countBandsByAlgorithm(rows, algoCol) {
   const result = {};
 
   for (const row of rows) {
     const algo = row[algoCol];
-    const diff = Number(row[diffCol]);
+    const diff = row.diffCalc;
 
     if (!algo || Number.isNaN(diff)) {
       continue;

@@ -41,26 +41,35 @@ export default function App() {
           "difficulty",
         );
 
-        const filteredRows = rows
+        const processedRows = rows
+          .filter(
+            (row) =>
+              row[algoCol] && row[diffCol] != null && row[diffCol] !== "",
+          )
           .map((row) => ({
             ...row,
-            [diffCol]: Math.max(0, Number(row[diffCol])),
+            diffCalc: Math.max(0, Number(row[diffCol])),
           }))
-          .filter((row) => row[diffCol] < 2000);
+          .filter((row) => row.diffCalc < 2000);
 
-        const groups = groupByAlgorithm(filteredRows, algoCol, diffCol);
+        const accum = processedRows
+          .filter((r) => r.tag === "累積和")
+          .map((r) => r.diffCalc)
+          .sort((a, b) => a - b);
 
-        const bandCounts = countBandsByAlgorithm(
-          filteredRows,
-          algoCol,
-          diffCol,
+        const accumUnique = new Set(
+          processedRows
+            .filter((r) => r.tag === "累積和")
+            .map((r) => r.problem_id),
         );
+
+        const groups = groupByAlgorithm(processedRows, algoCol);
+
+        const bandCounts = countBandsByAlgorithm(processedRows, algoCol);
 
         const summaryData = createSummary(groups, bandCounts);
 
         const plottedData = computeBeeswarm(summaryData);
-
-        console.log(plottedData);
 
         setSummary(plottedData);
       } catch (error) {
@@ -74,7 +83,7 @@ export default function App() {
   return (
     <div>
       <Header />
-      <Main />
+      <Main summary={summary} />
       <Footer />
     </div>
   );
