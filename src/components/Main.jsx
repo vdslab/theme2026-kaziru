@@ -1,4 +1,4 @@
-import PieBeeswarm from "./PieBeeswarm";
+import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 
 export default function Main({ summary }) {
   return (
