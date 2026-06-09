@@ -2,7 +2,7 @@ import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 
 export default function Main({ summary }) {
   return (
-    <main>
+    <main className="main">
       <PieBeeswarm data={summary} />
     </main>
   );
