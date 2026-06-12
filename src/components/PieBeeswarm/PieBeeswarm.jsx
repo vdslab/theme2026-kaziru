@@ -1,4 +1,5 @@
 import AxisBottom from "./AxisBottom";
+import PieNode from "./PieNode";
 
 export default function PieBeeswarm({ data = [] }) {
   if (data.length === 0) {
@@ -22,13 +23,11 @@ export default function PieBeeswarm({ data = [] }) {
       <AxisBottom xMin={AXIS_MIN} xMax={AXIS_MAX} yMax={yMax} tickStep={TICK_STEP} />
 
       {data.map((item) => (
-        <circle
+        <PieNode
           key={item.algo}
-          cx={item.x}
-          cy={item.y}
+          x={item.x}
+          y={item.y}
           r={item.r}
-          fill="steelblue"
-          stroke="black"
         />
       ))}
     </svg>
