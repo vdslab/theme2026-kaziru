@@ -6,6 +6,8 @@ export default function PieBeeswarm({ data = [] }) {
     return null;
   }
 
+  console.log(data[0]);
+
   const AXIS_MIN = 0;
   const AXIS_MAX = 2000;
   const TICK_STEP = 400;
@@ -20,7 +22,12 @@ export default function PieBeeswarm({ data = [] }) {
       height="100%"
       viewBox={`${AXIS_MIN - padding} ${yMin} ${AXIS_MAX + padding * 2} ${yMax - yMin}`}
     >
-      <AxisBottom xMin={AXIS_MIN} xMax={AXIS_MAX} yMax={yMax} tickStep={TICK_STEP} />
+      <AxisBottom
+        xMin={AXIS_MIN}
+        xMax={AXIS_MAX}
+        yMax={yMax}
+        tickStep={TICK_STEP}
+      />
 
       {data.map((item) => (
         <PieNode
@@ -28,6 +35,13 @@ export default function PieBeeswarm({ data = [] }) {
           x={item.x}
           y={item.y}
           r={item.r}
+          slices={[
+            { label: "Gray", value: item.Gray },
+            { label: "Brown", value: item.Brown },
+            { label: "Green", value: item.Green },
+            { label: "Cyan", value: item.Cyan },
+            { label: "Blue", value: item.Blue },
+          ]}
         />
       ))}
     </svg>
