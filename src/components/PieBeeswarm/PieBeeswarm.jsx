@@ -1,5 +1,6 @@
 import AxisBottom from "./AxisBottom";
 import PieNode from "./PieNode";
+import NodeLabel from "./NodeLabel";
 
 export default function PieBeeswarm({ data = [] }) {
   if (data.length === 0) {
@@ -42,6 +43,16 @@ export default function PieBeeswarm({ data = [] }) {
             { label: "Cyan", value: item.Cyan },
             { label: "Blue", value: item.Blue },
           ]}
+        />
+      ))}
+
+      {data.map((item) => (
+        <NodeLabel
+          key={item.algo}
+          x={item.x}
+          y={item.y}
+          r={item.r}
+          text={item.algo}
         />
       ))}
     </svg>
