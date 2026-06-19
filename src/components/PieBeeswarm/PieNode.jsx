@@ -10,14 +10,13 @@ const COLORS = {
 
 const pieGenerator = pie()
   .value((d) => d.value)
-  .sort(null);
+  .sort(null)
+  .endAngle(-Math.PI * 2 - Math.PI / 2);
 
 export default function PieNode({ x, y, r, slices }) {
   const arcData = pieGenerator(slices);
 
-  const arcGenerator = arc()
-    .innerRadius(0)
-    .outerRadius(r);
+  const arcGenerator = arc().innerRadius(0).outerRadius(r);
 
   return (
     <g transform={`translate(${x}, ${y})`}>
