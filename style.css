@@ -1,10 +1,406 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.logo::before {
+  content: "◆ ";
+  color: #3b82f6;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #666;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.current-rate {
+  font-size: 14px;
+  color: #666;
+}
+
+.rate-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2563eb;
+  margin-left: 8px;
+}
+
+.help-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #666;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+}
+
+.help-button:hover {
+  background: #f5f5f5;
+}
+
+.user-menu {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.user-menu:hover {
+  background: #f5f5f5;
+}
+
+/* Main */
 .main {
   flex: 1;
   min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+
+/* Controls Panel */
+.controls-panel {
+  display: flex;
+  gap: 32px;
+  padding: 20px 24px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.rate-range-control {
+  flex: 1;
+}
+
+.control-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.range-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.range-slider input[type="range"] {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+}
+
+.range-slider input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+  border: none;
+}
+
+.range-slider span {
+  font-size: 13px;
+  color: #666;
+  min-width: 40px;
+  text-align: center;
+}
+
+.display-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.display-options-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.display-options-header .control-label {
+  margin-bottom: 0;
+}
+
+.checkboxes {
+  display: flex;
+  gap: 16px;
+}
+
+.checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+}
+
+.checkboxes input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #2563eb;
+}
+
+.reset-button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #666;
+}
+
+.reset-button:hover {
+  background: #f5f5f5;
+}
+
+/* Visualization Container */
+.visualization-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px 24px;
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.info-button,
+.usage-button {
+  padding: 4px 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #666;
+}
+
+.info-button:hover,
+.usage-button:hover {
+  background: #f5f5f5;
+}
+
+.vis-layout {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  min-height: 0;
+}
+
+.chart-wrapper {
+  flex: 1;
+  min-height: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Legend */
+.legend {
+  width: 320px;
+  flex-shrink: 0;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+
+.legend-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* Selected Algorithm Card in Legend */
+.selected-algo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.selected-algo-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.selected-algo-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.selected-algo-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.selected-algo-stats .stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.selected-algo-stats .stat-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.selected-algo-stats .stat-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.selected-algo-card .problems-button {
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.selected-algo-card .problems-button:hover {
+  background: #1d4ed8;
+}
+
+.problems-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.problems-list-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.problem-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 12px;
+  transition: background-color 0.15s;
+}
+
+.problem-item:hover {
+  background-color: #f0f4ff;
+}
+
+.problem-id {
+  font-family: monospace;
+  color: #2563eb;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.problem-title {
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Footer */
+.footer {
+  padding: 16px 24px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
 }

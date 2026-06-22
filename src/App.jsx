@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   const [summary, setSummary] = useState([]);
+  const [allRows, setAllRows] = useState([]);
 
   useEffect(() => {
     async function init() {
@@ -60,6 +61,7 @@ export default function App() {
         const plottedData = computeBeeswarm(summaryData);
 
         setSummary(plottedData);
+        setAllRows(processedRows);
       } catch (error) {
         console.error(error);
       }
@@ -71,7 +73,7 @@ export default function App() {
   return (
     <div className="app">
       <Header />
-      <Main summary={summary} />
+      <Main summary={summary} allRows={allRows} />
       <Footer />
     </div>
   );

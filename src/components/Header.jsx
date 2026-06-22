@@ -1,7 +1,15 @@
 export default function Header() {
     return (
         <header className="header">
-            <h1 className="title">Title</h1>
+            <div className="header-left">
+                <div className="logo">kaziru</div>
+                <div className="tagline">アルゴリズム学習を、可視化で最適化する</div>
+            </div>
+            <div className="header-right">
+                <div className="current-rate">現在のレート <span className="rate-value">1234</span></div>
+                <button className="help-button">?</button>
+                <div className="user-menu">ユーザー名 ▼</div>
+            </div>
         </header>
     );
 }
