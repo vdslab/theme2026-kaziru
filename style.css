@@ -210,7 +210,6 @@ body {
   color: #333;
 }
 
-.info-button,
 .usage-button {
   padding: 4px 12px;
   border: 1px solid #ddd;
@@ -221,7 +220,6 @@ body {
   color: #666;
 }
 
-.info-button:hover,
 .usage-button:hover {
   background: #f5f5f5;
 }
@@ -275,7 +273,7 @@ body {
 }
 
 .selected-algo-name {
-  font-size: 18px;
+  font-size: 32px;
   font-weight: 600;
   color: #333;
 }

@@ -74,7 +74,7 @@ export default function Main({ summary, allRows }) {
       <div className="visualization-container">
         <div className="chart-header">
           <h2 className="chart-title">アルゴリズム分布図（Pie-Beeswarm）</h2>
-          <button className="info-button">ⓘ</button>
+          <div className="current-rate">現在のレート <span className="rate-value">1234</span></div>
           <button className="usage-button">使い方</button>
         </div>
 
@@ -91,7 +91,6 @@ export default function Main({ summary, allRows }) {
             <div className="legend-title">選択したアルゴリズム</div>
             <div className="selected-algo-card">
               <div className="selected-algo-header">
-                <div className="algorithm-icon">Σ</div>
                 <div className="selected-algo-name">{mockAlgo.algo}</div>
               </div>
               <div className="selected-algo-stats">
