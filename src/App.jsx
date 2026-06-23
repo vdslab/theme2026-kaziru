@@ -73,6 +73,9 @@ export default function App() {
   return (
     <div className="app">
       <Header />
+      <div className="username-bar">
+        <input className="username-input" type="text" placeholder="Enter username" />
+      </div>
       <Main summary={summary} allRows={allRows} />
       <Footer />
     </div>

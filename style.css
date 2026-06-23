@@ -66,6 +66,32 @@ body {
   margin-left: 8px;
 }
 
+/* Username Bar */
+.username-bar {
+  padding: 8px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.username-input {
+  width: 180px;
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  color: #333;
+}
+
+.username-input::placeholder {
+  color: #999;
+}
+
+.username-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
 /* Main */
 .main {
   flex: 1;
