@@ -7,8 +7,6 @@ export default function Header() {
             </div>
             <div className="header-right">
                 <div className="current-rate">現在のレート <span className="rate-value">1234</span></div>
-                <button className="help-button">?</button>
-                <div className="user-menu">ユーザー名 ▼</div>
             </div>
         </header>
     );
