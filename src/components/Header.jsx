@@ -1,7 +1,10 @@
 export default function Header() {
     return (
         <header className="header">
-            <h1 className="title">Title</h1>
+            <div className="header-left">
+                <div className="logo">kaziru</div>
+                <div className="tagline">アルゴリズム学習を、可視化で最適化する</div>
+            </div>
         </header>
     );
 }
