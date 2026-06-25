@@ -5,8 +5,6 @@ export default function Header() {
                 <div className="logo">kaziru</div>
                 <div className="tagline">アルゴリズム学習を、可視化で最適化する</div>
             </div>
-            <div className="header-right">
-            </div>
         </header>
     );
 }
