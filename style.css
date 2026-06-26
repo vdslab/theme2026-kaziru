@@ -96,6 +96,21 @@ body {
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
 
+.username-input--error {
+  border-color: #dc2626;
+}
+
+.username-input--error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.username-error {
+  font-size: 13px;
+  color: #dc2626;
+  white-space: nowrap;
+}
+
 .username-button {
   height: 32px;
   padding: 0 16px;

@@ -29,10 +29,12 @@ export default function App() {
 
     setRateLoading(true);
     setRateError(null);
+    setRate(null);
     try {
       const userRate = await fetchUserRate(trimmed);
       setRate(userRate);
     } catch (err) {
+      setRate(null);
       setRateError(err.message);
     } finally {
       setRateLoading(false);
@@ -99,7 +101,7 @@ export default function App() {
       <Header />
       <div className="username-bar">
         <input
-          className="username-input"
+          className={`username-input${rateError ? " username-input--error" : ""}`}
           type="text"
           placeholder="Enter username"
           value={username}
@@ -116,6 +118,7 @@ export default function App() {
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
         </button>
+        {rateError && <span className="username-error">{rateError}</span>}
       </div>
       <Main summary={summary} allRows={allRows} rate={rate} rateLoading={rateLoading} rateError={rateError} />
       <Footer />

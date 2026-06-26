@@ -6,7 +6,7 @@ export async function fetchUserRate(username) {
     }
     const data = await res.json();
     if (!data.length) {
-        return null;
+        throw new Error("ユーザーが見つかりません");
     }
     const latest = data[data.length - 1];
     return latest.NewRating;

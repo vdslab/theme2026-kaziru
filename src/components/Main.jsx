@@ -77,7 +77,7 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
           <div className="current-rate">
             現在のレート
             <span className="rate-value">
-              {rateLoading ? "取得中..." : rateError ? "エラー" : (rate ?? "---")}
+              {rateLoading ? "取得中..." : (rate ?? "---")}
             </span>
           </div>
           <button className="usage-button">使い方</button>
