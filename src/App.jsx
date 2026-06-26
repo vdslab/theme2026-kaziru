@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 export default function App() {
   const [summary, setSummary] = useState([]);
   const [allRows, setAllRows] = useState([]);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     async function init() {
@@ -74,9 +75,15 @@ export default function App() {
     <div className="app">
       <Header />
       <div className="username-bar">
-        <input className="username-input" type="text" placeholder="Enter username" />
+        <input
+          className="username-input"
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
       </div>
-      <Main summary={summary} allRows={allRows} />
+      <Main summary={summary} allRows={allRows} rate={rate} />
       <Footer />
     </div>
   );
