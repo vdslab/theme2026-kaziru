@@ -68,6 +68,9 @@ body {
 
 /* Username Bar */
 .username-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 24px;
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -75,7 +78,8 @@ body {
 
 .username-input {
   width: 180px;
-  padding: 6px 12px;
+  height: 32px;
+  padding: 0 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
@@ -90,6 +94,38 @@ body {
 .username-input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.username-input--error {
+  border-color: #dc2626;
+}
+
+.username-input--error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.username-error {
+  font-size: 13px;
+  color: #dc2626;
+  white-space: nowrap;
+}
+
+.username-button {
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.username-button:hover {
+  background: #1d4ed8;
 }
 
 /* Main */
