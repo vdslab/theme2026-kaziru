@@ -10,11 +10,13 @@ import { computeBeeswarm } from "./utils/beeswarm";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import { fetchUserRate } from "./api/loadUser";
 
 export default function App() {
   const [summary, setSummary] = useState([]);
   const [allRows, setAllRows] = useState([]);
   const [username, setUsername] = useState("");
+  const [rate, setRate] = useState(null);
 
   useEffect(() => {
     async function init() {
@@ -81,6 +83,12 @@ export default function App() {
           placeholder="Enter username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={async (e) => {
+            if (e.key === "Enter") {
+              const userRate = await fetchUserRate(username);
+              setRate(userRate);
+            }
+          }}
         />
       </div>
       <Main summary={summary} allRows={allRows} rate={rate} />
