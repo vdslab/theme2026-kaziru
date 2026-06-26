@@ -7,7 +7,7 @@ const MOCK_ALGORITHM = {
   n: 53,
 };
 
-export default function Main({ summary, allRows, rate }) {
+export default function Main({ summary, allRows, rate, rateLoading, rateError }) {
   const [rateThreshold, setRateThreshold] = useState(0);
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showRecommended, setShowRecommended] = useState(true);
@@ -74,7 +74,12 @@ export default function Main({ summary, allRows, rate }) {
       <div className="visualization-container">
         <div className="chart-header">
           <h2 className="chart-title">アルゴリズム分布図（Pie-Beeswarm）</h2>
-          <div className="current-rate">現在のレート <span className="rate-value">{rate ?? "---"}</span></div>
+          <div className="current-rate">
+            現在のレート
+            <span className="rate-value">
+              {rateLoading ? "取得中..." : rateError ? "エラー" : (rate ?? "---")}
+            </span>
+          </div>
           <button className="usage-button">使い方</button>
         </div>
 

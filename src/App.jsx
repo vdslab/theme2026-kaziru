@@ -17,6 +17,24 @@ export default function App() {
   const [allRows, setAllRows] = useState([]);
   const [username, setUsername] = useState("");
   const [rate, setRate] = useState(null);
+  const [rateLoading, setRateLoading] = useState(false);
+  const [rateError, setRateError] = useState(null);
+
+  const handleFetchRate = async () => {
+    const trimmed = username.trim();
+    if (!trimmed) return;
+
+    setRateLoading(true);
+    setRateError(null);
+    try {
+      const userRate = await fetchUserRate(trimmed);
+      setRate(userRate);
+    } catch (err) {
+      setRateError(err.message);
+    } finally {
+      setRateLoading(false);
+    }
+  };
 
   useEffect(() => {
     async function init() {
@@ -83,15 +101,14 @@ export default function App() {
           placeholder="Enter username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          onKeyDown={async (e) => {
+          onKeyDown={(e) => {
             if (e.key === "Enter") {
-              const userRate = await fetchUserRate(username);
-              setRate(userRate);
+              handleFetchRate();
             }
           }}
         />
       </div>
-      <Main summary={summary} allRows={allRows} rate={rate} />
+      <Main summary={summary} allRows={allRows} rate={rate} rateLoading={rateLoading} rateError={rateError} />
       <Footer />
     </div>
   );
