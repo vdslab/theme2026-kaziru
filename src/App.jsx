@@ -22,7 +22,10 @@ export default function App() {
 
   const handleFetchRate = async () => {
     const trimmed = username.trim();
-    if (!trimmed) return;
+    if (!trimmed) {
+      setRate(null);
+      return;
+    }
 
     setRateLoading(true);
     setRateError(null);
