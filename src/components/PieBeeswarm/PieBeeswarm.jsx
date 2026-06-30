@@ -3,7 +3,7 @@ import AxisBottom from "./AxisBottom";
 import PieNode from "./PieNode";
 import NodeLabel from "./NodeLabel";
 
-export default function PieBeeswarm({ data = [] }) {
+export default function PieBeeswarm({ data = [], showLabels = false }) {
   const containerRef = useRef(null);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
 
@@ -81,15 +81,16 @@ export default function PieBeeswarm({ data = [] }) {
           />
         ))}
 
-        {data.map((item) => (
-          <NodeLabel
-            key={item.algo}
-            x={item.x}
-            y={item.y}
-            r={item.r}
-            text={item.algo}
-          />
-        ))}
+        {showLabels &&
+          data.map((item) => (
+            <NodeLabel
+              key={item.algo}
+              x={item.x}
+              y={item.y}
+              r={item.r}
+              text={item.algo}
+            />
+          ))}
       </svg>
     </div>
   );
