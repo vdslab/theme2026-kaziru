@@ -17,8 +17,7 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
   const mockAlgo = summary?.[0] ?? MOCK_ALGORITHM;
 
   const problems = allRows
-    .filter((row) => row.tag === mockAlgo.algo)
-    .slice(0, 10);
+    .filter((row) => row.tag === mockAlgo.algo);
 
   return (
     <main className="main">
