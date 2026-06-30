@@ -16,8 +16,7 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
   const mockAlgo = summary?.[0] ?? MOCK_ALGORITHM;
 
   const problems = allRows
-    .filter((row) => row.tag === mockAlgo.algo)
-    .slice(0, 10);
+    .filter((row) => row.tag === mockAlgo.algo);
 
   return (
     <main className="main">
@@ -96,21 +95,23 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
           <div className="legend">
             <div className="legend-title">選択したアルゴリズム</div>
             <div className="selected-algo-card">
-              <div className="selected-algo-header">
-                <div className="selected-algo-name">{mockAlgo.algo}</div>
-              </div>
-              <div className="selected-algo-stats">
-                <div className="stat-row">
-                  <span className="stat-label">出現レート帯の中央値</span>
-                  <span className="stat-value">{Math.round(mockAlgo.median)}</span>
+              <div className="selected-algo-info">
+                <div className="selected-algo-header">
+                  <div className="selected-algo-name">{mockAlgo.algo}</div>
                 </div>
-                <div className="stat-row">
-                  <span className="stat-label">問題数</span>
-                  <span className="stat-value">{mockAlgo.n} 問</span>
+                <div className="selected-algo-stats">
+                  <div className="stat-row">
+                    <span className="stat-label">出現レート帯の中央値</span>
+                    <span className="stat-value">{Math.round(mockAlgo.median)}</span>
+                  </div>
+                  <div className="stat-row">
+                    <span className="stat-label">問題数</span>
+                    <span className="stat-value">{mockAlgo.n} 問</span>
+                  </div>
                 </div>
               </div>
               <div className="problems-list">
-                <div className="problems-list-title">問題一覧（上位10件）</div>
+                <div className="problems-list-title">問題一覧</div>
                 {problems.map((problem, i) => (
                   <a
                     key={i}
