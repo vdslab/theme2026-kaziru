@@ -89,6 +89,7 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
               data={summary}
               showCurrentRate={showCurrentRate}
               showRecommended={showRecommended}
+              showLabels={showLabels}
             />
           </div>
 
