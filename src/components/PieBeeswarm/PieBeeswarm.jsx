@@ -3,7 +3,12 @@ import AxisBottom from "./AxisBottom";
 import PieNode from "./PieNode";
 import NodeLabel from "./NodeLabel";
 
-export default function PieBeeswarm({ data = [], showLabels = false }) {
+export default function PieBeeswarm({
+  data = [],
+  showLabels = false,
+  selectedAlgorithm = null,
+  onSelectAlgorithm,
+}) {
   const containerRef = useRef(null);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
 
@@ -68,9 +73,12 @@ export default function PieBeeswarm({ data = [], showLabels = false }) {
         {data.map((item) => (
           <PieNode
             key={item.algo}
+            label={item.algo}
             x={item.x}
             y={item.y}
             r={item.r}
+            selected={item.algo === selectedAlgorithm}
+            onSelect={() => onSelectAlgorithm?.(item.algo)}
             slices={[
               { label: "Gray", value: item.Gray },
               { label: "Brown", value: item.Brown },
