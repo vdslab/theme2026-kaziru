@@ -34,9 +34,8 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
     MOCK_ALGORITHM;
 
   const problems = allRows
-    .filter((row) => row.tag === selectedAlgo.algo)
-    .slice(0, 10);
-
+    .filter((row) => row.tag === selectedAlgo.algo);
+    
   return (
     <main className="main">
       <div className="controls-panel">
