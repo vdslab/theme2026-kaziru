@@ -302,6 +302,25 @@ body {
   overflow: hidden;
 }
 
+.pie-node {
+  cursor: pointer;
+  outline: none;
+}
+
+.pie-node path {
+  transition: stroke-width 0.15s, filter 0.15s;
+}
+
+.pie-node:hover path,
+.pie-node:focus-visible path {
+  filter: brightness(1.08);
+}
+
+.pie-node:focus-visible circle {
+  stroke: #2563eb;
+  stroke-width: 4;
+}
+
 /* Legend */
 .legend {
   width: 320px;

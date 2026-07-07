@@ -1,6 +1,6 @@
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MOCK_ALGORITHM = {
   algo: "累積和",
@@ -13,11 +13,28 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showRecommended, setShowRecommended] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
+  const [selectedAlgoName, setSelectedAlgoName] = useState(null);
 
-  const mockAlgo = summary?.[0] ?? MOCK_ALGORITHM;
+  useEffect(() => {
+    if (summary.length === 0) {
+      setSelectedAlgoName(null);
+      return;
+    }
+
+    setSelectedAlgoName((current) =>
+      current && summary.some((item) => item.algo === current)
+        ? current
+        : summary[0].algo,
+    );
+  }, [summary]);
+
+  const selectedAlgo =
+    summary.find((item) => item.algo === selectedAlgoName) ??
+    summary?.[0] ??
+    MOCK_ALGORITHM;
 
   const problems = allRows
-    .filter((row) => row.tag === mockAlgo.algo);
+    .filter((row) => row.tag === selectedAlgo.algo);
 
   return (
     <main className="main">
@@ -90,10 +107,12 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
               showCurrentRate={showCurrentRate}
               showRecommended={showRecommended}
               showLabels={showLabels}
+              selectedAlgorithm={selectedAlgo.algo}
+              onSelectAlgorithm={setSelectedAlgoName}
             />
           </div>
 
-          <AlgorithmCard algo={mockAlgo} problems={problems} />
+          <AlgorithmCard algo={selectedAlgo} problems={problems} />
         </div>
       </div>
     </main>
