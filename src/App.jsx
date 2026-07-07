@@ -120,7 +120,14 @@ export default function App() {
         </button>
         {rateError && <span className="username-error">{rateError}</span>}
       </div>
-      <Main summary={summary} allRows={allRows} rate={rate} rateLoading={rateLoading} rateError={rateError} />
+      <Main
+        summary={summary}
+        allRows={allRows}
+        rate={rate}
+        hasUsername={username.trim().length > 0}
+        rateLoading={rateLoading}
+        rateError={rateError}
+      />
       <Footer />
     </div>
   );
