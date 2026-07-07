@@ -329,7 +329,10 @@ body {
   background: white;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .legend-title {
@@ -337,20 +340,19 @@ body {
   font-weight: 600;
   margin-bottom: 12px;
   color: #333;
+  flex-shrink: 0;
 }
 
 /* Selected Algorithm Card in Legend */
 .selected-algo-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  height: 100%;
+  min-height: 0;
 }
 
-.selected-algo-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 4px;
+.selected-algo-info {
+  flex-shrink: 0;
 }
 
 .selected-algo-name {
@@ -364,6 +366,7 @@ body {
   flex-direction: column;
   gap: 8px;
   padding: 8px 0;
+  flex-shrink: 0;
 }
 
 .selected-algo-stats .stat-row {
@@ -407,6 +410,9 @@ body {
   flex-direction: column;
   gap: 4px;
   margin-top: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .problems-list-title {
