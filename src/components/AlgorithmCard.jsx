@@ -17,7 +17,7 @@ export default function AlgorithmCard({ algo, problems }) {
           </div>
         </div>
         <div className="problems-list">
-          <div className="problems-list-title">問題一覧（上位10件）</div>
+          <div className="problems-list-title">問題一覧</div>
           {problems.map((problem, i) => (
             <a
               key={i}

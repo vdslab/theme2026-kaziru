@@ -35,7 +35,7 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
 
   const problems = allRows
     .filter((row) => row.tag === selectedAlgo.algo);
-    
+
   return (
     <main className="main">
       <div className="controls-panel">
