@@ -11,6 +11,8 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import { fetchUserRate } from "./api/loadUser";
+import { fetchAllUserSubmissions } from "./api/loadUserSubmissions";
+import { buildSubmissionMap } from "./utils/submissions";
 
 export default function App() {
   const [summary, setSummary] = useState([]);
@@ -19,6 +21,9 @@ export default function App() {
   const [rate, setRate] = useState(null);
   const [rateLoading, setRateLoading] = useState(false);
   const [rateError, setRateError] = useState(null);
+  const [submissionsMap, setSubmissionsMap] = useState(new Map());
+  const [submissionsLoading, setSubmissionsLoading] = useState(false);
+  const [submissionsError, setSubmissionsError] = useState(null);
 
   const handleFetchRate = async () => {
     const trimmed = username.trim();
@@ -38,6 +43,33 @@ export default function App() {
       setRateError(err.message);
     } finally {
       setRateLoading(false);
+    }
+  };
+
+  const handleFetchSubmissions = async () => {
+    const trimmed = username.trim();
+    if (!trimmed) {
+      setSubmissionsMap(new Map());
+      return;
+    }
+
+    setSubmissionsLoading(true);
+    setSubmissionsError(null);
+    setSubmissionsMap(new Map());
+    try {
+      const submissions = await fetchAllUserSubmissions(trimmed);
+      console.log("取得した提出件数:", submissions.length);
+      console.log("最初の5件:", submissions.slice(0, 5));
+      console.log("サンプルのproblem_id:", submissions[0]?.problem_id, "result:", submissions[0]?.result);
+      const map = buildSubmissionMap(submissions);
+      console.log("生成したMapのサイズ:", map.size);
+      console.log("Mapの先頭5件:", Array.from(map.entries()).slice(0, 5));
+      setSubmissionsMap(map);
+    } catch (err) {
+      console.error("提出データ取得エラー:", err);
+      setSubmissionsError(err.message);
+    } finally {
+      setSubmissionsLoading(false);
     }
   };
 
@@ -112,7 +144,13 @@ export default function App() {
             }
           }}
         />
-        <button className="username-button" onClick={handleFetchRate}>
+        <button
+          className="username-button"
+          onClick={() => {
+            handleFetchRate();
+            handleFetchSubmissions();
+          }}
+        >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -120,7 +158,16 @@ export default function App() {
         </button>
         {rateError && <span className="username-error">{rateError}</span>}
       </div>
-      <Main summary={summary} allRows={allRows} rate={rate} rateLoading={rateLoading} rateError={rateError} />
+      <Main
+        summary={summary}
+        allRows={allRows}
+        rate={rate}
+        rateLoading={rateLoading}
+        rateError={rateError}
+        submissionsMap={submissionsMap}
+        submissionsLoading={submissionsLoading}
+        submissionsError={submissionsError}
+      />
       <Footer />
     </div>
   );

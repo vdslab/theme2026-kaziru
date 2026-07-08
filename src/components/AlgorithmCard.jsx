@@ -1,4 +1,11 @@
-export default function AlgorithmCard({ algo, problems }) {
+export default function AlgorithmCard({ algo, problems, submissionsMap }) {
+  const getProblemStatusClass = (problemId) => {
+    const status = submissionsMap.get(problemId);
+    if (status === true) return "problem-item--ac";
+    if (status === false) return "problem-item--wa";
+    return "";
+  };
+
   return (
     <div className="legend">
       <div className="legend-title">選択したアルゴリズム</div>
@@ -26,7 +33,7 @@ export default function AlgorithmCard({ algo, problems }) {
               href={problem.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="problem-item"
+              className={`problem-item ${getProblemStatusClass(problem.problem_id)}`}
             >
               <span className="problem-id">{problem.problem_id}</span>
               <span className="problem-title">{problem.title}</span>
