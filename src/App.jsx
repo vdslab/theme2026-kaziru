@@ -58,15 +58,9 @@ export default function App() {
     setSubmissionsMap(new Map());
     try {
       const submissions = await fetchAllUserSubmissions(trimmed);
-      console.log("取得した提出件数:", submissions.length);
-      console.log("最初の5件:", submissions.slice(0, 5));
-      console.log("サンプルのproblem_id:", submissions[0]?.problem_id, "result:", submissions[0]?.result);
       const map = buildSubmissionMap(submissions);
-      console.log("生成したMapのサイズ:", map.size);
-      console.log("Mapの先頭5件:", Array.from(map.entries()).slice(0, 5));
       setSubmissionsMap(map);
     } catch (err) {
-      console.error("提出データ取得エラー:", err);
       setSubmissionsError(err.message);
     } finally {
       setSubmissionsLoading(false);
