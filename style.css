@@ -321,6 +321,25 @@ body {
   stroke-width: 4;
 }
 
+.current-rate-line {
+  pointer-events: none;
+}
+
+.current-rate-line line {
+  stroke: #dc2626;
+  stroke-width: 4;
+  stroke-dasharray: 10 8;
+}
+
+.current-rate-line text {
+  fill: #dc2626;
+  font-size: 40px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: white;
+  stroke-width: 8px;
+}
+
 /* Legend */
 .legend {
   width: 320px;

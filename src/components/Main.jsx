@@ -8,7 +8,17 @@ const MOCK_ALGORITHM = {
   n: 53,
 };
 
-export default function Main({ summary, allRows, rate, rateLoading, rateError, submissionsMap, submissionsLoading, submissionsError }) {
+export default function Main({
+  summary,
+  allRows,
+  rate,
+  hasUsername,
+  rateLoading,
+  rateError,
+  submissionsMap,
+  submissionsLoading,
+  submissionsError,
+}) {
   const [rateThreshold, setRateThreshold] = useState(0);
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showRecommended, setShowRecommended] = useState(true);
@@ -104,6 +114,8 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError, s
           <div className="chart-wrapper">
             <PieBeeswarm
               data={summary}
+              rate={rate}
+              hasUsername={hasUsername}
               showCurrentRate={showCurrentRate}
               showRecommended={showRecommended}
               showLabels={showLabels}

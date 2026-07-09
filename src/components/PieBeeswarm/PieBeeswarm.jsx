@@ -5,7 +5,10 @@ import NodeLabel from "./NodeLabel";
 
 export default function PieBeeswarm({
   data = [],
+  rate = null,
+  hasUsername = false,
   showLabels = false,
+  showCurrentRate = false,
   selectedAlgorithm = null,
   onSelectAlgorithm,
 }) {
@@ -55,6 +58,14 @@ export default function PieBeeswarm({
   }
 
   const viewBoxY = dataCenterY - viewBoxHeight / 2;
+  const currentRate = Number(rate);
+  const shouldShowCurrentRate =
+    hasUsername && showCurrentRate && Number.isFinite(currentRate);
+  const currentRateX = Math.min(
+    AXIS_MAX,
+    Math.max(AXIS_MIN, currentRate),
+  );
+  const currentRateLabel = currentRate > AXIS_MAX ? `${AXIS_MAX}+` : String(currentRate);
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
@@ -69,6 +80,15 @@ export default function PieBeeswarm({
           yMax={yMax}
           tickStep={TICK_STEP}
         />
+
+        {shouldShowCurrentRate && (
+          <g className="current-rate-line" transform={`translate(${currentRateX},0)`}>
+            <line y1={viewBoxY + 16} y2={yMax + 10} />
+            <text y={yMax + 104} textAnchor="middle">
+              {currentRateLabel}
+            </text>
+          </g>
+        )}
 
         {data.map((item) => (
           <PieNode
