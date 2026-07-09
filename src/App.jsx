@@ -135,6 +135,7 @@ export default function App() {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               handleFetchRate();
+              handleFetchSubmissions();
             }
           }}
         />
