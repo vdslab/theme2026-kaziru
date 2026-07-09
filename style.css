@@ -438,19 +438,19 @@ body {
 }
 
 .problem-item--ac {
-  background-color: #d4edda;
+  background-color: #b7e4c7;
 }
 
 .problem-item--ac:hover {
-  background-color: #c3e6cb;
+  background-color: #95d5b2;
 }
 
 .problem-item--wa {
-  background-color: #f8d7da;
+  background-color: #ffecb3;
 }
 
 .problem-item--wa:hover {
-  background-color: #f5c6cb;
+  background-color: #ffe082;
 }
 
 .problem-id {
