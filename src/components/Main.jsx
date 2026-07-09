@@ -15,6 +15,9 @@ export default function Main({
   hasUsername,
   rateLoading,
   rateError,
+  submissionsMap,
+  submissionsLoading,
+  submissionsError,
 }) {
   const [rateThreshold, setRateThreshold] = useState(0);
   const [showCurrentRate, setShowCurrentRate] = useState(true);
@@ -121,7 +124,7 @@ export default function Main({
             />
           </div>
 
-          <AlgorithmCard algo={selectedAlgo} problems={problems} />
+          <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
         </div>
       </div>
     </main>

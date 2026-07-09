@@ -456,6 +456,22 @@ body {
   background-color: #f0f4ff;
 }
 
+.problem-item--ac {
+  background-color: #b7e4c7;
+}
+
+.problem-item--ac:hover {
+  background-color: #95d5b2;
+}
+
+.problem-item--wa {
+  background-color: #ffecb3;
+}
+
+.problem-item--wa:hover {
+  background-color: #ffe082;
+}
+
 .problem-id {
   font-family: monospace;
   color: #2563eb;
