@@ -44,7 +44,7 @@ export default function App() {
   useEffect(() => {
     async function init() {
       try {
-        const rows = await loadCsv("/03_tag_diff_list.csv");
+        const rows = await loadCsv("/chart_data.csv");
 
         const columns = Object.keys(rows[0]);
 

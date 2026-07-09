@@ -1,0 +1,1197 @@
+tag,difficulty,problem_id,title,url
+Binary-Indexed-Tree,360,abc262_c,C. Min Max Pair,https://atcoder.jp/contests/abc262/tasks/abc262_c
+Binary-Indexed-Tree,1053,abc185_f,F. Range Xor Query,https://atcoder.jp/contests/abc185/tasks/abc185_f
+Binary-Indexed-Tree,1073,abc253_e,E. Distance Sequence,https://atcoder.jp/contests/abc253/tasks/abc253_e
+Binary-Indexed-Tree,1177,abc241_d,D. Sequence Query,https://atcoder.jp/contests/abc241/tasks/abc241_d
+Binary-Indexed-Tree,1321,abc190_f,F. Shift and Inversions,https://atcoder.jp/contests/abc190/tasks/abc190_f
+Binary-Indexed-Tree,1443,abc157_e,E. Simple String Queries,https://atcoder.jp/contests/abc157/tasks/abc157_e
+Binary-Indexed-Tree,1495,abc174_f,F. Range Set Query,https://atcoder.jp/contests/abc174/tasks/abc174_f
+Binary-Indexed-Tree,1580,abc231_f,F. Jealous Two,https://atcoder.jp/contests/abc231/tasks/abc231_f
+Binary-Indexed-Tree,1619,abc309_f,F. Box in Box,https://atcoder.jp/contests/abc309/tasks/abc309_f
+Binary-Indexed-Tree,1641,abc223_f,F. Parenthesis Checking,https://atcoder.jp/contests/abc223/tasks/abc223_f
+Binary-Indexed-Tree,1756,abc253_f,F. Operations on a Matrix,https://atcoder.jp/contests/abc253/tasks/abc253_f
+Binary-Indexed-Tree,1804,abc038_d,D. プレゼント,https://atcoder.jp/contests/abc038/tasks/abc038_d
+Binary-Indexed-Tree,1833,abc186_f,F. Rook on Grid,https://atcoder.jp/contests/abc186/tasks/abc186_f
+Lazy-Segment-Tree,-267,abc323_b,B. Round-Robin Tournament,https://atcoder.jp/contests/abc323/tasks/abc323_b
+Lazy-Segment-Tree,1223,abc341_e,E. Alternating String,https://atcoder.jp/contests/abc341/tasks/abc341_e
+Lazy-Segment-Tree,1624,abc327_f,F. Apples,https://atcoder.jp/contests/abc327/tasks/abc327_f
+Lazy-Segment-Tree,1713,abc179_f,F. Simplified Reversi,https://atcoder.jp/contests/abc179/tasks/abc179_f
+Lazy-Segment-Tree,1786,abc332_f,F. Random Update Query,https://atcoder.jp/contests/abc332/tasks/abc332_f
+Lazy-Segment-Tree,1793,abc357_f,F. Two Sequence Queries,https://atcoder.jp/contests/abc357/tasks/abc357_f
+Lazy-Segment-Tree,1806,abc322_f,F. Vacation Query,https://atcoder.jp/contests/abc322/tasks/abc322_f
+Lazy-Segment-Tree,1985,abc441_g,G. Takoyaki and Flip,https://atcoder.jp/contests/abc441/tasks/abc441_g
+Segment-Tree,832,abc349_d,D. Divide Interval,https://atcoder.jp/contests/abc349/tasks/abc349_d
+Segment-Tree,1039,abc039_d,D. 画像処理高橋君,https://atcoder.jp/contests/abc039/tasks/abc039_d
+Segment-Tree,1053,abc185_f,F. Range Xor Query,https://atcoder.jp/contests/abc185/tasks/abc185_f
+Segment-Tree,1084,abc239_e,E. Subtree K-th Max,https://atcoder.jp/contests/abc239/tasks/abc239_e
+Segment-Tree,1088,abc194_e,E. Mex Min,https://atcoder.jp/contests/abc194/tasks/abc194_e
+Segment-Tree,1109,abc339_e,E. Smooth Subsequence,https://atcoder.jp/contests/abc339/tasks/abc339_e
+Segment-Tree,1157,abc340_e,E. Mancala 2,https://atcoder.jp/contests/abc340/tasks/abc340_e
+Segment-Tree,1177,abc241_d,D. Sequence Query,https://atcoder.jp/contests/abc241/tasks/abc241_d
+Segment-Tree,1197,abc125_c,C. GCD on Blackboard,https://atcoder.jp/contests/abc125/tasks/abc125_c
+Segment-Tree,1223,abc341_e,E. Alternating String,https://atcoder.jp/contests/abc341/tasks/abc341_e
+Segment-Tree,1253,abc351_f,F. Double Sum,https://atcoder.jp/contests/abc351/tasks/abc351_f
+Segment-Tree,1256,abc247_e,E. Max Min,https://atcoder.jp/contests/abc247/tasks/abc247_e
+Segment-Tree,1332,abc437_f,F. Manhattan Christmas Tree 2,https://atcoder.jp/contests/abc437/tasks/abc437_f
+Segment-Tree,1370,abc343_f,F. Second Largest Query,https://atcoder.jp/contests/abc343/tasks/abc343_f
+Segment-Tree,1434,abc272_e,E. Add and Mex,https://atcoder.jp/contests/abc272/tasks/abc272_e
+Segment-Tree,1443,abc157_e,E. Simple String Queries,https://atcoder.jp/contests/abc157/tasks/abc157_e
+Segment-Tree,1580,abc231_f,F. Jealous Two,https://atcoder.jp/contests/abc231/tasks/abc231_f
+Segment-Tree,1641,abc223_f,F. Parenthesis Checking,https://atcoder.jp/contests/abc223/tasks/abc223_f
+Segment-Tree,1764,abc254_f,F. Rectangle GCD,https://atcoder.jp/contests/abc254/tasks/abc254_f
+Segment-Tree,1804,abc038_d,D. プレゼント,https://atcoder.jp/contests/abc038/tasks/abc038_d
+Segment-Tree,1843,abc165_f,F. LIS on Tree,https://atcoder.jp/contests/abc165/tasks/abc165_f
+Sparse-Table,565,abc189_c,C. Mandarin Orange,https://atcoder.jp/contests/abc189/tasks/abc189_c
+Sparse-Table,1734,abc282_f,F. Union of Two Sets,https://atcoder.jp/contests/abc282/tasks/abc282_f
+Union-Find-Tree,400,abc325_c,C. Sensors,https://atcoder.jp/contests/abc325/tasks/abc325_c
+Union-Find-Tree,436,abc288_c,C. Don’t be cycle,https://atcoder.jp/contests/abc288/tasks/abc288_c
+Union-Find-Tree,466,abc287_c,C. Path Graph?,https://atcoder.jp/contests/abc287/tasks/abc287_c
+Union-Find-Tree,612,abc269_d,D. Do use hexagon grid,https://atcoder.jp/contests/abc269/tasks/abc269_d
+Union-Find-Tree,663,abc285_d,D. Change Usernames,https://atcoder.jp/contests/abc285/tasks/abc285_d
+Union-Find-Tree,704,abc333_d,D. Erase Leaves,https://atcoder.jp/contests/abc333/tasks/abc333_d
+Union-Find-Tree,726,abc231_d,D. Neighbors,https://atcoder.jp/contests/abc231/tasks/abc231_d
+Union-Find-Tree,732,abc177_d,D. Friends,https://atcoder.jp/contests/abc177/tasks/abc177_d
+Union-Find-Tree,827,abc142_d,D. Disjoint Set of Common Divisors,https://atcoder.jp/contests/abc142/tasks/abc142_d
+Union-Find-Tree,830,abc293_d,D. Tying Rope,https://atcoder.jp/contests/abc293/tasks/abc293_d
+Union-Find-Tree,879,abc206_d,D. KAIBUNsyo,https://atcoder.jp/contests/abc206/tasks/abc206_d
+Union-Find-Tree,947,abc259_d,D. Circumferences,https://atcoder.jp/contests/abc259/tasks/abc259_d
+Union-Find-Tree,1015,abc229_e,E. Graph Destruction,https://atcoder.jp/contests/abc229/tasks/abc229_e
+Union-Find-Tree,1030,abc352_e,E. Clique Connect,https://atcoder.jp/contests/abc352/tasks/abc352_e
+Union-Find-Tree,1042,abc372_e,E. K-th Largest Connected Components,https://atcoder.jp/contests/abc372/tasks/abc372_e
+Union-Find-Tree,1058,abc276_e,E. Round Trip,https://atcoder.jp/contests/abc276/tasks/abc276_e
+Union-Find-Tree,1067,abc075_c,C. Bridge,https://atcoder.jp/contests/abc075/tasks/abc075_c
+Union-Find-Tree,1160,abc328_e,E. Modulo MST,https://atcoder.jp/contests/abc328/tasks/abc328_e
+Union-Find-Tree,1195,abc334_e,E. Christmas Color Grid 1,https://atcoder.jp/contests/abc334/tasks/abc334_e
+Union-Find-Tree,1208,abc157_d,D. Friend Suggestions,https://atcoder.jp/contests/abc157/tasks/abc157_d
+Union-Find-Tree,1229,abc264_e,E. Blackout 2,https://atcoder.jp/contests/abc264/tasks/abc264_e
+Union-Find-Tree,1230,abc380_e,E. 1D Bucket Tool,https://atcoder.jp/contests/abc380/tasks/abc380_e
+Union-Find-Tree,1304,abc235_e,E. MST + 1,https://atcoder.jp/contests/abc235/tasks/abc235_e
+Union-Find-Tree,1327,abc226_e,E. Just one,https://atcoder.jp/contests/abc226/tasks/abc226_e
+Union-Find-Tree,1340,abc126_e,E. 1 or 2,https://atcoder.jp/contests/abc126/tasks/abc126_e
+Union-Find-Tree,1341,abc214_d,D. Sum of Maximum Weights,https://atcoder.jp/contests/abc214/tasks/abc214_d
+Union-Find-Tree,1355,abc120_d,D. Decayed Bridges,https://atcoder.jp/contests/abc120/tasks/abc120_d
+Union-Find-Tree,1577,abc238_e,E. Range Sums,https://atcoder.jp/contests/abc238/tasks/abc238_e
+Union-Find-Tree,1656,abc040_d,D. 道路の老朽化対策について,https://atcoder.jp/contests/abc040/tasks/abc040_d
+Union-Find-Tree,1690,abc219_e,E. Moat,https://atcoder.jp/contests/abc219/tasks/abc219_e
+Union-Find-Tree,1697,abc247_f,F. Cards,https://atcoder.jp/contests/abc247/tasks/abc247_f
+Union-Find-Tree,1777,abc279_f,F. BOX,https://atcoder.jp/contests/abc279/tasks/abc279_f
+Union-Find-Tree,1937,abc131_f,F. Must Be Rectangular!,https://atcoder.jp/contests/abc131/tasks/abc131_f
+WaveletMatrix,503,abc234_d,D. Prefix K-th Max,https://atcoder.jp/contests/abc234/tasks/abc234_d
+WaveletMatrix,1084,abc239_e,E. Subtree K-th Max,https://atcoder.jp/contests/abc239/tasks/abc239_e
+WaveletMatrix,1334,abc281_e,E. Least Elements,https://atcoder.jp/contests/abc281/tasks/abc281_e
+WaveletMatrix,1580,abc231_f,F. Jealous Two,https://atcoder.jp/contests/abc231/tasks/abc231_f
+WaveletMatrix,1792,abc339_g,G. Smaller Sum,https://atcoder.jp/contests/abc339/tasks/abc339_g
+deque,544,abc237_d,D. LR insertion,https://atcoder.jp/contests/abc237/tasks/abc237_d
+deque,610,abc158_d,D. String Formation,https://atcoder.jp/contests/abc158/tasks/abc158_d
+deque,1476,abc246_e,E. Bishop 2,https://atcoder.jp/contests/abc246/tasks/abc246_e
+map,-503,abc241_b,B. Pasta,https://atcoder.jp/contests/abc241/tasks/abc241_b
+map,-104,abc159_c,C. Maximum Volume,https://atcoder.jp/contests/abc159/tasks/abc159_c
+map,-75,abc295_c,C. Socks,https://atcoder.jp/contests/abc295/tasks/abc295_c
+map,-34,abc314_b,B. Roulette,https://atcoder.jp/contests/abc314/tasks/abc314_b
+map,79,abc261_c,C. NewFolder(1),https://atcoder.jp/contests/abc261/tasks/abc261_c
+map,97,abc291_c,C. LRUD Instructions 2,https://atcoder.jp/contests/abc291/tasks/abc291_c
+map,189,abc155_c,C. Poll,https://atcoder.jp/contests/abc155/tasks/abc155_c
+map,210,abc235_c,C. The Kth Time Query,https://atcoder.jp/contests/abc235/tasks/abc235_c
+map,243,abc044_b,B. Beautiful Strings,https://atcoder.jp/contests/abc044/tasks/abc044_b
+map,310,abc091_b,B. Two Colors Card Game,https://atcoder.jp/contests/abc091/tasks/abc091_b
+map,357,abc210_c,C. Colorful Candies,https://atcoder.jp/contests/abc210/tasks/abc210_c
+map,409,abc243_c,C. Collision 2,https://atcoder.jp/contests/abc243/tasks/abc243_c
+map,422,abc343_d,D. Diversity of Scores,https://atcoder.jp/contests/abc343/tasks/abc343_d
+map,454,abc073_c,C. Write and Erase,https://atcoder.jp/contests/abc073/tasks/abc073_c
+map,469,abc345_c,C. One Time Swap,https://atcoder.jp/contests/abc345/tasks/abc345_c
+map,498,abc171_d,D. Replacing,https://atcoder.jp/contests/abc171/tasks/abc171_d
+map,505,abc342_c,C. Many Replacement,https://atcoder.jp/contests/abc342/tasks/abc342_c
+map,597,abc137_c,C. Green Bin,https://atcoder.jp/contests/abc137/tasks/abc137_c
+map,601,abc008_2,B. 投票,https://atcoder.jp/contests/abc008/tasks/abc008_2
+map,668,abc003_2,B. AtCoderトランプ,https://atcoder.jp/contests/abc003/tasks/abc003_2
+map,726,abc233_d,D. Count Interval,https://atcoder.jp/contests/abc233/tasks/abc233_d
+map,944,abc342_d,D. Square Pair,https://atcoder.jp/contests/abc342/tasks/abc342_d
+map,1015,abc304_d,D. A Piece of Cake,https://atcoder.jp/contests/abc304/tasks/abc304_d
+map,1062,abc166_e,E. This Message Will Self-Destruct in 5s,https://atcoder.jp/contests/abc166/tasks/abc166_e
+map,1458,abc105_d,D. Candy Distribution,https://atcoder.jp/contests/abc105/tasks/abc105_d
+map,1752,abc023_c,C. 収集王,https://atcoder.jp/contests/abc023/tasks/abc023_c
+map,1762,abc146_e,E. Rem of Sum is Num,https://atcoder.jp/contests/abc146/tasks/abc146_e
+multiset,963,abc230_d,D. Destroyer Takahashi,https://atcoder.jp/contests/abc230/tasks/abc230_d
+multiset,1177,abc241_d,D. Sequence Query,https://atcoder.jp/contests/abc241/tasks/abc241_d
+multiset,1268,abc306_e,E. Best Performances,https://atcoder.jp/contests/abc306/tasks/abc306_e
+multiset,1334,abc281_e,E. Least Elements,https://atcoder.jp/contests/abc281/tasks/abc281_e
+multiset,1502,abc170_e,E. Smart Infants,https://atcoder.jp/contests/abc170/tasks/abc170_e
+multiset,1571,abc245_e,E. Wrapping Chocolate,https://atcoder.jp/contests/abc245/tasks/abc245_e
+multiset,1873,abc140_e,E. Second Sum,https://atcoder.jp/contests/abc140/tasks/abc140_e
+priority_queue,503,abc234_d,D. Prefix K-th Max,https://atcoder.jp/contests/abc234/tasks/abc234_d
+priority_queue,775,abc212_d,D. Querying Multiset,https://atcoder.jp/contests/abc212/tasks/abc212_d
+priority_queue,823,abc141_d,D. Powerful Discount Tickets,https://atcoder.jp/contests/abc141/tasks/abc141_d
+priority_queue,1069,abc223_d,D. Restricted Permutation,https://atcoder.jp/contests/abc223/tasks/abc223_d
+priority_queue,1176,abc297_e,E. Kth Takoyaki Set,https://atcoder.jp/contests/abc297/tasks/abc297_e
+priority_queue,1313,abc137_d,D. Summer Vacation,https://atcoder.jp/contests/abc137/tasks/abc137_d
+priority_queue,1383,abc080_d,D. Recording,https://atcoder.jp/contests/abc080/tasks/abc080_d
+priority_queue,1476,abc246_e,E. Bishop 2,https://atcoder.jp/contests/abc246/tasks/abc246_e
+priority_queue,1489,abc123_d,D. Cake 123,https://atcoder.jp/contests/abc123/tasks/abc123_d
+priority_queue,1835,abc214_e,E. Packing Under Range Regulations,https://atcoder.jp/contests/abc214/tasks/abc214_e
+queue,468,abc247_d,D. Cylinder,https://atcoder.jp/contests/abc247/tasks/abc247_d
+queue,745,abc379_d,D. Home Garden,https://atcoder.jp/contests/abc379/tasks/abc379_d
+queue,840,abc005_3,C. おいしいたこ焼きの売り方,https://atcoder.jp/contests/abc005/tasks/abc005_3
+queue,1039,abc216_d,D. Pair of Balls,https://atcoder.jp/contests/abc216/tasks/abc216_d
+set,-864,abc211_b,B. Cycle Hit,https://atcoder.jp/contests/abc211/tasks/abc211_b
+set,-819,abc240_b,B. Count Distinct Integers,https://atcoder.jp/contests/abc240/tasks/abc240_b
+set,-523,abc245_b,B. Mex,https://atcoder.jp/contests/abc245/tasks/abc245_b
+set,-333,abc154_c,C. Distinct or Not,https://atcoder.jp/contests/abc154/tasks/abc154_c
+set,-328,abc293_b,B. Call the ID Number,https://atcoder.jp/contests/abc293/tasks/abc293_b
+set,-245,abc236_c,C. Route Map,https://atcoder.jp/contests/abc236/tasks/abc236_c
+set,-241,abc164_c,C. gacha,https://atcoder.jp/contests/abc164/tasks/abc164_c
+set,-106,abc085_b,B. Kagami Mochi,https://atcoder.jp/contests/abc085/tasks/abc085_b
+set,38,abc296_c,C. Gap Existence,https://atcoder.jp/contests/abc296/tasks/abc296_c
+set,46,abc244_c,C. Yamanote Line Game,https://atcoder.jp/contests/abc244/tasks/abc244_c
+set,93,abc109_b,B. Shiritori,https://atcoder.jp/contests/abc109/tasks/abc109_b
+set,107,abc226_b,B. Counting Arrays,https://atcoder.jp/contests/abc226/tasks/abc226_b
+set,131,abc344_c,C. A+B+C,https://atcoder.jp/contests/abc344/tasks/abc344_c
+set,205,abc251_c,C. Poem Online Judge,https://atcoder.jp/contests/abc251/tasks/abc251_c
+set,320,abc278_c,C. FF,https://atcoder.jp/contests/abc278/tasks/abc278_c
+set,358,abc098_b,B. Cut and Count,https://atcoder.jp/contests/abc098/tasks/abc098_b
+set,391,abc021_b,B. 嘘つきの高橋くん,https://atcoder.jp/contests/abc021/tasks/abc021_b
+set,454,abc073_c,C. Write and Erase,https://atcoder.jp/contests/abc073/tasks/abc073_c
+set,621,abc022_b,B. Bumble Bee,https://atcoder.jp/contests/abc022/tasks/abc022_b
+set,672,abc032_b,B. 高橋君とパスワード,https://atcoder.jp/contests/abc032/tasks/abc032_b
+set,1035,abc228_d,D. Linear Probing,https://atcoder.jp/contests/abc228/tasks/abc228_d
+set,1074,abc260_d,D. Draw Your Cards,https://atcoder.jp/contests/abc260/tasks/abc260_d
+set,1129,abc019_3,C. 高橋くんと魔法の箱,https://atcoder.jp/contests/abc019/tasks/abc019_3
+set,1207,abc329_f,F. Colored Ball,https://atcoder.jp/contests/abc329/tasks/abc329_f
+set,1421,abc250_e,E. Prefix Equality,https://atcoder.jp/contests/abc250/tasks/abc250_e
+set,1873,abc140_e,E. Second Sum,https://atcoder.jp/contests/abc140/tasks/abc140_e
+set,1878,abc364_f,F. Range Connect MST,https://atcoder.jp/contests/abc364/tasks/abc364_f
+stack,555,abc328_d,D. Take ABC,https://atcoder.jp/contests/abc328/tasks/abc328_d
+stack,570,abc240_d,D. Strange Balls,https://atcoder.jp/contests/abc240/tasks/abc240_d
+stack,758,abc243_d,D. Moves on Binary Tree,https://atcoder.jp/contests/abc243/tasks/abc243_d
+stack,969,abc064_d,D. Insertion,https://atcoder.jp/contests/abc064/tasks/abc064_d
+stack,1220,abc338_e,E. Chords,https://atcoder.jp/contests/abc338/tasks/abc338_e
+その他,973,abc344_e,E. Insert or Erase,https://atcoder.jp/contests/abc344/tasks/abc344_e
+その他,986,abc217_e,E. Sorting Queries,https://atcoder.jp/contests/abc217/tasks/abc217_e
+平衡二分探索木,714,abc352_d,D. Permutation Subsequence,https://atcoder.jp/contests/abc352/tasks/abc352_d
+bitDP,1017,abc318_d,D. General Weighted Max Matching,https://atcoder.jp/contests/abc318/tasks/abc318_d
+bitDP,1256,abc180_e,E. Traveling Salesman among Aerial Cities,https://atcoder.jp/contests/abc180/tasks/abc180_e
+bitDP,1397,abc142_e,E. Get Everything,https://atcoder.jp/contests/abc142/tasks/abc142_e
+bitDP,1413,abc215_e,E. Chain Contestant,https://atcoder.jp/contests/abc215/tasks/abc215_e
+bitDP,1452,abc278_f,F. Shiritori,https://atcoder.jp/contests/abc278/tasks/abc278_f
+bitDP,1463,abc251_d,D. At Most 3 (Contestant ver.),https://atcoder.jp/contests/abc251/tasks/abc251_d
+bitDP,1520,abc274_e,E. Booster,https://atcoder.jp/contests/abc274/tasks/abc274_e
+bitDP,1645,abc190_e,E. Magical Ornament,https://atcoder.jp/contests/abc190/tasks/abc190_e
+bitDP,1670,abc041_d,D. 徒競走,https://atcoder.jp/contests/abc041/tasks/abc041_d
+bitDP,1804,abc199_d,D. RGB Coloring 2,https://atcoder.jp/contests/abc199/tasks/abc199_d
+bitDP,1814,abc199_e,E. Permutation,https://atcoder.jp/contests/abc199/tasks/abc199_e
+bitDP,1883,abc332_e,E. Lucky bag,https://atcoder.jp/contests/abc332/tasks/abc332_e
+その他,1449,abc291_f,F. Teleporter and Closed off,https://atcoder.jp/contests/abc291/tasks/abc291_f
+その他,1813,abc334_f,F. Christmas Present 2,https://atcoder.jp/contests/abc334/tasks/abc334_f
+インラインDP,1232,abc164_d,D. Multiple of 2019,https://atcoder.jp/contests/abc164/tasks/abc164_d
+インラインDP,1804,abc038_d,D. プレゼント,https://atcoder.jp/contests/abc038/tasks/abc038_d
+インラインDP,1813,abc334_f,F. Christmas Present 2,https://atcoder.jp/contests/abc334/tasks/abc334_f
+インラインDP,1982,abc360_g,G. Suitable Edit for LIS,https://atcoder.jp/contests/abc360/tasks/abc360_g
+全方位木DP,1304,abc220_f,F. Distance Sums 2,https://atcoder.jp/contests/abc220/tasks/abc220_f
+全方位木DP,1760,abc387_f,F. Count Arrays,https://atcoder.jp/contests/abc387/tasks/abc387_f
+全方位木DP,1934,abc222_f,F. Expensive Expense,https://atcoder.jp/contests/abc222/tasks/abc222_f
+区間DP,1876,abc159_f,F. Knapsack for All Segments,https://atcoder.jp/contests/abc159/tasks/abc159_f
+区間DP,1954,abc217_f,F. Make Pair,https://atcoder.jp/contests/abc217/tasks/abc217_f
+基礎DP,-421,abc208_b,B. Factorial Yen Coin,https://atcoder.jp/contests/abc208/tasks/abc208_b
+基礎DP,-52,abc153_d,D. Caracal vs Monster,https://atcoder.jp/contests/abc153/tasks/abc153_d
+基礎DP,-32,abc263_b,B. Ancestor,https://atcoder.jp/contests/abc263/tasks/abc263_b
+基礎DP,-24,abc272_b,B. Everyone is Friends,https://atcoder.jp/contests/abc272/tasks/abc272_b
+基礎DP,5,abc247_c,C. 1 2 1 3 1 2 1,https://atcoder.jp/contests/abc247/tasks/abc247_c
+基礎DP,13,abc139_c,C. Lower,https://atcoder.jp/contests/abc139/tasks/abc139_c
+基礎DP,304,abc274_c,C. Ameba,https://atcoder.jp/contests/abc274/tasks/abc274_c
+基礎DP,309,abc214_c,C. Distribution,https://atcoder.jp/contests/abc214/tasks/abc214_c
+基礎DP,403,abc245_c,C. Choose Elements,https://atcoder.jp/contests/abc245/tasks/abc245_c
+基礎DP,413,abc260_c,C. Changing Jewels,https://atcoder.jp/contests/abc260/tasks/abc260_c
+基礎DP,464,abc240_c,C. Jumping Takahashi,https://atcoder.jp/contests/abc240/tasks/abc240_c
+基礎DP,512,abc242_c,C. 1111gal password,https://atcoder.jp/contests/abc242/tasks/abc242_c
+基礎DP,539,abc232_d,D. Weak Takahashi,https://atcoder.jp/contests/abc232/tasks/abc232_d
+基礎DP,551,abc289_d,D. Step Up Robot,https://atcoder.jp/contests/abc289/tasks/abc289_d
+基礎DP,559,abc211_c,C. chokudai,https://atcoder.jp/contests/abc211/tasks/abc211_c
+基礎DP,596,abc306_d,D. Poisonous Full-Course,https://atcoder.jp/contests/abc306/tasks/abc306_d
+基礎DP,607,abc286_d,D. Money in Hand,https://atcoder.jp/contests/abc286/tasks/abc286_d
+基礎DP,621,abc369_d,D. Bonus EXP,https://atcoder.jp/contests/abc369/tasks/abc369_d
+基礎DP,653,abc178_c,C. Ubiquity,https://atcoder.jp/contests/abc178/tasks/abc178_c
+基礎DP,664,abc220_d,D. FG operation,https://atcoder.jp/contests/abc220/tasks/abc220_d
+基礎DP,693,abc431_d,D. Robot Customize,https://atcoder.jp/contests/abc431/tasks/abc431_d
+基礎DP,719,abc149_d,D. Prediction and Restriction,https://atcoder.jp/contests/abc149/tasks/abc149_d
+基礎DP,720,abc291_d,D. Flip Cards,https://atcoder.jp/contests/abc291/tasks/abc291_d
+基礎DP,730,abc365_d,D. AtCoder Janken 3,https://atcoder.jp/contests/abc365/tasks/abc365_d
+基礎DP,787,abc248_c,C. Dice Sum,https://atcoder.jp/contests/abc248/tasks/abc248_c
+基礎DP,796,abc129_c,C. Typical Stairs,https://atcoder.jp/contests/abc129/tasks/abc129_c
+基礎DP,801,abc261_d,D. Flipping and Bonus,https://atcoder.jp/contests/abc261/tasks/abc261_d
+基礎DP,810,abc011_3,C. 123引き算,https://atcoder.jp/contests/abc011/tasks/abc011_3
+基礎DP,813,abc006_2,B. トリボナッチ数列,https://atcoder.jp/contests/abc006/tasks/abc006_2
+基礎DP,832,abc204_d,D. Cooking,https://atcoder.jp/contests/abc204/tasks/abc204_d
+基礎DP,833,abc125_d,D. Flipping Signs,https://atcoder.jp/contests/abc125/tasks/abc125_d
+基礎DP,840,abc266_d,D. Snuke Panic (1D),https://atcoder.jp/contests/abc266/tasks/abc266_d
+基礎DP,854,abc344_d,D. String Bags,https://atcoder.jp/contests/abc344/tasks/abc344_d
+基礎DP,864,abc267_d,D. Index × A(Not Continuous ver.),https://atcoder.jp/contests/abc267/tasks/abc267_d
+基礎DP,865,abc222_d,D. Between Two Arrays,https://atcoder.jp/contests/abc222/tasks/abc222_d
+基礎DP,875,abc178_d,D. Redistribution,https://atcoder.jp/contests/abc178/tasks/abc178_d
+基礎DP,886,abc271_d,D. Flip and Adjust,https://atcoder.jp/contests/abc271/tasks/abc271_d
+基礎DP,896,abc040_c,C. 柱柱柱柱柱,https://atcoder.jp/contests/abc040/tasks/abc040_c
+基礎DP,902,abc174_c,C. Repsept,https://atcoder.jp/contests/abc174/tasks/abc174_c
+基礎DP,916,abc274_d,D. Robot Arms 2,https://atcoder.jp/contests/abc274/tasks/abc274_d
+基礎DP,966,abc202_d,D. aab aba baa,https://atcoder.jp/contests/abc202/tasks/abc202_d
+基礎DP,1015,abc153_e,E. Crested Ibis vs Monster,https://atcoder.jp/contests/abc153/tasks/abc153_e
+基礎DP,1016,abc263_d,D. Left Right Operation,https://atcoder.jp/contests/abc263/tasks/abc263_d
+基礎DP,1031,abc281_d,D. Max Multiple,https://atcoder.jp/contests/abc281/tasks/abc281_d
+基礎DP,1073,abc253_e,E. Distance Sequence,https://atcoder.jp/contests/abc253/tasks/abc253_e
+基礎DP,1085,abc219_d,D. Strange Lunchbox,https://atcoder.jp/contests/abc219/tasks/abc219_d
+基礎DP,1096,abc035_c,C. オセロ,https://atcoder.jp/contests/abc035/tasks/abc035_c
+基礎DP,1101,abc099_c,C. Strange Bank,https://atcoder.jp/contests/abc099/tasks/abc099_c
+基礎DP,1103,abc129_d,D. Lamp,https://atcoder.jp/contests/abc129/tasks/abc129_d
+基礎DP,1125,abc244_e,E. King Bombee,https://atcoder.jp/contests/abc244/tasks/abc244_e
+基礎DP,1170,abc188_e,E. Peddler,https://atcoder.jp/contests/abc188/tasks/abc188_e
+基礎DP,1213,abc262_d,D. I Hate Non-integer Number,https://atcoder.jp/contests/abc262/tasks/abc262_d
+基礎DP,1225,abc362_e,E. Count Arithmetic Subsequences,https://atcoder.jp/contests/abc362/tasks/abc362_e
+基礎DP,1227,abc251_e,E. Tahakashi and Animals,https://atcoder.jp/contests/abc251/tasks/abc251_e
+基礎DP,1227,abc327_e,E. Maximize Rating,https://atcoder.jp/contests/abc327/tasks/abc327_e
+基礎DP,1240,abc307_e,E. Distinct Adjacent,https://atcoder.jp/contests/abc307/tasks/abc307_e
+基礎DP,1251,abc179_d,D. Leaping Tak,https://atcoder.jp/contests/abc179/tasks/abc179_d
+基礎DP,1261,abc261_e,E. Many Operations,https://atcoder.jp/contests/abc261/tasks/abc261_e
+基礎DP,1288,abc183_e,E. Queen on Grid,https://atcoder.jp/contests/abc183/tasks/abc183_e
+基礎DP,1300,abc270_d,D. Stones,https://atcoder.jp/contests/abc270/tasks/abc270_d
+基礎DP,1317,abc201_d,D. Game in Momotetsu World,https://atcoder.jp/contests/abc201/tasks/abc201_d
+基礎DP,1320,abc134_e,E. Sequence Decomposing,https://atcoder.jp/contests/abc134/tasks/abc134_e
+基礎DP,1324,abc021_c,C. 正直者の高橋くん,https://atcoder.jp/contests/abc021/tasks/abc021_c
+基礎DP,1334,abc135_d,D. Digits Parade,https://atcoder.jp/contests/abc135/tasks/abc135_d
+基礎DP,1337,abc114_d,D. 756,https://atcoder.jp/contests/abc114/tasks/abc114_d
+基礎DP,1377,abc037_d,D. 経路,https://atcoder.jp/contests/abc037/tasks/abc037_d
+基礎DP,1379,abc197_e,E. Traveler,https://atcoder.jp/contests/abc197/tasks/abc197_e
+基礎DP,1380,abc232_e,E. Rook Path,https://atcoder.jp/contests/abc232/tasks/abc232_e
+基礎DP,1388,abc015_4,D. 高橋くんの苦悩,https://atcoder.jp/contests/abc015/tasks/abc015_4
+基礎DP,1393,abc104_c,C. All Green,https://atcoder.jp/contests/abc104/tasks/abc104_c
+基礎DP,1410,abc212_e,E. Safety Journey,https://atcoder.jp/contests/abc212/tasks/abc212_e
+基礎DP,1468,abc185_e,E. Sequence Matching,https://atcoder.jp/contests/abc185/tasks/abc185_e
+基礎DP,1491,abc222_e,E. Red and Blue Tree,https://atcoder.jp/contests/abc222/tasks/abc222_e
+基礎DP,1496,abc364_e,E. Maximum Glutton,https://atcoder.jp/contests/abc364/tasks/abc364_e
+基礎DP,1507,abc210_d,D. National Railway,https://atcoder.jp/contests/abc210/tasks/abc210_d
+基礎DP,1528,abc145_e,E. All-you-can-eat,https://atcoder.jp/contests/abc145/tasks/abc145_e
+基礎DP,1533,abc122_d,D. We Like AGC,https://atcoder.jp/contests/abc122/tasks/abc122_d
+基礎DP,1541,abc216_f,F. Max Sum Counting,https://atcoder.jp/contests/abc216/tasks/abc216_f
+基礎DP,1545,abc146_f,F. Sugoroku,https://atcoder.jp/contests/abc146/tasks/abc146_f
+基礎DP,1554,abc175_e,E. Picking Goods,https://atcoder.jp/contests/abc175/tasks/abc175_e
+基礎DP,1569,abc155_e,E. Payment,https://atcoder.jp/contests/abc155/tasks/abc155_e
+基礎DP,1597,abc113_d,D. Number of Amidakuji,https://atcoder.jp/contests/abc113/tasks/abc113_d
+基礎DP,1655,abc054_d,D. Mixing Experiment,https://atcoder.jp/contests/abc054/tasks/abc054_d
+基礎DP,1657,abc118_d,D. Match Matching,https://atcoder.jp/contests/abc118/tasks/abc118_d
+基礎DP,1658,abc057_d,D. Maximum Average Sets,https://atcoder.jp/contests/abc057/tasks/abc057_d
+基礎DP,1696,abc006_4,D. トランプ挿入ソート,https://atcoder.jp/contests/abc006/tasks/abc006_4
+基礎DP,1697,abc247_f,F. Cards,https://atcoder.jp/contests/abc247/tasks/abc247_f
+基礎DP,1713,abc147_e,E. Balanced Path,https://atcoder.jp/contests/abc147/tasks/abc147_e
+基礎DP,1731,abc032_d,D. ナップサック問題,https://atcoder.jp/contests/abc032/tasks/abc032_d
+基礎DP,1739,abc104_d,D. We Love ABC,https://atcoder.jp/contests/abc104/tasks/abc104_d
+基礎DP,1740,abc231_e,E. Minimal payments,https://atcoder.jp/contests/abc231/tasks/abc231_e
+基礎DP,1760,abc161_e,E. Yutori,https://atcoder.jp/contests/abc161/tasks/abc161_e
+基礎DP,1764,abc162_f,F. Select Half,https://atcoder.jp/contests/abc162/tasks/abc162_f
+基礎DP,1828,abc248_f,F. Keep Connect,https://atcoder.jp/contests/abc248/tasks/abc248_f
+基礎DP,1876,abc159_f,F. Knapsack for All Segments,https://atcoder.jp/contests/abc159/tasks/abc159_f
+基礎DP,1922,abc344_f,F. Earn to Advance,https://atcoder.jp/contests/abc344/tasks/abc344_f
+基礎DP,1956,abc017_4,D. サプリメント,https://atcoder.jp/contests/abc017/tasks/abc017_4
+戻すDP,1645,abc321_f,F. #(subset sum = K) with Add and Erase,https://atcoder.jp/contests/abc321/tasks/abc321_f
+文字列DP,964,abc312_d,D. Count Bracket Sequences,https://atcoder.jp/contests/abc312/tasks/abc312_d
+文字列DP,1073,abc253_e,E. Distance Sequence,https://atcoder.jp/contests/abc253/tasks/abc253_e
+文字列DP,1468,abc185_e,E. Sequence Matching,https://atcoder.jp/contests/abc185/tasks/abc185_e
+文字列DP,1657,abc118_d,D. Match Matching,https://atcoder.jp/contests/abc118/tasks/abc118_d
+文字列DP,1676,abc130_e,E. Common Subsequence,https://atcoder.jp/contests/abc130/tasks/abc130_e
+文字列DP,1973,abc214_f,F. Substrings,https://atcoder.jp/contests/abc214/tasks/abc214_f
+期待値DP,1078,abc194_d,D. Journey,https://atcoder.jp/contests/abc194/tasks/abc194_d
+期待値DP,1227,abc266_e,E. Throwing the Die,https://atcoder.jp/contests/abc266/tasks/abc266_e
+期待値DP,1251,abc280_e,E. Critical Hit,https://atcoder.jp/contests/abc280/tasks/abc280_e
+期待値DP,1276,abc184_d,D. increment of coins,https://atcoder.jp/contests/abc184/tasks/abc184_d
+期待値DP,1354,abc300_e,E. Dice Product 3,https://atcoder.jp/contests/abc300/tasks/abc300_e
+期待値DP,1363,abc326_e,"E. Revenge of ""The Salary of AtCoder Inc.""",https://atcoder.jp/contests/abc326/tasks/abc326_e
+期待値DP,1659,abc263_e,E. Sugoroku 3,https://atcoder.jp/contests/abc263/tasks/abc263_e
+期待値DP,1722,abc314_e,E. Roulettes,https://atcoder.jp/contests/abc314/tasks/abc314_e
+木DP,1304,abc220_f,F. Distance Sums 2,https://atcoder.jp/contests/abc220/tasks/abc220_f
+木DP,1602,abc036_d,D. 塗り絵,https://atcoder.jp/contests/abc036/tasks/abc036_d
+木DP,1760,abc387_f,F. Count Arrays,https://atcoder.jp/contests/abc387/tasks/abc387_f
+桁DP,-662,abc208_a,A. Rolling Dice,https://atcoder.jp/contests/abc208/tasks/abc208_a
+桁DP,1164,abc121_d,D. XOR World,https://atcoder.jp/contests/abc121/tasks/abc121_d
+桁DP,1298,abc154_e,E. Almost Everywhere Zero,https://atcoder.jp/contests/abc154/tasks/abc154_e
+桁DP,1334,abc135_d,D. Digits Parade,https://atcoder.jp/contests/abc135/tasks/abc135_d
+桁DP,1365,abc242_e,E. (∀x∀),https://atcoder.jp/contests/abc242/tasks/abc242_e
+桁DP,1393,abc029_d,D. 1,https://atcoder.jp/contests/abc029/tasks/abc029_d
+桁DP,1423,abc117_d,D. XXOR,https://atcoder.jp/contests/abc117/tasks/abc117_d
+桁DP,1538,abc336_e,E. Digit Sum Divisible,https://atcoder.jp/contests/abc336/tasks/abc336_e
+桁DP,1547,abc129_e,E. Sum Equals Xor,https://atcoder.jp/contests/abc129/tasks/abc129_e
+桁DP,1718,abc007_4,D. 禁止された数字,https://atcoder.jp/contests/abc007/tasks/abc007_4
+確率DP,1249,abc360_e,E. Random Swaps of Balls,https://atcoder.jp/contests/abc360/tasks/abc360_e
+確率DP,1264,abc275_e,E. Sugoroku 4,https://atcoder.jp/contests/abc275/tasks/abc275_e
+確率DP,1279,abc323_e,E. Playlist,https://atcoder.jp/contests/abc323/tasks/abc323_e
+確率DP,1938,abc310_f,F. Make 10 Again,https://atcoder.jp/contests/abc310/tasks/abc310_f
+行列累乗,1989,abc305_g,G. Banned Substrings,https://atcoder.jp/contests/abc305/tasks/abc305_g
+最小カット,1777,abc010_4,D. 浮気予防,https://atcoder.jp/contests/abc010/tasks/abc010_4
+最小費用流問題,1861,abc004_4,D. マーブル,https://atcoder.jp/contests/abc004/tasks/abc004_4
+Grundy数,1834,abc297_g,G. Constrained Nim 2,https://atcoder.jp/contests/abc297/tasks/abc297_g
+その他,1106,abc031_c,C. 数列ゲーム,https://atcoder.jp/contests/abc031/tasks/abc031_c
+その他,1539,abc027_c,C. 倍々ゲーム,https://atcoder.jp/contests/abc027/tasks/abc027_c
+その他,1609,abc195_e,E. Lucky 7 Battle,https://atcoder.jp/contests/abc195/tasks/abc195_e
+ミニマックス法,1300,abc270_d,D. Stones,https://atcoder.jp/contests/abc270/tasks/abc270_d
+ミニマックス法,1317,abc201_d,D. Game in Momotetsu World,https://atcoder.jp/contests/abc201/tasks/abc201_d
+ミニマックス法,1452,abc278_f,F. Shiritori,https://atcoder.jp/contests/abc278/tasks/abc278_f
+ミニマックス法,1464,abc349_e,E. Weighted Tic-Tac-Toe,https://atcoder.jp/contests/abc349/tasks/abc349_e
+ミニマックス法,1640,abc025_c,C. 双子と○×ゲーム,https://atcoder.jp/contests/abc025/tasks/abc025_c
+特殊な性質,1539,abc027_c,C. 倍々ゲーム,https://atcoder.jp/contests/abc027/tasks/abc027_c
+偏角ソート,1355,abc442_e,E. Laser Takahashi,https://atcoder.jp/contests/abc442/tasks/abc442_e
+凸包,1505,abc022_c,C. Blue Bird,https://atcoder.jp/contests/abc022/tasks/abc022_c
+凸包,1857,abc022_d,D. Big Bang,https://atcoder.jp/contests/abc022/tasks/abc022_d
+凸包,1905,abc385_f,F. Visible Buildings,https://atcoder.jp/contests/abc385/tasks/abc385_f
+HL分解,1702,abc294_g,G. Distance Queries on a Tree,https://atcoder.jp/contests/abc294/tasks/abc294_g
+dfs木,-721,abc229_a,A. First Grid,https://atcoder.jp/contests/abc229/tasks/abc229_a
+dfs木,76,abc215_c,C. One More aab aba baa,https://atcoder.jp/contests/abc215/tasks/abc215_c
+dfs木,873,abc320_d,D. Relative Position,https://atcoder.jp/contests/abc320/tasks/abc320_d
+dfs木,920,abc138_d,D. Ki,https://atcoder.jp/contests/abc138/tasks/abc138_d
+dfs木,1043,abc284_e,E. Count Simple Paths,https://atcoder.jp/contests/abc284/tasks/abc284_e
+dfs木,1067,abc075_c,C. Bridge,https://atcoder.jp/contests/abc075/tasks/abc075_c
+dfs木,1192,abc146_d,D. Coloring Edges on Tree,https://atcoder.jp/contests/abc146/tasks/abc146_d
+dfs木,1244,abc054_c,C. One-stroke Path,https://atcoder.jp/contests/abc054/tasks/abc054_c
+その他,108,abc061_b,B. Counting Roads,https://atcoder.jp/contests/abc061/tasks/abc061_b
+その他,1154,abc282_d,D. Make Bipartite 2,https://atcoder.jp/contests/abc282/tasks/abc282_d
+その他,1213,abc361_e,E. Tree and Hamilton Path 2,https://atcoder.jp/contests/abc361/tasks/abc361_e
+その他,1819,abc280_f,F. Pay or Receive,https://atcoder.jp/contests/abc280/tasks/abc280_f
+オイラーツアー,710,abc213_d,D. Takahashi Tour,https://atcoder.jp/contests/abc213/tasks/abc213_d
+オイラーツアー,1638,abc202_e,E. Count Descendants,https://atcoder.jp/contests/abc202/tasks/abc202_e
+オイラーツアー,1702,abc294_g,G. Distance Queries on a Tree,https://atcoder.jp/contests/abc294/tasks/abc294_g
+オイラーツアー,1843,abc165_f,F. LIS on Tree,https://atcoder.jp/contests/abc165/tasks/abc165_f
+トポロジカルソート,816,abc368_d,D. Minimum Steiner Tree,https://atcoder.jp/contests/abc368/tasks/abc368_d
+トポロジカルソート,921,abc315_e,E. Prerequisites,https://atcoder.jp/contests/abc315/tasks/abc315_e
+トポロジカルソート,1069,abc223_d,D. Restricted Permutation,https://atcoder.jp/contests/abc223/tasks/abc223_d
+トポロジカルソート,1069,abc291_e,E. Find Permutation,https://atcoder.jp/contests/abc291/tasks/abc291_e
+トポロジカルソート,1451,abc245_f,F. Endless Walk,https://atcoder.jp/contests/abc245/tasks/abc245_f
+トポロジカルソート,1670,abc041_d,D. 徒競走,https://atcoder.jp/contests/abc041/tasks/abc041_d
+強連結成分分解,706,abc454_d,D. (xx),https://atcoder.jp/contests/abc454/tasks/abc454_d
+強連結成分分解,1224,abc256_e,E. Takahashi's Anguish,https://atcoder.jp/contests/abc256/tasks/abc256_e
+強連結成分分解,1285,abc296_e,E. Transition Game,https://atcoder.jp/contests/abc296/tasks/abc296_e
+強連結成分分解,1295,abc357_e,E. Reachability in Functional Graph,https://atcoder.jp/contests/abc357/tasks/abc357_e
+強連結成分分解,1451,abc245_f,F. Endless Walk,https://atcoder.jp/contests/abc245/tasks/abc245_f
+最小全域木,1004,abc218_e,E. Destruction,https://atcoder.jp/contests/abc218/tasks/abc218_e
+最小全域木,1304,abc235_e,E. MST + 1,https://atcoder.jp/contests/abc235/tasks/abc235_e
+最小全域木,1604,abc282_e,E. Choose Two and Eat One,https://atcoder.jp/contests/abc282/tasks/abc282_e
+最小全域木,1616,abc383_e,E. Sum of Max Matching,https://atcoder.jp/contests/abc383/tasks/abc383_e
+最小全域木,1618,abc210_e,E. Ring MST,https://atcoder.jp/contests/abc210/tasks/abc210_e
+最小全域木,1834,abc270_f,F. Transportation,https://atcoder.jp/contests/abc270/tasks/abc270_f
+最小共通祖先,625,abc270_c,C. Simple path,https://atcoder.jp/contests/abc270/tasks/abc270_c
+最小共通祖先,686,abc209_d,D. Collision,https://atcoder.jp/contests/abc209/tasks/abc209_d
+最小共通祖先,957,abc309_e,E. Family and Insurance,https://atcoder.jp/contests/abc309/tasks/abc309_e
+最小共通祖先,1279,abc126_d,D. Even Relation,https://atcoder.jp/contests/abc126/tasks/abc126_d
+最小共通祖先,1856,abc014_4,D. 閉路,https://atcoder.jp/contests/abc014/tasks/abc014_4
+最小共通祖先,1939,abc267_f,F. Exactly K Steps,https://atcoder.jp/contests/abc267/tasks/abc267_f
+最短経路,634,abc362_d,D. Shortest Path 3,https://atcoder.jp/contests/abc362/tasks/abc362_d
+最短経路,686,abc209_d,D. Collision,https://atcoder.jp/contests/abc209/tasks/abc209_d
+最短経路,743,abc376_d,D. Cycle,https://atcoder.jp/contests/abc376/tasks/abc376_d
+最短経路,830,abc016_3,C. 友達の友達,https://atcoder.jp/contests/abc016/tasks/abc016_3
+最短経路,879,abc160_d,D. Line++,https://atcoder.jp/contests/abc160/tasks/abc160_d
+最短経路,949,abc079_d,D. Wall,https://atcoder.jp/contests/abc079/tasks/abc079_d
+最短経路,978,abc395_e,E. Flip Edge,https://atcoder.jp/contests/abc395/tasks/abc395_e
+最短経路,1093,abc325_e,"E. Our clients, please wait a moment",https://atcoder.jp/contests/abc325/tasks/abc325_e
+最短経路,1128,abc286_e,E. Souvenir,https://atcoder.jp/contests/abc286/tasks/abc286_e
+最短経路,1135,abc192_e,E. Train,https://atcoder.jp/contests/abc192/tasks/abc192_e
+最短経路,1166,abc012_4,D. バスと避けられない運命,https://atcoder.jp/contests/abc012/tasks/abc012_4
+最短経路,1183,abc277_e,E. Crystal Switches,https://atcoder.jp/contests/abc277/tasks/abc277_e
+最短経路,1190,abc208_d,D. Shortest Path Queries 2,https://atcoder.jp/contests/abc208/tasks/abc208_d
+最短経路,1203,abc257_d,D. Jumping Takahashi 2,https://atcoder.jp/contests/abc257/tasks/abc257_d
+最短経路,1208,abc237_e,E. Skiing,https://atcoder.jp/contests/abc237/tasks/abc237_e
+最短経路,1248,abc176_d,D. Wizard in Maze,https://atcoder.jp/contests/abc176/tasks/abc176_d
+最短経路,1294,abc252_e,E. Road Reduction,https://atcoder.jp/contests/abc252/tasks/abc252_e
+最短経路,1318,abc289_e,E. Swap Places,https://atcoder.jp/contests/abc289/tasks/abc289_e
+最短経路,1323,abc191_e,E. Come Back Quickly,https://atcoder.jp/contests/abc191/tasks/abc191_e
+最短経路,1324,abc021_c,C. 正直者の高橋くん,https://atcoder.jp/contests/abc021/tasks/abc021_c
+最短経路,1345,abc073_d,D. joisino's travel,https://atcoder.jp/contests/abc073/tasks/abc073_d
+最短経路,1379,abc197_e,E. Traveler,https://atcoder.jp/contests/abc197/tasks/abc197_e
+最短経路,1430,abc302_f,F. Merge Set,https://atcoder.jp/contests/abc302/tasks/abc302_f
+最短経路,1457,abc148_f,F. Playing Tag on Tree,https://atcoder.jp/contests/abc148/tasks/abc148_f
+最短経路,1476,abc246_e,E. Bishop 2,https://atcoder.jp/contests/abc246/tasks/abc246_e
+最短経路,1476,abc342_e,E. Last Train,https://atcoder.jp/contests/abc342/tasks/abc342_e
+最短経路,1505,abc022_c,C. Blue Bird,https://atcoder.jp/contests/abc022/tasks/abc022_c
+最短経路,1566,abc051_d,D. Candidates of No Shortest Paths,https://atcoder.jp/contests/abc051/tasks/abc051_d
+最短経路,1591,abc035_d,D. トレジャーハント,https://atcoder.jp/contests/abc035/tasks/abc035_d
+最短経路,1625,abc132_e,E. Hopscotch Addict,https://atcoder.jp/contests/abc132/tasks/abc132_e
+最短経路,1637,abc243_e,E. Edge Deletion,https://atcoder.jp/contests/abc243/tasks/abc243_e
+最短経路,1695,abc143_e,E. Travel by Car,https://atcoder.jp/contests/abc143/tasks/abc143_e
+最短経路,1710,abc204_e,E. Rush Hour 2,https://atcoder.jp/contests/abc204/tasks/abc204_e
+最短経路,1740,abc137_e,E. Coins Respawn,https://atcoder.jp/contests/abc137/tasks/abc137_e
+最短経路,1838,abc061_d,D. Score Attack,https://atcoder.jp/contests/abc061/tasks/abc061_d
+最短経路,1877,abc164_e,E. Two Currencies,https://atcoder.jp/contests/abc164/tasks/abc164_e
+最短経路,1945,abc197_f,F. Construct a Palindrome,https://atcoder.jp/contests/abc197/tasks/abc197_f
+最短経路,1963,abc216_g,G. 01Sequence,https://atcoder.jp/contests/abc216/tasks/abc216_g
+最短経路,1968,abc170_f,F. Pond Skater,https://atcoder.jp/contests/abc170/tasks/abc170_f
+重心分解,1347,abc348_e,E. Minimize Sum of Distances,https://atcoder.jp/contests/abc348/tasks/abc348_e
+XOR,778,abc171_e,E. Red Scarf,https://atcoder.jp/contests/abc171/tasks/abc171_e
+XOR,809,abc197_c,C. ORXOR,https://atcoder.jp/contests/abc197/tasks/abc197_c
+XOR,1164,abc121_d,D. XOR World,https://atcoder.jp/contests/abc121/tasks/abc121_d
+XOR,1205,abc147_d,D. Xor Sum 4,https://atcoder.jp/contests/abc147/tasks/abc147_d
+XOR,1423,abc117_d,D. XXOR,https://atcoder.jp/contests/abc117/tasks/abc117_d
+XOR,1547,abc129_e,E. Sum Equals Xor,https://atcoder.jp/contests/abc129/tasks/abc129_e
+XOR,1694,abc201_e,E. Xor Distances,https://atcoder.jp/contests/abc201/tasks/abc201_e
+XOR,1714,abc281_f,F. Xor Minimization,https://atcoder.jp/contests/abc281/tasks/abc281_f
+XOR,1770,abc126_f,F. XOR Matching,https://atcoder.jp/contests/abc126/tasks/abc126_f
+その他,-340,abc205_c,C. POW,https://atcoder.jp/contests/abc205/tasks/abc205_c
+その他,-104,abc159_c,C. Maximum Volume,https://atcoder.jp/contests/abc159/tasks/abc159_c
+その他,-1,abc275_b,B. ABC-DEF,https://atcoder.jp/contests/abc275/tasks/abc275_b
+その他,4,abc161_c,C. Replacing Integer,https://atcoder.jp/contests/abc161/tasks/abc161_c
+その他,178,abc168_c,C. : (Colon),https://atcoder.jp/contests/abc168/tasks/abc168_c
+その他,349,abc169_b,B. Multiplication 2,https://atcoder.jp/contests/abc169/tasks/abc169_b
+その他,483,abc195_b,B. Many Oranges,https://atcoder.jp/contests/abc195/tasks/abc195_b
+その他,560,abc171_c,C. One Quadrillion and One Dalmatians,https://atcoder.jp/contests/abc171/tasks/abc171_c
+その他,597,abc169_c,C. Multiplication 3,https://atcoder.jp/contests/abc169/tasks/abc169_c
+その他,600,abc165_d,D. Floor Function,https://atcoder.jp/contests/abc165/tasks/abc165_d
+その他,1063,abc191_c,C. Digital Graffiti,https://atcoder.jp/contests/abc191/tasks/abc191_c
+その他,1205,abc147_d,D. Xor Sum 4,https://atcoder.jp/contests/abc147/tasks/abc147_d
+その他,1586,abc030_d,D. へんてこ辞書,https://atcoder.jp/contests/abc030/tasks/abc030_d
+その他,1955,abc200_e,E. Patisserie ABC 2,https://atcoder.jp/contests/abc200/tasks/abc200_e
+数え上げ,-1117,abc222_b,B. Failing Grade,https://atcoder.jp/contests/abc222/tasks/abc222_b
+数え上げ,386,abc177_c,C. Sum of product of pairs,https://atcoder.jp/contests/abc177/tasks/abc177_c
+数え上げ,403,abc245_c,C. Choose Elements,https://atcoder.jp/contests/abc245/tasks/abc245_c
+数え上げ,422,abc150_c,C. Count Order,https://atcoder.jp/contests/abc150/tasks/abc150_c
+数え上げ,496,abc159_d,D. Banned K,https://atcoder.jp/contests/abc159/tasks/abc159_d
+数え上げ,653,abc178_c,C. Ubiquity,https://atcoder.jp/contests/abc178/tasks/abc178_c
+数え上げ,755,abc211_d,D. Number of Shortest paths,https://atcoder.jp/contests/abc211/tasks/abc211_d
+数え上げ,797,abc250_d,D. 250-like Number,https://atcoder.jp/contests/abc250/tasks/abc250_d
+数え上げ,875,abc178_d,D. Redistribution,https://atcoder.jp/contests/abc178/tasks/abc178_d
+数え上げ,963,abc172_d,D. Sum of Divisors,https://atcoder.jp/contests/abc172/tasks/abc172_d
+数え上げ,983,abc249_d,D. Index Trio,https://atcoder.jp/contests/abc249/tasks/abc249_d
+数え上げ,1045,abc152_d,D. Handstand 2,https://atcoder.jp/contests/abc152/tasks/abc152_d
+数え上げ,1256,abc247_e,E. Max Min,https://atcoder.jp/contests/abc247/tasks/abc247_e
+数え上げ,1292,abc248_e,E. K-colinear Line,https://atcoder.jp/contests/abc248/tasks/abc248_e
+数え上げ,1341,abc214_d,D. Sum of Maximum Weights,https://atcoder.jp/contests/abc214/tasks/abc214_d
+数え上げ,1344,abc151_e,E. Max-Min Sums,https://atcoder.jp/contests/abc151/tasks/abc151_e
+数え上げ,1365,abc242_e,E. (∀x∀),https://atcoder.jp/contests/abc242/tasks/abc242_e
+数え上げ,1377,abc037_d,D. 経路,https://atcoder.jp/contests/abc037/tasks/abc037_d
+数え上げ,1397,abc358_e,E. Alphabet Tiles,https://atcoder.jp/contests/abc358/tasks/abc358_e
+数え上げ,1442,abc167_e,E. Colorful Blocks,https://atcoder.jp/contests/abc167/tasks/abc167_e
+数え上げ,1533,abc122_d,D. We Like AGC,https://atcoder.jp/contests/abc122/tasks/abc122_d
+数え上げ,1547,abc129_e,E. Sum Equals Xor,https://atcoder.jp/contests/abc129/tasks/abc129_e
+数え上げ,1593,abc220_e,E. Distance on Large Perfect Binary Tree,https://atcoder.jp/contests/abc220/tasks/abc220_e
+数え上げ,1596,abc234_f,F. Reordering,https://atcoder.jp/contests/abc234/tasks/abc234_f
+数え上げ,1597,abc113_d,D. Number of Amidakuji,https://atcoder.jp/contests/abc113/tasks/abc113_d
+数え上げ,1602,abc036_d,D. 塗り絵,https://atcoder.jp/contests/abc036/tasks/abc036_d
+数え上げ,1662,abc162_e,E. Sum of gcd of Tuples (Hard),https://atcoder.jp/contests/abc162/tasks/abc162_e
+数え上げ,1670,abc041_d,D. 徒競走,https://atcoder.jp/contests/abc041/tasks/abc041_d
+数え上げ,1676,abc130_e,E. Common Subsequence,https://atcoder.jp/contests/abc130/tasks/abc130_e
+数え上げ,1677,abc246_f,F. typewriter,https://atcoder.jp/contests/abc246/tasks/abc246_f
+数え上げ,1694,abc201_e,E. Xor Distances,https://atcoder.jp/contests/abc201/tasks/abc201_e
+数え上げ,1695,abc110_d,D. Factorization,https://atcoder.jp/contests/abc110/tasks/abc110_d
+数え上げ,1698,abc169_f,F. Knapsack for All Subsets,https://atcoder.jp/contests/abc169/tasks/abc169_f
+数え上げ,1704,abc021_d,D. 多重ループ,https://atcoder.jp/contests/abc021/tasks/abc021_d
+数え上げ,1745,abc206_e,E. Divide Both,https://atcoder.jp/contests/abc206/tasks/abc206_e
+数え上げ,1752,abc023_c,C. 収集王,https://atcoder.jp/contests/abc023/tasks/abc023_c
+数え上げ,1775,abc154_f,F. Many Many Paths,https://atcoder.jp/contests/abc154/tasks/abc154_f
+数え上げ,1795,abc171_f,F. Strivore,https://atcoder.jp/contests/abc171/tasks/abc171_f
+数え上げ,1820,abc207_e,E. Mod i,https://atcoder.jp/contests/abc207/tasks/abc207_e
+数え上げ,1851,abc150_e,E. Change a Little Bit,https://atcoder.jp/contests/abc150/tasks/abc150_e
+数え上げ,1876,abc159_f,F. Knapsack for All Segments,https://atcoder.jp/contests/abc159/tasks/abc159_f
+数え上げ,1880,abc172_e,E. NEQ,https://atcoder.jp/contests/abc172/tasks/abc172_e
+数え上げ,1892,abc173_f,F. Intervals on Tree,https://atcoder.jp/contests/abc173/tasks/abc173_f
+数え上げ,1965,abc152_f,F. Tree and Constraints,https://atcoder.jp/contests/abc152/tasks/abc152_f
+整数,-1172,abc187_a,A. Large Digits,https://atcoder.jp/contests/abc187/tasks/abc187_a
+整数,-708,abc165_a,A. We Love Golf,https://atcoder.jp/contests/abc165/tasks/abc165_a
+整数,-466,abc156_b,B. Digits,https://atcoder.jp/contests/abc156/tasks/abc156_b
+整数,-378,abc239_b,B. Integer Division,https://atcoder.jp/contests/abc239/tasks/abc239_b
+整数,-341,abc148_c,C. Snack,https://atcoder.jp/contests/abc148/tasks/abc148_c
+整数,-168,abc120_b,B. K-th Common Divisor,https://atcoder.jp/contests/abc120/tasks/abc120_b
+整数,-75,abc106_b,B. 105,https://atcoder.jp/contests/abc106/tasks/abc106_b
+整数,-72,abc158_b,B. Count Balls,https://atcoder.jp/contests/abc158/tasks/abc158_b
+整数,-13,abc180_c,C. Cream puff,https://atcoder.jp/contests/abc180/tasks/abc180_c
+整数,-13,abc208_c,C. Fair Candy Distribution,https://atcoder.jp/contests/abc208/tasks/abc208_c
+整数,34,abc162_c,C. Sum of gcd of Tuples (Easy),https://atcoder.jp/contests/abc162/tasks/abc162_c
+整数,51,abc272_c,C. Max Even,https://atcoder.jp/contests/abc272/tasks/abc272_c
+整数,62,abc149_c,C. Next Prime,https://atcoder.jp/contests/abc149/tasks/abc149_c
+整数,138,abc200_c,C. Ringo's Favorite Numbers 2,https://atcoder.jp/contests/abc200/tasks/abc200_c
+整数,202,abc196_c,C. Doubled,https://atcoder.jp/contests/abc196/tasks/abc196_c
+整数,207,abc097_b,B. Exponential,https://atcoder.jp/contests/abc097/tasks/abc097_b
+整数,215,abc239_d,D. Prime Sum Game,https://atcoder.jp/contests/abc239/tasks/abc239_d
+整数,235,abc195_c,C. Comma,https://atcoder.jp/contests/abc195/tasks/abc195_c
+整数,274,abc182_c,C. To 3,https://atcoder.jp/contests/abc182/tasks/abc182_c
+整数,311,abc144_c,C. Walk on Multiplication Table,https://atcoder.jp/contests/abc144/tasks/abc144_c
+整数,354,abc139_d,D. ModSum,https://atcoder.jp/contests/abc139/tasks/abc139_d
+整数,378,abc193_c,C. Unexpressed,https://atcoder.jp/contests/abc193/tasks/abc193_c
+整数,444,abc292_c,C. Four Variables,https://atcoder.jp/contests/abc292/tasks/abc292_c
+整数,451,abc103_c,C. Modulo Summation,https://atcoder.jp/contests/abc103/tasks/abc103_c
+整数,503,abc060_b,B. Choose Integers,https://atcoder.jp/contests/abc060/tasks/abc060_b
+整数,518,abc131_c,C. Anti-Division,https://atcoder.jp/contests/abc131/tasks/abc131_c
+整数,520,abc253_d,D. FizzBuzz Sum Hard,https://atcoder.jp/contests/abc253/tasks/abc253_d
+整数,542,abc109_c,C. Skip,https://atcoder.jp/contests/abc109/tasks/abc109_c
+整数,600,abc165_d,D. Floor Function,https://atcoder.jp/contests/abc165/tasks/abc165_d
+整数,600,abc181_d,D. Hachi,https://atcoder.jp/contests/abc181/tasks/abc181_d
+整数,637,abc238_c,C. digitnum,https://atcoder.jp/contests/abc238/tasks/abc238_c
+整数,645,abc276_d,D. Divide by 2 or 3,https://atcoder.jp/contests/abc276/tasks/abc276_d
+整数,646,abc118_c,C. Monsters Battle Royale,https://atcoder.jp/contests/abc118/tasks/abc118_c
+整数,658,abc284_d,D. Happy New Year 2023,https://atcoder.jp/contests/abc284/tasks/abc284_d
+整数,692,abc227_c,C. ABC conjecture,https://atcoder.jp/contests/abc227/tasks/abc227_c
+整数,697,abc070_c,C. Multiple Clocks,https://atcoder.jp/contests/abc070/tasks/abc070_c
+整数,706,abc226_d,D. Teleportation,https://atcoder.jp/contests/abc226/tasks/abc226_d
+整数,722,abc190_d,D. Staircase Sequences,https://atcoder.jp/contests/abc190/tasks/abc190_d
+整数,732,abc169_d,D. Div Game,https://atcoder.jp/contests/abc169/tasks/abc169_d
+整数,736,abc215_d,D. Coprime 2,https://atcoder.jp/contests/abc215/tasks/abc215_d
+整数,808,abc061_c,C. Big Array,https://atcoder.jp/contests/abc061/tasks/abc061_c
+整数,818,abc148_e,E. Double Factorial,https://atcoder.jp/contests/abc148/tasks/abc148_e
+整数,827,abc142_d,D. Disjoint Set of Common Divisors,https://atcoder.jp/contests/abc142/tasks/abc142_d
+整数,861,abc048_b,B. Between a and b ...,https://atcoder.jp/contests/abc048/tasks/abc048_b
+整数,880,abc280_d,D. Factorial and Multiple,https://atcoder.jp/contests/abc280/tasks/abc280_d
+整数,882,abc298_d,D. Writing a Numeral,https://atcoder.jp/contests/abc298/tasks/abc298_d
+整数,899,abc234_e,E. Arithmetic Number,https://atcoder.jp/contests/abc234/tasks/abc234_e
+整数,902,abc174_c,C. Repsept,https://atcoder.jp/contests/abc174/tasks/abc174_c
+整数,904,abc057_c,C. Digits in Multiplication,https://atcoder.jp/contests/abc057/tasks/abc057_c
+整数,908,abc300_d,D. AABCC,https://atcoder.jp/contests/abc300/tasks/abc300_d
+整数,944,abc342_d,D. Square Pair,https://atcoder.jp/contests/abc342/tasks/abc342_d
+整数,963,abc172_d,D. Sum of Divisors,https://atcoder.jp/contests/abc172/tasks/abc172_d
+整数,969,abc230_e,E. Fraction Floor Sum,https://atcoder.jp/contests/abc230/tasks/abc230_e
+整数,970,abc357_d,D. 88888888,https://atcoder.jp/contests/abc357/tasks/abc357_d
+整数,980,abc084_d,D. 2017-like Number,https://atcoder.jp/contests/abc084/tasks/abc084_d
+整数,983,abc249_d,D. Index Trio,https://atcoder.jp/contests/abc249/tasks/abc249_d
+整数,1025,abc112_d,D. Partition,https://atcoder.jp/contests/abc112/tasks/abc112_d
+整数,1033,abc170_d,D. Not Divisible,https://atcoder.jp/contests/abc170/tasks/abc170_d
+整数,1057,abc177_e,E. Coprime,https://atcoder.jp/contests/abc177/tasks/abc177_e
+整数,1129,abc019_3,C. 高橋くんと魔法の箱,https://atcoder.jp/contests/abc019/tasks/abc019_3
+整数,1175,abc179_e,E. Sequence Sum,https://atcoder.jp/contests/abc179/tasks/abc179_e
+整数,1191,abc254_d,D. Together Square,https://atcoder.jp/contests/abc254/tasks/abc254_d
+整数,1197,abc125_c,C. GCD on Blackboard,https://atcoder.jp/contests/abc125/tasks/abc125_c
+整数,1204,abc105_c,C. Base -2 Number,https://atcoder.jp/contests/abc105/tasks/abc105_c
+整数,1205,abc147_d,D. Xor Sum 4,https://atcoder.jp/contests/abc147/tasks/abc147_d
+整数,1226,abc096_d,"D. Five, Five Everywhere",https://atcoder.jp/contests/abc096/tasks/abc096_d
+整数,1232,abc164_d,D. Multiple of 2019,https://atcoder.jp/contests/abc164/tasks/abc164_d
+整数,1337,abc114_d,D. 756,https://atcoder.jp/contests/abc114/tasks/abc114_d
+整数,1348,abc152_e,E. Flatten,https://atcoder.jp/contests/abc152/tasks/abc152_e
+整数,1370,abc259_e,E. LCM on Whiteboard,https://atcoder.jp/contests/abc259/tasks/abc259_e
+整数,1425,abc192_d,D. Base n,https://atcoder.jp/contests/abc192/tasks/abc192_d
+整数,1458,abc105_d,D. Candy Distribution,https://atcoder.jp/contests/abc105/tasks/abc105_d
+整数,1461,abc186_e,E. Throne,https://atcoder.jp/contests/abc186/tasks/abc186_e
+整数,1522,abc292_f,F. Regular Triangle Inside a Rectangle,https://atcoder.jp/contests/abc292/tasks/abc292_f
+整数,1528,abc161_f,F. Division or Subtraction,https://atcoder.jp/contests/abc161/tasks/abc161_f
+整数,1534,abc150_d,D. Semi Common Multiple,https://atcoder.jp/contests/abc150/tasks/abc150_d
+整数,1579,abc228_e,E. Integer Sequence Fair,https://atcoder.jp/contests/abc228/tasks/abc228_e
+整数,1618,abc210_e,E. Ring MST,https://atcoder.jp/contests/abc210/tasks/abc210_e
+整数,1670,abc136_e,E. Max GCD,https://atcoder.jp/contests/abc136/tasks/abc136_e
+整数,1695,abc110_d,D. Factorization,https://atcoder.jp/contests/abc110/tasks/abc110_d
+整数,1764,abc254_f,F. Rectangle GCD,https://atcoder.jp/contests/abc254/tasks/abc254_f
+整数,1841,abc286_f,F. Guess The Number 2,https://atcoder.jp/contests/abc286/tasks/abc286_f
+整数,1866,abc158_e,E. Divisible Substring,https://atcoder.jp/contests/abc158/tasks/abc158_e
+整数,1948,abc193_e,E. Oversleeping,https://atcoder.jp/contests/abc193/tasks/abc193_e
+期待値,-613,abc003_1,A. AtCoder社の給料,https://atcoder.jp/contests/abc003/tasks/abc003_1
+期待値,360,abc262_c,C. Min Max Pair,https://atcoder.jp/contests/abc262/tasks/abc262_c
+期待値,485,abc154_d,D. Dice in Line,https://atcoder.jp/contests/abc154/tasks/abc154_d
+期待値,1078,abc194_d,D. Journey,https://atcoder.jp/contests/abc194/tasks/abc194_d
+期待値,1249,abc360_e,E. Random Swaps of Balls,https://atcoder.jp/contests/abc360/tasks/abc360_e
+期待値,1385,abc350_e,E. Toward 0,https://atcoder.jp/contests/abc350/tasks/abc350_e
+期待値,1659,abc263_e,E. Sugoroku 3,https://atcoder.jp/contests/abc263/tasks/abc263_e
+期待値,1836,abc008_3,C. コイン,https://atcoder.jp/contests/abc008/tasks/abc008_3
+期待値,1851,abc150_e,E. Change a Little Bit,https://atcoder.jp/contests/abc150/tasks/abc150_e
+確率,-555,abc242_a,A. T-shirt,https://atcoder.jp/contests/abc242/tasks/abc242_a
+確率,638,abc126_c,C. Dice and Coin,https://atcoder.jp/contests/abc126/tasks/abc126_c
+確率,866,abc193_d,D. Poker,https://atcoder.jp/contests/abc193/tasks/abc193_d
+確率,920,abc028_d,D. 乱数生成,https://atcoder.jp/contests/abc028/tasks/abc028_d
+確率,1836,abc008_3,C. コイン,https://atcoder.jp/contests/abc008/tasks/abc008_3
+確率,1843,abc011_4,D. 大ジャンプ,https://atcoder.jp/contests/abc011/tasks/abc011_4
+組み合わせ,-612,abc159_a,A. The Number of Even Pairs,https://atcoder.jp/contests/abc159/tasks/abc159_a
+組み合わせ,-514,abc143_b,B. TAKOYAKI FESTIVAL 2019,https://atcoder.jp/contests/abc143/tasks/abc143_b
+組み合わせ,60,abc206_c,C. Swappable,https://atcoder.jp/contests/abc206/tasks/abc206_c
+組み合わせ,264,abc209_c,C. Not Equal,https://atcoder.jp/contests/abc209/tasks/abc209_c
+組み合わせ,373,abc185_c,C. Duodecim Ferra,https://atcoder.jp/contests/abc185/tasks/abc185_c
+組み合わせ,466,abc028_c,C. 数を3つ選ぶマン,https://atcoder.jp/contests/abc028/tasks/abc028_c
+組み合わせ,496,abc159_d,D. Banned K,https://atcoder.jp/contests/abc159/tasks/abc159_d
+組み合わせ,633,abc046_b,B. Painting Balls with AtCoDeer,https://atcoder.jp/contests/abc046/tasks/abc046_b
+組み合わせ,642,abc089_c,C. March,https://atcoder.jp/contests/abc089/tasks/abc089_c
+組み合わせ,715,abc218_d,D. Rectangles,https://atcoder.jp/contests/abc218/tasks/abc218_d
+組み合わせ,960,abc163_d,D. Sum of Large Numbers,https://atcoder.jp/contests/abc163/tasks/abc163_d
+組み合わせ,966,abc202_d,D. aab aba baa,https://atcoder.jp/contests/abc202/tasks/abc202_d
+組み合わせ,1004,abc318_e,E. Sandwiches,https://atcoder.jp/contests/abc318/tasks/abc318_e
+組み合わせ,1009,abc145_d,D. Knight,https://atcoder.jp/contests/abc145/tasks/abc145_d
+組み合わせ,1014,abc156_d,D. Bouquet,https://atcoder.jp/contests/abc156/tasks/abc156_d
+組み合わせ,1167,abc132_d,D. Blue and Red Balls,https://atcoder.jp/contests/abc132/tasks/abc132_d
+組み合わせ,1240,abc307_e,E. Distinct Adjacent,https://atcoder.jp/contests/abc307/tasks/abc307_e
+組み合わせ,1344,abc151_e,E. Max-Min Sums,https://atcoder.jp/contests/abc151/tasks/abc151_e
+組み合わせ,1440,abc034_c,C. 経路,https://atcoder.jp/contests/abc034/tasks/abc034_c
+組み合わせ,1442,abc167_e,E. Colorful Blocks,https://atcoder.jp/contests/abc167/tasks/abc167_e
+組み合わせ,1489,abc123_d,D. Cake 123,https://atcoder.jp/contests/abc123/tasks/abc123_d
+組み合わせ,1514,abc156_e,E. Roaming,https://atcoder.jp/contests/abc156/tasks/abc156_e
+組み合わせ,1658,abc057_d,D. Maximum Average Sets,https://atcoder.jp/contests/abc057/tasks/abc057_d
+組み合わせ,1694,abc201_e,E. Xor Distances,https://atcoder.jp/contests/abc201/tasks/abc201_e
+組み合わせ,1704,abc021_d,D. 多重ループ,https://atcoder.jp/contests/abc021/tasks/abc021_d
+組み合わせ,1795,abc171_f,F. Strivore,https://atcoder.jp/contests/abc171/tasks/abc171_f
+組み合わせ,1843,abc011_4,D. 大ジャンプ,https://atcoder.jp/contests/abc011/tasks/abc011_4
+組み合わせ,1851,abc150_e,E. Change a Little Bit,https://atcoder.jp/contests/abc150/tasks/abc150_e
+組み合わせ,1896,abc168_e,E. ∙ (Bullet),https://atcoder.jp/contests/abc168/tasks/abc168_e
+組み合わせ,1938,abc127_e,E. Cell Distance,https://atcoder.jp/contests/abc127/tasks/abc127_e
+行列,831,abc197_d,D. Opposite,https://atcoder.jp/contests/abc197/tasks/abc197_d
+行列,973,abc344_e,E. Insert or Erase,https://atcoder.jp/contests/abc344/tasks/abc344_e
+行列,1526,abc189_e,E. Rotate and Flip,https://atcoder.jp/contests/abc189/tasks/abc189_e
+bit全探索,47,abc133_b,B. Good Distance,https://atcoder.jp/contests/abc133/tasks/abc133_b
+bit全探索,274,abc182_c,C. To 3,https://atcoder.jp/contests/abc182/tasks/abc182_c
+bit全探索,331,abc079_c,C. Train Ticket,https://atcoder.jp/contests/abc079/tasks/abc079_c
+bit全探索,396,abc289_c,C. Coverage,https://atcoder.jp/contests/abc289/tasks/abc289_c
+bit全探索,472,abc190_c,C. Bowls and Dishes,https://atcoder.jp/contests/abc190/tasks/abc190_c
+bit全探索,528,abc249_c,C. Just K,https://atcoder.jp/contests/abc249/tasks/abc249_c
+bit全探索,595,abc167_c,C. Skill Up,https://atcoder.jp/contests/abc167/tasks/abc167_c
+bit全探索,653,abc173_c,C. H and V,https://atcoder.jp/contests/abc173/tasks/abc173_c
+bit全探索,758,abc264_c,C. Matrix Reducing,https://atcoder.jp/contests/abc264/tasks/abc264_c
+bit全探索,805,abc128_c,C. Switches,https://atcoder.jp/contests/abc128/tasks/abc128_c
+bit全探索,809,abc197_c,C. ORXOR,https://atcoder.jp/contests/abc197/tasks/abc197_c
+bit全探索,977,abc147_c,C. HonestOrUnkind2,https://atcoder.jp/contests/abc147/tasks/abc147_c
+bit全探索,1130,abc080_c,C. Shopping Street,https://atcoder.jp/contests/abc080/tasks/abc080_c
+bit全探索,1217,abc200_d,D. Happy Birthday! 2,https://atcoder.jp/contests/abc200/tasks/abc200_d
+bit全探索,1346,abc119_c,C. Synthetic Kadomatsu,https://atcoder.jp/contests/abc119/tasks/abc119_c
+bit全探索,1393,abc104_c,C. All Green,https://atcoder.jp/contests/abc104/tasks/abc104_c
+bit全探索,1397,abc142_e,E. Get Everything,https://atcoder.jp/contests/abc142/tasks/abc142_e
+bit全探索,1418,abc002_4,D. 派閥,https://atcoder.jp/contests/abc002/tasks/abc002_4
+bit全探索,1450,abc159_e,E. Dividing Chocolate,https://atcoder.jp/contests/abc159/tasks/abc159_e
+bit全探索,1677,abc246_f,F. typewriter,https://atcoder.jp/contests/abc246/tasks/abc246_f
+bit全探索,1688,abc031_d,D. 語呂合わせ,https://atcoder.jp/contests/abc031/tasks/abc031_d
+bit全探索,1690,abc219_e,E. Moat,https://atcoder.jp/contests/abc219/tasks/abc219_e
+bit全探索,1895,abc187_f,F. Close Group,https://atcoder.jp/contests/abc187/tasks/abc187_f
+ヒューリスティック,1204,abc176_e,E. Bomber,https://atcoder.jp/contests/abc176/tasks/abc176_e
+三分探索,752,abc180_d,D. Takahashi Unevolved,https://atcoder.jp/contests/abc180/tasks/abc180_d
+三分探索,766,abc279_d,D. Freefall,https://atcoder.jp/contests/abc279/tasks/abc279_d
+二分探索,-503,abc326_b,B. 326-like Numbers,https://atcoder.jp/contests/abc326/tasks/abc326_b
+二分探索,-56,abc322_c,C. Festival,https://atcoder.jp/contests/abc322/tasks/abc322_c
+二分探索,111,abc231_c,C. Counting 2,https://atcoder.jp/contests/abc231/tasks/abc231_c
+二分探索,202,abc196_c,C. Doubled,https://atcoder.jp/contests/abc196/tasks/abc196_c
+二分探索,205,abc212_c,C. Min Difference,https://atcoder.jp/contests/abc212/tasks/abc212_c
+二分探索,348,abc255_b,B. Light It Up,https://atcoder.jp/contests/abc255/tasks/abc255_b
+二分探索,602,abc334_d,D. Reindeer and Sleigh,https://atcoder.jp/contests/abc334/tasks/abc334_d
+二分探索,631,abc319_d,D. Minimum Width,https://atcoder.jp/contests/abc319/tasks/abc319_d
+二分探索,671,abc305_d,D. Sleep Log,https://atcoder.jp/contests/abc305/tasks/abc305_d
+二分探索,686,abc143_d,D. Triangles,https://atcoder.jp/contests/abc143/tasks/abc143_d
+二分探索,713,abc205_d,D. Kth Excluded,https://atcoder.jp/contests/abc205/tasks/abc205_d
+二分探索,714,abc144_d,D. Water Bottle,https://atcoder.jp/contests/abc144/tasks/abc144_d
+二分探索,727,abc312_c,C. Invisible Hand,https://atcoder.jp/contests/abc312/tasks/abc312_c
+二分探索,741,abc146_c,C. Buy an Integer,https://atcoder.jp/contests/abc146/tasks/abc146_c
+二分探索,788,abc255_d,D. ±1 Operation 2,https://atcoder.jp/contests/abc255/tasks/abc255_d
+二分探索,793,abc248_d,D. Range Count Query,https://atcoder.jp/contests/abc248/tasks/abc248_d
+二分探索,802,abc217_d,D. Cutting Woods,https://atcoder.jp/contests/abc217/tasks/abc217_d
+二分探索,829,abc341_d,D. Only one of two,https://atcoder.jp/contests/abc341/tasks/abc341_d
+二分探索,863,abc440_d,D. Forbidden List 2,https://atcoder.jp/contests/abc440/tasks/abc440_d
+二分探索,899,abc234_e,E. Arithmetic Number,https://atcoder.jp/contests/abc234/tasks/abc234_e
+二分探索,930,abc172_c,C. Tsundoku,https://atcoder.jp/contests/abc172/tasks/abc172_c
+二分探索,991,abc336_d,D. Pyramid,https://atcoder.jp/contests/abc336/tasks/abc336_d
+二分探索,1015,abc304_d,D. A Piece of Cake,https://atcoder.jp/contests/abc304/tasks/abc304_d
+二分探索,1030,abc269_e,E. Last Rook,https://atcoder.jp/contests/abc269/tasks/abc269_e
+二分探索,1084,abc216_e,E. Amusement Park,https://atcoder.jp/contests/abc216/tasks/abc216_e
+二分探索,1119,abc273_d,D. LRUD Instructions,https://atcoder.jp/contests/abc273/tasks/abc273_d
+二分探索,1136,abc364_d,D. K-th Nearest,https://atcoder.jp/contests/abc364/tasks/abc364_d
+二分探索,1138,abc124_d,D. Handstand,https://atcoder.jp/contests/abc124/tasks/abc124_d
+二分探索,1148,abc246_d,D. 2-variable Function,https://atcoder.jp/contests/abc246/tasks/abc246_d
+二分探索,1193,abc181_e,E. Transformable Teacher,https://atcoder.jp/contests/abc181/tasks/abc181_e
+二分探索,1203,abc257_d,D. Jumping Takahashi 2,https://atcoder.jp/contests/abc257/tasks/abc257_d
+二分探索,1211,abc270_e,E. Apple Baskets on Circle,https://atcoder.jp/contests/abc270/tasks/abc270_e
+二分探索,1227,abc174_e,E. Logs,https://atcoder.jp/contests/abc174/tasks/abc174_e
+二分探索,1257,abc138_e,E. Strings of Impurity,https://atcoder.jp/contests/abc138/tasks/abc138_e
+二分探索,1320,abc134_e,E. Sequence Decomposing,https://atcoder.jp/contests/abc134/tasks/abc134_e
+二分探索,1346,abc119_d,D. Lazy Faith,https://atcoder.jp/contests/abc119/tasks/abc119_d
+二分探索,1396,abc381_e,E. 11/22 Subsequence,https://atcoder.jp/contests/abc381/tasks/abc381_e
+二分探索,1406,abc026_d,D. 高橋君ボール1号,https://atcoder.jp/contests/abc026/tasks/abc026_d
+二分探索,1425,abc192_d,D. Base n,https://atcoder.jp/contests/abc192/tasks/abc192_d
+二分探索,1449,abc144_e,E. Gluttony,https://atcoder.jp/contests/abc144/tasks/abc144_e
+二分探索,1477,abc020_c,C. 壁抜け,https://atcoder.jp/contests/abc020/tasks/abc020_c
+二分探索,1522,abc292_f,F. Regular Triangle Inside a Rectangle,https://atcoder.jp/contests/abc292/tasks/abc292_f
+二分探索,1549,abc034_d,D. 食塩水,https://atcoder.jp/contests/abc034/tasks/abc034_d
+二分探索,1606,abc361_f,F. x = a^b,https://atcoder.jp/contests/abc361/tasks/abc361_f
+二分探索,1607,abc017_3,C. ハイスコア,https://atcoder.jp/contests/abc017/tasks/abc017_3
+二分探索,1622,abc203_d,D. Pond,https://atcoder.jp/contests/abc203/tasks/abc203_d
+二分探索,1643,abc227_d,D. Project Planning,https://atcoder.jp/contests/abc227/tasks/abc227_d
+二分探索,1752,abc023_c,C. 収集王,https://atcoder.jp/contests/abc023/tasks/abc023_c
+二分探索,1843,abc023_d,D. 射撃王,https://atcoder.jp/contests/abc023/tasks/abc023_d
+二分探索,1845,abc155_d,D. Pairs,https://atcoder.jp/contests/abc155/tasks/abc155_d
+二分探索,1853,abc215_f,F. Dist Max 2,https://atcoder.jp/contests/abc215/tasks/abc215_f
+二分探索,1893,abc236_e,E. Average and Median,https://atcoder.jp/contests/abc236/tasks/abc236_e
+二分探索,1905,abc149_e,E. Handshake,https://atcoder.jp/contests/abc149/tasks/abc149_e
+全探索,-1018,abc353_a,A. Buildings,https://atcoder.jp/contests/abc353/tasks/abc353_a
+全探索,-1001,abc362_a,A. Buy a Pen,https://atcoder.jp/contests/abc362/tasks/abc362_a
+全探索,-992,abc322_a,A. First ABC 2,https://atcoder.jp/contests/abc322/tasks/abc322_a
+全探索,-988,abc355_a,A. Who Ate the Cake?,https://atcoder.jp/contests/abc355/tasks/abc355_a
+全探索,-942,abc317_a,A. Potions,https://atcoder.jp/contests/abc317/tasks/abc317_a
+全探索,-934,abc318_a,A. Full Moon,https://atcoder.jp/contests/abc318/tasks/abc318_a
+全探索,-746,abc175_a,A. Rainy Season,https://atcoder.jp/contests/abc175/tasks/abc175_a
+全探索,-708,abc165_a,A. We Love Golf,https://atcoder.jp/contests/abc165/tasks/abc165_a
+全探索,-692,abc243_b,B. Hit and Blow,https://atcoder.jp/contests/abc243/tasks/abc243_b
+全探索,-660,abc374_b,B. Unvarnished Report,https://atcoder.jp/contests/abc374/tasks/abc374_b
+全探索,-634,abc227_b,B. KEYENCE building,https://atcoder.jp/contests/abc227/tasks/abc227_b
+全探索,-597,abc144_b,B. 81,https://atcoder.jp/contests/abc144/tasks/abc144_b
+全探索,-585,abc351_b,B. Spot the Difference,https://atcoder.jp/contests/abc351/tasks/abc351_b
+全探索,-514,abc143_b,B. TAKOYAKI FESTIVAL 2019,https://atcoder.jp/contests/abc143/tasks/abc143_b
+全探索,-503,abc326_b,B. 326-like Numbers,https://atcoder.jp/contests/abc326/tasks/abc326_b
+全探索,-495,abc174_b,B. Distance,https://atcoder.jp/contests/abc174/tasks/abc174_b
+全探索,-481,abc147_b,B. Palindrome-philia,https://atcoder.jp/contests/abc147/tasks/abc147_b
+全探索,-471,abc287_b,B. Postal Card,https://atcoder.jp/contests/abc287/tasks/abc287_b
+全探索,-464,abc234_b,B. Longest Segment,https://atcoder.jp/contests/abc234/tasks/abc234_b
+全探索,-459,abc249_b,B. Perfect String,https://atcoder.jp/contests/abc249/tasks/abc249_b
+全探索,-449,abc274_b,B. Line Sensor,https://atcoder.jp/contests/abc274/tasks/abc274_b
+全探索,-416,abc335_b,B. Tetrahedral Number,https://atcoder.jp/contests/abc335/tasks/abc335_b
+全探索,-414,abc170_b,B. Crane and Turtle,https://atcoder.jp/contests/abc170/tasks/abc170_b
+全探索,-405,abc214_b,B. How many?,https://atcoder.jp/contests/abc214/tasks/abc214_b
+全探索,-378,abc342_b,B. Which is ahead?,https://atcoder.jp/contests/abc342/tasks/abc342_b
+全探索,-370,abc111_b,B. AtCoder Beginner Contest 111,https://atcoder.jp/contests/abc111/tasks/abc111_b
+全探索,-341,abc148_c,C. Snack,https://atcoder.jp/contests/abc148/tasks/abc148_c
+全探索,-334,abc078_b,B. ISU,https://atcoder.jp/contests/abc078/tasks/abc078_b
+全探索,-330,abc212_b,B. Weak Password,https://atcoder.jp/contests/abc212/tasks/abc212_b
+全探索,-299,abc319_b,B. Measure,https://atcoder.jp/contests/abc319/tasks/abc319_b
+全探索,-298,abc307_b,B. racecar,https://atcoder.jp/contests/abc307/tasks/abc307_b
+全探索,-284,abc282_b,B. Let's Get a Perfect Score,https://atcoder.jp/contests/abc282/tasks/abc282_b
+全探索,-245,abc121_b,B. Can you solve this?,https://atcoder.jp/contests/abc121/tasks/abc121_b
+全探索,-237,abc224_b,B. Mongeness,https://atcoder.jp/contests/abc224/tasks/abc224_b
+全探索,-221,abc156_c,C. Rally,https://atcoder.jp/contests/abc156/tasks/abc156_c
+全探索,-182,abc129_b,B. Balance,https://atcoder.jp/contests/abc129/tasks/abc129_b
+全探索,-170,abc197_b,B. Visibility,https://atcoder.jp/contests/abc197/tasks/abc197_b
+全探索,-168,abc120_b,B. K-th Common Divisor,https://atcoder.jp/contests/abc120/tasks/abc120_b
+全探索,-146,abc086_b,B. 1 21,https://atcoder.jp/contests/abc086/tasks/abc086_b
+全探索,-128,abc157_b,B. Bingo,https://atcoder.jp/contests/abc157/tasks/abc157_b
+全探索,-123,abc285_b,B. Longest Uncommon Prefix,https://atcoder.jp/contests/abc285/tasks/abc285_b
+全探索,-122,abc122_b,B. ATCoder,https://atcoder.jp/contests/abc122/tasks/abc122_b
+全探索,-118,abc068_b,B. Break Number,https://atcoder.jp/contests/abc068/tasks/abc068_b
+全探索,-75,abc106_b,B. 105,https://atcoder.jp/contests/abc106/tasks/abc106_b
+全探索,-54,abc327_b,B. A^A,https://atcoder.jp/contests/abc327/tasks/abc327_b
+全探索,-54,abc039_b,B. エージェント高橋君,https://atcoder.jp/contests/abc039/tasks/abc039_b
+全探索,-51,abc175_b,B. Making Triangle,https://atcoder.jp/contests/abc175/tasks/abc175_b
+全探索,-45,abc281_c,C. Circular Playlist,https://atcoder.jp/contests/abc281/tasks/abc281_c
+全探索,-24,abc272_b,B. Everyone is Friends,https://atcoder.jp/contests/abc272/tasks/abc272_b
+全探索,1,abc123_b,B. Five Dishes,https://atcoder.jp/contests/abc123/tasks/abc123_b
+全探索,2,abc114_b,B. 754,https://atcoder.jp/contests/abc114/tasks/abc114_b
+全探索,15,abc170_c,C. Forbidden List,https://atcoder.jp/contests/abc170/tasks/abc170_c
+全探索,24,abc295_b,B. Bombs,https://atcoder.jp/contests/abc295/tasks/abc295_b
+全探索,30,abc305_c,C. Snuke the Cookie Picker,https://atcoder.jp/contests/abc305/tasks/abc305_c
+全探索,47,abc133_b,B. Good Distance,https://atcoder.jp/contests/abc133/tasks/abc133_b
+全探索,61,abc325_b,B. World Meeting,https://atcoder.jp/contests/abc325/tasks/abc325_b
+全探索,61,abc267_b,B. Split?,https://atcoder.jp/contests/abc267/tasks/abc267_b
+全探索,62,abc160_c,C. Traveling Salesman around Lake,https://atcoder.jp/contests/abc160/tasks/abc160_c
+全探索,66,abc158_c,C. Tax Increase,https://atcoder.jp/contests/abc158/tasks/abc158_c
+全探索,108,abc177_b,B. Substring,https://atcoder.jp/contests/abc177/tasks/abc177_b
+全探索,119,abc239_c,C. Knight Fork,https://atcoder.jp/contests/abc239/tasks/abc239_c
+全探索,125,abc163_c,C. management,https://atcoder.jp/contests/abc163/tasks/abc163_c
+全探索,127,abc247_b,B. Unique Nicknames,https://atcoder.jp/contests/abc247/tasks/abc247_b
+全探索,131,abc344_c,C. A+B+C,https://atcoder.jp/contests/abc344/tasks/abc344_c
+全探索,144,abc113_b,B. Palace,https://atcoder.jp/contests/abc113/tasks/abc113_b
+全探索,153,abc312_b,B. TaK Code,https://atcoder.jp/contests/abc312/tasks/abc312_b
+全探索,160,abc343_c,C. 343,https://atcoder.jp/contests/abc343/tasks/abc343_c
+全探索,161,abc087_b,B. Coins,https://atcoder.jp/contests/abc087/tasks/abc087_b
+全探索,181,abc028_b,B. 文字数カウント,https://atcoder.jp/contests/abc028/tasks/abc028_b
+全探索,202,abc196_c,C. Doubled,https://atcoder.jp/contests/abc196/tasks/abc196_c
+全探索,207,abc097_b,B. Exponential,https://atcoder.jp/contests/abc097/tasks/abc097_b
+全探索,224,abc333_c,C. Repunit Trio,https://atcoder.jp/contests/abc333/tasks/abc333_c
+全探索,233,abc166_c,C. Peaks,https://atcoder.jp/contests/abc166/tasks/abc166_c
+全探索,261,abc179_c,C. A x B + C,https://atcoder.jp/contests/abc179/tasks/abc179_c
+全探索,273,abc115_c,C. Christmas Eve,https://atcoder.jp/contests/abc115/tasks/abc115_c
+全探索,284,abc012_3,C. 九九足し算,https://atcoder.jp/contests/abc012/tasks/abc012_3
+全探索,286,abc224_c,C. Triangle?,https://atcoder.jp/contests/abc224/tasks/abc224_c
+全探索,310,abc091_b,B. Two Colors Card Game,https://atcoder.jp/contests/abc091/tasks/abc091_b
+全探索,311,abc144_c,C. Walk on Multiplication Table,https://atcoder.jp/contests/abc144/tasks/abc144_c
+全探索,318,abc225_c,C. Calendar Validator,https://atcoder.jp/contests/abc225/tasks/abc225_c
+全探索,329,abc183_c,C. Travel,https://atcoder.jp/contests/abc183/tasks/abc183_c
+全探索,331,abc079_c,C. Train Ticket,https://atcoder.jp/contests/abc079/tasks/abc079_c
+全探索,335,abc145_c,C. Average Length,https://atcoder.jp/contests/abc145/tasks/abc145_c
+全探索,350,abc300_b,B. Same Map in the RPG World,https://atcoder.jp/contests/abc300/tasks/abc300_b
+全探索,358,abc098_b,B. Cut and Count,https://atcoder.jp/contests/abc098/tasks/abc098_b
+全探索,376,abc100_b,B. Ringo's Favorite Numbers,https://atcoder.jp/contests/abc100/tasks/abc100_b
+全探索,378,abc193_c,C. Unexpressed,https://atcoder.jp/contests/abc193/tasks/abc193_c
+全探索,378,abc221_c,C. Select Mul,https://atcoder.jp/contests/abc221/tasks/abc221_c
+全探索,397,abc207_c,C. Many Segments,https://atcoder.jp/contests/abc207/tasks/abc207_c
+全探索,407,abc096_c,C. Grid Repainting 2,https://atcoder.jp/contests/abc096/tasks/abc096_c
+全探索,422,abc150_c,C. Count Order,https://atcoder.jp/contests/abc150/tasks/abc150_c
+全探索,431,abc293_c,C. Make Takahashi Happy,https://atcoder.jp/contests/abc293/tasks/abc293_c
+全探索,434,abc057_b,B. Checkpoints,https://atcoder.jp/contests/abc057/tasks/abc057_b
+全探索,439,abc201_c,C. Secret Number,https://atcoder.jp/contests/abc201/tasks/abc201_c
+全探索,456,abc157_c,C. Guess The Number,https://atcoder.jp/contests/abc157/tasks/abc157_c
+全探索,483,abc195_b,B. Many Oranges,https://atcoder.jp/contests/abc195/tasks/abc195_b
+全探索,511,abc258_b,B. Number Box,https://atcoder.jp/contests/abc258/tasks/abc258_b
+全探索,513,abc338_c,C. Leftover Recipes,https://atcoder.jp/contests/abc338/tasks/abc338_c
+全探索,534,abc300_c,C. Cross,https://atcoder.jp/contests/abc300/tasks/abc300_c
+全探索,584,abc085_c,C. Otoshidama,https://atcoder.jp/contests/abc085/tasks/abc085_c
+全探索,584,abc029_c,C. Brute-force Attack,https://atcoder.jp/contests/abc029/tasks/abc029_c
+全探索,592,abc133_c,C. Remainder Minimization 2019,https://atcoder.jp/contests/abc133/tasks/abc133_c
+全探索,602,abc363_c,C. Avoid K Palindrome 2,https://atcoder.jp/contests/abc363/tasks/abc363_c
+全探索,604,abc233_c,C. Product,https://atcoder.jp/contests/abc233/tasks/abc233_c
+全探索,640,abc040_b,B. □□□□□,https://atcoder.jp/contests/abc040/tasks/abc040_b
+全探索,642,abc089_c,C. March,https://atcoder.jp/contests/abc089/tasks/abc089_c
+全探索,664,abc241_c,C. Connect 6,https://atcoder.jp/contests/abc241/tasks/abc241_c
+全探索,685,abc232_c,C. Graph Isomorphism,https://atcoder.jp/contests/abc232/tasks/abc232_c
+全探索,692,abc227_c,C. ABC conjecture,https://atcoder.jp/contests/abc227/tasks/abc227_c
+全探索,694,abc166_d,D. I hate Factorization,https://atcoder.jp/contests/abc166/tasks/abc166_d
+全探索,757,abc162_d,D. RGB Triplets,https://atcoder.jp/contests/abc162/tasks/abc162_d
+全探索,784,abc051_b,B. Sum of Three Integers,https://atcoder.jp/contests/abc051/tasks/abc051_b
+全探索,820,abc026_c,C. 高橋君の給料,https://atcoder.jp/contests/abc026/tasks/abc026_c
+全探索,851,abc320_c,C. Slot Strategy 2 (Easy),https://atcoder.jp/contests/abc320/tasks/abc320_c
+全探索,866,abc193_d,D. Poker,https://atcoder.jp/contests/abc193/tasks/abc193_d
+全探索,879,abc160_d,D. Line++,https://atcoder.jp/contests/abc160/tasks/abc160_d
+全探索,893,abc054_b,B. Template Matching,https://atcoder.jp/contests/abc054/tasks/abc054_b
+全探索,895,abc324_d,D. Square Permutation,https://atcoder.jp/contests/abc324/tasks/abc324_d
+全探索,902,abc174_c,C. Repsept,https://atcoder.jp/contests/abc174/tasks/abc174_c
+全探索,904,abc057_c,C. Digits in Multiplication,https://atcoder.jp/contests/abc057/tasks/abc057_c
+全探索,912,abc015_3,C. 高橋くんのバグ探し,https://atcoder.jp/contests/abc015/tasks/abc015_3
+全探索,977,abc147_c,C. HonestOrUnkind2,https://atcoder.jp/contests/abc147/tasks/abc147_c
+全探索,1012,abc218_c,C. Shapes,https://atcoder.jp/contests/abc218/tasks/abc218_c
+全探索,1045,abc152_d,D. Handstand 2,https://atcoder.jp/contests/abc152/tasks/abc152_d
+全探索,1106,abc031_c,C. 数列ゲーム,https://atcoder.jp/contests/abc031/tasks/abc031_c
+全探索,1111,abc319_c,C. False Hope,https://atcoder.jp/contests/abc319/tasks/abc319_c
+全探索,1136,abc165_c,C. Many Requirements,https://atcoder.jp/contests/abc165/tasks/abc165_c
+全探索,1147,abc112_c,C. Pyramid,https://atcoder.jp/contests/abc112/tasks/abc112_c
+全探索,1158,abc006_3,C. スフィンクスのなぞなぞ,https://atcoder.jp/contests/abc006/tasks/abc006_3
+全探索,1175,abc332_d,D. Swapping Puzzle,https://atcoder.jp/contests/abc332/tasks/abc332_d
+全探索,1224,abc198_d,D. Send More Money,https://atcoder.jp/contests/abc198/tasks/abc198_d
+全探索,1331,abc100_d,D. Patisserie ABC,https://atcoder.jp/contests/abc100/tasks/abc100_d
+全探索,1345,abc073_d,D. joisino's travel,https://atcoder.jp/contests/abc073/tasks/abc073_d
+全探索,1345,abc099_d,D. Good Grid,https://atcoder.jp/contests/abc099/tasks/abc099_d
+全探索,1354,abc128_d,D. equeue,https://atcoder.jp/contests/abc128/tasks/abc128_d
+全探索,1371,abc326_d,D. ABC Puzzle,https://atcoder.jp/contests/abc326/tasks/abc326_d
+全探索,1419,abc345_d,D. Tiling,https://atcoder.jp/contests/abc345/tasks/abc345_d
+全探索,1470,abc075_d,D. Axis-Parallel Rectangle,https://atcoder.jp/contests/abc075/tasks/abc075_d
+全探索,1640,abc025_c,C. 双子と○×ゲーム,https://atcoder.jp/contests/abc025/tasks/abc025_c
+全探索,1670,abc136_e,E. Max GCD,https://atcoder.jp/contests/abc136/tasks/abc136_e
+全探索,1688,abc031_d,D. 語呂合わせ,https://atcoder.jp/contests/abc031/tasks/abc031_d
+全探索,1711,abc018_4,D. バレンタインデー,https://atcoder.jp/contests/abc018/tasks/abc018_4
+全探索,1713,abc147_e,E. Balanced Path,https://atcoder.jp/contests/abc147/tasks/abc147_e
+全探索,1802,abc343_e,E. 7x7x7,https://atcoder.jp/contests/abc343/tasks/abc343_e
+全探索,1823,abc211_e,E. Red Polyomino,https://atcoder.jp/contests/abc211/tasks/abc211_e
+全探索,1861,abc004_4,D. マーブル,https://atcoder.jp/contests/abc004/tasks/abc004_4
+全探索,1913,abc363_f,F. Palindromic Expression,https://atcoder.jp/contests/abc363/tasks/abc363_f
+幅優先探索,304,abc274_c,C. Ameba,https://atcoder.jp/contests/abc274/tasks/abc274_c
+幅優先探索,414,abc264_d,"D. ""redocta"".swap(i,i+1)",https://atcoder.jp/contests/abc264/tasks/abc264_d
+幅優先探索,540,abc277_c,C. Ladder Takahashi,https://atcoder.jp/contests/abc277/tasks/abc277_c
+幅優先探索,755,abc211_d,D. Number of Shortest paths,https://atcoder.jp/contests/abc211/tasks/abc211_d
+幅優先探索,804,abc168_d,D. .. (Double Dots),https://atcoder.jp/contests/abc168/tasks/abc168_d
+幅優先探索,830,abc016_3,C. 友達の友達,https://atcoder.jp/contests/abc016/tasks/abc016_3
+幅優先探索,862,abc235_d,D. Multiply and Rotate,https://atcoder.jp/contests/abc235/tasks/abc235_d
+幅優先探索,879,abc206_d,D. KAIBUNsyo,https://atcoder.jp/contests/abc206/tasks/abc206_d
+幅優先探索,885,abc311_d,D. Grid Ice Floor,https://atcoder.jp/contests/abc311/tasks/abc311_d
+幅優先探索,959,abc151_d,D. Maze Master,https://atcoder.jp/contests/abc151/tasks/abc151_d
+幅優先探索,991,abc161_d,D. Lunlun Number,https://atcoder.jp/contests/abc161/tasks/abc161_d
+幅優先探索,999,abc088_d,D. Grid Repainting,https://atcoder.jp/contests/abc088/tasks/abc088_d
+幅優先探索,1024,abc007_3,A. 幅優先探索,https://atcoder.jp/contests/atc002/tasks/abc007_3
+幅優先探索,1058,abc276_e,E. Round Trip,https://atcoder.jp/contests/abc276/tasks/abc276_e
+幅優先探索,1085,abc317_e,E. Avoid Eye Contact,https://atcoder.jp/contests/abc317/tasks/abc317_e
+幅優先探索,1108,abc348_d,D. Medicines on Grid,https://atcoder.jp/contests/abc348/tasks/abc348_d
+幅優先探索,1202,abc361_d,D. Go Stone Puzzle,https://atcoder.jp/contests/abc361/tasks/abc361_d
+幅優先探索,1202,abc254_e,E. Small d and k,https://atcoder.jp/contests/abc254/tasks/abc254_e
+幅優先探索,1276,abc339_d,D. Synchronized Players,https://atcoder.jp/contests/abc339/tasks/abc339_d
+幅優先探索,1307,abc363_e,E. Sinking Land,https://atcoder.jp/contests/abc363/tasks/abc363_e
+幅優先探索,1376,abc224_d,D. 8 Puzzle on Graph,https://atcoder.jp/contests/abc224/tasks/abc224_d
+幅優先探索,1418,abc184_e,E. Third Avenue,https://atcoder.jp/contests/abc184/tasks/abc184_e
+幅優先探索,1423,abc213_e,E. Stronger Takahashi,https://atcoder.jp/contests/abc213/tasks/abc213_e
+幅優先探索,1430,abc302_f,F. Merge Set,https://atcoder.jp/contests/abc302/tasks/abc302_f
+幅優先探索,1457,abc148_f,F. Playing Tag on Tree,https://atcoder.jp/contests/abc148/tasks/abc148_f
+幅優先探索,1753,abc218_f,F. Blocked Roads,https://atcoder.jp/contests/abc218/tasks/abc218_f
+幅優先探索,1823,abc211_e,E. Red Polyomino,https://atcoder.jp/contests/abc211/tasks/abc211_e
+幅優先探索,1888,abc241_f,F. Skate,https://atcoder.jp/contests/abc241/tasks/abc241_f
+深さ優先探索,-229,abc228_b,B. Takahashi's Secret,https://atcoder.jp/contests/abc228/tasks/abc228_b
+深さ優先探索,146,abc265_c,C. Belt Conveyor,https://atcoder.jp/contests/abc265/tasks/abc265_c
+深さ優先探索,282,abc263_c,C. Monotonically Increasing,https://atcoder.jp/contests/abc263/tasks/abc263_c
+深さ優先探索,304,abc274_c,C. Ameba,https://atcoder.jp/contests/abc274/tasks/abc274_c
+深さ優先探索,422,abc150_c,C. Count Order,https://atcoder.jp/contests/abc150/tasks/abc150_c
+深さ優先探索,431,abc293_c,C. Make Takahashi Happy,https://atcoder.jp/contests/abc293/tasks/abc293_c
+深さ優先探索,539,abc226_c,C. Martial artist,https://atcoder.jp/contests/abc226/tasks/abc226_c
+深さ優先探索,540,abc277_c,C. Ladder Takahashi,https://atcoder.jp/contests/abc277/tasks/abc277_c
+深さ優先探索,584,abc029_c,C. Brute-force Attack,https://atcoder.jp/contests/abc029/tasks/abc029_c
+深さ優先探索,604,abc233_c,C. Product,https://atcoder.jp/contests/abc233/tasks/abc233_c
+深さ優先探索,604,abc317_c,C. Remembering the Days,https://atcoder.jp/contests/abc317/tasks/abc317_c
+深さ優先探索,625,abc270_c,C. Simple path,https://atcoder.jp/contests/abc270/tasks/abc270_c
+深さ優先探索,663,abc285_d,D. Change Usernames,https://atcoder.jp/contests/abc285/tasks/abc285_d
+深さ優先探索,709,abc327_d,D. Good Tuple Problem,https://atcoder.jp/contests/abc327/tasks/abc327_d
+深さ優先探索,710,abc213_d,D. Takahashi Tour,https://atcoder.jp/contests/abc213/tasks/abc213_d
+深さ優先探索,732,abc177_d,D. Friends,https://atcoder.jp/contests/abc177/tasks/abc177_d
+深さ優先探索,820,abc026_c,C. 高橋君の給料,https://atcoder.jp/contests/abc026/tasks/abc026_c
+深さ優先探索,879,abc206_d,D. KAIBUNsyo,https://atcoder.jp/contests/abc206/tasks/abc206_d
+深さ優先探索,912,abc015_3,C. 高橋くんのバグ探し,https://atcoder.jp/contests/abc015/tasks/abc015_3
+深さ優先探索,920,abc138_d,D. Ki,https://atcoder.jp/contests/abc138/tasks/abc138_d
+深さ優先探索,974,abc351_d,D. Grid and Magnet,https://atcoder.jp/contests/abc351/tasks/abc351_d
+深さ優先探索,977,abc147_c,C. HonestOrUnkind2,https://atcoder.jp/contests/abc147/tasks/abc147_c
+深さ優先探索,991,abc161_d,D. Lunlun Number,https://atcoder.jp/contests/abc161/tasks/abc161_d
+深さ優先探索,1043,abc284_e,E. Count Simple Paths,https://atcoder.jp/contests/abc284/tasks/abc284_e
+深さ優先探索,1045,abc114_c,C. 755,https://atcoder.jp/contests/abc114/tasks/abc114_c
+深さ優先探索,1058,abc276_e,E. Round Trip,https://atcoder.jp/contests/abc276/tasks/abc276_e
+深さ優先探索,1067,abc075_c,C. Bridge,https://atcoder.jp/contests/abc075/tasks/abc075_c
+深さ優先探索,1068,abc240_e,E. Ranges on Tree,https://atcoder.jp/contests/abc240/tasks/abc240_e
+深さ優先探索,1084,abc239_e,E. Subtree K-th Max,https://atcoder.jp/contests/abc239/tasks/abc239_e
+深さ優先探索,1088,abc115_d,D. Christmas,https://atcoder.jp/contests/abc115/tasks/abc115_d
+深さ優先探索,1098,abc182_e,E. Akari,https://atcoder.jp/contests/abc182/tasks/abc182_e
+深さ優先探索,1158,abc305_e,E. Art Gallery on Graph,https://atcoder.jp/contests/abc305/tasks/abc305_e
+深さ優先探索,1161,abc198_e,E. Unique Color,https://atcoder.jp/contests/abc198/tasks/abc198_e
+深さ優先探索,1190,abc236_d,D. Dance,https://atcoder.jp/contests/abc236/tasks/abc236_d
+深さ優先探索,1202,abc254_e,E. Small d and k,https://atcoder.jp/contests/abc254/tasks/abc254_e
+深さ優先探索,1208,abc157_d,D. Friend Suggestions,https://atcoder.jp/contests/abc157/tasks/abc157_d
+深さ優先探索,1244,abc054_c,C. One-stroke Path,https://atcoder.jp/contests/abc054/tasks/abc054_c
+深さ優先探索,1277,abc196_d,D. Hanjo,https://atcoder.jp/contests/abc196/tasks/abc196_d
+深さ優先探索,1309,abc268_d,D. Unique Username,https://atcoder.jp/contests/abc268/tasks/abc268_d
+深さ優先探索,1345,abc073_d,D. joisino's travel,https://atcoder.jp/contests/abc073/tasks/abc073_d
+深さ優先探索,1346,abc119_c,C. Synthetic Kadomatsu,https://atcoder.jp/contests/abc119/tasks/abc119_c
+深さ優先探索,1419,abc345_d,D. Tiling,https://atcoder.jp/contests/abc345/tasks/abc345_d
+深さ優先探索,1420,abc305_f,F. Dungeon Explore,https://atcoder.jp/contests/abc305/tasks/abc305_f
+深さ優先探索,1457,abc148_f,F. Playing Tag on Tree,https://atcoder.jp/contests/abc148/tasks/abc148_f
+深さ優先探索,1505,abc133_e,E. Virus Tree 2,https://atcoder.jp/contests/abc133/tasks/abc133_e
+深さ優先探索,1518,abc386_e,E. Maximize XOR,https://atcoder.jp/contests/abc386/tasks/abc386_e
+深さ優先探索,1528,abc139_e,E. League,https://atcoder.jp/contests/abc139/tasks/abc139_e
+深さ優先探索,1690,abc219_e,E. Moat,https://atcoder.jp/contests/abc219/tasks/abc219_e
+深さ優先探索,1804,abc199_d,D. RGB Coloring 2,https://atcoder.jp/contests/abc199/tasks/abc199_d
+深さ優先探索,1823,abc211_e,E. Red Polyomino,https://atcoder.jp/contests/abc211/tasks/abc211_e
+深さ優先探索,1913,abc363_f,F. Palindromic Expression,https://atcoder.jp/contests/abc363/tasks/abc363_f
+深さ優先探索,1937,abc131_f,F. Must Be Rectangular!,https://atcoder.jp/contests/abc131/tasks/abc131_f
+Suffix-Array,1625,abc362_g,G. Count Substring Query,https://atcoder.jp/contests/abc362/tasks/abc362_g
+Trie,1217,abc353_e,E. Yet Another Sigma Problem,https://atcoder.jp/contests/abc353/tasks/abc353_e
+Trie,1447,abc403_e,E. Forbidden Prefix,https://atcoder.jp/contests/abc403/tasks/abc403_e
+Trie,1782,abc377_g,G. Edit to Match,https://atcoder.jp/contests/abc377/tasks/abc377_g
+Z-Algorithm,1459,abc141_e,E. Who Says a Pun?,https://atcoder.jp/contests/abc141/tasks/abc141_e
+Z-Algorithm,1575,abc284_f,F. ABCBAC,https://atcoder.jp/contests/abc284/tasks/abc284_f
+ローリングハッシュ,1575,abc284_f,F. ABCBAC,https://atcoder.jp/contests/abc284/tasks/abc284_f
+ローリングハッシュ,1666,abc331_f,F. Palindrome Query,https://atcoder.jp/contests/abc331/tasks/abc331_f
+ローリングハッシュ,1782,abc377_g,G. Edit to Match,https://atcoder.jp/contests/abc377/tasks/abc377_g
+文字列処理,-1358,abc230_a,A. AtCoder Quiz 3,https://atcoder.jp/contests/abc230/tasks/abc230_a
+文字列処理,-1316,abc222_a,A. Four Digits,https://atcoder.jp/contests/abc222/tasks/abc222_a
+文字列処理,-1263,abc197_a,A. Rotate,https://atcoder.jp/contests/abc197/tasks/abc197_a
+文字列処理,-1263,abc224_a,A. Tires,https://atcoder.jp/contests/abc224/tasks/abc224_a
+文字列処理,-1207,abc236_a,A. chukodai,https://atcoder.jp/contests/abc236/tasks/abc236_a
+文字列処理,-1184,abc388_a,A. ?UPC,https://atcoder.jp/contests/abc388/tasks/abc388_a
+文字列処理,-1139,abc335_a,A. 202<s>3</s>,https://atcoder.jp/contests/abc335/tasks/abc335_a
+文字列処理,-1125,abc166_a,A. A?C,https://atcoder.jp/contests/abc166/tasks/abc166_a
+文字列処理,-1104,abc235_a,A. Rotate,https://atcoder.jp/contests/abc235/tasks/abc235_a
+文字列処理,-1011,abc280_a,A. Pawn on a Grid,https://atcoder.jp/contests/abc280/tasks/abc280_a
+文字列処理,-997,abc315_a,A. tcdr,https://atcoder.jp/contests/abc315/tasks/abc315_a
+文字列処理,-986,abc160_a,A. Coffee,https://atcoder.jp/contests/abc160/tasks/abc160_a
+文字列処理,-966,abc151_a,A. Next Alphabet,https://atcoder.jp/contests/abc151/tasks/abc151_a
+文字列処理,-930,abc226_a,A. Round decimals,https://atcoder.jp/contests/abc226/tasks/abc226_a
+文字列処理,-915,abc154_b,B. I miss you...,https://atcoder.jp/contests/abc154/tasks/abc154_b
+文字列処理,-884,abc202_b,B. 180°,https://atcoder.jp/contests/abc202/tasks/abc202_b
+文字列処理,-779,abc172_b,B. Minor Change,https://atcoder.jp/contests/abc172/tasks/abc172_b
+文字列処理,-769,abc168_b,B. ... (Triple Dots),https://atcoder.jp/contests/abc168/tasks/abc168_b
+文字列処理,-765,abc167_a,A. Registration,https://atcoder.jp/contests/abc167/tasks/abc167_a
+文字列処理,-754,abc257_a,A. A to Z String 2,https://atcoder.jp/contests/abc257/tasks/abc257_a
+文字列処理,-748,abc192_b,B. uNrEaDaBlE sTrInG,https://atcoder.jp/contests/abc192/tasks/abc192_b
+文字列処理,-748,abc233_b,B. A Reverse,https://atcoder.jp/contests/abc233/tasks/abc233_b
+文字列処理,-705,abc152_b,B. Comparing Strings,https://atcoder.jp/contests/abc152/tasks/abc152_b
+文字列処理,-696,abc268_b,B. Prefix?,https://atcoder.jp/contests/abc268/tasks/abc268_b
+文字列処理,-687,abc357_b,B. Uppercase and Lowercase,https://atcoder.jp/contests/abc357/tasks/abc357_b
+文字列処理,-640,abc148_b,B. Strings with the Same Length,https://atcoder.jp/contests/abc148/tasks/abc148_b
+文字列処理,-550,abc230_b,B. Triple Metre,https://atcoder.jp/contests/abc230/tasks/abc230_b
+文字列処理,-481,abc147_b,B. Palindrome-philia,https://atcoder.jp/contests/abc147/tasks/abc147_b
+文字列処理,-436,abc145_b,B. Echo,https://atcoder.jp/contests/abc145/tasks/abc145_b
+文字列処理,-420,abc176_b,B. Multiple of 9,https://atcoder.jp/contests/abc176/tasks/abc176_b
+文字列処理,-398,abc322_b,B. Prefix and Suffix,https://atcoder.jp/contests/abc322/tasks/abc322_b
+文字列処理,-371,abc221_b,B. typo,https://atcoder.jp/contests/abc221/tasks/abc221_b
+文字列処理,-369,abc198_b,B. Palindrome with leading zeros,https://atcoder.jp/contests/abc198/tasks/abc198_b
+文字列処理,-333,abc280_c,C. Extra Character,https://atcoder.jp/contests/abc280/tasks/abc280_c
+文字列処理,-322,abc143_c,C. Slimes,https://atcoder.jp/contests/abc143/tasks/abc143_c
+文字列処理,-317,abc069_b,B. i18n,https://atcoder.jp/contests/abc069/tasks/abc069_b
+文字列処理,-297,abc072_b,B. OddString,https://atcoder.jp/contests/abc072/tasks/abc072_b
+文字列処理,-265,abc146_b,B. ROT N,https://atcoder.jp/contests/abc146/tasks/abc146_b
+文字列処理,-238,abc041_a,A. 添字,https://atcoder.jp/contests/abc041/tasks/abc041_a
+文字列処理,-234,abc232_b,B. Caesar Cipher,https://atcoder.jp/contests/abc232/tasks/abc232_b
+文字列処理,-213,abc223_b,B. String Shifting,https://atcoder.jp/contests/abc223/tasks/abc223_b
+文字列処理,-205,abc080_b,B. Harshad Number,https://atcoder.jp/contests/abc080/tasks/abc080_b
+文字列処理,-190,abc159_b,B. String Palindrome,https://atcoder.jp/contests/abc159/tasks/abc159_b
+文字列処理,-122,abc122_b,B. ATCoder,https://atcoder.jp/contests/abc122/tasks/abc122_b
+文字列処理,-75,abc029_b,B. カキ,https://atcoder.jp/contests/abc029/tasks/abc029_b
+文字列処理,104,abc299_c,C. Dango,https://atcoder.jp/contests/abc299/tasks/abc299_c
+文字列処理,110,abc103_b,B. String Rotation,https://atcoder.jp/contests/abc103/tasks/abc103_b
+文字列処理,115,abc071_b,B. Not Found,https://atcoder.jp/contests/abc071/tasks/abc071_b
+文字列処理,137,abc187_c,C. 1-SAT,https://atcoder.jp/contests/abc187/tasks/abc187_c
+文字列処理,155,abc058_b,B. ∵∴∵,https://atcoder.jp/contests/abc058/tasks/abc058_b
+文字列処理,158,abc059_b,B. Comparison,https://atcoder.jp/contests/abc059/tasks/abc059_b
+文字列処理,160,abc020_b,B. 足し算,https://atcoder.jp/contests/abc020/tasks/abc020_b
+文字列処理,172,abc011_2,B. 名前の確認,https://atcoder.jp/contests/abc011/tasks/abc011_2
+文字列処理,227,abc219_c,C. Neo-lexicographic Ordering,https://atcoder.jp/contests/abc219/tasks/abc219_c
+文字列処理,239,abc237_c,C. kasaka,https://atcoder.jp/contests/abc237/tasks/abc237_c
+文字列処理,243,abc044_b,B. Beautiful Strings,https://atcoder.jp/contests/abc044/tasks/abc044_b
+文字列処理,298,abc002_2,B. 罠,https://atcoder.jp/contests/abc002/tasks/abc002_2
+文字列処理,384,abc066_b,B. ss,https://atcoder.jp/contests/abc066/tasks/abc066_b
+文字列処理,436,abc199_c,C. IPFL,https://atcoder.jp/contests/abc199/tasks/abc199_c
+文字列処理,469,abc018_2,B. 文字列の反転,https://atcoder.jp/contests/abc018/tasks/abc018_2
+文字列処理,503,abc060_b,B. Choose Integers,https://atcoder.jp/contests/abc060/tasks/abc060_b
+文字列処理,512,abc043_b,B. Unhappy Hacking (ABC Edit),https://atcoder.jp/contests/abc043/tasks/abc043_b
+文字列処理,534,abc019_2,B. 高橋くんと文字列圧縮,https://atcoder.jp/contests/abc019/tasks/abc019_2
+文字列処理,547,abc017_2,B. choku語,https://atcoder.jp/contests/abc017/tasks/abc017_2
+文字列処理,597,abc137_c,C. Green Bin,https://atcoder.jp/contests/abc137/tasks/abc137_c
+文字列処理,616,abc042_b,B. Iroha Loves Strings (ABC Edition),https://atcoder.jp/contests/abc042/tasks/abc042_b
+文字列処理,635,abc045_b,B. Card Game for Three (ABC Edit),https://atcoder.jp/contests/abc045/tasks/abc045_b
+文字列処理,685,abc232_c,C. Graph Isomorphism,https://atcoder.jp/contests/abc232/tasks/abc232_c
+文字列処理,755,abc033_c,C. 数式の書き換え,https://atcoder.jp/contests/abc033/tasks/abc033_c
+文字列処理,846,abc076_c,C. Dubious Document 2,https://atcoder.jp/contests/abc076/tasks/abc076_c
+文字列処理,949,abc110_c,C. String Transformation,https://atcoder.jp/contests/abc110/tasks/abc110_c
+文字列処理,1365,abc242_e,E. (∀x∀),https://atcoder.jp/contests/abc242/tasks/abc242_e
+文字列処理,1961,abc167_f,F. Bracket Sequencing,https://atcoder.jp/contests/abc167/tasks/abc167_f
+構文解析,755,abc033_c,C. 数式の書き換え,https://atcoder.jp/contests/abc033/tasks/abc033_c
+imos法,-35,abc141_c,C. Attack Survival,https://atcoder.jp/contests/abc141/tasks/abc141_c
+imos法,194,abc127_c,C. Prison,https://atcoder.jp/contests/abc127/tasks/abc127_c
+imos法,365,abc024_b,B. 自動ドア,https://atcoder.jp/contests/abc024/tasks/abc024_b
+imos法,546,abc256_d,D. Union of Interval,https://atcoder.jp/contests/abc256/tasks/abc256_d
+imos法,662,abc183_d,D. Water Heater,https://atcoder.jp/contests/abc183/tasks/abc183_d
+imos法,792,abc294_e,E. 2xN Grid,https://atcoder.jp/contests/abc294/tasks/abc294_e
+imos法,920,abc138_d,D. Ki,https://atcoder.jp/contests/abc138/tasks/abc138_d
+imos法,933,abc188_d,D. Snuke Prime,https://atcoder.jp/contests/abc188/tasks/abc188_d
+imos法,996,abc278_e,E. Grid Filling,https://atcoder.jp/contests/abc278/tasks/abc278_e
+imos法,1096,abc035_c,C. オセロ,https://atcoder.jp/contests/abc035/tasks/abc035_c
+imos法,1234,abc338_d,D. Island Tour,https://atcoder.jp/contests/abc338/tasks/abc338_d
+imos法,1276,abc014_3,C. AtColor,https://atcoder.jp/contests/abc014/tasks/abc014_3
+imos法,1358,abc187_e,E. Through Path,https://atcoder.jp/contests/abc187/tasks/abc187_e
+imos法,1383,abc080_d,D. Recording,https://atcoder.jp/contests/abc080/tasks/abc080_d
+imos法,1565,abc001_4,D. 感雨時刻の整理,https://atcoder.jp/contests/abc001/tasks/abc001_4
+imos法,1607,abc017_3,C. ハイスコア,https://atcoder.jp/contests/abc017/tasks/abc017_3
+その他,130,abc202_c,C. Made Up,https://atcoder.jp/contests/abc202/tasks/abc202_c
+その他,1434,abc272_e,E. Add and Mex,https://atcoder.jp/contests/abc272/tasks/abc272_e
+その他,1586,abc183_f,F. Confluence,https://atcoder.jp/contests/abc183/tasks/abc183_f
+その他,1627,abc351_e,E. Jump Distance Sum,https://atcoder.jp/contests/abc351/tasks/abc351_e
+シミュレーション,-299,abc319_b,B. Measure,https://atcoder.jp/contests/abc319/tasks/abc319_b
+シミュレーション,-265,abc332_b,B. Glass and Mug,https://atcoder.jp/contests/abc332/tasks/abc332_b
+シミュレーション,-227,abc256_b,B. Batters,https://atcoder.jp/contests/abc256/tasks/abc256_b
+シミュレーション,-213,abc328_b,B. 11/11,https://atcoder.jp/contests/abc328/tasks/abc328_b
+シミュレーション,-200,abc165_b,B. 1%,https://atcoder.jp/contests/abc165/tasks/abc165_b
+シミュレーション,-194,abc257_b,B. 1D Pawn,https://atcoder.jp/contests/abc257/tasks/abc257_b
+シミュレーション,-161,abc207_b,B. Hydrate,https://atcoder.jp/contests/abc207/tasks/abc207_b
+シミュレーション,-152,abc318_b,B. Overlapping sheets,https://atcoder.jp/contests/abc318/tasks/abc318_b
+シミュレーション,-59,abc294_c,C. Merge Sequences,https://atcoder.jp/contests/abc294/tasks/abc294_c
+シミュレーション,-6,abc216_c,C. Many Balls,https://atcoder.jp/contests/abc216/tasks/abc216_c
+シミュレーション,76,abc215_c,C. One More aab aba baa,https://atcoder.jp/contests/abc215/tasks/abc215_c
+シミュレーション,77,abc273_b,B. Broken Rounding,https://atcoder.jp/contests/abc273/tasks/abc273_b
+シミュレーション,233,abc166_c,C. Peaks,https://atcoder.jp/contests/abc166/tasks/abc166_c
+シミュレーション,327,abc151_c,C. Welcome to AtCoder,https://atcoder.jp/contests/abc151/tasks/abc151_c
+シミュレーション,357,abc210_c,C. Colorful Candies,https://atcoder.jp/contests/abc210/tasks/abc210_c
+シミュレーション,498,abc171_d,D. Replacing,https://atcoder.jp/contests/abc171/tasks/abc171_d
+シミュレーション,534,abc019_2,B. 高橋くんと文字列圧縮,https://atcoder.jp/contests/abc019/tasks/abc019_2
+シミュレーション,754,abc167_d,D. Teleporter,https://atcoder.jp/contests/abc167/tasks/abc167_d
+シミュレーション,778,abc225_d,D. Play Train,https://atcoder.jp/contests/abc225/tasks/abc225_d
+シミュレーション,782,abc184_c,C. Super Ryuma,https://atcoder.jp/contests/abc184/tasks/abc184_c
+シミュレーション,794,abc136_d,D. Gathering Children,https://atcoder.jp/contests/abc136/tasks/abc136_d
+シミュレーション,951,abc379_c,C. Sowing Stones,https://atcoder.jp/contests/abc379/tasks/abc379_c
+シミュレーション,1007,abc024_c,C. 民族大移動,https://atcoder.jp/contests/abc024/tasks/abc024_c
+シミュレーション,1175,abc179_e,E. Sequence Sum,https://atcoder.jp/contests/abc179/tasks/abc179_e
+シミュレーション,1211,abc270_e,E. Apple Baskets on Circle,https://atcoder.jp/contests/abc270/tasks/abc270_e
+シミュレーション,1502,abc170_e,E. Smart Infants,https://atcoder.jp/contests/abc170/tasks/abc170_e
+シミュレーション,1603,abc440_e,E. Cookies,https://atcoder.jp/contests/abc440/tasks/abc440_e
+シミュレーション,1710,abc204_e,E. Rush Hour 2,https://atcoder.jp/contests/abc204/tasks/abc204_e
+シミュレーション,1750,abc203_e,E. White Pawn,https://atcoder.jp/contests/abc203/tasks/abc203_e
+ソート,-1012,abc377_a,A. Rearranging ABC,https://atcoder.jp/contests/abc377/tasks/abc377_a
+ソート,-889,abc205_b,B. Permutation Check,https://atcoder.jp/contests/abc205/tasks/abc205_b
+ソート,-765,abc171_b,B. Mix Juice,https://atcoder.jp/contests/abc171/tasks/abc171_b
+ソート,-764,abc317_b,B. MissingNo.,https://atcoder.jp/contests/abc317/tasks/abc317_b
+ソート,-692,abc213_b,B. Booby Prize,https://atcoder.jp/contests/abc213/tasks/abc213_b
+ソート,-614,abc201_b,B. Do you know the second highest mountain?,https://atcoder.jp/contests/abc201/tasks/abc201_b
+ソート,-478,abc242_b,B. Minimize Ordering,https://atcoder.jp/contests/abc242/tasks/abc242_b
+ソート,-182,abc088_b,B. Card Game for Two,https://atcoder.jp/contests/abc088/tasks/abc088_b
+ソート,-148,abc161_b,B. Popular Vote,https://atcoder.jp/contests/abc161/tasks/abc161_b
+ソート,-99,abc132_c,C. Divide the Problems,https://atcoder.jp/contests/abc132/tasks/abc132_c
+ソート,-31,abc134_c,C. Exception Handling,https://atcoder.jp/contests/abc134/tasks/abc134_c
+ソート,-13,abc208_c,C. Fair Candy Distribution,https://atcoder.jp/contests/abc208/tasks/abc208_c
+ソート,54,abc203_c,C. Friends and Travel costs,https://atcoder.jp/contests/abc203/tasks/abc203_c
+ソート,149,abc228_c,C. Final Day,https://atcoder.jp/contests/abc228/tasks/abc228_c
+ソート,157,abc018_1,A. 豆まき,https://atcoder.jp/contests/abc018/tasks/abc018_1
+ソート,227,abc219_c,C. Neo-lexicographic Ordering,https://atcoder.jp/contests/abc219/tasks/abc219_c
+ソート,246,abc279_c,C. RANDOM,https://atcoder.jp/contests/abc279/tasks/abc279_c
+ソート,264,abc209_c,C. Not Equal,https://atcoder.jp/contests/abc209/tasks/abc209_c
+ソート,330,abc246_c,C. Coupon,https://atcoder.jp/contests/abc246/tasks/abc246_c
+ソート,347,abc128_b,B. Guidebook,https://atcoder.jp/contests/abc128/tasks/abc128_b
+ソート,358,abc121_c,C. Energy Drink Collector,https://atcoder.jp/contests/abc121/tasks/abc121_c
+ソート,366,abc222_c,C. Swiss-System Tournament,https://atcoder.jp/contests/abc222/tasks/abc222_c
+ソート,481,abc213_c,C. Reorder Cards,https://atcoder.jp/contests/abc213/tasks/abc213_c
+ソート,808,abc061_c,C. Big Array,https://atcoder.jp/contests/abc061/tasks/abc061_c
+ソート,832,abc221_d,D. Online games,https://atcoder.jp/contests/abc221/tasks/abc221_d
+ソート,996,abc386_d,D. Diagonal Separation,https://atcoder.jp/contests/abc386/tasks/abc386_d
+ソート,1193,abc181_e,E. Transformable Teacher,https://atcoder.jp/contests/abc181/tasks/abc181_e
+ソート,1383,abc080_d,D. Recording,https://atcoder.jp/contests/abc080/tasks/abc080_d
+ソート,1528,abc145_e,E. All-you-can-eat,https://atcoder.jp/contests/abc145/tasks/abc145_e
+ソート,1840,abc128_e,E. Roadwork,https://atcoder.jp/contests/abc128/tasks/abc128_e
+ダブリング,754,abc167_d,D. Teleporter,https://atcoder.jp/contests/abc167/tasks/abc167_d
+ダブリング,794,abc136_d,D. Gathering Children,https://atcoder.jp/contests/abc136/tasks/abc136_d
+ダブリング,1175,abc179_e,E. Sequence Sum,https://atcoder.jp/contests/abc179/tasks/abc179_e
+ダブリング,1248,abc241_e,E. Putting Candies,https://atcoder.jp/contests/abc241/tasks/abc241_e
+ダブリング,1370,abc367_e,E. Permute K times,https://atcoder.jp/contests/abc367/tasks/abc367_e
+ダブリング,1453,abc293_e,E. Geometric Progression,https://atcoder.jp/contests/abc293/tasks/abc293_e
+ダブリング,1491,abc175_d,D. Moving Piece,https://atcoder.jp/contests/abc175/tasks/abc175_d
+ダブリング,1586,abc030_d,D. へんてこ辞書,https://atcoder.jp/contests/abc030/tasks/abc030_d
+ダブリング,1685,abc377_e,E. Permute K times 2,https://atcoder.jp/contests/abc377/tasks/abc377_e
+ダブリング,1730,abc013_4,D. 阿弥陀,https://atcoder.jp/contests/abc013/tasks/abc013_4
+乱択アルゴリズム,1716,abc339_f,F. Product Equality,https://atcoder.jp/contests/abc339/tasks/abc339_f
+再帰関数,-1271,abc244_a,A. Last Letter,https://atcoder.jp/contests/abc244/tasks/abc244_a
+再帰関数,5,abc247_c,C. 1 2 1 3 1 2 1,https://atcoder.jp/contests/abc247/tasks/abc247_c
+再帰関数,370,abc357_c,C. Sierpinski carpet,https://atcoder.jp/contests/abc357/tasks/abc357_c
+再帰関数,606,abc275_d,D. Yet Another Recursive Function,https://atcoder.jp/contests/abc275/tasks/abc275_d
+再帰関数,769,abc189_d,D. Logical Expression,https://atcoder.jp/contests/abc189/tasks/abc189_d
+再帰関数,991,abc161_d,D. Lunlun Number,https://atcoder.jp/contests/abc161/tasks/abc161_d
+再帰関数,1088,abc115_d,D. Christmas,https://atcoder.jp/contests/abc115/tasks/abc115_d
+再帰関数,1286,abc242_d,D. ABC Transform,https://atcoder.jp/contests/abc242/tasks/abc242_d
+再帰関数,1298,abc154_e,E. Almost Everywhere Zero,https://atcoder.jp/contests/abc154/tasks/abc154_e
+再帰関数,1346,abc119_c,C. Synthetic Kadomatsu,https://atcoder.jp/contests/abc119/tasks/abc119_c
+再帰関数,1377,abc037_d,D. 経路,https://atcoder.jp/contests/abc037/tasks/abc037_d
+再帰関数,1419,abc345_d,D. Tiling,https://atcoder.jp/contests/abc345/tasks/abc345_d
+再帰関数,1865,abc188_f,F. +1-1x2,https://atcoder.jp/contests/abc188/tasks/abc188_f
+半分全列挙,1148,abc246_d,D. 2-variable Function,https://atcoder.jp/contests/abc246/tasks/abc246_d
+半分全列挙,1423,abc184_f,F. Programming Contest,https://atcoder.jp/contests/abc184/tasks/abc184_f
+半分全列挙,1669,abc271_f,F. XOR on Grid Path,https://atcoder.jp/contests/abc271/tasks/abc271_f
+半分全列挙,1711,abc018_4,D. バレンタインデー,https://atcoder.jp/contests/abc018/tasks/abc018_4
+半分全列挙,1870,abc326_f,F. Robot Rotation,https://atcoder.jp/contests/abc326/tasks/abc326_f
+半分全列挙,1883,abc332_e,E. Lucky bag,https://atcoder.jp/contests/abc332/tasks/abc332_e
+尺取り法,-312,abc311_b,B. Vacation Together,https://atcoder.jp/contests/abc311/tasks/abc311_b
+尺取り法,-59,abc294_c,C. Merge Sequences,https://atcoder.jp/contests/abc294/tasks/abc294_c
+尺取り法,315,abc369_c,C. Count Arithmetic Subarrays,https://atcoder.jp/contests/abc369/tasks/abc369_c
+尺取り法,357,abc210_c,C. Colorful Candies,https://atcoder.jp/contests/abc210/tasks/abc210_c
+尺取り法,485,abc154_d,D. Dice in Line,https://atcoder.jp/contests/abc154/tasks/abc154_d
+尺取り法,745,abc229_d,D. Longest X,https://atcoder.jp/contests/abc229/tasks/abc229_d
+尺取り法,865,abc130_d,D. Enough Array,https://atcoder.jp/contests/abc130/tasks/abc130_d
+尺取り法,894,abc038_c,C. 単調増加,https://atcoder.jp/contests/abc038/tasks/abc038_c
+尺取り法,930,abc172_c,C. Tsundoku,https://atcoder.jp/contests/abc172/tasks/abc172_c
+尺取り法,1138,abc124_d,D. Handstand,https://atcoder.jp/contests/abc124/tasks/abc124_d
+尺取り法,1148,abc246_d,D. 2-variable Function,https://atcoder.jp/contests/abc246/tasks/abc246_d
+尺取り法,1244,abc032_c,C. 列,https://atcoder.jp/contests/abc032/tasks/abc032_c
+尺取り法,1256,abc247_e,E. Max Min,https://atcoder.jp/contests/abc247/tasks/abc247_e
+尺取り法,1393,abc153_f,F. Silver Fox vs Monster,https://atcoder.jp/contests/abc153/tasks/abc153_f
+尺取り法,1956,abc017_4,D. サプリメント,https://atcoder.jp/contests/abc017/tasks/abc017_4
+平方分割,1223,abc341_e,E. Alternating String,https://atcoder.jp/contests/abc341/tasks/abc341_e
+平方分割,1495,abc174_f,F. Range Set Query,https://atcoder.jp/contests/abc174/tasks/abc174_f
+平方分割,1690,abc335_f,F. Hop Sugoroku,https://atcoder.jp/contests/abc335/tasks/abc335_f
+平方分割,1753,abc293_g,G. Triple Index,https://atcoder.jp/contests/abc293/tasks/abc293_g
+平方分割,1828,abc242_g,G. Range Pairing Query,https://atcoder.jp/contests/abc242/tasks/abc242_g
+座標圧縮,481,abc213_c,C. Reorder Cards,https://atcoder.jp/contests/abc213/tasks/abc213_c
+座標圧縮,878,abc113_c,C. ID,https://atcoder.jp/contests/abc113/tasks/abc113_c
+座標圧縮,933,abc188_d,D. Snuke Prime,https://atcoder.jp/contests/abc188/tasks/abc188_d
+座標圧縮,956,abc036_c,C. 座圧,https://atcoder.jp/contests/abc036/tasks/abc036_c
+累積和,-769,abc280_b,B. Inverse Prefix Sum,https://atcoder.jp/contests/abc280/tasks/abc280_b
+累積和,-300,abc130_b,B. Bounding,https://atcoder.jp/contests/abc130/tasks/abc130_b
+累積和,-227,abc256_b,B. Batters,https://atcoder.jp/contests/abc256/tasks/abc256_b
+累積和,-182,abc129_b,B. Balance,https://atcoder.jp/contests/abc129/tasks/abc129_b
+累積和,-86,abc220_c,C. Long Sequence,https://atcoder.jp/contests/abc220/tasks/abc220_c
+累積和,-35,abc141_c,C. Attack Survival,https://atcoder.jp/contests/abc141/tasks/abc141_c
+累積和,-31,abc134_c,C. Exception Handling,https://atcoder.jp/contests/abc134/tasks/abc134_c
+累積和,59,abc152_c,C. Low Elements,https://atcoder.jp/contests/abc152/tasks/abc152_c
+累積和,386,abc177_c,C. Sum of product of pairs,https://atcoder.jp/contests/abc177/tasks/abc177_c
+累積和,386,abc194_c,C. Squared Error,https://atcoder.jp/contests/abc194/tasks/abc194_c
+累積和,436,abc186_d,D. Sum of difference,https://atcoder.jp/contests/abc186/tasks/abc186_d
+累積和,485,abc154_d,D. Dice in Line,https://atcoder.jp/contests/abc154/tasks/abc154_d
+累積和,486,abc174_d,D. Alter Altar,https://atcoder.jp/contests/abc174/tasks/abc174_d
+累積和,524,abc267_c,C. Index × A(Continuous ver.),https://atcoder.jp/contests/abc267/tasks/abc267_c
+累積和,671,abc305_d,D. Sleep Log,https://atcoder.jp/contests/abc305/tasks/abc305_d
+累積和,700,abc122_c,C. GeT AC,https://atcoder.jp/contests/abc122/tasks/abc122_c
+累積和,701,abc182_d,D. Wandering,https://atcoder.jp/contests/abc182/tasks/abc182_d
+累積和,726,abc233_d,D. Count Interval,https://atcoder.jp/contests/abc233/tasks/abc233_d
+累積和,760,abc337_d,D. Cheating Gomoku Narabe,https://atcoder.jp/contests/abc337/tasks/abc337_d
+累積和,795,abc353_c,C. Sigma Problem,https://atcoder.jp/contests/abc353/tasks/abc353_c
+累積和,806,abc321_d,D. Set Menu,https://atcoder.jp/contests/abc321/tasks/abc321_d
+累積和,844,abc353_d,D. Another Sigma Problem,https://atcoder.jp/contests/abc353/tasks/abc353_d
+累積和,865,abc222_d,D. Between Two Arrays,https://atcoder.jp/contests/abc222/tasks/abc222_d
+累積和,884,abc252_d,D. Distinct Trio,https://atcoder.jp/contests/abc252/tasks/abc252_d
+累積和,915,abc037_c,C. 総和,https://atcoder.jp/contests/abc037/tasks/abc037_c
+累積和,930,abc172_c,C. Tsundoku,https://atcoder.jp/contests/abc172/tasks/abc172_c
+累積和,939,abc295_d,D. Three Days Ago,https://atcoder.jp/contests/abc295/tasks/abc295_d
+累積和,960,abc163_d,D. Sum of Large Numbers,https://atcoder.jp/contests/abc163/tasks/abc163_d
+累積和,969,abc233_e,E. Σ[k=0..10^100]floor(X／10^k),https://atcoder.jp/contests/abc233/tasks/abc233_e
+累積和,980,abc084_d,D. 2017-like Number,https://atcoder.jp/contests/abc084/tasks/abc084_d
+累積和,996,abc278_e,E. Grid Filling,https://atcoder.jp/contests/abc278/tasks/abc278_e
+累積和,1016,abc263_d,D. Left Right Operation,https://atcoder.jp/contests/abc263/tasks/abc263_d
+累積和,1030,abc334_c,C. Socks 2,https://atcoder.jp/contests/abc334/tasks/abc334_c
+累積和,1037,abc367_d,D. Pedometer,https://atcoder.jp/contests/abc367/tasks/abc367_d
+累積和,1103,abc129_d,D. Lamp,https://atcoder.jp/contests/abc129/tasks/abc129_d
+累積和,1193,abc181_e,E. Transformable Teacher,https://atcoder.jp/contests/abc181/tasks/abc181_e
+累積和,1197,abc125_c,C. GCD on Blackboard,https://atcoder.jp/contests/abc125/tasks/abc125_c
+累積和,1220,abc089_d,D. Practical Skill Test,https://atcoder.jp/contests/abc089/tasks/abc089_d
+累積和,1232,abc164_d,D. Multiple of 2019,https://atcoder.jp/contests/abc164/tasks/abc164_d
+累積和,1251,abc179_d,D. Leaping Tak,https://atcoder.jp/contests/abc179/tasks/abc179_d
+累積和,1253,abc351_f,F. Double Sum,https://atcoder.jp/contests/abc351/tasks/abc351_f
+累積和,1276,abc014_3,C. AtColor,https://atcoder.jp/contests/abc014/tasks/abc014_3
+累積和,1288,abc183_e,E. Queen on Grid,https://atcoder.jp/contests/abc183/tasks/abc183_e
+累積和,1319,abc106_d,D. AtCoder Express 2,https://atcoder.jp/contests/abc106/tasks/abc106_d
+累積和,1393,abc153_f,F. Silver Fox vs Monster,https://atcoder.jp/contests/abc153/tasks/abc153_f
+累積和,1447,abc005_4,D. おいしいたこ焼きの焼き方,https://atcoder.jp/contests/abc005/tasks/abc005_4
+累積和,1458,abc105_d,D. Candy Distribution,https://atcoder.jp/contests/abc105/tasks/abc105_d
+累積和,1470,abc075_d,D. Axis-Parallel Rectangle,https://atcoder.jp/contests/abc075/tasks/abc075_d
+累積和,1507,abc210_d,D. National Railway,https://atcoder.jp/contests/abc210/tasks/abc210_d
+累積和,1553,abc018_3,C. 菱型カウント,https://atcoder.jp/contests/abc018/tasks/abc018_3
+累積和,1622,abc203_d,D. Pond,https://atcoder.jp/contests/abc203/tasks/abc203_d
+累積和,1670,abc136_e,E. Max GCD,https://atcoder.jp/contests/abc136/tasks/abc136_e
+累積和,1676,abc130_e,E. Common Subsequence,https://atcoder.jp/contests/abc130/tasks/abc130_e
+累積和,1760,abc161_e,E. Yutori,https://atcoder.jp/contests/abc161/tasks/abc161_e
+累積和,1786,abc249_f,F. Ignore Operations,https://atcoder.jp/contests/abc249/tasks/abc249_f
+累積和,1861,abc004_4,D. マーブル,https://atcoder.jp/contests/abc004/tasks/abc004_4
+累積和,1938,abc127_e,E. Cell Distance,https://atcoder.jp/contests/abc127/tasks/abc127_e
+累積和,1956,abc017_4,D. サプリメント,https://atcoder.jp/contests/abc017/tasks/abc017_4
