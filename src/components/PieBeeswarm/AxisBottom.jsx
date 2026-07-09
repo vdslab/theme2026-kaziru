@@ -1,4 +1,4 @@
-export default function AxisBottom({ xMin, xMax, yMax, tickStep }) {
+export default function AxisBottom({ xMin, xMax, yMin, yMax, tickStep }) {
 
 
   const ticks = [];
@@ -14,7 +14,7 @@ export default function AxisBottom({ xMin, xMax, yMax, tickStep }) {
       {ticks.map((tick) => (
         <g key={tick} transform={`translate(${tick},0)`}>
           {/* tick線 */}
-          <line y1={-yMax} y2={yMax + 10} stroke="gray" />
+          <line y1={yMin} y2={yMax + 10} stroke="gray" />
 
           {/* ラベル */}
           <text y={yMax + 25} textAnchor="middle" fontSize={12}>
