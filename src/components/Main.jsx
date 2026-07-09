@@ -8,7 +8,7 @@ const MOCK_ALGORITHM = {
   n: 53,
 };
 
-export default function Main({ summary, allRows, rate, rateLoading, rateError }) {
+export default function Main({ summary, allRows, rate, rateLoading, rateError, submissionsMap, submissionsLoading, submissionsError }) {
   const [rateThreshold, setRateThreshold] = useState(0);
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showRecommended, setShowRecommended] = useState(true);
@@ -112,7 +112,7 @@ export default function Main({ summary, allRows, rate, rateLoading, rateError })
             />
           </div>
 
-          <AlgorithmCard algo={selectedAlgo} problems={problems} />
+          <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
         </div>
       </div>
     </main>
