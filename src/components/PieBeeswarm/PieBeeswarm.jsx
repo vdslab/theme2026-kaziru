@@ -84,7 +84,7 @@ export default function PieBeeswarm({
         {shouldShowCurrentRate && (
           <g className="current-rate-line" transform={`translate(${currentRateX},0)`}>
             <line y1={viewBoxY + 16} y2={yMax + 10} />
-            <text y={viewBoxY + 40} textAnchor="middle">
+            <text y={yMax + 104} textAnchor="middle">
               {currentRateLabel}
             </text>
           </g>
