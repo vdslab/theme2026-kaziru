@@ -3,6 +3,14 @@ import AxisBottom from "./AxisBottom";
 import PieNode from "./PieNode";
 import NodeLabel from "./NodeLabel";
 
+function getNiceStep(value, tickCount) {
+  const roughStep = value / Math.max(1, tickCount);
+  const magnitude = 10 ** Math.floor(Math.log10(Math.max(roughStep, 1)));
+  const normalized = roughStep / magnitude;
+  const multiplier = [1, 2, 5, 10].find((step) => step >= normalized) ?? 10;
+  return multiplier * magnitude;
+}
+
 export default function PieBeeswarm({
   data = [],
   rate = null,
@@ -30,7 +38,7 @@ export default function PieBeeswarm({
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [data.length]);
 
   if (data.length === 0) {
     return null;
@@ -38,7 +46,6 @@ export default function PieBeeswarm({
 
   const AXIS_MIN = 0;
   const AXIS_MAX = 2000;
-  const TICK_STEP = 400;
   const SIDE_MARGIN = 56;
   const RATE_LABEL_SIDE_MARGIN = 96;
   const TOP_MARGIN = 24;
@@ -80,7 +87,7 @@ export default function PieBeeswarm({
 
     if (contentAspectRatio > aspectRatio) {
       const fittedHeight = viewBoxWidth / aspectRatio;
-      viewBoxY -= fittedHeight - viewBoxHeight;
+      viewBoxY -= (fittedHeight - viewBoxHeight) / 2;
       viewBoxHeight = fittedHeight;
     } else {
       const fittedWidth = viewBoxHeight * aspectRatio;
@@ -89,6 +96,39 @@ export default function PieBeeswarm({
   }
 
   const axisY = viewBoxY + viewBoxHeight - bottomMargin;
+  const viewBoxXMax = viewBoxX + viewBoxWidth;
+  const maxNodeRadius = Math.max(...data.map((item) => item.r));
+  const xDomainMax = Math.max(
+    1,
+    Math.min(
+      AXIS_MAX,
+      Math.max(
+        ...data.map((item) => item.x),
+        shouldShowCurrentRate ? currentRateX : AXIS_MIN,
+      ),
+    ),
+  );
+  const plotXMin = viewBoxX + Math.max(SIDE_MARGIN, maxNodeRadius);
+  const plotXMax =
+    viewBoxXMax -
+    Math.max(
+      shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN,
+      maxNodeRadius,
+    );
+  const plotXWidth = Math.max(1, plotXMax - plotXMin);
+  const xScale = (value) =>
+    plotXMin +
+    (Math.min(xDomainMax, Math.max(AXIS_MIN, value)) / xDomainMax) * plotXWidth;
+  const desiredTickCount = Math.max(2, Math.min(6, Math.floor(plotXWidth / 180)));
+  const tickStep = getNiceStep(xDomainMax, desiredTickCount);
+  const ticks = [];
+  for (let value = AXIS_MIN; value <= xDomainMax; value += tickStep) {
+    ticks.push({ value, position: xScale(value) });
+  }
+  const renderedData = data.map((item) => ({
+    ...item,
+    x: xScale(item.x),
+  }));
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
@@ -100,15 +140,14 @@ export default function PieBeeswarm({
       >
         <AxisBottom
           xMin={viewBoxX}
-          xMax={viewBoxX + viewBoxWidth}
+          xMax={viewBoxXMax}
           yMin={viewBoxY}
           yMax={axisY}
-          tickStep={TICK_STEP}
-          labelMax={AXIS_MAX}
+          ticks={ticks}
         />
 
         {shouldShowCurrentRate && (
-          <g className="current-rate-line" transform={`translate(${currentRateX},0)`}>
+          <g className="current-rate-line" transform={`translate(${xScale(currentRateX)},0)`}>
             <line y1={viewBoxY} y2={axisY + 10} />
             <text y={axisY + 104} textAnchor="middle">
               {currentRateLabel}
@@ -116,7 +155,7 @@ export default function PieBeeswarm({
           </g>
         )}
 
-        {data.map((item) => (
+        {renderedData.map((item) => (
           <PieNode
             key={item.algo}
             label={item.algo}
@@ -136,7 +175,7 @@ export default function PieBeeswarm({
         ))}
 
         {showLabels &&
-          data.map((item) => (
+          renderedData.map((item) => (
             <NodeLabel
               key={item.algo}
               x={item.x}
