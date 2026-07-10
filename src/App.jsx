@@ -70,7 +70,7 @@ export default function App() {
   useEffect(() => {
     async function init() {
       try {
-        const rows = await loadCsv("/chart_data.csv");
+        const rows = await loadCsv("/all_problems.csv");
 
         const columns = Object.keys(rows[0]);
 
