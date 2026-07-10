@@ -44,7 +44,8 @@ export default function Main({
     MOCK_ALGORITHM;
 
   const problems = allRows
-    .filter((row) => row.tag === selectedAlgo.algo);
+    .filter((row) => row.tag === selectedAlgo.algo)
+    .sort((a, b) => (a.diffCalc ?? 0) - (b.diffCalc ?? 0));
 
   return (
     <main className="main">
