@@ -102,14 +102,14 @@ export default function PieBeeswarm({
         <AxisBottom
           xMin={AXIS_MIN}
           xMax={AXIS_MAX}
-          yMin={contentYMin}
+          yMin={viewBoxY}
           yMax={axisY}
           tickStep={TICK_STEP}
         />
 
         {shouldShowCurrentRate && (
           <g className="current-rate-line" transform={`translate(${currentRateX},0)`}>
-            <line y1={contentYMin} y2={axisY + 10} />
+            <line y1={viewBoxY} y2={axisY + 10} />
             <text y={axisY + 104} textAnchor="middle">
               {currentRateLabel}
             </text>
