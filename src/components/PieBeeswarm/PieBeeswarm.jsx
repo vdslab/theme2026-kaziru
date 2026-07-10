@@ -50,7 +50,6 @@ export default function PieBeeswarm({
   const nodeYMin = Math.min(...data.map((d) => d.y - d.r));
   const nodeYMax = Math.max(...data.map((d) => d.y + d.r));
 
-  const axisY = nodeYMax;
   const currentRate = Number(rate);
   const shouldShowCurrentRate =
     hasUsername && showCurrentRate && Number.isFinite(currentRate);
@@ -65,11 +64,10 @@ export default function PieBeeswarm({
     Math.max(AXIS_MAX, nodeXMax, shouldShowCurrentRate ? currentRateX : AXIS_MAX) +
     (shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN);
   const contentYMin = nodeYMin - TOP_MARGIN;
-  const contentYMax =
-    axisY +
-    (shouldShowCurrentRate
-      ? CURRENT_RATE_LABEL_BOTTOM_MARGIN
-      : AXIS_LABEL_BOTTOM_MARGIN);
+  const bottomMargin = shouldShowCurrentRate
+    ? CURRENT_RATE_LABEL_BOTTOM_MARGIN
+    : AXIS_LABEL_BOTTOM_MARGIN;
+  const contentYMax = nodeYMax + bottomMargin;
 
   let viewBoxX = contentXMin;
   let viewBoxY = contentYMin;
@@ -82,14 +80,15 @@ export default function PieBeeswarm({
 
     if (contentAspectRatio > aspectRatio) {
       const fittedHeight = viewBoxWidth / aspectRatio;
-      viewBoxY -= (fittedHeight - viewBoxHeight) / 2;
+      viewBoxY -= fittedHeight - viewBoxHeight;
       viewBoxHeight = fittedHeight;
     } else {
       const fittedWidth = viewBoxHeight * aspectRatio;
-      viewBoxX -= (fittedWidth - viewBoxWidth) / 2;
       viewBoxWidth = fittedWidth;
     }
   }
+
+  const axisY = viewBoxY + viewBoxHeight - bottomMargin;
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
@@ -100,11 +99,12 @@ export default function PieBeeswarm({
         preserveAspectRatio="xMidYMid meet"
       >
         <AxisBottom
-          xMin={AXIS_MIN}
-          xMax={AXIS_MAX}
+          xMin={viewBoxX}
+          xMax={viewBoxX + viewBoxWidth}
           yMin={viewBoxY}
           yMax={axisY}
           tickStep={TICK_STEP}
+          labelMax={AXIS_MAX}
         />
 
         {shouldShowCurrentRate && (
