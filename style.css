@@ -472,6 +472,11 @@ body {
   background-color: #ffe082;
 }
 
+.problem-item .diff-circle {
+  flex-shrink: 0;
+  margin-right: 6px;
+}
+
 .problem-id {
   font-family: monospace;
   color: #2563eb;
