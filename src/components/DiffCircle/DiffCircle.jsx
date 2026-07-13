@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useId } from "react";
 import { BAND_COLORS } from "../../utils/diffColors";
 
 const TOOLTIP_DELAY_MS = 200;
@@ -46,7 +46,7 @@ export default function DiffCircle({ difficulty, diffBand }) {
     const cx = size / 2;
     const cy = size / 2;
     const r = size / 2 - 1;
-    const clipId = `diff-clip-${Math.random().toString(36).slice(2, 8)}`;
+    const clipId = `diff-clip-${useId()}`;
 
     const filledHeight = ratio * size;
     const fillY = size - filledHeight;
