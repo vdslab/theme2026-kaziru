@@ -472,9 +472,31 @@ body {
   background-color: #ffe082;
 }
 
-.problem-item .diff-circle {
+.diff-circle-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
   margin-right: 6px;
+}
+
+.diff-circle-tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 6px);
+  transform: translateY(-50%);
+  background: #333;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.problem-item .diff-circle {
+  flex-shrink: 0;
 }
 
 .problem-id {

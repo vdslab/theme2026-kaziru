@@ -1,3 +1,5 @@
+import { useState, useRef, useCallback } from "react";
+
 const BAND_COLORS = {
     "0-399": "#808080",
     "400-799": "#804000",
@@ -9,9 +11,22 @@ const BAND_COLORS = {
     "2800-3199": "#FF0000",
 };
 
+const TOOLTIP_DELAY_MS = 200;
+
 export default function DiffCircle({ difficulty, diffBand }) {
     const hasDifficulty = difficulty != null && diffBand;
+    const [showTooltip, setShowTooltip] = useState(false);
+    const timerRef = useRef(null);
 
+    const handleMouseEnter = useCallback(() => {
+        if (!hasDifficulty) return;
+        timerRef.current = setTimeout(() => setShowTooltip(true), TOOLTIP_DELAY_MS);
+    }, [hasDifficulty]);
+
+    const handleMouseLeave = useCallback(() => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+        setShowTooltip(false);
+    }, []);
 
     let ratio = 0;
     let color = "#ccc";
@@ -33,36 +48,47 @@ export default function DiffCircle({ difficulty, diffBand }) {
     const fillY = size - filledHeight;
 
     return (
-        <svg
-            width={size}
-            height={size}
-            viewBox={`0 0 ${size} ${size}`}
-            className="diff-circle"
-            style={{ flexShrink: 0, display: "block" }}
+        <span
+            className="diff-circle-wrapper"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
-            <defs>
-                <clipPath id={clipId}>
-                    <circle cx={cx} cy={cy} r={r} />
-                </clipPath>
-            </defs>
-            <circle
-                cx={cx}
-                cy={cy}
-                r={r}
-                fill="none"
-                stroke={hasDifficulty ? color : "#d0d0d0"}
-                strokeWidth="1"
-            />
-            {hasDifficulty && (
-                <rect
-                    x={0}
-                    y={fillY}
-                    width={size}
-                    height={filledHeight}
-                    fill={color}
-                    clipPath={`url(#${clipId})`}
-                />
+            <svg
+                width={size}
+                height={size}
+                viewBox={`0 0 ${size} ${size}`}
+                className="diff-circle"
+                style={{ flexShrink: 0, display: "block" }}
+            >
+                <defs>
+                    <clipPath id={clipId}>
+                        <circle cx={cx} cy={cy} r={r} />
+                    </clipPath>
+                </defs>
+                <g>
+                    <circle
+                        cx={cx}
+                        cy={cy}
+                        r={r}
+                        fill="transparent"
+                        stroke={hasDifficulty ? color : "#d0d0d0"}
+                        strokeWidth="1"
+                    />
+                    {hasDifficulty && (
+                        <rect
+                            x={0}
+                            y={fillY}
+                            width={size}
+                            height={filledHeight}
+                            fill={color}
+                            clipPath={`url(#${clipId})`}
+                        />
+                    )}
+                </g>
+            </svg>
+            {showTooltip && (
+                <span className="diff-circle-tooltip">{`difficulty: ${difficulty}`}</span>
             )}
-        </svg>
+        </span>
     );
 }
