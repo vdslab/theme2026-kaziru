@@ -12,15 +12,29 @@ const BAND_COLORS = {
 };
 
 const TOOLTIP_DELAY_MS = 200;
+const TOOLTIP_OFFSET_Y = 2;
 
 export default function DiffCircle({ difficulty, diffBand }) {
     const hasDifficulty = difficulty != null && diffBand;
     const [showTooltip, setShowTooltip] = useState(false);
+    const [tooltipStyle, setTooltipStyle] = useState({});
     const timerRef = useRef(null);
+    const wrapperRef = useRef(null);
 
     const handleMouseEnter = useCallback(() => {
         if (!hasDifficulty) return;
-        timerRef.current = setTimeout(() => setShowTooltip(true), TOOLTIP_DELAY_MS);
+        timerRef.current = setTimeout(() => {
+            if (wrapperRef.current) {
+                const rect = wrapperRef.current.getBoundingClientRect();
+                setTooltipStyle({
+                    position: "fixed",
+                    left: rect.left + rect.width / 2,
+                    top: rect.top - TOOLTIP_OFFSET_Y,
+                    transform: "translate(-50%, -100%)",
+                });
+            }
+            setShowTooltip(true);
+        }, TOOLTIP_DELAY_MS);
     }, [hasDifficulty]);
 
     const handleMouseLeave = useCallback(() => {
@@ -49,6 +63,7 @@ export default function DiffCircle({ difficulty, diffBand }) {
 
     return (
         <span
+            ref={wrapperRef}
             className="diff-circle-wrapper"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -87,7 +102,10 @@ export default function DiffCircle({ difficulty, diffBand }) {
                 </g>
             </svg>
             {showTooltip && (
-                <span className="diff-circle-tooltip">{`difficulty: ${difficulty}`}</span>
+                <span
+                    className="diff-circle-tooltip"
+                    style={tooltipStyle}
+                >{`difficulty: ${difficulty}`}</span>
             )}
         </span>
     );

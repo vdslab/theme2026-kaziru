@@ -481,10 +481,6 @@ body {
 }
 
 .diff-circle-tooltip {
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 6px);
-  transform: translateY(-50%);
   background: #333;
   color: #fff;
   font-size: 11px;
@@ -492,7 +488,7 @@ body {
   border-radius: 4px;
   white-space: nowrap;
   pointer-events: none;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .problem-item .diff-circle {
