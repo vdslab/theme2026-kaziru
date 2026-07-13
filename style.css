@@ -497,14 +497,12 @@ body {
 
 .problem-id {
   font-family: monospace;
-  color: #2563eb;
   font-weight: 600;
   white-space: nowrap;
   margin-right: 8px;
 }
 
 .problem-title {
-  color: #333;
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
