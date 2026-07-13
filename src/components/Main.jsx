@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchUserRate } from "../api/loadUser";
 import { fetchAllUserSubmissions } from "../api/loadUserSubmissions";
 import { buildSubmissionMap } from "../utils/submissions";
+
 import UserIdInput from "./UserIdInput";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
@@ -24,6 +25,7 @@ export default function Main({ summary, allRows }) {
   const [rate, setRate] = useState(null);
   const [rateLoading, setRateLoading] = useState(false);
   const [rateError, setRateError] = useState(null);
+
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoading, setSubmissionsLoading] = useState(false);
   const [submissionsError, setSubmissionsError] = useState(null);
@@ -70,8 +72,6 @@ export default function Main({ summary, allRows }) {
     }
   };
 
-  const hasUsername = username.trim().length > 0;
-
   useEffect(() => {
     if (summary.length === 0) {
       setSelectedAlgoName(null);
@@ -84,6 +84,8 @@ export default function Main({ summary, allRows }) {
         : summary[0].algo,
     );
   }, [summary]);
+
+  const hasUsername = username.trim().length > 0;
 
   const selectedAlgo =
     summary.find((item) => item.algo === selectedAlgoName) ??
