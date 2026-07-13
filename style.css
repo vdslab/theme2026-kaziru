@@ -472,16 +472,37 @@ body {
   background-color: #ffe082;
 }
 
+.diff-circle-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 6px;
+}
+
+.diff-circle-tooltip {
+  background: #333;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.problem-item .diff-circle {
+  flex-shrink: 0;
+}
+
 .problem-id {
   font-family: monospace;
-  color: #2563eb;
   font-weight: 600;
   white-space: nowrap;
   margin-right: 8px;
 }
 
 .problem-title {
-  color: #333;
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
