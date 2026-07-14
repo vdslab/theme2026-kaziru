@@ -125,6 +125,9 @@ export default function PieBeeswarm({
   for (let value = AXIS_MIN; value <= xDomainMax; value += tickStep) {
     ticks.push({ value, position: xScale(value) });
   }
+  if (!ticks.some((tick) => tick.value === AXIS_MAX)) {
+    ticks.push({ value: AXIS_MAX, position: plotXMax });
+  }
   const renderedData = data.map((item) => ({
     ...item,
     x: xScale(item.x),
