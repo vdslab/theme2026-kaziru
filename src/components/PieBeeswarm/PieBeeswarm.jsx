@@ -38,7 +38,7 @@ export default function PieBeeswarm({
 
   const AXIS_MIN = 0;
   const AXIS_MAX = 2000;
-  const TICK_STEP = 500;
+  const TICK_STEP = 400;
   const SIDE_MARGIN = 56;
   const RATE_LABEL_SIDE_MARGIN = 96;
   const TOP_MARGIN = 24;
