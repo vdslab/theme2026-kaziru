@@ -1,6 +1,12 @@
+import { useEffect, useRef, useState } from "react";
+
+import { fetchUserRate } from "../api/loadUser";
+import { fetchAllUserSubmissions } from "../api/loadUserSubmissions";
+import { buildSubmissionMap } from "../utils/submissions";
+
+import UserIdInput from "./UserIdInput";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
-import { useEffect, useRef, useState } from "react";
 
 const MAX_CHART_ASPECT_RATIO = 3;
 
@@ -10,17 +16,7 @@ const MOCK_ALGORITHM = {
   n: 53,
 };
 
-export default function Main({
-  summary,
-  allRows,
-  rate,
-  hasUsername,
-  rateLoading,
-  rateError,
-  submissionsMap,
-  submissionsLoading,
-  submissionsError,
-}) {
+export default function Main({ summary, allRows }) {
   const [rateThreshold, setRateThreshold] = useState(0);
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showRecommended, setShowRecommended] = useState(true);
@@ -41,6 +37,57 @@ export default function Main({
     return () => observer.disconnect();
   }, []);
 
+  const [username, setUsername] = useState("");
+  const [rate, setRate] = useState(null);
+  const [rateLoading, setRateLoading] = useState(false);
+  const [rateError, setRateError] = useState(null);
+
+  const [submissionsMap, setSubmissionsMap] = useState(new Map());
+  const [submissionsLoading, setSubmissionsLoading] = useState(false);
+  const [submissionsError, setSubmissionsError] = useState(null);
+
+  const handleFetchRate = async () => {
+    const trimmed = username.trim();
+    if (!trimmed) {
+      setRate(null);
+      return;
+    }
+
+    setRateLoading(true);
+    setRateError(null);
+    setRate(null);
+    try {
+      const userRate = await fetchUserRate(trimmed);
+      setRate(userRate);
+    } catch (err) {
+      setRate(null);
+      setRateError(err.message);
+    } finally {
+      setRateLoading(false);
+    }
+  };
+
+  const handleFetchSubmissions = async () => {
+    const trimmed = username.trim();
+    if (!trimmed) {
+      setSubmissionsMap(new Map());
+      return;
+    }
+
+    setSubmissionsLoading(true);
+    setSubmissionsError(null);
+    setSubmissionsMap(new Map());
+    try {
+      const submissions = await fetchAllUserSubmissions(trimmed);
+      const map = buildSubmissionMap(submissions);
+      setSubmissionsMap(map);
+    } catch (err) {
+      setSubmissionsError(err.message);
+    } finally {
+      setSubmissionsLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (summary.length === 0) {
       setSelectedAlgoName(null);
@@ -54,6 +101,8 @@ export default function Main({
     );
   }, [summary]);
 
+  const hasUsername = username.trim().length > 0;
+
   const selectedAlgo =
     summary.find((item) => item.algo === selectedAlgoName) ??
     summary?.[0] ??
@@ -65,9 +114,18 @@ export default function Main({
 
   return (
     <main className="main">
+      <UserIdInput
+        username={username}
+        setUsername={setUsername}
+        handleFetchRate={handleFetchRate}
+        handleFetchSubmissions={handleFetchSubmissions}
+        rateError={rateError}
+      />
       <div className="controls-panel">
         <div className="rate-range-control">
-          <div className="control-label">表示するレート帯の下限値（出現レート帯の中央値）</div>
+          <div className="control-label">
+            表示するレート帯の下限値（出現レート帯の中央値）
+          </div>
           <div className="range-slider">
             <span>0</span>
             <input
@@ -144,7 +202,11 @@ export default function Main({
             />
           </div>
 
-          <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
+          <AlgorithmCard
+            algo={selectedAlgo}
+            problems={problems}
+            submissionsMap={submissionsMap}
+          />
         </div>
       </div>
     </main>

@@ -1,3 +1,6 @@
+import DiffCircle from "./DiffCircle/DiffCircle";
+import { getDiffColor } from "../utils/diffColors";
+
 export default function AlgorithmCard({ algo, problems, submissionsMap }) {
   const getProblemStatusClass = (problemId) => {
     const status = submissionsMap.get(problemId);
@@ -35,8 +38,9 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
               rel="noopener noreferrer"
               className={`problem-item ${getProblemStatusClass(problem.problem_id)}`}
             >
-              <span className="problem-id">{problem.problem_id}</span>
-              <span className="problem-title">{problem.title}</span>
+              <DiffCircle difficulty={problem.difficulty} diffBand={problem.diff_band} />
+              <span className="problem-id" style={{ color: getDiffColor(problem.diff_band) }}>{problem.problem_id}</span>
+              <span className="problem-title" style={{ color: getDiffColor(problem.diff_band) }}>{problem.title}</span>
             </a>
           ))}
         </div>
