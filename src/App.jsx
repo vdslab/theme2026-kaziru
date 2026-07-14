@@ -4,8 +4,10 @@ import { fetchUserRate } from "./api/loadUser";
 import { fetchAllUserSubmissions } from "./api/loadUserSubmissions";
 
 import { computeBeeswarm } from "./utils/beeswarm";
+import { computeAnchoredClassicalMds } from "./utils/classicalMds";
 import { loadCsv, findColumn } from "./utils/loadCsv";
 import {
+  adjustDifficulty,
   groupByAlgorithm,
   countBandsByAlgorithm,
   createSummary,
@@ -46,14 +48,37 @@ export default function App() {
           "difficulty",
         );
 
+        const problemCol = [
+          "problem_id",
+          "id",
+          "problem",
+          "problem_name",
+          "title",
+          "url",
+        ].find((column) => columns.includes(column));
+        const seenProblems = new Set();
+
         const processedRows = rows
           .filter(
             (row) =>
               row[algoCol] && row[diffCol] != null && row[diffCol] !== "",
           )
+          .filter((row) => {
+            if (!problemCol) {
+              return true;
+            }
+
+            const key = JSON.stringify([row[algoCol], row[problemCol]]);
+            if (seenProblems.has(key)) {
+              return false;
+            }
+
+            seenProblems.add(key);
+            return true;
+          })
           .map((row) => ({
             ...row,
-            diffCalc: Math.max(0, Number(row[diffCol])),
+            diffCalc: adjustDifficulty(Number(row[diffCol])),
           }))
           .filter((row) => row.diffCalc < 2000);
 
@@ -61,7 +86,8 @@ export default function App() {
         const bandCounts = countBandsByAlgorithm(processedRows, algoCol);
 
         const summaryData = createSummary(groups, bandCounts);
-        const plottedData = computeBeeswarm(summaryData);
+        const mdsData = computeAnchoredClassicalMds(summaryData, groups);
+        const plottedData = computeBeeswarm(mdsData);
 
         setSummary(plottedData);
         setAllRows(processedRows);

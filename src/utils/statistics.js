@@ -11,6 +11,19 @@ export const DIFF_BANDS = [
 export const R_MIN = 18;
 export const R_MAX = 85;
 
+// Python版と同じAtCoder Problems方式の低difficulty補正。
+export function adjustDifficulty(diff) {
+  if (!Number.isFinite(diff)) {
+    return Number.NaN;
+  }
+
+  if (diff >= 400) {
+    return diff;
+  }
+
+  return 400 / Math.exp(1 - diff / 400);
+}
+
 // difficulty帯判定
 export function diffToBand(diff) {
   if (diff == null || Number.isNaN(diff)) {
