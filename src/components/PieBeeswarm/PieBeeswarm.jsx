@@ -30,7 +30,7 @@ export default function PieBeeswarm({
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [data.length]);
 
   if (data.length === 0) {
     return null;
@@ -38,26 +38,18 @@ export default function PieBeeswarm({
 
   const AXIS_MIN = 0;
   const AXIS_MAX = 2000;
-  const TICK_STEP = 400;
+  const TICK_STEP = 500;
+  const SIDE_MARGIN = 56;
+  const RATE_LABEL_SIDE_MARGIN = 96;
+  const TOP_MARGIN = 24;
+  const AXIS_LABEL_BOTTOM_MARGIN = 48;
+  const CURRENT_RATE_LABEL_BOTTOM_MARGIN = 132;
 
-  const yMin = Math.min(...data.map((d) => d.y - d.r));
-  const yMax = Math.max(...data.map((d) => d.y + d.r));
-  const padding = TICK_STEP;
+  const nodeXMin = Math.min(...data.map((d) => d.x - d.r));
+  const nodeXMax = Math.max(...data.map((d) => d.x + d.r));
+  const nodeYMin = Math.min(...data.map((d) => d.y - d.r));
+  const nodeYMax = Math.max(...data.map((d) => d.y + d.r));
 
-  const viewBoxWidth = AXIS_MAX + padding * 2;
-  const dataHeight = yMax - yMin;
-  const dataCenterY = (yMin + yMax) / 2;
-
-  // コンテナのアスペクト比に合わせて viewBox の高さを計算
-  let viewBoxHeight;
-  if (containerSize.width > 0 && containerSize.height > 0) {
-    const aspectRatio = containerSize.width / containerSize.height;
-    viewBoxHeight = Math.max(viewBoxWidth / aspectRatio, dataHeight + padding * 2);
-  } else {
-    viewBoxHeight = dataHeight + padding * 2;
-  }
-
-  const viewBoxY = dataCenterY - viewBoxHeight / 2;
   const currentRate = Number(rate);
   const shouldShowCurrentRate =
     hasUsername && showCurrentRate && Number.isFinite(currentRate);
@@ -67,30 +59,84 @@ export default function PieBeeswarm({
   );
   const currentRateLabel = currentRate > AXIS_MAX ? `${AXIS_MAX}+` : String(currentRate);
 
+  const contentXMin = Math.min(AXIS_MIN, nodeXMin) - SIDE_MARGIN;
+  const contentXMax =
+    Math.max(AXIS_MAX, nodeXMax, shouldShowCurrentRate ? currentRateX : AXIS_MAX) +
+    (shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN);
+  const contentYMin = nodeYMin - TOP_MARGIN;
+  const bottomMargin = shouldShowCurrentRate
+    ? CURRENT_RATE_LABEL_BOTTOM_MARGIN
+    : AXIS_LABEL_BOTTOM_MARGIN;
+  const contentYMax = nodeYMax + bottomMargin;
+
+  let viewBoxX = contentXMin;
+  let viewBoxY = contentYMin;
+  let viewBoxWidth = contentXMax - contentXMin;
+  let viewBoxHeight = contentYMax - contentYMin;
+
+  if (containerSize.width > 0 && containerSize.height > 0) {
+    const aspectRatio = containerSize.width / containerSize.height;
+    const contentAspectRatio = viewBoxWidth / viewBoxHeight;
+
+    if (contentAspectRatio > aspectRatio) {
+      const fittedHeight = viewBoxWidth / aspectRatio;
+      viewBoxY -= (fittedHeight - viewBoxHeight) / 2;
+      viewBoxHeight = fittedHeight;
+    } else {
+      const fittedWidth = viewBoxHeight * aspectRatio;
+      viewBoxWidth = fittedWidth;
+    }
+  }
+
+  const axisY = viewBoxY + viewBoxHeight - bottomMargin;
+  const viewBoxXMax = viewBoxX + viewBoxWidth;
+  const maxNodeRadius = Math.max(...data.map((item) => item.r));
+  const plotXMin = viewBoxX + Math.max(SIDE_MARGIN, maxNodeRadius);
+  const plotXMax =
+    viewBoxXMax -
+    Math.max(
+      shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN,
+      maxNodeRadius,
+    );
+  const plotXWidth = Math.max(1, plotXMax - plotXMin);
+  const xScale = (value) =>
+    plotXMin +
+    (Math.min(AXIS_MAX, Math.max(AXIS_MIN, value)) / AXIS_MAX) * plotXWidth;
+  const ticks = [];
+  for (let value = AXIS_MIN; value <= AXIS_MAX; value += TICK_STEP) {
+    ticks.push({ value, position: xScale(value) });
+  }
+  const renderedData = data.map((item) => ({
+    ...item,
+    x: xScale(item.x),
+  }));
+
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
       <svg
         width="100%"
         height="100%"
-        viewBox={`${AXIS_MIN - padding} ${viewBoxY} ${viewBoxWidth} ${viewBoxHeight}`}
+        viewBox={`${viewBoxX} ${viewBoxY} ${viewBoxWidth} ${viewBoxHeight}`}
+        preserveAspectRatio="xMidYMid meet"
       >
         <AxisBottom
-          xMin={AXIS_MIN}
-          xMax={AXIS_MAX}
-          yMax={yMax}
-          tickStep={TICK_STEP}
+          xMin={viewBoxX}
+          xMax={viewBoxXMax}
+          yMin={viewBoxY}
+          yMax={axisY}
+          ticks={ticks}
         />
 
         {shouldShowCurrentRate && (
-          <g className="current-rate-line" transform={`translate(${currentRateX},0)`}>
-            <line y1={viewBoxY + 16} y2={yMax + 10} />
-            <text y={yMax + 104} textAnchor="middle">
+          <g className="current-rate-line" transform={`translate(${xScale(currentRateX)},0)`}>
+            <line y1={viewBoxY} y2={axisY + 10} />
+            <text y={axisY + 104} textAnchor="middle">
               {currentRateLabel}
             </text>
           </g>
         )}
 
-        {data.map((item) => (
+        {renderedData.map((item) => (
           <PieNode
             key={item.algo}
             label={item.algo}
@@ -110,7 +156,7 @@ export default function PieBeeswarm({
         ))}
 
         {showLabels &&
-          data.map((item) => (
+          renderedData.map((item) => (
             <NodeLabel
               key={item.algo}
               x={item.x}

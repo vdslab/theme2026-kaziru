@@ -253,9 +253,11 @@ body {
 /* Visualization Container */
 .visualization-container {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 20px 24px;
 }
 

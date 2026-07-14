@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { fetchUserRate } from "../api/loadUser";
 import { fetchAllUserSubmissions } from "../api/loadUserSubmissions";
@@ -7,6 +7,8 @@ import { buildSubmissionMap } from "../utils/submissions";
 import UserIdInput from "./UserIdInput";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
+
+const MAX_CHART_ASPECT_RATIO = 3;
 
 const MOCK_ALGORITHM = {
   algo: "累積和",
@@ -20,6 +22,20 @@ export default function Main({ summary, allRows }) {
   const [showRecommended, setShowRecommended] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
   const [selectedAlgoName, setSelectedAlgoName] = useState(null);
+  const [chartMinHeight, setChartMinHeight] = useState(0);
+  const chartWrapperRef = useRef(null);
+
+  useEffect(() => {
+    const chartWrapper = chartWrapperRef.current;
+    if (!chartWrapper) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      setChartMinHeight(Math.ceil(entry.contentRect.width / MAX_CHART_ASPECT_RATIO));
+    });
+
+    observer.observe(chartWrapper);
+    return () => observer.disconnect();
+  }, []);
 
   const [username, setUsername] = useState("");
   const [rate, setRate] = useState(null);
@@ -169,8 +185,11 @@ export default function Main({ summary, allRows }) {
           <button className="usage-button">使い方</button>
         </div>
 
-        <div className="vis-layout">
-          <div className="chart-wrapper">
+        <div
+          className="vis-layout"
+          style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
+        >
+          <div ref={chartWrapperRef} className="chart-wrapper">
             <PieBeeswarm
               data={summary}
               rate={rate}
