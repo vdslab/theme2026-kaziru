@@ -3,14 +3,6 @@ import AxisBottom from "./AxisBottom";
 import PieNode from "./PieNode";
 import NodeLabel from "./NodeLabel";
 
-function getNiceStep(value, tickCount) {
-  const roughStep = value / Math.max(1, tickCount);
-  const magnitude = 10 ** Math.floor(Math.log10(Math.max(roughStep, 1)));
-  const normalized = roughStep / magnitude;
-  const multiplier = [1, 2, 5, 10].find((step) => step >= normalized) ?? 10;
-  return multiplier * magnitude;
-}
-
 export default function PieBeeswarm({
   data = [],
   rate = null,
@@ -46,6 +38,7 @@ export default function PieBeeswarm({
 
   const AXIS_MIN = 0;
   const AXIS_MAX = 2000;
+  const TICK_STEP = 500;
   const SIDE_MARGIN = 56;
   const RATE_LABEL_SIDE_MARGIN = 96;
   const TOP_MARGIN = 24;
@@ -98,16 +91,6 @@ export default function PieBeeswarm({
   const axisY = viewBoxY + viewBoxHeight - bottomMargin;
   const viewBoxXMax = viewBoxX + viewBoxWidth;
   const maxNodeRadius = Math.max(...data.map((item) => item.r));
-  const xDomainMax = Math.max(
-    1,
-    Math.min(
-      AXIS_MAX,
-      Math.max(
-        ...data.map((item) => item.x),
-        shouldShowCurrentRate ? currentRateX : AXIS_MIN,
-      ),
-    ),
-  );
   const plotXMin = viewBoxX + Math.max(SIDE_MARGIN, maxNodeRadius);
   const plotXMax =
     viewBoxXMax -
@@ -118,15 +101,10 @@ export default function PieBeeswarm({
   const plotXWidth = Math.max(1, plotXMax - plotXMin);
   const xScale = (value) =>
     plotXMin +
-    (Math.min(xDomainMax, Math.max(AXIS_MIN, value)) / xDomainMax) * plotXWidth;
-  const desiredTickCount = Math.max(2, Math.min(6, Math.floor(plotXWidth / 180)));
-  const tickStep = getNiceStep(xDomainMax, desiredTickCount);
+    (Math.min(AXIS_MAX, Math.max(AXIS_MIN, value)) / AXIS_MAX) * plotXWidth;
   const ticks = [];
-  for (let value = AXIS_MIN; value <= xDomainMax; value += tickStep) {
+  for (let value = AXIS_MIN; value <= AXIS_MAX; value += TICK_STEP) {
     ticks.push({ value, position: xScale(value) });
-  }
-  if (!ticks.some((tick) => tick.value === AXIS_MAX)) {
-    ticks.push({ value: AXIS_MAX, position: plotXMax });
   }
   const renderedData = data.map((item) => ({
     ...item,
