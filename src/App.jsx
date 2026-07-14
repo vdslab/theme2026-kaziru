@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { fetchUserRate } from "./api/loadUser";
-import { fetchAllUserSubmissions } from "./api/loadUserSubmissions";
-
 import { computeBeeswarm } from "./utils/beeswarm";
 import { loadCsv, findColumn } from "./utils/loadCsv";
 import {
@@ -10,7 +7,6 @@ import {
   countBandsByAlgorithm,
   createSummary,
 } from "./utils/statistics";
-import { buildSubmissionMap } from "./utils/submissions";
 
 import Header from "./components/Header";
 import Main from "./components/Main";

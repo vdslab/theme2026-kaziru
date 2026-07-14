@@ -43,8 +43,6 @@ export default function Main({ summary, allRows }) {
   const [rateError, setRateError] = useState(null);
 
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
-  const [submissionsLoading, setSubmissionsLoading] = useState(false);
-  const [submissionsError, setSubmissionsError] = useState(null);
 
   const handleFetchRate = async () => {
     const trimmed = username.trim();
@@ -74,17 +72,13 @@ export default function Main({ summary, allRows }) {
       return;
     }
 
-    setSubmissionsLoading(true);
-    setSubmissionsError(null);
     setSubmissionsMap(new Map());
     try {
       const submissions = await fetchAllUserSubmissions(trimmed);
       const map = buildSubmissionMap(submissions);
       setSubmissionsMap(map);
-    } catch (err) {
-      setSubmissionsError(err.message);
-    } finally {
-      setSubmissionsLoading(false);
+    } catch {
+      // エラー処理は今後必要に応じて実装
     }
   };
 
