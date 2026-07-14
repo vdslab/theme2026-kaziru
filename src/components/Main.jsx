@@ -21,7 +21,9 @@ export default function Main({ summary, allRows }) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showRecommended, setShowRecommended] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
-  const [selectedAlgoName, setSelectedAlgoName] = useState(null);
+  const [selectedAlgoName, setSelectedAlgoName] = useState(() =>
+    summary.length > 0 ? summary[0].algo : null,
+  );
   const [chartMinHeight, setChartMinHeight] = useState(0);
   const chartWrapperRef = useRef(null);
 
@@ -81,19 +83,6 @@ export default function Main({ summary, allRows }) {
       // エラー処理は今後必要に応じて実装
     }
   };
-
-  useEffect(() => {
-    if (summary.length === 0) {
-      setSelectedAlgoName(null);
-      return;
-    }
-
-    setSelectedAlgoName((current) =>
-      current && summary.some((item) => item.algo === current)
-        ? current
-        : summary[0].algo,
-    );
-  }, [summary]);
 
   const hasUsername = username.trim().length > 0;
 
