@@ -8,6 +8,12 @@ const COLORS = {
   Blue: "#0000FF",
 };
 
+const PROGRESS_COLORS = {
+  AC: "#22c55e",
+  Unsolved: "#f59e0b",
+  Untried: "#cbd5e1",
+};
+
 const pieGenerator = pie()
   .value((d) => d.value)
   .sort(null)
@@ -18,13 +24,34 @@ export default function PieNode({
   y,
   r,
   slices,
+  progressSlices = [],
+  showProgress = false,
+  progressRingGap = 4,
+  progressRingWidth = 12,
   label,
   selected = false,
   onSelect,
 }) {
   const arcData = pieGenerator(slices);
+  const progressArcData =
+    showProgress && progressSlices.some((slice) => slice.value > 0)
+      ? pieGenerator(progressSlices.filter((slice) => slice.value > 0))
+      : [];
 
-  const arcGenerator = arc().innerRadius(0).outerRadius(r);
+  // リングの外周は従来のノード半径に固定し、難易度Pieはその内側に収める。
+  // 小さいノードでPieが潰れないよう、リング幅・間隔は半径に応じて縮める。
+  const ringWidth = showProgress
+    ? Math.min(progressRingWidth / 2, r * 0.2)
+    : 0;
+  const ringGap = showProgress ? Math.min(progressRingGap, r * 0.12) : 0;
+  const innerPieRadius = showProgress
+    ? Math.max(1, r - ringGap - ringWidth)
+    : r;
+  const outerRadius = r;
+  const arcGenerator = arc().innerRadius(0).outerRadius(innerPieRadius);
+  const progressArcGenerator = arc()
+    .innerRadius(innerPieRadius + ringGap)
+    .outerRadius(outerRadius);
   const strokeColor = selected ? "#2563eb" : "black";
   const strokeWidth = selected ? 4 : 1;
 
@@ -46,6 +73,18 @@ export default function PieNode({
       onClick={onSelect}
       onKeyDown={handleKeyDown}
     >
+      {progressArcData.map((d) => (
+        <path
+          key={`progress-${d.data.label}`}
+          className="pie-node-progress"
+          d={progressArcGenerator(d)}
+          fill={PROGRESS_COLORS[d.data.label]}
+          stroke="white"
+          strokeWidth={1}
+        >
+          <title>{`${d.data.label}: ${d.data.value}`}</title>
+        </path>
+      ))}
       {arcData.map((d) => (
         <path
           key={d.data.label}
@@ -55,7 +94,7 @@ export default function PieNode({
           strokeWidth={strokeWidth}
         />
       ))}
-      <circle r={r + 6} fill="transparent" />
+      <circle r={outerRadius + 6} fill="transparent" />
     </g>
   );
 }

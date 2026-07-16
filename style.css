@@ -274,6 +274,39 @@ body {
   color: #333;
 }
 
+.progress-ring-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #475569;
+  font-size: 12px;
+}
+
+.progress-ring-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.progress-ring-legend i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.progress-ring-legend--ac {
+  background: #22c55e;
+}
+
+.progress-ring-legend--unsolved {
+  background: #f59e0b;
+}
+
+.progress-ring-legend--untried {
+  background: #cbd5e1;
+}
+
 .usage-button {
   padding: 4px 12px;
   border: 1px solid #ddd;
