@@ -42,7 +42,6 @@ export default function PieBeeswarm({
   const SIDE_MARGIN = 56;
   const RATE_LABEL_SIDE_MARGIN = 96;
   const TOP_MARGIN = 24;
-  const AXIS_LABEL_BOTTOM_MARGIN = 48;
   const CURRENT_RATE_LABEL_BOTTOM_MARGIN = 132;
 
   const nodeXMin = Math.min(...data.map((d) => d.x - d.r));
@@ -115,8 +114,6 @@ export default function PieBeeswarm({
         preserveAspectRatio="xMidYMid meet"
       >
         <AxisBottom
-          xMin={viewBoxX}
-          xMax={viewBoxXMax}
           yMin={viewBoxY}
           yMax={axisY}
           ticks={ticks}

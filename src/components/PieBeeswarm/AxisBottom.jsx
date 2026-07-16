@@ -1,4 +1,4 @@
-export default function AxisBottom({ xMin, xMax, yMin, yMax, ticks, axisXMin, axisXMax }) {
+export default function AxisBottom({ yMin, yMax, ticks, axisXMin, axisXMax }) {
   return (
     <g>
       <line x1={axisXMin} x2={axisXMax} y1={yMax} y2={yMax} stroke="black" />
