@@ -62,11 +62,9 @@ export default function PieBeeswarm({
   const contentXMin = Math.min(AXIS_MIN, nodeXMin) - SIDE_MARGIN;
   const contentXMax =
     Math.max(AXIS_MAX, nodeXMax, shouldShowCurrentRate ? currentRateX : AXIS_MAX) +
-    (shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN);
+    RATE_LABEL_SIDE_MARGIN;
   const contentYMin = nodeYMin - TOP_MARGIN;
-  const bottomMargin = shouldShowCurrentRate
-    ? CURRENT_RATE_LABEL_BOTTOM_MARGIN
-    : AXIS_LABEL_BOTTOM_MARGIN;
+  const bottomMargin = CURRENT_RATE_LABEL_BOTTOM_MARGIN;
   const contentYMax = nodeYMax + bottomMargin;
 
   let viewBoxX = contentXMin;
@@ -94,10 +92,7 @@ export default function PieBeeswarm({
   const plotXMin = viewBoxX + Math.max(SIDE_MARGIN, maxNodeRadius);
   const plotXMax =
     viewBoxXMax -
-    Math.max(
-      shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN,
-      maxNodeRadius,
-    );
+    Math.max(RATE_LABEL_SIDE_MARGIN, maxNodeRadius);
   const plotXWidth = Math.max(1, plotXMax - plotXMin);
   const xScale = (value) =>
     plotXMin +
