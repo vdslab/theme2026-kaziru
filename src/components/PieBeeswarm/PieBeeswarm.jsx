@@ -125,6 +125,8 @@ export default function PieBeeswarm({
           yMin={viewBoxY}
           yMax={axisY}
           ticks={ticks}
+          axisXMin={xScale(0)}
+          axisXMax={xScale(AXIS_MAX)}
         />
 
         {shouldShowCurrentRate && (
