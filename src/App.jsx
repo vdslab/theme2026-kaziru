@@ -4,7 +4,6 @@ import { computeBeeswarm } from "./utils/beeswarm";
 import { computeAnchoredClassicalMds } from "./utils/classicalMds";
 import { loadCsv, findColumn } from "./utils/loadCsv";
 import {
-  adjustDifficulty,
   groupByAlgorithm,
   countBandsByAlgorithm,
   createSummary,
@@ -74,7 +73,8 @@ export default function App() {
           })
           .map((row) => ({
             ...row,
-            diffCalc: adjustDifficulty(Number(row[diffCol])),
+            // all_problems.csv の difficulty は生成時点で補正済み。
+            diffCalc: Number(row[diffCol]),
           }))
           .filter((row) => row.diffCalc < 2000);
 
