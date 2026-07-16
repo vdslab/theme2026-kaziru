@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import AxisBottom from "./AxisBottom";
 import PieNode from "./PieNode";
 import NodeLabel from "./NodeLabel";
@@ -11,27 +11,9 @@ export default function PieBeeswarm({
   showCurrentRate = false,
   selectedAlgorithm = null,
   onSelectAlgorithm,
+  width,
+  height,
 }) {
-  const containerRef = useRef(null);
-  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setContainerSize({
-          width: entry.contentRect.width,
-          height: entry.contentRect.height,
-        });
-      }
-    });
-
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, [data.length]);
-
   if (data.length === 0) {
     return null;
   }
@@ -53,16 +35,17 @@ export default function PieBeeswarm({
   const currentRate = Number(rate);
   const shouldShowCurrentRate =
     hasUsername && showCurrentRate && Number.isFinite(currentRate);
-  const currentRateX = Math.min(
-    AXIS_MAX,
-    Math.max(AXIS_MIN, currentRate),
-  );
-  const currentRateLabel = currentRate > AXIS_MAX ? `${AXIS_MAX}+` : String(currentRate);
+  const currentRateX = Math.min(AXIS_MAX, Math.max(AXIS_MIN, currentRate));
+  const currentRateLabel =
+    currentRate > AXIS_MAX ? `${AXIS_MAX}+` : String(currentRate);
 
   const contentXMin = Math.min(AXIS_MIN, nodeXMin) - SIDE_MARGIN;
   const contentXMax =
-    Math.max(AXIS_MAX, nodeXMax, shouldShowCurrentRate ? currentRateX : AXIS_MAX) +
-    (shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN);
+    Math.max(
+      AXIS_MAX,
+      nodeXMax,
+      shouldShowCurrentRate ? currentRateX : AXIS_MAX,
+    ) + (shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN);
   const contentYMin = nodeYMin - TOP_MARGIN;
   const bottomMargin = shouldShowCurrentRate
     ? CURRENT_RATE_LABEL_BOTTOM_MARGIN
@@ -74,8 +57,8 @@ export default function PieBeeswarm({
   let viewBoxWidth = contentXMax - contentXMin;
   let viewBoxHeight = contentYMax - contentYMin;
 
-  if (containerSize.width > 0 && containerSize.height > 0) {
-    const aspectRatio = containerSize.width / containerSize.height;
+  if (width > 0 && height > 0) {
+    const aspectRatio = width / height;
     const contentAspectRatio = viewBoxWidth / viewBoxHeight;
 
     if (contentAspectRatio > aspectRatio) {
@@ -112,7 +95,7 @@ export default function PieBeeswarm({
   }));
 
   return (
-    <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
+    <div style={{ width: "100%", height: "100%" }}>
       <svg
         width="100%"
         height="100%"
@@ -128,7 +111,10 @@ export default function PieBeeswarm({
         />
 
         {shouldShowCurrentRate && (
-          <g className="current-rate-line" transform={`translate(${xScale(currentRateX)},0)`}>
+          <g
+            className="current-rate-line"
+            transform={`translate(${xScale(currentRateX)},0)`}
+          >
             <line y1={viewBoxY} y2={axisY + 10} />
             <text y={axisY + 104} textAnchor="middle">
               {currentRateLabel}
