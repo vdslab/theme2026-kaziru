@@ -25,10 +25,6 @@ export default function Main({ summary, allRows }) {
     summary.length > 0 ? summary[0].algo : null,
   );
   const [chartMinHeight, setChartMinHeight] = useState(0);
-  const [chartSize, setChartSize] = useState({
-    width: 0,
-    height: 0,
-  });
   const chartWrapperRef = useRef(null);
 
   useEffect(() => {
@@ -36,10 +32,7 @@ export default function Main({ summary, allRows }) {
     if (!chartWrapper) return;
 
     const observer = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect;
-
-      setChartSize({ width, height });
-      setChartMinHeight(Math.ceil(width / MAX_CHART_ASPECT_RATIO));
+      setChartMinHeight(Math.ceil(entry.contentRect.width / MAX_CHART_ASPECT_RATIO));
     });
 
     observer.observe(chartWrapper);
@@ -177,11 +170,7 @@ export default function Main({ summary, allRows }) {
 
         <div
           className="vis-layout"
-          style={
-            chartMinHeight > 0
-              ? { minHeight: `${chartMinHeight}px` }
-              : undefined
-          }
+          style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
         >
           <div ref={chartWrapperRef} className="chart-wrapper">
             <PieBeeswarm
@@ -193,8 +182,6 @@ export default function Main({ summary, allRows }) {
               showLabels={showLabels}
               selectedAlgorithm={selectedAlgo.algo}
               onSelectAlgorithm={setSelectedAlgoName}
-              width={chartSize.width}
-              height={chartSize.height}
             />
           </div>
 
