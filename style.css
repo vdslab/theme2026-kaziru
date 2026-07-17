@@ -5,7 +5,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+    Arial, sans-serif;
   color: #333;
 }
 
@@ -343,7 +345,9 @@ body {
 }
 
 .pie-node path {
-  transition: stroke-width 0.15s, filter 0.15s;
+  transition:
+    stroke-width 0.15s,
+    filter 0.15s;
 }
 
 .pie-node:hover path,
@@ -387,6 +391,31 @@ body {
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
+}
+
+/* Portrait layout (viewport aspect ratio <= 1:1) */
+@media (max-aspect-ratio: 1 / 1) {
+  .vis-layout {
+    flex-direction: column;
+  }
+
+  .chart-wrapper {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    flex: none;
+  }
+
+  .legend {
+    width: 100%;
+    flex: none;
+    
+    scroll-margin-top: 20px;
+  }
+
+  .problems-list {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
 }
 
 .legend-title {
