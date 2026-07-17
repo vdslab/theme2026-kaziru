@@ -51,10 +51,6 @@ export default function Main({
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
   const lowerFractionPercent = Math.round(lowerFraction * 100);
-  const lowerFractionDescription =
-    lowerFractionPercent === 0
-      ? "0%では、各タグの最も易しい1問を使って位置を計算します。"
-      : `易しい順に ${lowerFractionPercent}% の問題を使って、タグの位置を計算します。`;
 
   const handleFetchRate = async () => {
     const trimmed = username.trim();
@@ -143,21 +139,26 @@ export default function Main({
           </div>
           <div className="range-slider">
             <span>0%</span>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              step="1"
-              value={lowerFractionPercent}
-              onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
-              aria-label="位置計算に使う易しい問題の割合"
-              aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
-            />
+            <div className="range-slider-input">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                value={lowerFractionPercent}
+                onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
+                aria-label="位置計算に使う易しい問題の割合"
+                aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
+              />
+              <output
+                className="range-slider-value"
+                style={{ left: `${lowerFractionPercent}%` }}
+              >
+                {lowerFractionPercent}%
+              </output>
+            </div>
             <span>100%</span>
           </div>
-          <p className="range-slider-description">
-            {lowerFractionDescription}
-          </p>
         </div>
 
         <div className="display-options">
