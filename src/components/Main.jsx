@@ -16,8 +16,12 @@ const MOCK_ALGORITHM = {
   n: 53,
 };
 
-export default function Main({ summary, allRows }) {
-  const [rateThreshold, setRateThreshold] = useState(0);
+export default function Main({
+  summary,
+  allRows,
+  lowerFraction,
+  onLowerFractionChange,
+}) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
@@ -46,6 +50,11 @@ export default function Main({ summary, allRows }) {
 
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
+  const lowerFractionPercent = Math.round(lowerFraction * 100);
+  const lowerFractionDescription =
+    lowerFractionPercent === 0
+      ? "0%では、各タグの最も易しい1問を使って位置を計算します。"
+      : `易しい順に ${lowerFractionPercent}% の問題を使って、タグの位置を計算します。`;
 
   const handleFetchRate = async () => {
     const trimmed = username.trim();
@@ -130,25 +139,30 @@ export default function Main({ summary, allRows }) {
       <div className="controls-panel">
         <div className="rate-range-control">
           <div className="control-label">
-            表示するレート帯の下限値（出現レート帯の中央値）
+            位置計算に使う易しい問題の割合
           </div>
           <div className="range-slider">
-            <span>0</span>
+            <span>0%</span>
             <input
               type="range"
               min="0"
-              max="2000"
-              value={rateThreshold}
-              onChange={(e) => setRateThreshold(Number(e.target.value))}
+              max="100"
+              step="1"
+              value={lowerFractionPercent}
+              onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
+              aria-label="位置計算に使う易しい問題の割合"
+              aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
             />
-            <span>2000</span>
+            <span>100%</span>
           </div>
+          <p className="range-slider-description">
+            {lowerFractionDescription}
+          </p>
         </div>
 
         <div className="display-options">
           <div className="display-options-header">
             <div className="control-label">表示オプション</div>
-            <button className="reset-button">🔄 リセット</button>
           </div>
           <div className="checkboxes">
             <label>

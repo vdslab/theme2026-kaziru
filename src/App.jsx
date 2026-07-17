@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { computeBeeswarm } from "./utils/beeswarm";
-import { computeAnchoredClassicalMds } from "./utils/classicalMds";
+import {
+  computeAnchoredClassicalMds,
+  DEFAULT_LOWER_FRACTION,
+} from "./utils/classicalMds";
 import { loadCsv, findColumn } from "./utils/loadCsv";
 import {
   groupByAlgorithm,
@@ -14,8 +17,23 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [summary, setSummary] = useState([]);
+  const [summaryData, setSummaryData] = useState([]);
+  const [algorithmGroups, setAlgorithmGroups] = useState({});
   const [allRows, setAllRows] = useState([]);
+  const [lowerFraction, setLowerFraction] = useState(DEFAULT_LOWER_FRACTION);
+
+  const summary = useMemo(() => {
+    if (summaryData.length === 0) {
+      return [];
+    }
+
+    const mdsData = computeAnchoredClassicalMds(
+      summaryData,
+      algorithmGroups,
+      lowerFraction,
+    );
+    return computeBeeswarm(mdsData);
+  }, [algorithmGroups, lowerFraction, summaryData]);
 
   useEffect(() => {
     async function init() {
@@ -82,10 +100,8 @@ export default function App() {
         const bandCounts = countBandsByAlgorithm(processedRows, algoCol);
 
         const summaryData = createSummary(groups, bandCounts);
-        const mdsData = computeAnchoredClassicalMds(summaryData, groups);
-        const plottedData = computeBeeswarm(mdsData);
-
-        setSummary(plottedData);
+        setSummaryData(summaryData);
+        setAlgorithmGroups(groups);
         setAllRows(processedRows);
       } catch (error) {
         console.error(error);
@@ -101,6 +117,8 @@ export default function App() {
       <Main
         summary={summary}
         allRows={allRows}
+        lowerFraction={lowerFraction}
+        onLowerFractionChange={setLowerFraction}
       />
       <Footer />
     </div>
