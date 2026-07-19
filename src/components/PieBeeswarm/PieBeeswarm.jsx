@@ -6,7 +6,6 @@ import NodeLabel from "./NodeLabel";
 export default function PieBeeswarm({
   data = [],
   rate = null,
-  hasUsername = false,
   showLabels = false,
   showCurrentRate = false,
   selectedAlgorithm = null,
@@ -52,7 +51,7 @@ export default function PieBeeswarm({
 
   const currentRate = Number(rate);
   const shouldShowCurrentRate =
-    hasUsername && showCurrentRate && Number.isFinite(currentRate);
+    showCurrentRate && Number.isFinite(currentRate);
   const currentRateX = Math.min(
     AXIS_MAX,
     Math.max(AXIS_MIN, currentRate),
