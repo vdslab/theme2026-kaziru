@@ -122,6 +122,14 @@ export default function PieBeeswarm({
         viewBox={`${viewBoxX} ${viewBoxY} ${viewBoxWidth} ${viewBoxHeight}`}
         preserveAspectRatio="xMidYMid meet"
       >
+        <rect
+          x={viewBoxX}
+          y={viewBoxY}
+          width={viewBoxWidth}
+          height={viewBoxHeight}
+          fill="transparent"
+          onClick={() => onSelectAlgorithm?.(null)}
+        />
         <AxisBottom
           yMin={viewBoxY}
           yMax={axisY}

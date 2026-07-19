@@ -74,7 +74,10 @@ export default function PieNode({
       tabIndex={0}
       aria-label={label}
       aria-pressed={selected}
-      onClick={onSelect}
+      onClick={(event) => {
+        event.stopPropagation();
+        onSelect?.();
+      }}
       onKeyDown={handleKeyDown}
     >
       {progressArcData.map((d) => (
