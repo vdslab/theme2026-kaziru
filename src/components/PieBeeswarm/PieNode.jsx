@@ -30,6 +30,7 @@ export default function PieNode({
   progressRingWidth = 12,
   label,
   selected = false,
+  dimmed = false,
   onSelect,
 }) {
   const arcData = pieGenerator(slices);
@@ -52,8 +53,8 @@ export default function PieNode({
   const progressArcGenerator = arc()
     .innerRadius(innerPieRadius + ringGap)
     .outerRadius(outerRadius);
-  const strokeColor = selected ? "#2563eb" : "black";
-  const strokeWidth = selected ? 4 : 1;
+  const strokeColor = selected ? "white" : dimmed ? "#888" : "black";
+  const strokeWidth = selected ? 2 : 1;
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -62,9 +63,12 @@ export default function PieNode({
     }
   };
 
+  const opacity = dimmed ? 0.6 : 1;
+
   return (
     <g
       className={`pie-node${selected ? " pie-node--selected" : ""}`}
+      opacity={opacity}
       transform={`translate(${x}, ${y})`}
       role="button"
       tabIndex={0}
