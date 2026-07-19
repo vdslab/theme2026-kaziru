@@ -49,7 +49,7 @@ export default function PieBeeswarm({
   const nodeYMin = Math.min(...data.map((d) => d.y - d.r));
   const nodeYMax = Math.max(...data.map((d) => d.y + d.r));
 
-  const currentRate = Number(rate);
+  const currentRate = rate == null ? null : Number(rate);
   const shouldShowCurrentRate =
     showCurrentRate && Number.isFinite(currentRate);
   const currentRateX = Math.min(
