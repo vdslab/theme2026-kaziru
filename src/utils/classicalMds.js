@@ -1,4 +1,4 @@
-const LOWER_FRACTION = 0.25;
+export const DEFAULT_LOWER_FRACTION = 0.25;
 const ANCHOR_MIN = 0;
 const ANCHOR_MAX = 2000;
 const ANCHOR_STEP = 200;
@@ -22,7 +22,7 @@ function quantileSorted(sorted, q) {
 }
 
 // Python版と同様に、各タグの難易度が低い側だけを距離計算に使う。
-function lowerFractionValues(values, fraction = LOWER_FRACTION) {
+function lowerFractionValues(values, fraction = DEFAULT_LOWER_FRACTION) {
   const sorted = values
     .filter(Number.isFinite)
     .slice()
@@ -237,13 +237,17 @@ function createAnchorValues() {
  * 各アルゴリズムの難易度分布を1次元古典的MDSへ埋め込み、x座標を返す。
  * 円の個数・半径・色内訳は変更しない。
  */
-export function computeAnchoredClassicalMds(summary, groups) {
+export function computeAnchoredClassicalMds(
+  summary,
+  groups,
+  lowerFraction = DEFAULT_LOWER_FRACTION,
+) {
   if (summary.length === 0) {
     return [];
   }
 
   const realDistributions = summary.map((item) =>
-    lowerFractionValues(groups[item.algo] ?? []),
+    lowerFractionValues(groups[item.algo] ?? [], lowerFraction),
   );
   const anchorValues = createAnchorValues();
   const anchorDistributions = anchorValues.map((value) => [value]);

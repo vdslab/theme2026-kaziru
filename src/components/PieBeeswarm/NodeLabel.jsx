@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 export default function NodeLabel({ x, y, text, r }) {
   const LABEL_MARGIN = 10;
@@ -8,16 +8,16 @@ export default function NodeLabel({ x, y, text, r }) {
   const textRef = useRef(null);
   const [bbox, setBBox] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (textRef.current) {
       setBBox(textRef.current.getBBox());
     }
   }, [text]);
 
-  const textY = y + r + LABEL_MARGIN;
+  const labelY = y + r + LABEL_MARGIN;
 
   return (
-    <g>
+    <g transform={`translate(${x}, ${labelY})`}>
       {bbox && (
         <rect
           x={bbox.x - PADDING_X}
@@ -32,8 +32,8 @@ export default function NodeLabel({ x, y, text, r }) {
 
       <text
         ref={textRef}
-        x={x}
-        y={textY}
+        x="0"
+        y="0"
         textAnchor="middle"
         fontSize="12"
       >

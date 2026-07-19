@@ -8,6 +8,8 @@ export default function PieBeeswarm({
   rate = null,
   showLabels = false,
   showCurrentRate = false,
+  progressByAlgorithm = new Map(),
+  showProgress = false,
   selectedAlgorithm = null,
   onSelectAlgorithm,
 }) {
@@ -41,8 +43,9 @@ export default function PieBeeswarm({
   const SIDE_MARGIN = 56;
   const RATE_LABEL_SIDE_MARGIN = 96;
   const TOP_MARGIN = 24;
-  const AXIS_LABEL_BOTTOM_MARGIN = 48;
   const CURRENT_RATE_LABEL_BOTTOM_MARGIN = 132;
+  const PROGRESS_RING_GAP = 4;
+  const PROGRESS_RING_WIDTH = 12;
 
   const nodeXMin = Math.min(...data.map((d) => d.x - d.r));
   const nodeXMax = Math.max(...data.map((d) => d.x + d.r));
@@ -61,11 +64,9 @@ export default function PieBeeswarm({
   const contentXMin = Math.min(AXIS_MIN, nodeXMin) - SIDE_MARGIN;
   const contentXMax =
     Math.max(AXIS_MAX, nodeXMax, shouldShowCurrentRate ? currentRateX : AXIS_MAX) +
-    (shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN);
+    RATE_LABEL_SIDE_MARGIN;
   const contentYMin = nodeYMin - TOP_MARGIN;
-  const bottomMargin = shouldShowCurrentRate
-    ? CURRENT_RATE_LABEL_BOTTOM_MARGIN
-    : AXIS_LABEL_BOTTOM_MARGIN;
+  const bottomMargin = CURRENT_RATE_LABEL_BOTTOM_MARGIN;
   const contentYMax = nodeYMax + bottomMargin;
 
   let viewBoxX = contentXMin;
@@ -93,10 +94,7 @@ export default function PieBeeswarm({
   const plotXMin = viewBoxX + Math.max(SIDE_MARGIN, maxNodeRadius);
   const plotXMax =
     viewBoxXMax -
-    Math.max(
-      shouldShowCurrentRate ? RATE_LABEL_SIDE_MARGIN : SIDE_MARGIN,
-      maxNodeRadius,
-    );
+    Math.max(RATE_LABEL_SIDE_MARGIN, maxNodeRadius);
   const plotXWidth = Math.max(1, plotXMax - plotXMin);
   const xScale = (value) =>
     plotXMin +
@@ -108,6 +106,11 @@ export default function PieBeeswarm({
   const renderedData = data.map((item) => ({
     ...item,
     x: xScale(item.x),
+    progressSlices: [
+      { label: "AC", value: progressByAlgorithm.get(item.algo)?.ac ?? 0 },
+      { label: "Unsolved", value: progressByAlgorithm.get(item.algo)?.unsolved ?? 0 },
+      { label: "Untried", value: progressByAlgorithm.get(item.algo)?.untried ?? 0 },
+    ],
   }));
 
   return (
@@ -119,11 +122,11 @@ export default function PieBeeswarm({
         preserveAspectRatio="xMidYMid meet"
       >
         <AxisBottom
-          xMin={viewBoxX}
-          xMax={viewBoxXMax}
           yMin={viewBoxY}
           yMax={axisY}
           ticks={ticks}
+          axisXMin={xScale(0)}
+          axisXMax={xScale(AXIS_MAX)}
         />
 
         {shouldShowCurrentRate && (
@@ -142,6 +145,10 @@ export default function PieBeeswarm({
             x={item.x}
             y={item.y}
             r={item.r}
+            progressSlices={item.progressSlices}
+            showProgress={showProgress}
+            progressRingGap={PROGRESS_RING_GAP}
+            progressRingWidth={PROGRESS_RING_WIDTH}
             selected={item.algo === selectedAlgorithm}
             onSelect={() => onSelectAlgorithm?.(item.algo)}
             slices={[

@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/api/atcoder/*"
+  to = "/.netlify/functions/atcoder-proxy/:splat"
+  status = 200

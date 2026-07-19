@@ -16,10 +16,14 @@ const MOCK_ALGORITHM = {
   n: 53,
 };
 
-export default function Main({ summary, allRows }) {
-  const [rateThreshold, setRateThreshold] = useState(0);
+export default function Main({
+  summary,
+  allRows,
+  lowerFraction,
+  onLowerFractionChange,
+}) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
-  const [showRecommended, setShowRecommended] = useState(true);
+  const [showProgressRing, setShowProgressRing] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
   const [selectedAlgoName, setSelectedAlgoName] = useState(() =>
     summary.length > 0 ? summary[0].algo : null,
@@ -47,6 +51,8 @@ export default function Main({ summary, allRows }) {
   const [rateError, setRateError] = useState(null);
 
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
+  const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
+  const lowerFractionPercent = Math.round(lowerFraction * 100);
 
   const handleUsernameChange = (value) => {
     setUsername(value);
@@ -80,15 +86,19 @@ export default function Main({ summary, allRows }) {
     const trimmed = username.trim();
     if (!trimmed) {
       setSubmissionsMap(new Map());
+      setSubmissionsLoaded(false);
       return;
     }
 
     setSubmissionsMap(new Map());
+    setSubmissionsLoaded(false);
     try {
       const submissions = await fetchAllUserSubmissions(trimmed);
       const map = buildSubmissionMap(submissions);
       setSubmissionsMap(map);
+      setSubmissionsLoaded(true);
     } catch {
+      setSubmissionsLoaded(false);
       // エラー処理は今後必要に応じて実装
     }
   };
@@ -101,6 +111,24 @@ export default function Main({ summary, allRows }) {
   const problems = allRows
     .filter((row) => row.tag === selectedAlgo.algo)
     .sort((a, b) => (a.diffCalc ?? 0) - (b.diffCalc ?? 0));
+  const progressByAlgorithm = new Map();
+  for (const row of allRows) {
+    const progress = progressByAlgorithm.get(row.tag) ?? {
+      ac: 0,
+      unsolved: 0,
+      untried: 0,
+    };
+
+    if (submissionsMap.get(row.problem_id) === true) {
+      progress.ac += 1;
+    } else if (submissionsMap.has(row.problem_id)) {
+      progress.unsolved += 1;
+    } else {
+      progress.untried += 1;
+    }
+
+    progressByAlgorithm.set(row.tag, progress);
+  }
 
   return (
     <main className="main">
@@ -114,25 +142,35 @@ export default function Main({ summary, allRows }) {
       <div className="controls-panel">
         <div className="rate-range-control">
           <div className="control-label">
-            表示するレート帯の下限値（出現レート帯の中央値）
+            位置計算に使う易しい問題の割合
           </div>
           <div className="range-slider">
-            <span>0</span>
-            <input
-              type="range"
-              min="0"
-              max="2000"
-              value={rateThreshold}
-              onChange={(e) => setRateThreshold(Number(e.target.value))}
-            />
-            <span>2000</span>
+            <span>0%</span>
+            <div className="range-slider-input">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                value={lowerFractionPercent}
+                onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
+                aria-label="位置計算に使う易しい問題の割合"
+                aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
+              />
+              <output
+                className="range-slider-value"
+                style={{ left: `${lowerFractionPercent}%` }}
+              >
+                {lowerFractionPercent}%
+              </output>
+            </div>
+            <span>100%</span>
           </div>
         </div>
 
         <div className="display-options">
           <div className="display-options-header">
             <div className="control-label">表示オプション</div>
-            <button className="reset-button">🔄 リセット</button>
           </div>
           <div className="checkboxes">
             <label>
@@ -146,10 +184,10 @@ export default function Main({ summary, allRows }) {
             <label>
               <input
                 type="checkbox"
-                checked={showRecommended}
-                onChange={(e) => setShowRecommended(e.target.checked)}
+                checked={showProgressRing}
+                onChange={(e) => setShowProgressRing(e.target.checked)}
               />
-              推奨探索帯を表示
+              AC状況を表示
             </label>
             <label>
               <input
@@ -172,6 +210,13 @@ export default function Main({ summary, allRows }) {
               {rateLoading ? "取得中..." : (rate ?? "---")}
             </span>
           </div>
+          {submissionsLoaded && (
+            <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
+              <span><i className="progress-ring-legend--ac" />AC</span>
+              <span><i className="progress-ring-legend--unsolved" />未AC</span>
+              <span><i className="progress-ring-legend--untried" />未挑戦</span>
+            </div>
+          )}
           <button className="usage-button">使い方</button>
         </div>
 
@@ -188,8 +233,9 @@ export default function Main({ summary, allRows }) {
               data={summary}
               rate={rate}
               showCurrentRate={showCurrentRate}
-              showRecommended={showRecommended}
               showLabels={showLabels}
+              progressByAlgorithm={progressByAlgorithm}
+              showProgress={submissionsLoaded && showProgressRing}
               selectedAlgorithm={selectedAlgo.algo}
               onSelectAlgorithm={setSelectedAlgoName}
             />
