@@ -36,7 +36,9 @@ export default function Main({
     if (!chartWrapper) return;
 
     const observer = new ResizeObserver(([entry]) => {
-      setChartMinHeight(Math.ceil(entry.contentRect.width / MAX_CHART_ASPECT_RATIO));
+      setChartMinHeight(
+        Math.ceil(entry.contentRect.width / MAX_CHART_ASPECT_RATIO),
+      );
     });
 
     observer.observe(chartWrapper);
@@ -51,6 +53,13 @@ export default function Main({
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
   const lowerFractionPercent = Math.round(lowerFraction * 100);
+
+  const handleUsernameChange = (value) => {
+    setUsername(value);
+    setRate(null);
+    setRateError(null);
+    setSubmissionsMap(new Map());
+  };
 
   const handleFetchRate = async () => {
     const trimmed = username.trim();
@@ -94,8 +103,6 @@ export default function Main({
     }
   };
 
-  const hasUsername = username.trim().length > 0;
-
   const selectedAlgo =
     summary.find((item) => item.algo === selectedAlgoName) ??
     summary?.[0] ??
@@ -127,7 +134,7 @@ export default function Main({
     <main className="main">
       <UserIdInput
         username={username}
-        setUsername={setUsername}
+        setUsername={handleUsernameChange}
         handleFetchRate={handleFetchRate}
         handleFetchSubmissions={handleFetchSubmissions}
         rateError={rateError}
@@ -215,13 +222,16 @@ export default function Main({
 
         <div
           className="vis-layout"
-          style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
+          style={
+            chartMinHeight > 0
+              ? { minHeight: `${chartMinHeight}px` }
+              : undefined
+          }
         >
           <div ref={chartWrapperRef} className="chart-wrapper">
             <PieBeeswarm
               data={summary}
               rate={rate}
-              hasUsername={hasUsername}
               showCurrentRate={showCurrentRate}
               showLabels={showLabels}
               progressByAlgorithm={progressByAlgorithm}
