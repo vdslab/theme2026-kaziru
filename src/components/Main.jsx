@@ -9,13 +9,6 @@ import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
 
 const MAX_CHART_ASPECT_RATIO = 3;
-
-const MOCK_ALGORITHM = {
-  algo: "累積和",
-  median: 820,
-  n: 53,
-};
-
 export default function Main({
   summary,
   allRows,
