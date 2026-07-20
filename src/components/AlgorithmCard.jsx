@@ -9,6 +9,37 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
     return "";
   };
 
+  if (!algo) {
+    return (
+      <div className="legend">
+        <div className="legend-title">選択したアルゴリズム</div>
+        <div className="selected-algo-card">
+          <div className="selected-algo-info">
+            <div className="selected-algo-header">
+              <div className="selected-algo-name">---</div>
+            </div>
+            <div className="selected-algo-stats">
+              <div className="stat-row">
+                <span className="stat-label">出現レート帯の中央値</span>
+                <span className="stat-value">---</span>
+              </div>
+              <div className="stat-row">
+                <span className="stat-label">問題数</span>
+                <span className="stat-value">---</span>
+              </div>
+            </div>
+          </div>
+          <div className="problems-list">
+            <div className="problems-list-title">問題一覧</div>
+            <div className="problems-list--empty">
+              ノード（アルゴリズム）を選択してください
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="legend">
       <div className="legend-title">選択したアルゴリズム</div>

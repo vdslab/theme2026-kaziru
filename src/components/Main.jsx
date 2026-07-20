@@ -9,13 +9,6 @@ import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
 
 const MAX_CHART_ASPECT_RATIO = 3;
-
-const MOCK_ALGORITHM = {
-  algo: "累積和",
-  median: 820,
-  n: 53,
-};
-
 export default function Main({
   summary,
   allRows,
@@ -104,13 +97,15 @@ export default function Main({
   };
 
   const selectedAlgo =
-    summary.find((item) => item.algo === selectedAlgoName) ??
-    summary?.[0] ??
-    MOCK_ALGORITHM;
+    selectedAlgoName != null
+      ? summary.find((item) => item.algo === selectedAlgoName) ?? null
+      : null;
 
-  const problems = allRows
-    .filter((row) => row.tag === selectedAlgo.algo)
-    .sort((a, b) => (a.diffCalc ?? 0) - (b.diffCalc ?? 0));
+  const problems = selectedAlgo
+    ? allRows
+      .filter((row) => row.tag === selectedAlgo.algo)
+      .sort((a, b) => (a.diffCalc ?? 0) - (b.diffCalc ?? 0))
+    : [];
   const progressByAlgorithm = new Map();
   for (const row of allRows) {
     const progress = progressByAlgorithm.get(row.tag) ?? {
@@ -236,7 +231,7 @@ export default function Main({
               showLabels={showLabels}
               progressByAlgorithm={progressByAlgorithm}
               showProgress={submissionsLoaded && showProgressRing}
-              selectedAlgorithm={selectedAlgo.algo}
+              selectedAlgorithm={selectedAlgo?.algo ?? null}
               onSelectAlgorithm={setSelectedAlgoName}
             />
           </div>

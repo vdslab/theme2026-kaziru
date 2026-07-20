@@ -121,6 +121,14 @@ export default function PieBeeswarm({
         viewBox={`${viewBoxX} ${viewBoxY} ${viewBoxWidth} ${viewBoxHeight}`}
         preserveAspectRatio="xMidYMid meet"
       >
+        <rect
+          x={viewBoxX}
+          y={viewBoxY}
+          width={viewBoxWidth}
+          height={viewBoxHeight}
+          fill="transparent"
+          onClick={() => onSelectAlgorithm?.(null)}
+        />
         <AxisBottom
           yMin={viewBoxY}
           yMax={axisY}
@@ -150,6 +158,7 @@ export default function PieBeeswarm({
             progressRingGap={PROGRESS_RING_GAP}
             progressRingWidth={PROGRESS_RING_WIDTH}
             selected={item.algo === selectedAlgorithm}
+            dimmed={selectedAlgorithm !== null && item.algo !== selectedAlgorithm}
             onSelect={() => onSelectAlgorithm?.(item.algo)}
             slices={[
               { label: "Gray", value: item.Gray },
