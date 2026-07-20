@@ -9,6 +9,19 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
     return "";
   };
 
+  if (!algo) {
+    return (
+      <div className="legend">
+        <div className="legend-title">選択したアルゴリズム</div>
+        <div className="selected-algo-card">
+          <div className="selected-algo-card--empty">
+            ノードをクリックしてアルゴリズムを選択してください
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="legend">
       <div className="legend-title">選択したアルゴリズム</div>
