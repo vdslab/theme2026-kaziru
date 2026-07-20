@@ -53,8 +53,8 @@ export default function PieNode({
   const progressArcGenerator = arc()
     .innerRadius(innerPieRadius + ringGap)
     .outerRadius(outerRadius);
-  const strokeColor = selected ? "white" : dimmed ? "#888" : "black";
-  const strokeWidth = selected ? 2 : 1;
+  const strokeColor = "black";
+  const strokeWidth = 1;
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || event.key === " ") {
