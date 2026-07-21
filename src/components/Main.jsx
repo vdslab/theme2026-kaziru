@@ -7,6 +7,7 @@ import { buildSubmissionMap } from "../utils/submissions";
 import UserIdInput from "./UserIdInput";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
+import UsageOverlay from "./UsageOverlay";
 
 const MAX_CHART_ASPECT_RATIO = 3;
 export default function Main({
@@ -22,6 +23,7 @@ export default function Main({
     summary.length > 0 ? summary[0].algo : null,
   );
   const [chartMinHeight, setChartMinHeight] = useState(0);
+  const [showUsageOverlay, setShowUsageOverlay] = useState(true);
   const chartWrapperRef = useRef(null);
 
   useEffect(() => {
@@ -37,6 +39,14 @@ export default function Main({
     observer.observe(chartWrapper);
     return () => observer.disconnect();
   }, []);
+
+  const openUsageOverlay = () => {
+    setShowUsageOverlay(true);
+  };
+
+  const handleCloseUsageOverlay = () => {
+    setShowUsageOverlay(false);
+  };
 
   const [username, setUsername] = useState("");
   const [rate, setRate] = useState(null);
@@ -127,6 +137,8 @@ export default function Main({
 
   return (
     <main className="main">
+      {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
+
       <UserIdInput
         username={username}
         setUsername={handleUsernameChange}
@@ -136,9 +148,7 @@ export default function Main({
       />
       <div className="controls-panel">
         <div className="rate-range-control">
-          <div className="control-label">
-            位置計算に使う易しい問題の割合
-          </div>
+          <div className="control-label">位置計算に使う易しい問題の割合</div>
           <div className="range-slider">
             <span>0%</span>
             <div className="range-slider-input">
@@ -148,7 +158,9 @@ export default function Main({
                 max="100"
                 step="1"
                 value={lowerFractionPercent}
-                onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
+                onChange={(e) =>
+                  onLowerFractionChange(Number(e.target.value) / 100)
+                }
                 aria-label="位置計算に使う易しい問題の割合"
                 aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
               />
@@ -206,13 +218,31 @@ export default function Main({
             </span>
           </div>
           {submissionsLoaded && (
-            <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
-              <span><i className="progress-ring-legend--ac" />AC</span>
-              <span><i className="progress-ring-legend--unsolved" />未AC</span>
-              <span><i className="progress-ring-legend--untried" />未挑戦</span>
+            <div
+              className="progress-ring-legend"
+              aria-label="外側の円グラフの凡例"
+            >
+              <span>
+                <i className="progress-ring-legend--ac" />
+                AC
+              </span>
+              <span>
+                <i className="progress-ring-legend--unsolved" />
+                未AC
+              </span>
+              <span>
+                <i className="progress-ring-legend--untried" />
+                未挑戦
+              </span>
             </div>
           )}
-          <button className="usage-button">使い方</button>
+          <button
+            className="usage-button"
+            type="button"
+            onClick={openUsageOverlay}
+          >
+            使い方
+          </button>
         </div>
 
         <div
