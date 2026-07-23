@@ -5,6 +5,7 @@ import { fetchAllUserSubmissions } from "../api/loadUserSubmissions";
 import { buildSubmissionMap } from "../utils/submissions";
 
 import UserIdInput from "./UserIdInput";
+import RateRangeControl from "./RateRangeControl";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
 import UsageOverlay from "./UsageOverlay";
@@ -55,7 +56,6 @@ export default function Main({
 
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
-  const lowerFractionPercent = Math.round(lowerFraction * 100);
 
   const handleUsernameChange = (value) => {
     setUsername(value);
@@ -157,33 +157,10 @@ export default function Main({
       </div>
 
       <div className="controls-panel">
-        <div className="rate-range-control">
-          <div className="control-label">位置計算に使う易しい問題の割合</div>
-          <div className="range-slider">
-            <span>0%</span>
-            <div className="range-slider-input">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                step="1"
-                value={lowerFractionPercent}
-                onChange={(e) =>
-                  onLowerFractionChange(Number(e.target.value) / 100)
-                }
-                aria-label="位置計算に使う易しい問題の割合"
-                aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
-              />
-              <output
-                className="range-slider-value"
-                style={{ left: `${lowerFractionPercent}%` }}
-              >
-                {lowerFractionPercent}%
-              </output>
-            </div>
-            <span>100%</span>
-          </div>
-        </div>
+        <RateRangeControl
+          lowerFraction={lowerFraction}
+          onLowerFractionChange={onLowerFractionChange}
+        />
 
         <div className="display-options">
           <div className="display-options-header">
