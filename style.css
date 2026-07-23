@@ -130,6 +130,12 @@ body {
   background: #1d4ed8;
 }
 
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* Main */
 .main {
   flex: 1;

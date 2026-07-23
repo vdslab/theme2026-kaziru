@@ -108,13 +108,13 @@ export default function Main({
 
   const selectedAlgo =
     selectedAlgoName != null
-      ? summary.find((item) => item.algo === selectedAlgoName) ?? null
+      ? (summary.find((item) => item.algo === selectedAlgoName) ?? null)
       : null;
 
   const problems = selectedAlgo
     ? allRows
-      .filter((row) => row.tag === selectedAlgo.algo)
-      .sort((a, b) => (a.diffCalc ?? 0) - (b.diffCalc ?? 0))
+        .filter((row) => row.tag === selectedAlgo.algo)
+        .sort((a, b) => (a.diffCalc ?? 0) - (b.diffCalc ?? 0))
     : [];
   const progressByAlgorithm = new Map();
   for (const row of allRows) {
@@ -138,14 +138,24 @@ export default function Main({
   return (
     <main className="main">
       {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
+      <div className="top-controls">
+        <UserIdInput
+          username={username}
+          setUsername={handleUsernameChange}
+          handleFetchRate={handleFetchRate}
+          handleFetchSubmissions={handleFetchSubmissions}
+          rateError={rateError}
+        />
 
-      <UserIdInput
-        username={username}
-        setUsername={handleUsernameChange}
-        handleFetchRate={handleFetchRate}
-        handleFetchSubmissions={handleFetchSubmissions}
-        rateError={rateError}
-      />
+        <button
+          className="usage-button"
+          type="button"
+          onClick={openUsageOverlay}
+        >
+          使い方
+        </button>
+      </div>
+
       <div className="controls-panel">
         <div className="rate-range-control">
           <div className="control-label">位置計算に使う易しい問題の割合</div>
@@ -236,13 +246,6 @@ export default function Main({
               </span>
             </div>
           )}
-          <button
-            className="usage-button"
-            type="button"
-            onClick={openUsageOverlay}
-          >
-            使い方
-          </button>
         </div>
 
         <div
