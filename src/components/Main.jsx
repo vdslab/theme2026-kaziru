@@ -8,6 +8,7 @@ import UserIdInput from "./UserIdInput";
 import RateRangeControl from "./RateRangeControl";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
+import UsageOverlay from "./UsageOverlay";
 
 const MAX_CHART_ASPECT_RATIO = 3;
 export default function Main({
@@ -23,6 +24,7 @@ export default function Main({
     summary.length > 0 ? summary[0].algo : null,
   );
   const [chartMinHeight, setChartMinHeight] = useState(0);
+  const [showUsageOverlay, setShowUsageOverlay] = useState(true);
   const chartWrapperRef = useRef(null);
 
   useEffect(() => {
@@ -38,6 +40,14 @@ export default function Main({
     observer.observe(chartWrapper);
     return () => observer.disconnect();
   }, []);
+
+  const openUsageOverlay = () => {
+    setShowUsageOverlay(true);
+  };
+
+  const handleCloseUsageOverlay = () => {
+    setShowUsageOverlay(false);
+  };
 
   const [username, setUsername] = useState("");
   const [rate, setRate] = useState(null);
@@ -127,13 +137,25 @@ export default function Main({
 
   return (
     <main className="main">
-      <UserIdInput
-        username={username}
-        setUsername={handleUsernameChange}
-        handleFetchRate={handleFetchRate}
-        handleFetchSubmissions={handleFetchSubmissions}
-        rateError={rateError}
-      />
+      {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
+      <div className="top-controls">
+        <UserIdInput
+          username={username}
+          setUsername={handleUsernameChange}
+          handleFetchRate={handleFetchRate}
+          handleFetchSubmissions={handleFetchSubmissions}
+          rateError={rateError}
+        />
+
+        <button
+          className="usage-button"
+          type="button"
+          onClick={openUsageOverlay}
+        >
+          使い方
+        </button>
+      </div>
+
       <div className="controls-panel">
         <RateRangeControl
           lowerFraction={lowerFraction}
@@ -201,7 +223,6 @@ export default function Main({
               </span>
             </div>
           )}
-          <button className="usage-button">使い方</button>
         </div>
 
         <div
