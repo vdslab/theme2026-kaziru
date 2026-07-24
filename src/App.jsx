@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { computeBeeswarm } from "./utils/beeswarm";
-import { computeAnchoredClassicalMds, DEFAULT_LOWER_FRACTION } from "./utils/classicalMds";
+import {
+  computeAnchoredClassicalMds,
+  createAlgorithmDistanceMap,
+  DEFAULT_LOWER_FRACTION,
+} from "./utils/classicalMds";
 import { loadCsv, findColumn } from "./utils/loadCsv";
 import { groupByAlgorithm, countBandsByAlgorithm, createSummary } from "./utils/statistics";
 
@@ -15,14 +19,22 @@ export default function App() {
   const [allRows, setAllRows] = useState([]);
   const [lowerFraction, setLowerFraction] = useState(DEFAULT_LOWER_FRACTION);
 
+  const distanceByAlgorithm = useMemo(() => {
+    if (summaryData.length === 0) {
+      return new Map();
+    }
+
+    return createAlgorithmDistanceMap(summaryData, algorithmGroups, lowerFraction);
+  }, [algorithmGroups, lowerFraction, summaryData]);
+
   const summary = useMemo(() => {
     if (summaryData.length === 0) {
       return [];
     }
 
     const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, lowerFraction);
-    return computeBeeswarm(mdsData);
-  }, [algorithmGroups, lowerFraction, summaryData]);
+    return computeBeeswarm(mdsData, distanceByAlgorithm);
+  }, [algorithmGroups, distanceByAlgorithm, lowerFraction, summaryData]);
 
   useEffect(() => {
     async function init() {
@@ -91,6 +103,7 @@ export default function App() {
       <Main
         summary={summary}
         allRows={allRows}
+        distanceByAlgorithm={distanceByAlgorithm}
         lowerFraction={lowerFraction}
         onLowerFractionChange={setLowerFraction}
       />

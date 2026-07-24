@@ -37,7 +37,7 @@ function lowerFractionValues(values, fraction = DEFAULT_LOWER_FRACTION) {
 }
 
 // 1次元のWasserstein-1距離。分位点関数の差を数値積分する。
-function wassersteinDistance1d(valuesA, valuesB) {
+export function wassersteinDistance1d(valuesA, valuesB) {
   if (valuesA.length === 0 || valuesB.length === 0) {
     return Number.NaN;
   }
@@ -60,6 +60,38 @@ function wassersteinDistance1d(valuesA, valuesB) {
 
   const area = total * (quantileRange / last);
   return area / quantileRange;
+}
+
+export function createAlgorithmDistanceMap(
+  summary,
+  groups,
+  lowerFraction = DEFAULT_LOWER_FRACTION,
+) {
+  const distributions = new Map(
+    summary.map((item) => [
+      item.algo,
+      lowerFractionValues(groups[item.algo] ?? [], lowerFraction),
+    ]),
+  );
+  const distanceByAlgorithm = new Map(
+    summary.map((item) => [item.algo, new Map([[item.algo, 0]])]),
+  );
+
+  for (let i = 0; i < summary.length; i++) {
+    for (let j = i + 1; j < summary.length; j++) {
+      const source = summary[i].algo;
+      const target = summary[j].algo;
+      const distance = wassersteinDistance1d(
+        distributions.get(source),
+        distributions.get(target),
+      );
+
+      distanceByAlgorithm.get(source).set(target, distance);
+      distanceByAlgorithm.get(target).set(source, distance);
+    }
+  }
+
+  return distanceByAlgorithm;
 }
 
 function createDistanceMatrix(distributions) {

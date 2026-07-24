@@ -11,7 +11,13 @@ import AlgorithmCard from "./AlgorithmCard";
 import UsageOverlay from "./UsageOverlay";
 
 const MAX_CHART_ASPECT_RATIO = 3;
-export default function Main({ summary, allRows, lowerFraction, onLowerFractionChange }) {
+export default function Main({
+  summary,
+  allRows,
+  distanceByAlgorithm,
+  lowerFraction,
+  onLowerFractionChange,
+}) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
@@ -223,6 +229,7 @@ export default function Main({ summary, allRows, lowerFraction, onLowerFractionC
               showProgress={submissionsLoaded && showProgressRing}
               selectedAlgorithm={selectedAlgo?.algo ?? null}
               onSelectAlgorithm={setSelectedAlgoName}
+              distanceByAlgorithm={distanceByAlgorithm}
             />
           </div>
 

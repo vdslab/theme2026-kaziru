@@ -474,6 +474,17 @@ body {
   stroke-width: 4;
 }
 
+.neighbor-links {
+  pointer-events: none;
+}
+
+.neighbor-links line {
+  stroke: #2563eb;
+  stroke-width: 2;
+  stroke-dasharray: 8 6;
+  opacity: 0.8;
+}
+
 .current-rate-line {
   pointer-events: none;
 }

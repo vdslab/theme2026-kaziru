@@ -12,6 +12,7 @@ export default function PieBeeswarm({
   showProgress = false,
   selectedAlgorithm = null,
   onSelectAlgorithm,
+  distanceByAlgorithm = new Map(),
 }) {
   const containerRef = useRef(null);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
@@ -105,6 +106,24 @@ export default function PieBeeswarm({
       { label: "Untried", value: progressByAlgorithm.get(item.algo)?.untried ?? 0 },
     ],
   }));
+  const selectedNode = renderedData.find((item) => item.algo === selectedAlgorithm);
+  const selectedDistances = distanceByAlgorithm.get(selectedAlgorithm);
+  const neighborLinks =
+    selectedNode && selectedDistances
+      ? renderedData
+          .filter((item) => item.algo !== selectedAlgorithm)
+          .map((item) => ({
+            item,
+            distance: selectedDistances.get(item.algo),
+          }))
+          .filter((neighbor) => Number.isFinite(neighbor.distance))
+          .sort((a, b) => a.distance - b.distance)
+          .slice(0, 3)
+      : [];
+  const highlightedAlgorithms = new Set([
+    selectedAlgorithm,
+    ...neighborLinks.map(({ item }) => item.algo),
+  ]);
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
@@ -130,6 +149,26 @@ export default function PieBeeswarm({
           axisXMax={xScale(AXIS_MAX)}
         />
 
+        {neighborLinks.length > 0 && (
+          <g className="neighbor-links" aria-label="選択タグに近いタグ">
+            {neighborLinks.map(({ item, distance }) => {
+              const dx = item.x - selectedNode.x;
+              const dy = item.y - selectedNode.y;
+              const length = Math.hypot(dx, dy) || 1;
+              const x1 = selectedNode.x + (dx / length) * selectedNode.r;
+              const y1 = selectedNode.y + (dy / length) * selectedNode.r;
+              const x2 = item.x - (dx / length) * item.r;
+              const y2 = item.y - (dy / length) * item.r;
+
+              return (
+                <line key={item.algo} x1={x1} y1={y1} x2={x2} y2={y2}>
+                  <title>{`${selectedNode.algo} と ${item.algo} のWasserstein距離: ${Math.round(distance)}`}</title>
+                </line>
+              );
+            })}
+          </g>
+        )}
+
         {shouldShowCurrentRate && (
           <g className="current-rate-line" transform={`translate(${xScale(currentRateX)},0)`}>
             <line y1={viewBoxY} y2={axisY + 10} />
@@ -151,7 +190,7 @@ export default function PieBeeswarm({
             progressRingGap={PROGRESS_RING_GAP}
             progressRingWidth={PROGRESS_RING_WIDTH}
             selected={item.algo === selectedAlgorithm}
-            dimmed={selectedAlgorithm !== null && item.algo !== selectedAlgorithm}
+            dimmed={selectedAlgorithm !== null && !highlightedAlgorithms.has(item.algo)}
             onSelect={() => onSelectAlgorithm?.(item.algo)}
             slices={[
               { label: "Gray", value: item.Gray },
