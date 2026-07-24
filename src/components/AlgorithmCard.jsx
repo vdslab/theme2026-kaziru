@@ -31,9 +31,7 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
           </div>
           <div className="problems-list">
             <div className="problems-list-title">問題一覧</div>
-            <div className="problems-list--empty">
-              ノード（アルゴリズム）を選択してください
-            </div>
+            <div className="problems-list--empty">ノード（アルゴリズム）を選択してください</div>
           </div>
         </div>
       </div>
@@ -70,8 +68,12 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
               className={`problem-item ${getProblemStatusClass(problem.problem_id)}`}
             >
               <DiffCircle difficulty={problem.difficulty} diffBand={problem.diff_band} />
-              <span className="problem-id" style={{ color: getDiffColor(problem.diff_band) }}>{problem.problem_id}</span>
-              <span className="problem-title" style={{ color: getDiffColor(problem.diff_band) }}>{problem.title}</span>
+              <span className="problem-id" style={{ color: getDiffColor(problem.diff_band) }}>
+                {problem.problem_id}
+              </span>
+              <span className="problem-title" style={{ color: getDiffColor(problem.diff_band) }}>
+                {problem.title}
+              </span>
             </a>
           ))}
         </div>

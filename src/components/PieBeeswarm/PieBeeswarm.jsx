@@ -53,12 +53,8 @@ export default function PieBeeswarm({
   const nodeYMax = Math.max(...data.map((d) => d.y + d.r));
 
   const currentRate = rate == null ? null : Number(rate);
-  const shouldShowCurrentRate =
-    showCurrentRate && Number.isFinite(currentRate);
-  const currentRateX = Math.min(
-    AXIS_MAX,
-    Math.max(AXIS_MIN, currentRate),
-  );
+  const shouldShowCurrentRate = showCurrentRate && Number.isFinite(currentRate);
+  const currentRateX = Math.min(AXIS_MAX, Math.max(AXIS_MIN, currentRate));
   const currentRateLabel = currentRate > AXIS_MAX ? `${AXIS_MAX}+` : String(currentRate);
 
   const contentXMin = Math.min(AXIS_MIN, nodeXMin) - SIDE_MARGIN;
@@ -92,13 +88,10 @@ export default function PieBeeswarm({
   const viewBoxXMax = viewBoxX + viewBoxWidth;
   const maxNodeRadius = Math.max(...data.map((item) => item.r));
   const plotXMin = viewBoxX + Math.max(SIDE_MARGIN, maxNodeRadius);
-  const plotXMax =
-    viewBoxXMax -
-    Math.max(RATE_LABEL_SIDE_MARGIN, maxNodeRadius);
+  const plotXMax = viewBoxXMax - Math.max(RATE_LABEL_SIDE_MARGIN, maxNodeRadius);
   const plotXWidth = Math.max(1, plotXMax - plotXMin);
   const xScale = (value) =>
-    plotXMin +
-    (Math.min(AXIS_MAX, Math.max(AXIS_MIN, value)) / AXIS_MAX) * plotXWidth;
+    plotXMin + (Math.min(AXIS_MAX, Math.max(AXIS_MIN, value)) / AXIS_MAX) * plotXWidth;
   const ticks = [];
   for (let value = AXIS_MIN; value <= AXIS_MAX; value += TICK_STEP) {
     ticks.push({ value, position: xScale(value) });
@@ -172,13 +165,7 @@ export default function PieBeeswarm({
 
         {showLabels &&
           renderedData.map((item) => (
-            <NodeLabel
-              key={item.algo}
-              x={item.x}
-              y={item.y}
-              r={item.r}
-              text={item.algo}
-            />
+            <NodeLabel key={item.algo} x={item.x} y={item.y} r={item.r} text={item.algo} />
           ))}
       </svg>
     </div>

@@ -1,16 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { computeBeeswarm } from "./utils/beeswarm";
-import {
-  computeAnchoredClassicalMds,
-  DEFAULT_LOWER_FRACTION,
-} from "./utils/classicalMds";
+import { computeAnchoredClassicalMds, DEFAULT_LOWER_FRACTION } from "./utils/classicalMds";
 import { loadCsv, findColumn } from "./utils/loadCsv";
-import {
-  groupByAlgorithm,
-  countBandsByAlgorithm,
-  createSummary,
-} from "./utils/statistics";
+import { groupByAlgorithm, countBandsByAlgorithm, createSummary } from "./utils/statistics";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -27,11 +20,7 @@ export default function App() {
       return [];
     }
 
-    const mdsData = computeAnchoredClassicalMds(
-      summaryData,
-      algorithmGroups,
-      lowerFraction,
-    );
+    const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, lowerFraction);
     return computeBeeswarm(mdsData);
   }, [algorithmGroups, lowerFraction, summaryData]);
 
@@ -44,14 +33,7 @@ export default function App() {
 
         const algoCol = findColumn(
           columns,
-          [
-            "tag",
-            "algorithm",
-            "algorithm_name",
-            "name",
-            "アルゴリズム",
-            "タグ",
-          ],
+          ["tag", "algorithm", "algorithm_name", "name", "アルゴリズム", "タグ"],
           "アルゴリズム名",
         );
 
@@ -61,21 +43,13 @@ export default function App() {
           "difficulty",
         );
 
-        const problemCol = [
-          "problem_id",
-          "id",
-          "problem",
-          "problem_name",
-          "title",
-          "url",
-        ].find((column) => columns.includes(column));
+        const problemCol = ["problem_id", "id", "problem", "problem_name", "title", "url"].find(
+          (column) => columns.includes(column),
+        );
         const seenProblems = new Set();
 
         const processedRows = rows
-          .filter(
-            (row) =>
-              row[algoCol] && row[diffCol] != null && row[diffCol] !== "",
-          )
+          .filter((row) => row[algoCol] && row[diffCol] != null && row[diffCol] !== "")
           .filter((row) => {
             if (!problemCol) {
               return true;

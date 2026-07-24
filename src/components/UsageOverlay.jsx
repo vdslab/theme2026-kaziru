@@ -55,7 +55,6 @@ export default function UsageOverlay({ onClose }) {
               </p>
             </div>
           </div>
-        
 
           <div className="usage-step">
             <span className="usage-step-number">4</span>
@@ -68,11 +67,7 @@ export default function UsageOverlay({ onClose }) {
           </div>
         </div>
 
-        <button
-          className="usage-overlay-primary"
-          type="button"
-          onClick={onClose}
-        >
+        <button className="usage-overlay-primary" type="button" onClick={onClose}>
           はじめる
         </button>
       </div>

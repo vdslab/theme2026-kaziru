@@ -41,13 +41,9 @@ export default function PieNode({
 
   // リングの外周は従来のノード半径に固定し、難易度Pieはその内側に収める。
   // 小さいノードでPieが潰れないよう、リング幅・間隔は半径に応じて縮める。
-  const ringWidth = showProgress
-    ? Math.min(progressRingWidth / 2, r * 0.2)
-    : 0;
+  const ringWidth = showProgress ? Math.min(progressRingWidth / 2, r * 0.2) : 0;
   const ringGap = showProgress ? Math.min(progressRingGap, r * 0.12) : 0;
-  const innerPieRadius = showProgress
-    ? Math.max(1, r - ringGap - ringWidth)
-    : r;
+  const innerPieRadius = showProgress ? Math.max(1, r - ringGap - ringWidth) : r;
   const outerRadius = r;
   const arcGenerator = arc().innerRadius(0).outerRadius(innerPieRadius);
   const progressArcGenerator = arc()

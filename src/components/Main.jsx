@@ -11,12 +11,7 @@ import AlgorithmCard from "./AlgorithmCard";
 import UsageOverlay from "./UsageOverlay";
 
 const MAX_CHART_ASPECT_RATIO = 3;
-export default function Main({
-  summary,
-  allRows,
-  lowerFraction,
-  onLowerFractionChange,
-}) {
+export default function Main({ summary, allRows, lowerFraction, onLowerFractionChange }) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
@@ -32,9 +27,7 @@ export default function Main({
     if (!chartWrapper) return;
 
     const observer = new ResizeObserver(([entry]) => {
-      setChartMinHeight(
-        Math.ceil(entry.contentRect.width / MAX_CHART_ASPECT_RATIO),
-      );
+      setChartMinHeight(Math.ceil(entry.contentRect.width / MAX_CHART_ASPECT_RATIO));
     });
 
     observer.observe(chartWrapper);
@@ -147,11 +140,7 @@ export default function Main({
           rateError={rateError}
         />
 
-        <button
-          className="usage-button"
-          type="button"
-          onClick={openUsageOverlay}
-        >
+        <button className="usage-button" type="button" onClick={openUsageOverlay}>
           使い方
         </button>
       </div>
@@ -200,15 +189,10 @@ export default function Main({
           <h2 className="chart-title">アルゴリズム分布図（Pie-Beeswarm）</h2>
           <div className="current-rate">
             現在のレート
-            <span className="rate-value">
-              {rateLoading ? "取得中..." : (rate ?? "---")}
-            </span>
+            <span className="rate-value">{rateLoading ? "取得中..." : (rate ?? "---")}</span>
           </div>
           {submissionsLoaded && (
-            <div
-              className="progress-ring-legend"
-              aria-label="外側の円グラフの凡例"
-            >
+            <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
               <span>
                 <i className="progress-ring-legend--ac" />
                 AC
@@ -227,11 +211,7 @@ export default function Main({
 
         <div
           className="vis-layout"
-          style={
-            chartMinHeight > 0
-              ? { minHeight: `${chartMinHeight}px` }
-              : undefined
-          }
+          style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
         >
           <div ref={chartWrapperRef} className="chart-wrapper">
             <PieBeeswarm
@@ -246,11 +226,7 @@ export default function Main({
             />
           </div>
 
-          <AlgorithmCard
-            algo={selectedAlgo}
-            problems={problems}
-            submissionsMap={submissionsMap}
-          />
+          <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
         </div>
       </div>
     </main>

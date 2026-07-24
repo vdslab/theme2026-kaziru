@@ -52,9 +52,7 @@ function wassersteinDistance1d(valuesA, valuesB) {
 
   for (let i = 0; i <= last; i++) {
     const q = TRIM_ALPHA + (quantileRange * i) / last;
-    const difference = Math.abs(
-      quantileSorted(valuesA, q) - quantileSorted(valuesB, q),
-    );
+    const difference = Math.abs(quantileSorted(valuesA, q) - quantileSorted(valuesB, q));
 
     // np.trapezoid と同じく、積分区間の両端だけ重みを半分にする。
     total += i === 0 || i === last ? difference / 2 : difference;
@@ -70,10 +68,7 @@ function createDistanceMatrix(distributions) {
 
   for (let i = 0; i < size; i++) {
     for (let j = i + 1; j < size; j++) {
-      const distance = wassersteinDistance1d(
-        distributions[i],
-        distributions[j],
-      );
+      const distance = wassersteinDistance1d(distributions[i], distributions[j]);
 
       distances[i][j] = distance;
       distances[j][i] = distance;
@@ -102,9 +97,9 @@ function doubleCenterSquaredDistances(distances) {
   const grandMean = grandTotal / (size * size);
 
   return Array.from({ length: size }, (_, i) =>
-    Array.from({ length: size }, (_, j) =>
-      -0.5 *
-      (distances[i][j] ** 2 - rowMeans[i] - rowMeans[j] + grandMean),
+    Array.from(
+      { length: size },
+      (_, j) => -0.5 * (distances[i][j] ** 2 - rowMeans[i] - rowMeans[j] + grandMean),
     ),
   );
 }
@@ -152,9 +147,7 @@ function leadingEigenpair(matrix) {
   vector = normalize(vector);
 
   for (let iteration = 0; iteration < EIGEN_MAX_ITERATIONS; iteration++) {
-    const next = normalize(
-      multiplyMatrixVector(matrix, vector, diagonalShift),
-    );
+    const next = normalize(multiplyMatrixVector(matrix, vector, diagonalShift));
 
     let sameDirectionError = 0;
     let oppositeDirectionError = 0;
@@ -166,19 +159,13 @@ function leadingEigenpair(matrix) {
 
     vector = next;
 
-    if (
-      Math.sqrt(Math.min(sameDirectionError, oppositeDirectionError)) <
-      EIGEN_TOLERANCE
-    ) {
+    if (Math.sqrt(Math.min(sameDirectionError, oppositeDirectionError)) < EIGEN_TOLERANCE) {
       break;
     }
   }
 
   const multiplied = multiplyMatrixVector(matrix, vector);
-  const eigenvalue = vector.reduce(
-    (sum, value, i) => sum + value * multiplied[i],
-    0,
-  );
+  const eigenvalue = vector.reduce((sum, value, i) => sum + value * multiplied[i], 0);
 
   return { eigenvalue, eigenvector: vector };
 }
@@ -198,11 +185,8 @@ function classicalMds1d(distances) {
 function alignByAnchors(coordinates, realCount, anchorValues) {
   const anchorCoordinates = coordinates.slice(realCount);
   const meanCoordinate =
-    anchorCoordinates.reduce((sum, value) => sum + value, 0) /
-    anchorCoordinates.length;
-  const meanTarget =
-    anchorValues.reduce((sum, value) => sum + value, 0) /
-    anchorValues.length;
+    anchorCoordinates.reduce((sum, value) => sum + value, 0) / anchorCoordinates.length;
+  const meanTarget = anchorValues.reduce((sum, value) => sum + value, 0) / anchorValues.length;
 
   let covariance = 0;
   let variance = 0;
@@ -251,10 +235,7 @@ export function computeAnchoredClassicalMds(
   );
   const anchorValues = createAnchorValues();
   const anchorDistributions = anchorValues.map((value) => [value]);
-  const distances = createDistanceMatrix([
-    ...realDistributions,
-    ...anchorDistributions,
-  ]);
+  const distances = createDistanceMatrix([...realDistributions, ...anchorDistributions]);
   const rawCoordinates = classicalMds1d(distances);
 
   if (!rawCoordinates) {
@@ -262,11 +243,7 @@ export function computeAnchoredClassicalMds(
     return summary;
   }
 
-  const alignedCoordinates = alignByAnchors(
-    rawCoordinates,
-    summary.length,
-    anchorValues,
-  );
+  const alignedCoordinates = alignByAnchors(rawCoordinates, summary.length, anchorValues);
 
   if (!alignedCoordinates) {
     console.warn("MDS anchor alignment failed; falling back to the existing x positions.");

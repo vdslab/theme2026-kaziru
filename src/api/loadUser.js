@@ -1,13 +1,13 @@
 export async function fetchUserRate(username) {
-    const url = `/api/atcoder/users/${encodeURIComponent(username)}/history/json?contestType=algo/json`;
-    const res = await fetch(url);
-    if (!res.ok) {
-        throw new Error(`Failed to fetch user data: ${res.status}`);
-    }
-    const data = await res.json();
-    if (!data.length) {
-        throw new Error("ユーザーが見つかりません");
-    }
-    const latest = data[data.length - 1];
-    return latest.NewRating;
+  const url = `/api/atcoder/users/${encodeURIComponent(username)}/history/json?contestType=algo/json`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch user data: ${res.status}`);
+  }
+  const data = await res.json();
+  if (!data.length) {
+    throw new Error("ユーザーが見つかりません");
+  }
+  const latest = data[data.length - 1];
+  return latest.NewRating;
 }

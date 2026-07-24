@@ -30,13 +30,7 @@ export default function NodeLabel({ x, y, text, r }) {
         />
       )}
 
-      <text
-        ref={textRef}
-        x="0"
-        y="0"
-        textAnchor="middle"
-        fontSize="12"
-      >
+      <text ref={textRef} x="0" y="0" textAnchor="middle" fontSize="12">
         {text}
       </text>
     </g>

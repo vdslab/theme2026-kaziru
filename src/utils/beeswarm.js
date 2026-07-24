@@ -10,9 +10,7 @@ export function hasOverlap(y, x, r, placed) {
       continue;
     }
 
-    const dyLimit = Math.sqrt(
-      minDist * minDist - dx * dx
-    );
+    const dyLimit = Math.sqrt(minDist * minDist - dx * dx);
 
     if (Math.abs(y - p.y) < dyLimit) {
       return true;
@@ -31,18 +29,14 @@ export function placeOne(x, r, placed) {
     const dx = Math.abs(x - p.x);
 
     if (dx < minDist) {
-      const dy = Math.sqrt(
-        minDist * minDist - dx * dx
-      );
+      const dy = Math.sqrt(minDist * minDist - dx * dx);
 
       candidates.push(p.y + dy);
       candidates.push(p.y - dy);
     }
   }
 
-  candidates.sort(
-    (a, b) => Math.abs(a) - Math.abs(b)
-  );
+  candidates.sort((a, b) => Math.abs(a) - Math.abs(b));
 
   for (const y of candidates) {
     if (!hasOverlap(y, x, r, placed)) {
@@ -65,16 +59,10 @@ export function placeOne(x, r, placed) {
 export function computeBeeswarm(summary) {
   const placed = [];
 
-  const sorted = [...summary].sort(
-    (a, b) => a.x - b.x
-  );
+  const sorted = [...summary].sort((a, b) => a.x - b.x);
 
   for (const item of sorted) {
-    const y = placeOne(
-      item.x,
-      item.r,
-      placed
-    );
+    const y = placeOne(item.x, item.r, placed);
 
     placed.push({
       ...item,
