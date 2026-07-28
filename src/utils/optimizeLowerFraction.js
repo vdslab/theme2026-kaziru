@@ -32,28 +32,27 @@ function evaluateFraction(fraction, summary, groups, rate, acRateByAlgo) {
   const mdsData = computeAnchoredClassicalMds(summary, groups, fraction);
   const placedData = computeBeeswarm(mdsData);
 
-  const leftAcRates = [];
-  const rightAcRates = [];
+  let leftWeightedSum = 0;
+  let leftWeight = 0;
+  let rightWeightedSum = 0;
+  let rightWeight = 0;
 
   for (const item of placedData) {
     const acRate = acRateByAlgo.get(item.algo);
     if (acRate == null) continue;
 
+    const weight = Math.sqrt(item.n ?? 1);
     if (item.x < rate) {
-      leftAcRates.push(acRate);
+      leftWeightedSum += acRate * weight;
+      leftWeight += weight;
     } else {
-      rightAcRates.push(acRate);
+      rightWeightedSum += acRate * weight;
+      rightWeight += weight;
     }
   }
 
-  const leftAvg =
-    leftAcRates.length > 0
-      ? leftAcRates.reduce((sum, v) => sum + v, 0) / leftAcRates.length
-      : 0;
-  const rightAvg =
-    rightAcRates.length > 0
-      ? rightAcRates.reduce((sum, v) => sum + v, 0) / rightAcRates.length
-      : 0;
+  const leftAvg = leftWeight > 0 ? leftWeightedSum / leftWeight : 0;
+  const rightAvg = rightWeight > 0 ? rightWeightedSum / rightWeight : 0;
 
   return leftAvg - rightAvg;
 }
