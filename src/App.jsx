@@ -96,7 +96,6 @@ export default function App() {
       rate,
       submissionsMap,
       allRows,
-      step: 0.01,
     });
 
     return optimalFraction;
