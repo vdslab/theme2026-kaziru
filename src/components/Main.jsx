@@ -131,55 +131,57 @@ export default function Main({ summary, allRows, lowerFraction, onLowerFractionC
   return (
     <main className="main">
       {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
-      <div className="top-controls">
-        <UserIdInput
-          username={username}
-          setUsername={handleUsernameChange}
-          handleFetchRate={handleFetchRate}
-          handleFetchSubmissions={handleFetchSubmissions}
-          rateError={rateError}
-        />
+      <div className="control-pannel">
+        <div className="top-controls">
+          <UserIdInput
+            username={username}
+            setUsername={handleUsernameChange}
+            handleFetchRate={handleFetchRate}
+            handleFetchSubmissions={handleFetchSubmissions}
+            rateError={rateError}
+          />
 
-        <button className="usage-button" type="button" onClick={openUsageOverlay}>
-          使い方
-        </button>
-      </div>
+          <button className="usage-button" type="button" onClick={openUsageOverlay}>
+            使い方
+          </button>
+        </div>
 
-      <div className="controls-panel">
-        <RateRangeControl
-          lowerFraction={lowerFraction}
-          onLowerFractionChange={onLowerFractionChange}
-        />
+        <div className="control-section">
+          <RateRangeControl
+            lowerFraction={lowerFraction}
+            onLowerFractionChange={onLowerFractionChange}
+          />
 
-        <div className="display-options">
-          <div className="display-options-header">
-            <div className="control-label">表示オプション</div>
-          </div>
-          <div className="checkboxes">
-            <label>
-              <input
-                type="checkbox"
-                checked={showCurrentRate}
-                onChange={(e) => setShowCurrentRate(e.target.checked)}
-              />
-              現在レート線を表示
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={showProgressRing}
-                onChange={(e) => setShowProgressRing(e.target.checked)}
-              />
-              AC状況を表示
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={showLabels}
-                onChange={(e) => setShowLabels(e.target.checked)}
-              />
-              ラベルを表示
-            </label>
+          <div className="display-options">
+            <div className="display-options-header">
+              <div className="control-label">表示オプション</div>
+            </div>
+            <div className="checkboxes">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showCurrentRate}
+                  onChange={(e) => setShowCurrentRate(e.target.checked)}
+                />
+                現在レート線を表示
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showProgressRing}
+                  onChange={(e) => setShowProgressRing(e.target.checked)}
+                />
+                AC状況を表示
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showLabels}
+                  onChange={(e) => setShowLabels(e.target.checked)}
+                />
+                ラベルを表示
+              </label>
+            </div>
           </div>
         </div>
       </div>
