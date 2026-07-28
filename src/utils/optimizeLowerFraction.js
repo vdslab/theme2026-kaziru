@@ -86,10 +86,12 @@ export function computeOptimalLowerFraction({
   for (const idx of indices) {
     const fraction = idx / 100;
     const score = evaluateFraction(fraction, summary, groups, rate, acRateByAlgo);
-    scores.push({ fraction, score });
+    // 浮動小数点誤差を吸収するため12桁で丸める
+    const roundedScore = Math.round(score * 1e12) / 1e12;
+    scores.push({ fraction, score: roundedScore });
 
-    if (score >= bestScore) {
-      bestScore = score;
+    if (roundedScore >= bestScore) {
+      bestScore = roundedScore;
       optimalFraction = fraction;
     }
   }
