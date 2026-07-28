@@ -7,7 +7,6 @@ import { groupByAlgorithm, countBandsByAlgorithm, createSummary } from "./utils/
 
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Footer from "./components/Footer";
 
 export default function App() {
   const [summaryData, setSummaryData] = useState([]);
@@ -94,7 +93,6 @@ export default function App() {
         lowerFraction={lowerFraction}
         onLowerFractionChange={setLowerFraction}
       />
-      <Footer />
     </div>
   );
 }
