@@ -102,21 +102,22 @@ export default function App() {
     return optimalFraction;
   }, [isAutoOptimize, rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
 
-  // 最適値が計算されたら lowerFraction に反映
-  useEffect(() => {
+  // 自動最適化が有効かつ最適値が計算済みの場合はその値を、そうでなければ手動設定値を使う
+  const computedLowerFraction = useMemo(() => {
     if (isAutoOptimize && optimalLowerFraction != null) {
-      setLowerFraction(optimalLowerFraction);
+      return optimalLowerFraction;
     }
-  }, [isAutoOptimize, optimalLowerFraction]);
+    return lowerFraction;
+  }, [isAutoOptimize, optimalLowerFraction, lowerFraction]);
 
   const summary = useMemo(() => {
     if (summaryData.length === 0) {
       return [];
     }
 
-    const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, lowerFraction);
+    const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, computedLowerFraction);
     return computeBeeswarm(mdsData);
-  }, [algorithmGroups, lowerFraction, summaryData]);
+  }, [algorithmGroups, computedLowerFraction, summaryData]);
 
   useEffect(() => {
     async function init() {
