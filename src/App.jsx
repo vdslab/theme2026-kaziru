@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 
 import { computeBeeswarm } from "./utils/beeswarm";
 import { computeAnchoredClassicalMds, DEFAULT_LOWER_FRACTION } from "./utils/classicalMds";
@@ -29,9 +29,16 @@ export default function App() {
 
   // 自動最適化
   const [isAutoOptimize, setIsAutoOptimize] = useState(true);
+  const optimalLowerFractionRef = useRef(null);
 
   // 自動最適化のON/OFFを切り替える
   const handleAutoOptimizeChange = useCallback((enabled) => {
+    if (!enabled) {
+      // 自動最適化をOFFにするとき、現在の最適値を手動設定に引き継ぐ
+      if (optimalLowerFractionRef.current != null) {
+        setLowerFraction(optimalLowerFractionRef.current);
+      }
+    }
     setIsAutoOptimize(enabled);
   }, []);
 
@@ -100,6 +107,9 @@ export default function App() {
 
     return optimalFraction;
   }, [isAutoOptimize, rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
+
+  // ref に最適値を保持（handleAutoOptimizeChange から順序に関係なく参照できるように）
+  optimalLowerFractionRef.current = optimalLowerFraction;
 
   // 自動最適化が有効かつ最適値が計算済みの場合はその値を、そうでなければ手動設定値を使う
   const computedLowerFraction = useMemo(() => {
@@ -198,6 +208,7 @@ export default function App() {
         onFetchSubmissions={handleFetchSubmissions}
         isAutoOptimize={isAutoOptimize}
         onAutoOptimizeChange={handleAutoOptimizeChange}
+        optimalLowerFraction={optimalLowerFraction}
       />
       <Footer />
     </div>

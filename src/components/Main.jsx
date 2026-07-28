@@ -23,6 +23,7 @@ export default function Main({
   onFetchSubmissions,
   isAutoOptimize,
   onAutoOptimizeChange,
+  optimalLowerFraction,
 }) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
@@ -105,6 +106,7 @@ export default function Main({
           lowerFraction={lowerFraction}
           onLowerFractionChange={onLowerFractionChange}
           isAutoOptimize={isAutoOptimize}
+          optimalLowerFraction={optimalLowerFraction}
         />
 
         <div className="display-options">
