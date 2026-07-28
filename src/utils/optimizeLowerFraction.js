@@ -25,20 +25,6 @@ function computeAcRateByAlgo(allRows, submissionsMap) {
   return acRateByAlgo;
 }
 
-/**
- * lowerFraction の各値に対してスコアを計算し、最もスコアの高い値を返す。
- *
- * スコア = (レート未満のアルゴリズムの平均AC率) - (レート以上のアルゴリズムの平均AC率)
- *
- * @param {Object} options
- * @param {Array} options.summary - createSummary の出力
- * @param {Object} options.groups - groupByAlgorithm の出力（{ algo: [diff, ...], ... }）
- * @param {number} options.rate - 現在のレート
- * @param {Map} options.submissionsMap - problem_id → true/false のMap（buildSubmissionMap の出力）
- * @param {Array} options.allRows - 全問題データ（各要素に tag, problem_id を持つ）
- * @param {number} [options.step=0.01] - 探索刻み（0〜1 の間）
- * @returns {{ optimalFraction: number, scores: Array<{ fraction: number, score: number }> }}
- */
 export function computeOptimalLowerFraction({
   summary,
   groups,
