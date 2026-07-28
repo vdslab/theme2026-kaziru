@@ -104,7 +104,7 @@ export function computeOptimalLowerFraction({
     const score = evaluateFraction(fraction, summary, groups, rate, acRateByAlgo);
     fineScores.push({ fraction, score });
 
-    if (score > bestScore) {
+    if (score >= bestScore) {
       bestScore = score;
       optimalFraction = fraction;
     }
