@@ -721,13 +721,3 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-/* Footer */
-.footer {
-  padding: 16px 24px;
-  background: white;
-  border-top: 1px solid #e0e0e0;
-  text-align: center;
-  font-size: 13px;
-  color: #999;
-}
