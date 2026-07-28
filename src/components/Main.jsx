@@ -1,9 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-import { fetchUserRate } from "../api/loadUser";
-import { fetchAllUserSubmissions } from "../api/loadUserSubmissions";
-import { buildSubmissionMap } from "../utils/submissions";
-
 import UserIdInput from "./UserIdInput";
 import RateRangeControl from "./RateRangeControl";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
@@ -11,7 +7,23 @@ import AlgorithmCard from "./AlgorithmCard";
 import UsageOverlay from "./UsageOverlay";
 
 const MAX_CHART_ASPECT_RATIO = 3;
-export default function Main({ summary, allRows, lowerFraction, onLowerFractionChange }) {
+export default function Main({
+  summary,
+  allRows,
+  lowerFraction,
+  onLowerFractionChange,
+  username,
+  onUsernameChange,
+  rate,
+  rateLoading,
+  rateError,
+  onFetchRate,
+  submissionsMap,
+  submissionsLoaded,
+  onFetchSubmissions,
+  isAutoOptimize,
+  onAutoOptimizeChange,
+}) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
@@ -40,63 +52,6 @@ export default function Main({ summary, allRows, lowerFraction, onLowerFractionC
 
   const handleCloseUsageOverlay = () => {
     setShowUsageOverlay(false);
-  };
-
-  const [username, setUsername] = useState("");
-  const [rate, setRate] = useState(null);
-  const [rateLoading, setRateLoading] = useState(false);
-  const [rateError, setRateError] = useState(null);
-
-  const [submissionsMap, setSubmissionsMap] = useState(new Map());
-  const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
-
-  const handleUsernameChange = (value) => {
-    setUsername(value);
-    setRate(null);
-    setRateError(null);
-    setSubmissionsMap(new Map());
-  };
-
-  const handleFetchRate = async () => {
-    const trimmed = username.trim();
-    if (!trimmed) {
-      setRate(null);
-      return;
-    }
-
-    setRateLoading(true);
-    setRateError(null);
-    setRate(null);
-    try {
-      const userRate = await fetchUserRate(trimmed);
-      setRate(userRate);
-    } catch (err) {
-      setRate(null);
-      setRateError(err.message);
-    } finally {
-      setRateLoading(false);
-    }
-  };
-
-  const handleFetchSubmissions = async () => {
-    const trimmed = username.trim();
-    if (!trimmed) {
-      setSubmissionsMap(new Map());
-      setSubmissionsLoaded(false);
-      return;
-    }
-
-    setSubmissionsMap(new Map());
-    setSubmissionsLoaded(false);
-    try {
-      const submissions = await fetchAllUserSubmissions(trimmed);
-      const map = buildSubmissionMap(submissions);
-      setSubmissionsMap(map);
-      setSubmissionsLoaded(true);
-    } catch {
-      setSubmissionsLoaded(false);
-      // エラー処理は今後必要に応じて実装
-    }
   };
 
   const selectedAlgo =
@@ -134,9 +89,9 @@ export default function Main({ summary, allRows, lowerFraction, onLowerFractionC
       <div className="top-controls">
         <UserIdInput
           username={username}
-          setUsername={handleUsernameChange}
-          handleFetchRate={handleFetchRate}
-          handleFetchSubmissions={handleFetchSubmissions}
+          setUsername={onUsernameChange}
+          handleFetchRate={onFetchRate}
+          handleFetchSubmissions={onFetchSubmissions}
           rateError={rateError}
         />
 
@@ -149,6 +104,7 @@ export default function Main({ summary, allRows, lowerFraction, onLowerFractionC
         <RateRangeControl
           lowerFraction={lowerFraction}
           onLowerFractionChange={onLowerFractionChange}
+          isAutoOptimize={isAutoOptimize}
         />
 
         <div className="display-options">
@@ -179,6 +135,15 @@ export default function Main({ summary, allRows, lowerFraction, onLowerFractionC
                 onChange={(e) => setShowLabels(e.target.checked)}
               />
               ラベルを表示
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAutoOptimize}
+                onChange={(e) => onAutoOptimizeChange(e.target.checked)}
+                disabled={!rate || !submissionsLoaded}
+              />
+              自動最適化
             </label>
           </div>
         </div>
