@@ -74,7 +74,6 @@ body {
   gap: 8px;
   padding: 8px 24px;
   background: #fff;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 .username-input {
@@ -129,12 +128,6 @@ body {
   background: #1d4ed8;
 }
 
-.top-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 /* Main */
 .main {
   flex: 1;
@@ -145,13 +138,27 @@ body {
   background-color: #fafafa;
 }
 
-/* Controls Panel */
-.controls-panel {
+/* Control Panel */
+
+.control-pannel {
+  /* display: flex; */
+  flex-direction: column;
+  gap: 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.top-controls {
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+.control-section {
   display: flex;
   gap: 32px;
   padding: 20px 24px;
   background: white;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 .rate-range-control {
