@@ -72,37 +72,22 @@ export function computeOptimalLowerFraction({
   // AC率を事前計算（探索の外で1回だけ）
   const acRateByAlgo = computeAcRateByAlgo(allRows, submissionsMap);
 
-  // ---- Stage 1: 粗い探索 (step = 0.1) ----
-  const coarseStep = 0.1;
-  const coarseScores = [];
-  let bestCoarseFraction = null;
-  let bestCoarseScore = -Infinity;
-
-  for (let f = 0; f <= 1; f += coarseStep) {
-    const fraction = Math.round(f * 100) / 100;
-    const score = evaluateFraction(fraction, summary, groups, rate, acRateByAlgo);
-    coarseScores.push({ fraction, score });
-
-    if (score >= bestCoarseScore) {
-      bestCoarseScore = score;
-      bestCoarseFraction = fraction;
-    }
+  // 0, 1, 3, 5, ..., 99, 100 のインデックスを探索
+  // （fraction = index / 100 に対応）
+  const indices = [0, 100];
+  for (let i = 1; i <= 99; i += 2) {
+    indices.push(i);
   }
+  indices.sort((a, b) => a - b);
 
-  // ---- Stage 2: 細かい探索 (step = 0.01) ----
-  // 最良点の前後 coarseStep の範囲を細かく調べる
-  const fineStep = 0.01;
-  const fineStart = Math.max(0, bestCoarseFraction - coarseStep);
-  const fineEnd = Math.min(1, bestCoarseFraction + coarseStep);
-  const fineScores = [];
-
+  const scores = [];
   let bestScore = -Infinity;
   let optimalFraction = null;
 
-  for (let f = fineStart; f <= fineEnd + fineStep / 2; f += fineStep) {
-    const fraction = Math.round(f * 100) / 100;
+  for (const idx of indices) {
+    const fraction = idx / 100;
     const score = evaluateFraction(fraction, summary, groups, rate, acRateByAlgo);
-    fineScores.push({ fraction, score });
+    scores.push({ fraction, score });
 
     if (score >= bestScore) {
       bestScore = score;
@@ -110,5 +95,5 @@ export function computeOptimalLowerFraction({
     }
   }
 
-  return { optimalFraction, scores: [...coarseScores, ...fineScores] };
+  return { optimalFraction, scores };
 }
