@@ -83,7 +83,7 @@ export function computeOptimalLowerFraction({
     const score = evaluateFraction(fraction, summary, groups, rate, acRateByAlgo);
     coarseScores.push({ fraction, score });
 
-    if (score > bestCoarseScore) {
+    if (score >= bestCoarseScore) {
       bestCoarseScore = score;
       bestCoarseFraction = fraction;
     }
