@@ -11,7 +11,6 @@ import { buildSubmissionMap } from "./utils/submissions";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Footer from "./components/Footer";
 
 export default function App() {
   const [summaryData, setSummaryData] = useState([]);
@@ -213,7 +212,6 @@ export default function App() {
         onAutoOptimizeChange={handleAutoOptimizeChange}
         optimalLowerFraction={optimalLowerFraction}
       />
-      <Footer />
     </div>
   );
 }
