@@ -109,7 +109,10 @@ export default function App() {
   }, [isAutoOptimize, rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
 
   // ref に最適値を保持（handleAutoOptimizeChange から順序に関係なく参照できるように）
-  optimalLowerFractionRef.current = optimalLowerFraction;
+  // レンダー中に ref を更新すると React のルールに違反するため useEffect 内で更新する
+  useEffect(() => {
+    optimalLowerFractionRef.current = optimalLowerFraction;
+  }, [optimalLowerFraction]);
 
   // 自動最適化が有効かつ最適値が計算済みの場合はその値を、そうでなければ手動設定値を使う
   const computedLowerFraction = useMemo(() => {
