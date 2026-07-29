@@ -1,9 +1,22 @@
-export default function RateRangeControl({ lowerFraction, onLowerFractionChange }) {
+export default function RateRangeControl({
+  lowerFraction,
+  onLowerFractionChange,
+  isAutoOptimize = false,
+  optimalLowerFraction = null,
+}) {
   const lowerFractionPercent = Math.round(lowerFraction * 100);
+  const displayFraction = isAutoOptimize && optimalLowerFraction != null
+    ? Math.round(optimalLowerFraction * 100)
+    : lowerFractionPercent;
 
   return (
     <div className="rate-range-control">
-      <div className="control-label">位置計算に使う易しい問題の割合</div>
+      <div className="control-label">
+        位置計算に使う易しい問題の割合
+        {isAutoOptimize && (
+          <span className="auto-optimize-badge">自動</span>
+        )}
+      </div>
 
       <div className="range-slider">
         <span>0%</span>
@@ -14,14 +27,15 @@ export default function RateRangeControl({ lowerFraction, onLowerFractionChange 
             min="0"
             max="100"
             step="1"
-            value={lowerFractionPercent}
+            value={displayFraction}
             onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
+            disabled={isAutoOptimize}
             aria-label="位置計算に使う易しい問題の割合"
-            aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
+            aria-valuetext={`易しい順に${displayFraction}%の問題を使用${isAutoOptimize ? "（自動最適化中）" : ""}`}
           />
 
-          <output className="range-slider-value" style={{ left: `${lowerFractionPercent}%` }}>
-            {lowerFractionPercent}%
+          <output className="range-slider-value" style={{ left: `${displayFraction}%` }}>
+            {displayFraction}%
           </output>
         </div>
 
