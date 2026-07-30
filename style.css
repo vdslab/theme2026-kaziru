@@ -724,46 +724,10 @@ body {
 }
 
 /* Auto Optimize */
-.auto-optimize-option {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  justify-content: center;
-}
-
-.auto-optimize-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  cursor: pointer;
-  color: #333;
-  white-space: nowrap;
-}
-
-.auto-optimize-label input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  accent-color: #2563eb;
-}
-
-.auto-optimize-label input[type="checkbox"]:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.auto-optimize-value {
-  font-size: 12px;
-  color: #2563eb;
-  font-weight: 600;
-  margin-left: 22px;
-}
-
-.auto-optimize-badge {
-  display: inline-block;
+.auto-optimize-button {
   margin-left: 6px;
-  padding: 1px 6px;
+  padding: 1px 8px;
+  border: none;
   border-radius: 4px;
   background: #2563eb;
   color: white;
@@ -771,20 +735,23 @@ body {
   font-weight: 700;
   vertical-align: middle;
   line-height: 1.5;
+  cursor: pointer;
+  transition: background-color 0.15s;
 }
 
-/* Disabled range slider */
-.range-slider-input input[type="range"]:disabled {
+.auto-optimize-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.auto-optimize-button:disabled {
+  cursor: not-allowed;
   opacity: 0.5;
-  cursor: not-allowed;
 }
 
-.range-slider-input input[type="range"]:disabled::-webkit-slider-thumb {
-  cursor: not-allowed;
-  background: #94a3b8;
+.auto-optimize-button--done {
+  background: #16a34a;
 }
 
-.range-slider-input input[type="range"]:disabled::-moz-range-thumb {
-  cursor: not-allowed;
-  background: #94a3b8;
+.auto-optimize-button--done:hover:not(:disabled) {
+  background: #15803d;
 }
