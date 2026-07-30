@@ -105,7 +105,15 @@ export default function App() {
     });
 
     return optimalFraction;
-  }, [isAutoOptimize, rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
+  }, [
+    isAutoOptimize,
+    rate,
+    submissionsLoaded,
+    summaryData,
+    algorithmGroups,
+    submissionsMap,
+    allRows,
+  ]);
 
   // ref に最適値を保持（handleAutoOptimizeChange から順序に関係なく参照できるように）
   // レンダー中に ref を更新すると React のルールに違反するため useEffect 内で更新する
@@ -126,7 +134,11 @@ export default function App() {
       return [];
     }
 
-    const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, computedLowerFraction);
+    const mdsData = computeAnchoredClassicalMds(
+      summaryData,
+      algorithmGroups,
+      computedLowerFraction,
+    );
     return computeBeeswarm(mdsData);
   }, [algorithmGroups, computedLowerFraction, summaryData]);
 

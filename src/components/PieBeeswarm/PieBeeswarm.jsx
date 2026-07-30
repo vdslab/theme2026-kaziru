@@ -42,8 +42,8 @@ export default function PieBeeswarm({
   const TICK_STEP = 400;
   const SIDE_MARGIN = 56;
   const RATE_LABEL_SIDE_MARGIN = 96;
-  const TOP_MARGIN = 24;
-  const CURRENT_RATE_LABEL_BOTTOM_MARGIN = 132;
+  const TOP_MARGIN = 42;
+  const CURRENT_RATE_LABEL_BOTTOM_MARGIN = 84;
   const PROGRESS_RING_GAP = 4;
   const PROGRESS_RING_WIDTH = 12;
 
@@ -123,7 +123,7 @@ export default function PieBeeswarm({
           onClick={() => onSelectAlgorithm?.(null)}
         />
         <AxisBottom
-          yMin={viewBoxY}
+          yMin={viewBoxY + TOP_MARGIN}
           yMax={axisY}
           ticks={ticks}
           axisXMin={xScale(0)}
@@ -132,8 +132,8 @@ export default function PieBeeswarm({
 
         {shouldShowCurrentRate && (
           <g className="current-rate-line" transform={`translate(${xScale(currentRateX)},0)`}>
-            <line y1={viewBoxY} y2={axisY + 10} />
-            <text y={axisY + 104} textAnchor="middle">
+            <line y1={viewBoxY + TOP_MARGIN} y2={axisY} />
+            <text y={axisY + 64} textAnchor="middle">
               {currentRateLabel}
             </text>
           </g>
