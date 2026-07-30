@@ -748,8 +748,10 @@ body {
   opacity: 0.5;
 }
 
-.auto-optimize-button--done {
+.auto-optimize-button--done,
+.auto-optimize-button--done:disabled {
   background: #16a34a;
+  opacity: 1;
 }
 
 .auto-optimize-button--done:hover:not(:disabled) {

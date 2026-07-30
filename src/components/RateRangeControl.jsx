@@ -22,7 +22,7 @@ export default function RateRangeControl({
           type="button"
           className={`auto-optimize-button${isOptimized ? " auto-optimize-button--done" : ""}`}
           onClick={onAutoOptimize}
-          disabled={autoOptimizeDisabled || isOptimizing}
+          disabled={autoOptimizeDisabled || isOptimizing || isOptimized}
           aria-label="自動最適化を計算"
         >
           {buttonLabel}
