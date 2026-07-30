@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 
 import { computeBeeswarm } from "./utils/beeswarm";
 import { computeAnchoredClassicalMds, DEFAULT_LOWER_FRACTION } from "./utils/classicalMds";
@@ -29,13 +29,15 @@ export default function App() {
   // 自動最適化（都度計算）
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [isOptimized, setIsOptimized] = useState(false);
+  const isOptimizingRef = useRef(false);
 
-  // 「自動計算」ボタン押下時に最適な lowerFraction を計算して適用
-  const handleAutoOptimize = useCallback(() => {
-    if (!rate || !submissionsLoaded || summaryData.length === 0) {
+  // 最適化計算の共通処理
+  const runOptimize = useCallback(() => {
+    if (!rate || !submissionsLoaded || summaryData.length === 0 || isOptimizingRef.current) {
       return;
     }
 
+    isOptimizingRef.current = true;
     setIsOptimizing(true);
     // 重い計算を次のフレームに逃がし、ボタンの「計算中...」表示を反映させる
     setTimeout(() => {
@@ -51,9 +53,15 @@ export default function App() {
         setLowerFraction(optimalFraction);
         setIsOptimized(true);
       }
+      isOptimizingRef.current = false;
       setIsOptimizing(false);
     }, 0);
   }, [rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
+
+  // 「自動計算」ボタン押下時に最適な lowerFraction を計算して適用
+  const handleAutoOptimize = useCallback(() => {
+    runOptimize();
+  }, [runOptimize]);
 
   // スライダー手動変更時に「計算済み」状態をリセット
   const handleLowerFractionChange = useCallback((value) => {
@@ -67,6 +75,7 @@ export default function App() {
     setRateError(null);
     setSubmissionsMap(new Map());
     setSubmissionsLoaded(false);
+    setIsOptimized(false);
   }, []);
 
   const handleFetchRate = useCallback(async () => {
@@ -118,6 +127,15 @@ export default function App() {
     const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, lowerFraction);
     return computeBeeswarm(mdsData);
   }, [algorithmGroups, lowerFraction, summaryData]);
+
+  // レートと提出履歴が揃ったら自動で一度最適化を計算
+  useEffect(() => {
+    if (!rate || !submissionsLoaded || summaryData.length === 0 || isOptimized) {
+      return;
+    }
+
+    runOptimize();
+  }, [rate, submissionsLoaded, summaryData, isOptimized, runOptimize]);
 
   useEffect(() => {
     async function init() {
