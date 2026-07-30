@@ -8,7 +8,7 @@ export const DIFF_BANDS = [
 ];
 
 // 円の半径の最小値と最大値
-export const R_MIN = 18;
+export const R_MIN = 30;
 export const R_MAX = 85;
 
 // Python版と同じAtCoder Problems方式の低difficulty補正。
