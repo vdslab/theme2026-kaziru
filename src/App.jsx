@@ -129,13 +129,15 @@ export default function App() {
   }, [algorithmGroups, lowerFraction, summaryData]);
 
   // レートと提出履歴が揃ったら自動で一度最適化を計算
+  // ※ isOptimized を依存配列から外し、スライダー手動操作時の再計算を防ぐ
   useEffect(() => {
     if (!rate || !submissionsLoaded || summaryData.length === 0 || isOptimized) {
       return;
     }
 
     runOptimize();
-  }, [rate, submissionsLoaded, summaryData, isOptimized, runOptimize]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rate, submissionsLoaded, runOptimize]);
 
   useEffect(() => {
     async function init() {
