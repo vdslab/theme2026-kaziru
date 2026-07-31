@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-import UserIdInput from "./UserIdInput";
-import RateRangeControl from "./RateRangeControl";
+import ControlPannel from "./ControlPannel";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
 import UsageOverlay from "./UsageOverlay";
 
 const MAX_CHART_ASPECT_RATIO = 3;
+
 export default function Main({
   summary,
   allRows,
@@ -47,10 +47,6 @@ export default function Main({
     return () => observer.disconnect();
   }, []);
 
-  const openUsageOverlay = () => {
-    setShowUsageOverlay(true);
-  };
-
   const handleCloseUsageOverlay = () => {
     setShowUsageOverlay(false);
   };
@@ -87,116 +83,47 @@ export default function Main({
   return (
     <main className="main">
       {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
-      <div className="control-pannel">
-        <div className="top-controls">
-          <UserIdInput
-            username={username}
-            setUsername={onUsernameChange}
-            handleFetchRate={onFetchRate}
-            handleFetchSubmissions={onFetchSubmissions}
-            rateError={rateError}
+
+      <ControlPannel
+        lowerFraction={lowerFraction}
+        onLowerFractionChange={onLowerFractionChange}
+        username={username}
+        onUsernameChange={onUsernameChange}
+        rate={rate}
+        rateLoading={rateLoading}
+        rateError={rateError}
+        onFetchRate={onFetchRate}
+        submissionsLoaded={submissionsLoaded}
+        onFetchSubmissions={onFetchSubmissions}
+        isAutoOptimize={isAutoOptimize}
+        onAutoOptimizeChange={onAutoOptimizeChange}
+        optimalLowerFraction={optimalLowerFraction}
+        showCurrentRate={showCurrentRate}
+        showProgressRing={showProgressRing}
+        showLabels={showLabels}
+        setShowCurrentRate={setShowCurrentRate}
+        setShowProgressRing={setShowProgressRing}
+        setShowLabels={setShowLabels}
+      />
+
+      <div
+        className="vis-layout"
+        style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
+      >
+        <div ref={chartWrapperRef} className="chart-wrapper">
+          <PieBeeswarm
+            data={summary}
+            rate={rate}
+            showCurrentRate={showCurrentRate}
+            showLabels={showLabels}
+            progressByAlgorithm={progressByAlgorithm}
+            showProgress={submissionsLoaded && showProgressRing}
+            selectedAlgorithm={selectedAlgo?.algo ?? null}
+            onSelectAlgorithm={setSelectedAlgoName}
           />
-
-          <button className="usage-button" type="button" onClick={openUsageOverlay}>
-            使い方
-          </button>
         </div>
 
-        <div className="control-section">
-          <RateRangeControl
-            lowerFraction={lowerFraction}
-            onLowerFractionChange={onLowerFractionChange}
-            isAutoOptimize={isAutoOptimize}
-            optimalLowerFraction={optimalLowerFraction}
-          />
-
-          <div className="display-options">
-            <div className="display-options-header">
-              <div className="control-label">表示オプション</div>
-            </div>
-            <div className="checkboxes">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showCurrentRate}
-                  onChange={(e) => setShowCurrentRate(e.target.checked)}
-                />
-                現在レート線を表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showProgressRing}
-                  onChange={(e) => setShowProgressRing(e.target.checked)}
-                />
-                AC状況を表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showLabels}
-                  onChange={(e) => setShowLabels(e.target.checked)}
-                />
-                ラベルを表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={isAutoOptimize}
-                  onChange={(e) => onAutoOptimizeChange(e.target.checked)}
-                  disabled={!rate || !submissionsLoaded}
-                />
-                自動最適化
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="visualization-container">
-        <div className="chart-header">
-          <h2 className="chart-title">アルゴリズム分布図（Pie-Beeswarm）</h2>
-          <div className="current-rate">
-            現在のレート
-            <span className="rate-value">{rateLoading ? "取得中..." : (rate ?? "---")}</span>
-          </div>
-          {submissionsLoaded && (
-            <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
-              <span>
-                <i className="progress-ring-legend--ac" />
-                AC
-              </span>
-              <span>
-                <i className="progress-ring-legend--unsolved" />
-                未AC
-              </span>
-              <span>
-                <i className="progress-ring-legend--untried" />
-                未挑戦
-              </span>
-            </div>
-          )}
-        </div>
-
-        <div
-          className="vis-layout"
-          style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
-        >
-          <div ref={chartWrapperRef} className="chart-wrapper">
-            <PieBeeswarm
-              data={summary}
-              rate={rate}
-              showCurrentRate={showCurrentRate}
-              showLabels={showLabels}
-              progressByAlgorithm={progressByAlgorithm}
-              showProgress={submissionsLoaded && showProgressRing}
-              selectedAlgorithm={selectedAlgo?.algo ?? null}
-              onSelectAlgorithm={setSelectedAlgoName}
-            />
-          </div>
-
-          <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
-        </div>
+        <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
       </div>
     </main>
   );
