@@ -26,19 +26,49 @@ export default function App() {
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
 
-  // 自動最適化
-  const [isAutoOptimize, setIsAutoOptimize] = useState(true);
-  const optimalLowerFractionRef = useRef(null);
+  // 自動最適化（都度計算）
+  const [isOptimizing, setIsOptimizing] = useState(false);
+  const [isOptimized, setIsOptimized] = useState(false);
+  const isOptimizingRef = useRef(false);
 
-  // 自動最適化のON/OFFを切り替える
-  const handleAutoOptimizeChange = useCallback((enabled) => {
-    if (!enabled) {
-      // 自動最適化をOFFにするとき、現在の最適値を手動設定に引き継ぐ
-      if (optimalLowerFractionRef.current != null) {
-        setLowerFraction(optimalLowerFractionRef.current);
-      }
+  // 最適化計算の共通処理
+  const runOptimize = useCallback(() => {
+    if (!rate || !submissionsLoaded || summaryData.length === 0 || isOptimizingRef.current) {
+      return;
     }
-    setIsAutoOptimize(enabled);
+
+    isOptimizingRef.current = true;
+    setIsOptimizing(true);
+    // requestAnimationFrame でブラウザが「計算中...」を描画してから計算を開始する
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const { optimalFraction } = computeOptimalLowerFraction({
+          summary: summaryData,
+          groups: algorithmGroups,
+          rate,
+          submissionsMap,
+          allRows,
+        });
+
+        if (optimalFraction != null) {
+          setLowerFraction(optimalFraction);
+          setIsOptimized(true);
+        }
+        isOptimizingRef.current = false;
+        setIsOptimizing(false);
+      }, 0);
+    });
+  }, [rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
+
+  // 「自動計算」ボタン押下時に最適な lowerFraction を計算して適用
+  const handleAutoOptimize = useCallback(() => {
+    runOptimize();
+  }, [runOptimize]);
+
+  // スライダー手動変更時に「計算済み」状態をリセット
+  const handleLowerFractionChange = useCallback((value) => {
+    setLowerFraction(value);
+    setIsOptimized(false);
   }, []);
 
   const handleUsernameChange = useCallback((value) => {
@@ -47,6 +77,7 @@ export default function App() {
     setRateError(null);
     setSubmissionsMap(new Map());
     setSubmissionsLoaded(false);
+    setIsOptimized(false);
   }, []);
 
   const handleFetchRate = useCallback(async () => {
@@ -90,57 +121,25 @@ export default function App() {
     }
   }, [username]);
 
-  // レートと提出履歴が揃ったら最適 lowerFraction を計算
-  const optimalLowerFraction = useMemo(() => {
-    if (!isAutoOptimize || !rate || !submissionsLoaded || summaryData.length === 0) {
-      return null;
-    }
-
-    const { optimalFraction } = computeOptimalLowerFraction({
-      summary: summaryData,
-      groups: algorithmGroups,
-      rate,
-      submissionsMap,
-      allRows,
-    });
-
-    return optimalFraction;
-  }, [
-    isAutoOptimize,
-    rate,
-    submissionsLoaded,
-    summaryData,
-    algorithmGroups,
-    submissionsMap,
-    allRows,
-  ]);
-
-  // ref に最適値を保持（handleAutoOptimizeChange から順序に関係なく参照できるように）
-  // レンダー中に ref を更新すると React のルールに違反するため useEffect 内で更新する
-  useEffect(() => {
-    optimalLowerFractionRef.current = optimalLowerFraction;
-  }, [optimalLowerFraction]);
-
-  // 自動最適化が有効かつ最適値が計算済みの場合はその値を、そうでなければ手動設定値を使う
-  const computedLowerFraction = useMemo(() => {
-    if (isAutoOptimize && optimalLowerFraction != null) {
-      return optimalLowerFraction;
-    }
-    return lowerFraction;
-  }, [isAutoOptimize, optimalLowerFraction, lowerFraction]);
-
   const summary = useMemo(() => {
     if (summaryData.length === 0) {
       return [];
     }
 
-    const mdsData = computeAnchoredClassicalMds(
-      summaryData,
-      algorithmGroups,
-      computedLowerFraction,
-    );
+    const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, lowerFraction);
     return computeBeeswarm(mdsData);
-  }, [algorithmGroups, computedLowerFraction, summaryData]);
+  }, [algorithmGroups, lowerFraction, summaryData]);
+
+  // レートと提出履歴が揃ったら自動で一度最適化を計算
+  // ※ isOptimized を依存配列から外し、スライダー手動操作時の再計算を防ぐ
+  useEffect(() => {
+    if (!rate || !submissionsLoaded || summaryData.length === 0 || isOptimized) {
+      return;
+    }
+
+    runOptimize();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rate, submissionsLoaded, runOptimize]);
 
   useEffect(() => {
     async function init() {
@@ -210,7 +209,7 @@ export default function App() {
         summary={summary}
         allRows={allRows}
         lowerFraction={lowerFraction}
-        onLowerFractionChange={setLowerFraction}
+        onLowerFractionChange={handleLowerFractionChange}
         username={username}
         onUsernameChange={handleUsernameChange}
         rate={rate}
@@ -220,9 +219,9 @@ export default function App() {
         submissionsMap={submissionsMap}
         submissionsLoaded={submissionsLoaded}
         onFetchSubmissions={handleFetchSubmissions}
-        isAutoOptimize={isAutoOptimize}
-        onAutoOptimizeChange={handleAutoOptimizeChange}
-        optimalLowerFraction={optimalLowerFraction}
+        onAutoOptimize={handleAutoOptimize}
+        isOptimizing={isOptimizing}
+        isOptimized={isOptimized}
       />
     </div>
   );

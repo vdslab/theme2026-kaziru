@@ -21,9 +21,9 @@ export default function Main({
   submissionsMap,
   submissionsLoaded,
   onFetchSubmissions,
-  isAutoOptimize,
-  onAutoOptimizeChange,
-  optimalLowerFraction,
+  onAutoOptimize,
+  isOptimizing,
+  isOptimized,
 }) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
@@ -106,8 +106,10 @@ export default function Main({
           <RateRangeControl
             lowerFraction={lowerFraction}
             onLowerFractionChange={onLowerFractionChange}
-            isAutoOptimize={isAutoOptimize}
-            optimalLowerFraction={optimalLowerFraction}
+            onAutoOptimize={onAutoOptimize}
+            isOptimizing={isOptimizing}
+            isOptimized={isOptimized}
+            autoOptimizeDisabled={!rate || !submissionsLoaded}
           />
 
           <div className="display-options">
@@ -138,15 +140,6 @@ export default function Main({
                   onChange={(e) => setShowLabels(e.target.checked)}
                 />
                 ラベルを表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={isAutoOptimize}
-                  onChange={(e) => onAutoOptimizeChange(e.target.checked)}
-                  disabled={!rate || !submissionsLoaded}
-                />
-                自動最適化
               </label>
             </div>
           </div>
