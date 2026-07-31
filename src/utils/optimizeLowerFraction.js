@@ -71,13 +71,12 @@ export function computeOptimalLowerFraction({
   // AC率を事前計算（探索の外で1回だけ）
   const acRateByAlgo = computeAcRateByAlgo(allRows, submissionsMap);
 
-  // 0, 1, 3, 5, ..., 99, 100 のインデックスを探索
+  // 0, 2, 4, ..., 98, 100 のインデックスを探索
   // （fraction = index / 100 に対応）
-  const indices = [0, 100];
-  for (let i = 1; i <= 99; i += 2) {
+  const indices = [];
+  for (let i = 0; i <= 100; i += 2) {
     indices.push(i);
   }
-  indices.sort((a, b) => a - b);
 
   const scores = [];
   let bestScore = -Infinity;
