@@ -5,17 +5,16 @@ export default function RateRangeControl({
   optimalLowerFraction = null,
 }) {
   const lowerFractionPercent = Math.round(lowerFraction * 100);
-  const displayFraction = isAutoOptimize && optimalLowerFraction != null
-    ? Math.round(optimalLowerFraction * 100)
-    : lowerFractionPercent;
+  const displayFraction =
+    isAutoOptimize && optimalLowerFraction != null
+      ? Math.round(optimalLowerFraction * 100)
+      : lowerFractionPercent;
 
   return (
     <div className="rate-range-control">
       <div className="control-label">
         位置計算に使う易しい問題の割合
-        {isAutoOptimize && (
-          <span className="auto-optimize-badge">自動</span>
-        )}
+        {isAutoOptimize && <span className="auto-optimize-badge">自動</span>}
       </div>
 
       <div className="range-slider">

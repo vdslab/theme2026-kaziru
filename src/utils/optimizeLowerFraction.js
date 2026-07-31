@@ -57,13 +57,7 @@ function evaluateFraction(fraction, summary, groups, rate, acRateByAlgo) {
   return leftAvg - rightAvg;
 }
 
-export function computeOptimalLowerFraction({
-  summary,
-  groups,
-  rate,
-  submissionsMap,
-  allRows,
-}) {
+export function computeOptimalLowerFraction({ summary, groups, rate, submissionsMap, allRows }) {
   if (!rate || submissionsMap.size === 0 || summary.length === 0) {
     return { optimalFraction: null, scores: [] };
   }
