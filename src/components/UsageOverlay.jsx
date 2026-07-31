@@ -21,8 +21,8 @@ export default function UsageOverlay({ onClose }) {
           はじめての方へ
         </h3>
         <p className="usage-overlay-text">
-          このビューでは、アルゴリズム別の分布と自分のレートを同時に見ながら、
-          どのレート帯でどんな問題が多いかを把握できます。
+          アルゴリズムごとの難易度分布と自身の解答状況を把握し、次に学ぶアルゴリズムや<br />
+          取り組む問題を選択するためのツールです。以下の手順でご利用ください。
         </p>
 
         <div className="usage-steps">
