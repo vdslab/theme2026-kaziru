@@ -39,23 +39,25 @@ export default function App() {
 
     isOptimizingRef.current = true;
     setIsOptimizing(true);
-    // 重い計算を次のフレームに逃がし、ボタンの「計算中...」表示を反映させる
-    setTimeout(() => {
-      const { optimalFraction } = computeOptimalLowerFraction({
-        summary: summaryData,
-        groups: algorithmGroups,
-        rate,
-        submissionsMap,
-        allRows,
-      });
+    // requestAnimationFrame でブラウザが「計算中...」を描画してから計算を開始する
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const { optimalFraction } = computeOptimalLowerFraction({
+          summary: summaryData,
+          groups: algorithmGroups,
+          rate,
+          submissionsMap,
+          allRows,
+        });
 
-      if (optimalFraction != null) {
-        setLowerFraction(optimalFraction);
-        setIsOptimized(true);
-      }
-      isOptimizingRef.current = false;
-      setIsOptimizing(false);
-    }, 0);
+        if (optimalFraction != null) {
+          setLowerFraction(optimalFraction);
+          setIsOptimized(true);
+        }
+        isOptimizingRef.current = false;
+        setIsOptimizing(false);
+      }, 0);
+    });
   }, [rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
 
   // 「自動計算」ボタン押下時に最適な lowerFraction を計算して適用
