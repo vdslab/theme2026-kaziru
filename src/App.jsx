@@ -30,6 +30,15 @@ export default function App() {
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [isOptimized, setIsOptimized] = useState(false);
   const isOptimizingRef = useRef(false);
+  const optimizationGenerationRef = useRef(0);
+
+  // 入力やユーザー情報が変わった場合、予約済みの古い計算結果を無効化する
+  const invalidateOptimization = useCallback(() => {
+    optimizationGenerationRef.current += 1;
+    isOptimizingRef.current = false;
+    setIsOptimizing(false);
+    setIsOptimized(false);
+  }, []);
 
   // 最適化計算の共通処理
   const runOptimize = useCallback(() => {
@@ -37,11 +46,16 @@ export default function App() {
       return;
     }
 
+    const generation = ++optimizationGenerationRef.current;
     isOptimizingRef.current = true;
     setIsOptimizing(true);
     // requestAnimationFrame でブラウザが「計算中...」を描画してから計算を開始する
     requestAnimationFrame(() => {
       setTimeout(() => {
+        if (generation !== optimizationGenerationRef.current) {
+          return;
+        }
+
         const { optimalFraction } = computeOptimalLowerFraction({
           summary: summaryData,
           groups: algorithmGroups,
@@ -49,6 +63,10 @@ export default function App() {
           submissionsMap,
           allRows,
         });
+
+        if (generation !== optimizationGenerationRef.current) {
+          return;
+        }
 
         if (optimalFraction != null) {
           setLowerFraction(optimalFraction);
@@ -67,20 +85,21 @@ export default function App() {
 
   // スライダー手動変更時に「計算済み」状態をリセット
   const handleLowerFractionChange = useCallback((value) => {
+    invalidateOptimization();
     setLowerFraction(value);
-    setIsOptimized(false);
-  }, []);
+  }, [invalidateOptimization]);
 
   const handleUsernameChange = useCallback((value) => {
+    invalidateOptimization();
     setUsername(value);
     setRate(null);
     setRateError(null);
     setSubmissionsMap(new Map());
     setSubmissionsLoaded(false);
-    setIsOptimized(false);
-  }, []);
+  }, [invalidateOptimization]);
 
   const handleFetchRate = useCallback(async () => {
+    invalidateOptimization();
     const trimmed = username.trim();
     if (!trimmed) {
       setRate(null);
@@ -99,9 +118,10 @@ export default function App() {
     } finally {
       setRateLoading(false);
     }
-  }, [username]);
+  }, [invalidateOptimization, username]);
 
   const handleFetchSubmissions = useCallback(async () => {
+    invalidateOptimization();
     const trimmed = username.trim();
     if (!trimmed) {
       setSubmissionsMap(new Map());
@@ -119,7 +139,7 @@ export default function App() {
     } catch {
       setSubmissionsLoaded(false);
     }
-  }, [username]);
+  }, [invalidateOptimization, username]);
 
   const summary = useMemo(() => {
     if (summaryData.length === 0) {
