@@ -17,7 +17,7 @@ export default function RateRangeControl({
   return (
     <div className="rate-range-control">
       <div className="control-label">
-        位置計算に使う易しい問題の割合
+        配置計算に使用する問題の範囲
         <button
           type="button"
           className={`auto-optimize-button${isOptimized ? " auto-optimize-button--done" : ""}`}
@@ -40,7 +40,8 @@ export default function RateRangeControl({
             step="1"
             value={lowerFractionPercent}
             onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
-            aria-label="位置計算に使う易しい問題の割合"
+            style={{ "--range-progress": `${lowerFractionPercent}%` }}
+            aria-label="配置計算に使用する問題の範囲"
             aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
           />
 
