@@ -1,4 +1,17 @@
+import { useEffect } from "react";
+
 export default function UsageOverlay({ onClose }) {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   return (
     <div className="usage-overlay-backdrop" onClick={onClose}>
       <div

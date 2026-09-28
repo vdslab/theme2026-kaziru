@@ -8,16 +8,15 @@ export default function RateRangeControl({
 }) {
   const lowerFractionPercent = Math.round(lowerFraction * 100);
 
-  const buttonLabel = isOptimizing
-    ? "計算中..."
-    : isOptimized
-      ? "計算済み"
-      : "自動計算";
+  const buttonLabel = isOptimizing ? "計算中..." : isOptimized ? "計算済み" : "自動計算";
 
   return (
     <div className="rate-range-control">
-      <div className="control-label">
-        配置計算に使用する問題の範囲
+      <div className="rate-range-header">
+        <div>
+          <div className="control-label">配置計算に使用する問題の範囲</div>
+          <p className="control-description">易しい問題から何％までを分析に含めるか調整します</p>
+        </div>
         <button
           type="button"
           className={`auto-optimize-button${isOptimized ? " auto-optimize-button--done" : ""}`}
@@ -30,7 +29,7 @@ export default function RateRangeControl({
       </div>
 
       <div className="range-slider">
-        <span>0%</span>
+        <span className="range-edge-label">0%</span>
 
         <div className="range-slider-input">
           <input
@@ -50,7 +49,7 @@ export default function RateRangeControl({
           </output>
         </div>
 
-        <span>100%</span>
+        <span className="range-edge-label">100%</span>
       </div>
     </div>
   );
