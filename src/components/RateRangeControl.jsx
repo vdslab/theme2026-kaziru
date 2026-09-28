@@ -17,8 +17,7 @@ export default function RateRangeControl({
 
   return (
     <div className="rate-range-control">
-      <div className="rate-range-control-header control-label">
-        
+      <div className="rate-range-control-header control-label" style={{ margin: "0 20px" }}>
         <button
           type="button"
           className="rate-range-control-toggle"
@@ -61,7 +60,6 @@ export default function RateRangeControl({
         >
           {buttonLabel}
         </button>
-        
         <div className="range-slider">
           <span>0%</span>
 

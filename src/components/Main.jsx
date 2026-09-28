@@ -102,16 +102,16 @@ export default function Main({
           </button>
         </div>
 
-        <div className="control-section">
-          <RateRangeControl
-            lowerFraction={lowerFraction}
-            onLowerFractionChange={onLowerFractionChange}
-            onAutoOptimize={onAutoOptimize}
-            isOptimizing={isOptimizing}
-            isOptimized={isOptimized}
-            autoOptimizeDisabled={!rate || !submissionsLoaded}
-          />
+        <RateRangeControl
+          lowerFraction={lowerFraction}
+          onLowerFractionChange={onLowerFractionChange}
+          onAutoOptimize={onAutoOptimize}
+          isOptimizing={isOptimizing}
+          isOptimized={isOptimized}
+          autoOptimizeDisabled={!rate || !submissionsLoaded}
+        />
 
+        <div className="control-section">
           <div className="display-options">
             <div className="display-options-header">
               <div className="control-label">表示オプション</div>
