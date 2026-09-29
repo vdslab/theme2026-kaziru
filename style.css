@@ -737,23 +737,6 @@ a:focus-visible,
   box-shadow: var(--shadow-md);
 }
 
-.chart-wrapper::before {
-  position: absolute;
-  top: 13px;
-  left: 16px;
-  z-index: 1;
-  padding: 4px 7px;
-  color: #94a3b8;
-  border: 1px solid #e9edf3;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.78);
-  content: "難易度レート →";
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  pointer-events: none;
-}
-
 .pie-node {
   cursor: pointer;
   outline: none;
@@ -799,18 +782,18 @@ a:focus-visible,
 
 .chart-axis-boundary,
 .chart-axis-edge {
-  stroke: #cbd5e1;
+  stroke: #474747;
   stroke-width: 1.5;
 }
 
 .chart-axis-grid {
-  stroke: #e7ebf1;
+  stroke: #474747;
   stroke-width: 1;
   stroke-dasharray: 5 7;
 }
 
 .chart-axis-label {
-  fill: #78869a;
+  fill: #474747;
   font-size: 11px;
   font-weight: 600;
 }
