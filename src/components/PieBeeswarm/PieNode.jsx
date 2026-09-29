@@ -50,7 +50,7 @@ export default function PieNode({
     .innerRadius(innerPieRadius + ringGap)
     .outerRadius(outerRadius);
   const strokeColor = "black";
-  const strokeWidth = 1;
+  const strokeWidth = 1.5;
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || event.key === " ") {

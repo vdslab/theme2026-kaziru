@@ -4,9 +4,9 @@ import UserIdInput from "./UserIdInput";
 import RateRangeControl from "./RateRangeControl";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
-import UsageOverlay from "./UsageOverlay";
 
 const MAX_CHART_ASPECT_RATIO = 3;
+
 export default function Main({
   summary,
   allRows,
@@ -28,12 +28,20 @@ export default function Main({
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
   const [showLabels, setShowLabels] = useState(false);
+  const [showPlacementSettings, setShowPlacementSettings] = useState(false);
   const [selectedAlgoName, setSelectedAlgoName] = useState(() =>
     summary.length > 0 ? summary[0].algo : null,
   );
   const [chartMinHeight, setChartMinHeight] = useState(0);
-  const [showUsageOverlay, setShowUsageOverlay] = useState(true);
   const chartWrapperRef = useRef(null);
+  const hasInitializedSelectionRef = useRef(false);
+
+  useEffect(() => {
+    if (!hasInitializedSelectionRef.current && summary.length > 0) {
+      hasInitializedSelectionRef.current = true;
+      setSelectedAlgoName(summary[0].algo);
+    }
+  }, [summary]);
 
   useEffect(() => {
     const chartWrapper = chartWrapperRef.current;
@@ -46,14 +54,6 @@ export default function Main({
     observer.observe(chartWrapper);
     return () => observer.disconnect();
   }, []);
-
-  const openUsageOverlay = () => {
-    setShowUsageOverlay(true);
-  };
-
-  const handleCloseUsageOverlay = () => {
-    setShowUsageOverlay(false);
-  };
 
   const selectedAlgo =
     selectedAlgoName != null
@@ -86,89 +86,128 @@ export default function Main({
 
   return (
     <main className="main">
-      {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
       <div className="control-pannel">
-        <div className="top-controls">
-          <UserIdInput
-            username={username}
-            setUsername={onUsernameChange}
-            handleFetchRate={onFetchRate}
-            handleFetchSubmissions={onFetchSubmissions}
-            rateError={rateError}
-          />
+        <div className="control-pannel-inner">
+          <div className="top-controls">
+            <UserIdInput
+              username={username}
+              setUsername={onUsernameChange}
+              handleFetchRate={onFetchRate}
+              handleFetchSubmissions={onFetchSubmissions}
+              rateError={rateError}
+              isLoading={rateLoading}
+            />
 
-          <button className="usage-button" type="button" onClick={openUsageOverlay}>
-            使い方
-          </button>
-        </div>
+            <div className="top-controls-tools">
+              <div className="display-options display-options--inline">
+                <div className="control-label">表示オプション</div>
+                <div className="checkboxes">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={showCurrentRate}
+                      onChange={(e) => setShowCurrentRate(e.target.checked)}
+                    />
+                    <span>現在レート線</span>
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={showProgressRing}
+                      onChange={(e) => setShowProgressRing(e.target.checked)}
+                    />
+                    <span>AC状況</span>
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={showLabels}
+                      onChange={(e) => setShowLabels(e.target.checked)}
+                    />
+                    <span>ラベル</span>
+                  </label>
+                </div>
+              </div>
 
-        <div className="control-section">
-          <RateRangeControl
-            lowerFraction={lowerFraction}
-            onLowerFractionChange={onLowerFractionChange}
-            onAutoOptimize={onAutoOptimize}
-            isOptimizing={isOptimizing}
-            isOptimized={isOptimized}
-            autoOptimizeDisabled={!rate || !submissionsLoaded}
-          />
+              <button
+                className={`placement-settings-button${
+                  showPlacementSettings ? " placement-settings-button--open" : ""
+                }`}
+                type="button"
+                aria-expanded={showPlacementSettings}
+                aria-controls="placement-settings"
+                onClick={() => setShowPlacementSettings((current) => !current)}
+              >
+                配置設定
+                <svg
+                  aria-hidden="true"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
 
-          <div className="display-options">
-            <div className="display-options-header">
-              <div className="control-label">表示オプション</div>
-            </div>
-            <div className="checkboxes">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showCurrentRate}
-                  onChange={(e) => setShowCurrentRate(e.target.checked)}
-                />
-                現在レート線を表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showProgressRing}
-                  onChange={(e) => setShowProgressRing(e.target.checked)}
-                />
-                AC状況を表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showLabels}
-                  onChange={(e) => setShowLabels(e.target.checked)}
-                />
-                ラベルを表示
-              </label>
             </div>
           </div>
+
+          {showPlacementSettings && (
+            <div id="placement-settings" className="control-section">
+              <RateRangeControl
+                lowerFraction={lowerFraction}
+                onLowerFractionChange={onLowerFractionChange}
+                onAutoOptimize={onAutoOptimize}
+                isOptimizing={isOptimizing}
+                isOptimized={isOptimized}
+                autoOptimizeDisabled={!rate || !submissionsLoaded}
+              />
+            </div>
+          )}
         </div>
       </div>
 
       <div className="visualization-container">
         <div className="chart-header">
-          <h2 className="chart-title">アルゴリズム分布図（Pie-Beeswarm）</h2>
-          <div className="current-rate">
-            現在のレート
-            <span className="rate-value">{rateLoading ? "取得中..." : (rate ?? "---")}</span>
+          <div>
+            <p className="chart-eyebrow">LEARNING MAP</p>
+            <h1 className="chart-title">アルゴリズム分布マップ</h1>
+            <p className="chart-description">
+              円を選択すると、アルゴリズムごとの難易度と問題一覧を確認できます。
+            </p>
           </div>
-          {submissionsLoaded && (
-            <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
-              <span>
-                <i className="progress-ring-legend--ac" />
-                AC
+          <div className="chart-meta">
+            {submissionsLoaded && (
+              <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
+                <span>
+                  <i className="progress-ring-legend--ac" />
+                  AC
+                </span>
+                <span>
+                  <i className="progress-ring-legend--unsolved" />
+                  未AC
+                </span>
+                <span>
+                  <i className="progress-ring-legend--untried" />
+                  未挑戦
+                </span>
+              </div>
+            )}
+            <div className="current-rate">
+              <span className="current-rate-label">
+                <i aria-hidden="true" />
+                現在のレート
               </span>
-              <span>
-                <i className="progress-ring-legend--unsolved" />
-                未AC
-              </span>
-              <span>
-                <i className="progress-ring-legend--untried" />
-                未挑戦
-              </span>
+              <strong className="rate-value">
+                {rateLoading ? "取得中..." : (rate ?? "未設定")}
+              </strong>
             </div>
-          )}
+          </div>
         </div>
 
         <div

@@ -11,6 +11,17 @@ import { buildSubmissionMap } from "./utils/submissions";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
+import UsageOverlay from "./components/UsageOverlay";
+
+const USAGE_SEEN_KEY = "atcompass:usage-seen";
+
+function shouldShowUsageOnLoad() {
+  try {
+    return window.localStorage.getItem(USAGE_SEEN_KEY) !== "true";
+  } catch {
+    return true;
+  }
+}
 
 export default function App() {
   const [summaryData, setSummaryData] = useState([]);
@@ -29,6 +40,7 @@ export default function App() {
   // 自動最適化（都度計算）
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [isOptimized, setIsOptimized] = useState(false);
+  const [showUsageOverlay, setShowUsageOverlay] = useState(shouldShowUsageOnLoad);
   const isOptimizingRef = useRef(false);
   const optimizationGenerationRef = useRef(0);
 
@@ -150,6 +162,19 @@ export default function App() {
     return computeBeeswarm(mdsData);
   }, [algorithmGroups, lowerFraction, summaryData]);
 
+  const openUsageOverlay = () => {
+    setShowUsageOverlay(true);
+  };
+
+  const handleCloseUsageOverlay = () => {
+    setShowUsageOverlay(false);
+    try {
+      window.localStorage.setItem(USAGE_SEEN_KEY, "true");
+    } catch {
+      // ストレージが利用できない環境でも、現在の画面では閉じられるようにする。
+    }
+  };
+
   // レートと提出履歴が揃ったら自動で一度最適化を計算
   // ※ isOptimized を依存配列から外し、スライダー手動操作時の再計算を防ぐ
   useEffect(() => {
@@ -224,7 +249,8 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header onOpenUsage={openUsageOverlay} />
+      {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
       <Main
         summary={summary}
         allRows={allRows}
