@@ -110,40 +110,6 @@ export default function Main({
           isOptimized={isOptimized}
           autoOptimizeDisabled={!rate || !submissionsLoaded}
         />
-
-        <div className="control-section">
-          <div className="display-options">
-            <div className="display-options-header">
-              <div className="control-label">表示オプション</div>
-            </div>
-            <div className="checkboxes">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showCurrentRate}
-                  onChange={(e) => setShowCurrentRate(e.target.checked)}
-                />
-                現在レート線を表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showProgressRing}
-                  onChange={(e) => setShowProgressRing(e.target.checked)}
-                />
-                AC状況を表示
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={showLabels}
-                  onChange={(e) => setShowLabels(e.target.checked)}
-                />
-                ラベルを表示
-              </label>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="visualization-container">
@@ -176,6 +142,42 @@ export default function Main({
           style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
         >
           <div ref={chartWrapperRef} className="chart-wrapper">
+
+            {/* コントロールパネル */}
+            <div className="control-section">
+              <div className="display-options">
+                {/* <div className="display-options-header">
+                  <div className="control-label">表示オプション</div>
+                </div> */}
+                <div className="checkboxes">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={showCurrentRate}
+                      onChange={(e) => setShowCurrentRate(e.target.checked)}
+                    />
+                    現在レート線を表示
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={showProgressRing}
+                      onChange={(e) => setShowProgressRing(e.target.checked)}
+                    />
+                    AC状況を表示
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={showLabels}
+                      onChange={(e) => setShowLabels(e.target.checked)}
+                    />
+                    ラベルを表示
+                  </label>
+                </div>
+              </div>
+            </div>
+
             <PieBeeswarm
               data={summary}
               rate={rate}

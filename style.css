@@ -156,6 +156,7 @@ body {
 
 .control-section {
   display: flex;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 20px 32px;
   padding: 20px 24px;
