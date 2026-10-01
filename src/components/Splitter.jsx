@@ -32,11 +32,11 @@ export default function Splitter({
       document.body.classList.add("splitter-dragging");
 
       const onMouseMove = (e) => {
-        emitChange(value + (e.clientX - startClientX));
+        emitChange(value - (e.clientX - startClientX));
       };
 
       const onTouchMove = (e) => {
-        emitChange(value + (e.touches[0].clientX - startClientX));
+        emitChange(value - (e.touches[0].clientX - startClientX));
       };
 
       const onEnd = () => {
@@ -75,10 +75,10 @@ export default function Splitter({
       const step = e.shiftKey ? 10 : 1;
       if (e.key === "ArrowLeft") {
         e.preventDefault();
-        emitChange(value - step);
+        emitChange(value + step);
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
-        emitChange(value + step);
+        emitChange(value - step);
       } else if (e.key === "Home") {
         e.preventDefault();
         emitChange(min);
