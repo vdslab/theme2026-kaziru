@@ -5,7 +5,6 @@ export default function Header({ onOpenUsage }) {
         <div className="header-left">
           <div>
             <div className="logo">AtCompass</div>
-            <p className="tagline">AtCoder 学習ナビゲーション</p>
           </div>
         </div>
         <button className="usage-button header-usage-button" type="button" onClick={onOpenUsage}>

@@ -175,11 +175,7 @@ export default function Main({
       <div className="visualization-container">
         <div className="chart-header">
           <div>
-            <p className="chart-eyebrow">LEARNING MAP</p>
-            <h1 className="chart-title">アルゴリズム分布マップ</h1>
-            <p className="chart-description">
-              円を選択すると、アルゴリズムごとの難易度と問題一覧を確認できます。
-            </p>
+            <h1 className="chart-title">アルゴリズム分布図</h1>
           </div>
           <div className="chart-meta">
             {submissionsLoaded && (
@@ -190,7 +186,7 @@ export default function Main({
                 </span>
                 <span>
                   <i className="progress-ring-legend--unsolved" />
-                  未AC
+                  WA
                 </span>
                 <span>
                   <i className="progress-ring-legend--untried" />

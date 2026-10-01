@@ -13,7 +13,6 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
     return (
       <div className="legend">
         <div className="legend-title">
-          <span>SELECTED</span>
           選択したアルゴリズム
         </div>
         <div className="selected-algo-card">
@@ -44,7 +43,6 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
   return (
     <div className="legend">
       <div className="legend-title">
-        <span>SELECTED</span>
         選択したアルゴリズム
       </div>
       <div className="selected-algo-card">
