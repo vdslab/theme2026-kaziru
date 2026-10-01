@@ -178,6 +178,15 @@ export default function Main({
             <h1 className="chart-title">アルゴリズム分布図</h1>
           </div>
           <div className="chart-meta">
+            <div className="current-rate">
+              <span className="current-rate-label">
+                <i aria-hidden="true" />
+                現在のレート
+              </span>
+              <strong className="rate-value">
+                {rateLoading ? "取得中..." : (rate ?? "未設定")}
+              </strong>
+            </div>
             {submissionsLoaded && (
               <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
                 <span>
@@ -194,15 +203,6 @@ export default function Main({
                 </span>
               </div>
             )}
-            <div className="current-rate">
-              <span className="current-rate-label">
-                <i aria-hidden="true" />
-                現在のレート
-              </span>
-              <strong className="rate-value">
-                {rateLoading ? "取得中..." : (rate ?? "未設定")}
-              </strong>
-            </div>
           </div>
         </div>
 
