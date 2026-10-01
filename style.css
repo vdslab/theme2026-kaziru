@@ -716,6 +716,46 @@ a:focus-visible,
   box-shadow: var(--shadow-md);
 }
 
+/* Resizable split handle between chart and legend */
+.splitter {
+  flex: 0 0 12px;
+  position: relative;
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.splitter::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 56px;
+  border-radius: 3px;
+  background: rgba(148, 163, 184, 0.3);
+  transition:
+    width 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.splitter:hover::before,
+.splitter:focus-visible::before {
+  width: 8px;
+  background: rgba(148, 163, 184, 0.6);
+}
+
+.splitter-dragging .splitter::before {
+  width: 8px;
+  background: var(--color-primary);
+}
+
+.splitter-dragging {
+  cursor: col-resize;
+  user-select: none;
+}
+
 .pie-node {
   cursor: pointer;
   outline: none;
@@ -793,10 +833,9 @@ a:focus-visible,
 /* Selected algorithm */
 .legend {
   display: flex;
-  width: 330px;
   min-height: 0;
   padding: 20px;
-  flex: 0 0 auto;
+  flex: 0 0 var(--legend-size, 330px);
   flex-direction: column;
   overflow: hidden;
   border: 1px solid rgba(203, 213, 225, 0.85);
@@ -1174,7 +1213,6 @@ a:focus-visible,
   .display-options--inline {
     flex: 1;
   }
-
 }
 
 @media (max-aspect-ratio: 1 / 1) {
@@ -1197,6 +1235,10 @@ a:focus-visible,
 
   .vis-layout {
     flex-direction: column;
+  }
+
+  .splitter {
+    display: none;
   }
 
   .chart-wrapper {
@@ -1301,6 +1343,10 @@ a:focus-visible,
   .chart-wrapper {
     min-height: 300px;
     border-radius: 16px;
+  }
+
+  .splitter {
+    display: none;
   }
 
   .legend {

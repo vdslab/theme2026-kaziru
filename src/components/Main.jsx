@@ -1,11 +1,36 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 import UserIdInput from "./UserIdInput";
 import RateRangeControl from "./RateRangeControl";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
+import Splitter from "./Splitter";
 
 const MAX_CHART_ASPECT_RATIO = 3;
+const LEGEND_WIDTH_STORAGE_KEY = "atcompass:legend-width";
+const DEFAULT_LEGEND_WIDTH = 330;
+const MIN_LEGEND_WIDTH = 240;
+const MIN_CHART_WIDTH = 300;
+const SPLITTER_WIDTH = 12;
+const VIS_LAYOUT_GAP = 16;
+
+function getStoredLegendWidth() {
+  try {
+    const stored = window.localStorage.getItem(LEGEND_WIDTH_STORAGE_KEY);
+    const parsed = stored ? parseInt(stored, 10) : NaN;
+    return Number.isFinite(parsed) ? parsed : DEFAULT_LEGEND_WIDTH;
+  } catch {
+    return DEFAULT_LEGEND_WIDTH;
+  }
+}
+
+function storeLegendWidth(width) {
+  try {
+    window.localStorage.setItem(LEGEND_WIDTH_STORAGE_KEY, String(width));
+  } catch {
+    // ストレージが利用できない環境では無視する
+  }
+}
 
 export default function Main({
   summary,
@@ -33,7 +58,12 @@ export default function Main({
     summary.length > 0 ? summary[0].algo : null,
   );
   const [chartMinHeight, setChartMinHeight] = useState(0);
+  const [legendWidth, setLegendWidth] = useState(getStoredLegendWidth);
+  const [containerWidth, setContainerWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0,
+  );
   const chartWrapperRef = useRef(null);
+  const visLayoutRef = useRef(null);
   const hasInitializedSelectionRef = useRef(false);
 
   useEffect(() => {
@@ -53,6 +83,35 @@ export default function Main({
 
     observer.observe(chartWrapper);
     return () => observer.disconnect();
+  }, []);
+
+  // vis-layout の幅を監視して、リサイザーの最大値と legendWidth のクランプを行う
+  useEffect(() => {
+    const visLayout = visLayoutRef.current;
+    if (!visLayout) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const width = Math.round(entry.contentRect.width);
+        setContainerWidth(width);
+      }
+    });
+
+    observer.observe(visLayout);
+    return () => observer.disconnect();
+  }, []);
+
+  const maxLegendWidth = Math.max(
+    MIN_LEGEND_WIDTH,
+    containerWidth - VIS_LAYOUT_GAP * 2 - SPLITTER_WIDTH - MIN_CHART_WIDTH,
+  );
+
+  // コンテナ幅に合わせてクランプした表示用の幅
+  const clampedLegendWidth = Math.min(maxLegendWidth, Math.max(MIN_LEGEND_WIDTH, legendWidth));
+
+  const handleLegendWidthChange = useCallback((newWidth) => {
+    setLegendWidth(newWidth);
+    storeLegendWidth(newWidth);
   }, []);
 
   const selectedAlgo =
@@ -153,7 +212,6 @@ export default function Main({
                   <path d="m6 9 6 6 6-6" />
                 </svg>
               </button>
-
             </div>
           </div>
 
@@ -207,8 +265,12 @@ export default function Main({
         </div>
 
         <div
+          ref={visLayoutRef}
           className="vis-layout"
-          style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
+          style={{
+            "--legend-size": `${clampedLegendWidth}px`,
+            ...(chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : {}),
+          }}
         >
           <div ref={chartWrapperRef} className="chart-wrapper">
             <PieBeeswarm
@@ -222,6 +284,14 @@ export default function Main({
               onSelectAlgorithm={setSelectedAlgoName}
             />
           </div>
+
+          <Splitter
+            value={clampedLegendWidth}
+            onChange={handleLegendWidthChange}
+            min={MIN_LEGEND_WIDTH}
+            max={maxLegendWidth}
+            ariaLabel="チャートとアルゴリズムカードのサイズを調整"
+          />
 
           <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
         </div>
