@@ -22,10 +22,6 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
             </div>
             <div className="selected-algo-stats">
               <div className="stat-row">
-                <span className="stat-label">出現レート帯の中央値</span>
-                <span className="stat-value">---</span>
-              </div>
-              <div className="stat-row">
                 <span className="stat-label">問題数</span>
                 <span className="stat-value">---</span>
               </div>
@@ -52,20 +48,13 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
           </div>
           <div className="selected-algo-stats">
             <div className="stat-row">
-              <span className="stat-label">出現レート帯の中央値</span>
-              <span className="stat-value">{Math.round(algo.median)}</span>
-            </div>
-            <div className="stat-row">
               <span className="stat-label">問題数</span>
               <span className="stat-value">{algo.n} 問</span>
             </div>
           </div>
         </div>
         <div className="problems-list">
-          <div className="problems-list-title">
-            <span>問題一覧</span>
-            <span>{problems.length} 問</span>
-          </div>
+          <div className="problems-list-title">問題一覧</div>
           {problems.map((problem) => (
               <a
                 key={problem.problem_id}
