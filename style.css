@@ -82,27 +82,6 @@ a:focus-visible,
   backdrop-filter: blur(14px);
 }
 
-.header::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 3px;
-  content: "";
-  background: linear-gradient(
-    90deg,
-    #7f8c9a 0 12.5%,
-    #8a542e 12.5% 25%,
-    #159447 25% 37.5%,
-    #06a9b5 37.5% 50%,
-    #3157d5 50% 62.5%,
-    #d0ac12 62.5% 75%,
-    #ee821d 75% 87.5%,
-    #e5484d 87.5% 100%
-  );
-  opacity: 0.82;
-}
-
 .header-inner {
   display: flex;
   align-items: center;
@@ -670,8 +649,8 @@ a:focus-visible,
 .chart-header {
   display: flex;
   flex: 0 0 auto;
-  align-items: end;
-  justify-content: space-between;
+  align-items: center;
+  /* justify-content: space-between; */
   gap: 24px;
   margin-bottom: 14px;
 }
@@ -809,23 +788,6 @@ a:focus-visible,
   box-shadow: var(--shadow-md);
 }
 
-.chart-wrapper::before {
-  position: absolute;
-  top: 13px;
-  left: 16px;
-  z-index: 1;
-  padding: 4px 7px;
-  color: #94a3b8;
-  border: 1px solid #e9edf3;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.78);
-  content: "難易度レート →";
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  pointer-events: none;
-}
-
 .pie-node {
   cursor: pointer;
   outline: none;
@@ -871,18 +833,18 @@ a:focus-visible,
 
 .chart-axis-boundary,
 .chart-axis-edge {
-  stroke: #cbd5e1;
+  stroke: #474747;
   stroke-width: 1.5;
 }
 
 .chart-axis-grid {
-  stroke: #e7ebf1;
+  stroke: #474747;
   stroke-width: 1;
   stroke-dasharray: 5 7;
 }
 
 .chart-axis-label {
-  fill: #78869a;
+  fill: #474747;
   font-size: 11px;
   font-weight: 600;
 }
@@ -947,30 +909,25 @@ a:focus-visible,
 }
 
 .selected-algo-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-  margin-top: 13px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--color-border);
+  padding: 8px 0;
+  flex-shrink: 0;
 }
 
 .selected-algo-stats .stat-row {
   display: flex;
-  min-width: 0;
-  min-height: 65px;
-  padding: 10px;
-  flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #e7ebf1;
-  border-radius: 11px;
-  background: var(--color-surface-subtle);
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+  line-height: 1.4;
 }
 
 .selected-algo-stats .stat-label {
-  color: #7b8799;
-  font-size: 9px;
-  font-weight: 600;
+  font-size: 12px;
+  color: #666;
   line-height: 1.4;
 }
 

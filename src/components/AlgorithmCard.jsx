@@ -13,7 +13,6 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
     return (
       <div className="legend">
         <div className="legend-title">
-          <span>SELECTED</span>
           選択したアルゴリズム
         </div>
         <div className="selected-algo-card">
@@ -22,10 +21,6 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
               <div className="selected-algo-name">---</div>
             </div>
             <div className="selected-algo-stats">
-              <div className="stat-row">
-                <span className="stat-label">出現レート帯の中央値</span>
-                <span className="stat-value">---</span>
-              </div>
               <div className="stat-row">
                 <span className="stat-label">問題数</span>
                 <span className="stat-value">---</span>
@@ -44,7 +39,6 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
   return (
     <div className="legend">
       <div className="legend-title">
-        <span>SELECTED</span>
         選択したアルゴリズム
       </div>
       <div className="selected-algo-card">
@@ -54,20 +48,13 @@ export default function AlgorithmCard({ algo, problems, submissionsMap }) {
           </div>
           <div className="selected-algo-stats">
             <div className="stat-row">
-              <span className="stat-label">出現レート帯の中央値</span>
-              <span className="stat-value">{Math.round(algo.median)}</span>
-            </div>
-            <div className="stat-row">
               <span className="stat-label">問題数</span>
               <span className="stat-value">{algo.n} 問</span>
             </div>
           </div>
         </div>
         <div className="problems-list">
-          <div className="problems-list-title">
-            <span>問題一覧</span>
-            <span>{problems.length} 問</span>
-          </div>
+          <div className="problems-list-title">問題一覧</div>
           {problems.map((problem) => (
               <a
                 key={problem.problem_id}

@@ -232,40 +232,9 @@ export default function Main({
       <div className="visualization-container">
         <div className="chart-header">
           <div>
-            <p className="chart-eyebrow">LEARNING MAP</p>
-            <h1 className="chart-title">アルゴリズム分布マップ</h1>
-            <p className="chart-description">
-              円を選択すると、アルゴリズムごとの難易度と問題一覧を確認できます。
-            </p>
+            <h1 className="chart-title">アルゴリズム分布図</h1>
           </div>
           <div className="chart-meta">
-            {showProgressLegend && (
-              <div className="progress-ring-legend" aria-label="進捗リングの凡例">
-                {showPersonalProgress && (
-                  <>
-                    <span>
-                      <i className="progress-ring-legend--ac" />
-                      AC
-                    </span>
-                    <span>
-                      <i className="progress-ring-legend--unsolved" />
-                      未AC
-                    </span>
-                    <span>
-                      <i className="progress-ring-legend--untried" />
-                      未挑戦
-                    </span>
-                  </>
-                )}
-                {showPeerProgress && (
-                  <span>
-                    <i className="progress-ring-legend--peer" />
-                    同レート帯{peerStatisticLabel}AC・外周（{peerRatingBand.lower}–
-                    {peerRatingBand.upper}）
-                  </span>
-                )}
-              </div>
-            )}
             <div className="current-rate">
               <span className="current-rate-label">
                 <i aria-hidden="true" />
@@ -275,6 +244,22 @@ export default function Main({
                 {rateLoading ? "取得中..." : (rate ?? "未設定")}
               </strong>
             </div>
+            {submissionsLoaded && (
+              <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
+                <span>
+                  <i className="progress-ring-legend--ac" />
+                  AC
+                </span>
+                <span>
+                  <i className="progress-ring-legend--unsolved" />
+                  WA
+                </span>
+                <span>
+                  <i className="progress-ring-legend--untried" />
+                  未挑戦
+                </span>
+              </div>
+            )}
           </div>
         </div>
 
