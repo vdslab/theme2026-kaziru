@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import UserIdInput from "./UserIdInput";
 import ControlPannel from "./ControlPannel";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
@@ -101,33 +102,43 @@ export default function Main({
 
   return (
     <main className="main">
-      <ControlPannel
-        username={username}
-        onUsernameChange={onUsernameChange}
-        rateLoading={rateLoading}
-        rateError={rateError}
-        onFetchRate={onFetchRate}
-        onFetchSubmissions={onFetchSubmissions}
-        showCurrentRate={showCurrentRate}
-        onShowCurrentRateChange={setShowCurrentRate}
-        showProgressRing={showProgressRing}
-        onShowProgressRingChange={setShowProgressRing}
-        showPeerProgressRing={showPeerProgressRing}
-        onShowPeerProgressRingChange={setShowPeerProgressRing}
-        showLabels={showLabels}
-        onShowLabelsChange={setShowLabels}
-        peerStatistic={peerStatistic}
-        onPeerStatisticChange={setPeerStatistic}
-        showPlacementSettings={showPlacementSettings}
-        onShowPlacementSettingsChange={setShowPlacementSettings}
-        lowerFraction={lowerFraction}
-        onLowerFractionChange={onLowerFractionChange}
-        onAutoOptimize={onAutoOptimize}
-        isOptimizing={isOptimizing}
-        isOptimized={isOptimized}
-        rate={rate}
-        submissionsLoaded={submissionsLoaded}
-      />
+      <div className="control-pannel">
+        <div className="control-pannel-inner">
+          <div className="top-controls">
+            <UserIdInput
+              username={username}
+              setUsername={onUsernameChange}
+              handleFetchRate={onFetchRate}
+              handleFetchSubmissions={onFetchSubmissions}
+              rateError={rateError}
+              isLoading={rateLoading}
+            />
+
+            <ControlPannel
+              showCurrentRate={showCurrentRate}
+              onShowCurrentRateChange={setShowCurrentRate}
+              showProgressRing={showProgressRing}
+              onShowProgressRingChange={setShowProgressRing}
+              showPeerProgressRing={showPeerProgressRing}
+              onShowPeerProgressRingChange={setShowPeerProgressRing}
+              showLabels={showLabels}
+              onShowLabelsChange={setShowLabels}
+              peerStatistic={peerStatistic}
+              onPeerStatisticChange={setPeerStatistic}
+              showPlacementSettings={showPlacementSettings}
+              onShowPlacementSettingsChange={setShowPlacementSettings}
+              lowerFraction={lowerFraction}
+              onLowerFractionChange={onLowerFractionChange}
+              onAutoOptimize={onAutoOptimize}
+              isOptimizing={isOptimizing}
+              isOptimized={isOptimized}
+              rate={rate}
+              submissionsLoaded={submissionsLoaded}
+            />
+          </div>
+        </div>
+      </div>
+
 
       <div className="visualization-container">
         <div className="chart-header">
