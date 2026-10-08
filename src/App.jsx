@@ -8,9 +8,21 @@ import { groupByAlgorithm, countBandsByAlgorithm, createSummary } from "./utils/
 import { fetchUserRate } from "./api/loadUser";
 import { fetchAllUserSubmissions } from "./api/loadUserSubmissions";
 import { buildSubmissionMap } from "./utils/submissions";
+import { loadPeerBaselines } from "./utils/peerBaselines";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
+import UsageOverlay from "./components/UsageOverlay";
+
+const USAGE_SEEN_KEY = "atcompass:usage-seen";
+
+function shouldShowUsageOnLoad() {
+  try {
+    return window.localStorage.getItem(USAGE_SEEN_KEY) !== "true";
+  } catch {
+    return true;
+  }
+}
 
 export default function App() {
   const [summaryData, setSummaryData] = useState([]);
@@ -25,31 +37,83 @@ export default function App() {
   const [rateError, setRateError] = useState(null);
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
+  const [peerBaselines, setPeerBaselines] = useState(null);
 
-  // 自動最適化
-  const [isAutoOptimize, setIsAutoOptimize] = useState(true);
-  const optimalLowerFractionRef = useRef(null);
+  // 自動最適化（都度計算）
+  const [isOptimizing, setIsOptimizing] = useState(false);
+  const [isOptimized, setIsOptimized] = useState(false);
+  const [showUsageOverlay, setShowUsageOverlay] = useState(shouldShowUsageOnLoad);
+  const isOptimizingRef = useRef(false);
+  const optimizationGenerationRef = useRef(0);
 
-  // 自動最適化のON/OFFを切り替える
-  const handleAutoOptimizeChange = useCallback((enabled) => {
-    if (!enabled) {
-      // 自動最適化をOFFにするとき、現在の最適値を手動設定に引き継ぐ
-      if (optimalLowerFractionRef.current != null) {
-        setLowerFraction(optimalLowerFractionRef.current);
-      }
-    }
-    setIsAutoOptimize(enabled);
+  // 入力やユーザー情報が変わった場合、予約済みの古い計算結果を無効化する
+  const invalidateOptimization = useCallback(() => {
+    optimizationGenerationRef.current += 1;
+    isOptimizingRef.current = false;
+    setIsOptimizing(false);
+    setIsOptimized(false);
   }, []);
 
+  // 最適化計算の共通処理
+  const runOptimize = useCallback(() => {
+    if (!rate || !submissionsLoaded || summaryData.length === 0 || isOptimizingRef.current) {
+      return;
+    }
+
+    const generation = ++optimizationGenerationRef.current;
+    isOptimizingRef.current = true;
+    setIsOptimizing(true);
+    // requestAnimationFrame でブラウザが「計算中...」を描画してから計算を開始する
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        if (generation !== optimizationGenerationRef.current) {
+          return;
+        }
+
+        const { optimalFraction } = computeOptimalLowerFraction({
+          summary: summaryData,
+          groups: algorithmGroups,
+          rate,
+          submissionsMap,
+          allRows,
+        });
+
+        if (generation !== optimizationGenerationRef.current) {
+          return;
+        }
+
+        if (optimalFraction != null) {
+          setLowerFraction(optimalFraction);
+          setIsOptimized(true);
+        }
+        isOptimizingRef.current = false;
+        setIsOptimizing(false);
+      }, 0);
+    });
+  }, [rate, submissionsLoaded, summaryData, algorithmGroups, submissionsMap, allRows]);
+
+  // 「自動計算」ボタン押下時に最適な lowerFraction を計算して適用
+  const handleAutoOptimize = useCallback(() => {
+    runOptimize();
+  }, [runOptimize]);
+
+  // スライダー手動変更時に「計算済み」状態をリセット
+  const handleLowerFractionChange = useCallback((value) => {
+    invalidateOptimization();
+    setLowerFraction(value);
+  }, [invalidateOptimization]);
+
   const handleUsernameChange = useCallback((value) => {
+    invalidateOptimization();
     setUsername(value);
     setRate(null);
     setRateError(null);
     setSubmissionsMap(new Map());
     setSubmissionsLoaded(false);
-  }, []);
+  }, [invalidateOptimization]);
 
   const handleFetchRate = useCallback(async () => {
+    invalidateOptimization();
     const trimmed = username.trim();
     if (!trimmed) {
       setRate(null);
@@ -68,9 +132,10 @@ export default function App() {
     } finally {
       setRateLoading(false);
     }
-  }, [username]);
+  }, [invalidateOptimization, username]);
 
   const handleFetchSubmissions = useCallback(async () => {
+    invalidateOptimization();
     const trimmed = username.trim();
     if (!trimmed) {
       setSubmissionsMap(new Map());
@@ -88,59 +153,58 @@ export default function App() {
     } catch {
       setSubmissionsLoaded(false);
     }
-  }, [username]);
-
-  // レートと提出履歴が揃ったら最適 lowerFraction を計算
-  const optimalLowerFraction = useMemo(() => {
-    if (!isAutoOptimize || !rate || !submissionsLoaded || summaryData.length === 0) {
-      return null;
-    }
-
-    const { optimalFraction } = computeOptimalLowerFraction({
-      summary: summaryData,
-      groups: algorithmGroups,
-      rate,
-      submissionsMap,
-      allRows,
-    });
-
-    return optimalFraction;
-  }, [
-    isAutoOptimize,
-    rate,
-    submissionsLoaded,
-    summaryData,
-    algorithmGroups,
-    submissionsMap,
-    allRows,
-  ]);
-
-  // ref に最適値を保持（handleAutoOptimizeChange から順序に関係なく参照できるように）
-  // レンダー中に ref を更新すると React のルールに違反するため useEffect 内で更新する
-  useEffect(() => {
-    optimalLowerFractionRef.current = optimalLowerFraction;
-  }, [optimalLowerFraction]);
-
-  // 自動最適化が有効かつ最適値が計算済みの場合はその値を、そうでなければ手動設定値を使う
-  const computedLowerFraction = useMemo(() => {
-    if (isAutoOptimize && optimalLowerFraction != null) {
-      return optimalLowerFraction;
-    }
-    return lowerFraction;
-  }, [isAutoOptimize, optimalLowerFraction, lowerFraction]);
+  }, [invalidateOptimization, username]);
 
   const summary = useMemo(() => {
     if (summaryData.length === 0) {
       return [];
     }
 
-    const mdsData = computeAnchoredClassicalMds(
-      summaryData,
-      algorithmGroups,
-      computedLowerFraction,
-    );
+    const mdsData = computeAnchoredClassicalMds(summaryData, algorithmGroups, lowerFraction);
     return computeBeeswarm(mdsData);
-  }, [algorithmGroups, computedLowerFraction, summaryData]);
+  }, [algorithmGroups, lowerFraction, summaryData]);
+
+  const openUsageOverlay = () => {
+    setShowUsageOverlay(true);
+  };
+
+  const handleCloseUsageOverlay = () => {
+    setShowUsageOverlay(false);
+    try {
+      window.localStorage.setItem(USAGE_SEEN_KEY, "true");
+    } catch {
+      // ストレージが利用できない環境でも、現在の画面では閉じられるようにする。
+    }
+  };
+
+  // レートと提出履歴が揃ったら自動で一度最適化を計算
+  // ※ isOptimized を依存配列から外し、スライダー手動操作時の再計算を防ぐ
+  useEffect(() => {
+    if (!rate || !submissionsLoaded || summaryData.length === 0 || isOptimized) {
+      return;
+    }
+
+    runOptimize();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rate, submissionsLoaded, runOptimize]);
+
+  useEffect(() => {
+    if (rate == null || peerBaselines) {
+      return;
+    }
+
+    const controller = new AbortController();
+
+    loadPeerBaselines(controller.signal)
+      .then(setPeerBaselines)
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          console.error(error);
+        }
+      });
+
+    return () => controller.abort();
+  }, [peerBaselines, rate]);
 
   useEffect(() => {
     async function init() {
@@ -205,12 +269,13 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header onOpenUsage={openUsageOverlay} />
+      {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
       <Main
         summary={summary}
         allRows={allRows}
         lowerFraction={lowerFraction}
-        onLowerFractionChange={setLowerFraction}
+        onLowerFractionChange={handleLowerFractionChange}
         username={username}
         onUsernameChange={handleUsernameChange}
         rate={rate}
@@ -219,10 +284,11 @@ export default function App() {
         onFetchRate={handleFetchRate}
         submissionsMap={submissionsMap}
         submissionsLoaded={submissionsLoaded}
+        peerBaselines={peerBaselines}
         onFetchSubmissions={handleFetchSubmissions}
-        isAutoOptimize={isAutoOptimize}
-        onAutoOptimizeChange={handleAutoOptimizeChange}
-        optimalLowerFraction={optimalLowerFraction}
+        onAutoOptimize={handleAutoOptimize}
+        isOptimizing={isOptimizing}
+        isOptimized={isOptimized}
       />
     </div>
   );

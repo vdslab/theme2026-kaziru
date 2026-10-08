@@ -24,13 +24,12 @@ export default function NodeLabel({ x, y, text, r }) {
           y={bbox.y - PADDING_Y}
           width={bbox.width + PADDING_X * 2}
           height={bbox.height + PADDING_Y * 2}
-          fill="white"
-          fillOpacity="0.85"
-          rx="3"
+          className="node-label-background"
+          rx="4"
         />
       )}
 
-      <text ref={textRef} x="0" y="0" textAnchor="middle" fontSize="12">
+      <text className="node-label-text" ref={textRef} x="0" y="0" textAnchor="middle">
         {text}
       </text>
     </g>

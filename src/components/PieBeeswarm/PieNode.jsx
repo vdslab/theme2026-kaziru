@@ -14,6 +14,11 @@ const PROGRESS_COLORS = {
   Untried: "#cbd5e1",
 };
 
+const PEER_PROGRESS_COLORS = {
+  PeerAC: "#f87171",
+  PeerRemaining: "#e2e8f0",
+};
+
 const pieGenerator = pie()
   .value((d) => d.value)
   .sort(null)
@@ -28,6 +33,11 @@ export default function PieNode({
   showProgress = false,
   progressRingGap = 4,
   progressRingWidth = 12,
+  peerProgressSlices = [],
+  showPeerProgress = false,
+  peerStatisticLabel = "平均",
+  peerRingGap = 3,
+  peerRingWidth = 5,
   label,
   selected = false,
   dimmed = false,
@@ -37,6 +47,10 @@ export default function PieNode({
   const progressArcData =
     showProgress && progressSlices.some((slice) => slice.value > 0)
       ? pieGenerator(progressSlices.filter((slice) => slice.value > 0))
+      : [];
+  const peerProgressArcData =
+    showPeerProgress && peerProgressSlices.some((slice) => slice.value > 0)
+      ? pieGenerator(peerProgressSlices.filter((slice) => slice.value > 0))
       : [];
 
   // リングの外周は従来のノード半径に固定し、難易度Pieはその内側に収める。
@@ -49,8 +63,15 @@ export default function PieNode({
   const progressArcGenerator = arc()
     .innerRadius(innerPieRadius + ringGap)
     .outerRadius(outerRadius);
+  const peerInnerRadius = outerRadius + peerRingGap;
+  const peerOuterRadius = showPeerProgress
+    ? peerInnerRadius + peerRingWidth
+    : outerRadius;
+  const peerProgressArcGenerator = arc()
+    .innerRadius(peerInnerRadius)
+    .outerRadius(peerOuterRadius);
   const strokeColor = "black";
-  const strokeWidth = 1;
+  const strokeWidth = 1.5;
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -76,6 +97,22 @@ export default function PieNode({
       }}
       onKeyDown={handleKeyDown}
     >
+      {peerProgressArcData.map((d) => (
+        <path
+          key={`peer-progress-${d.data.label}`}
+          className="pie-node-peer-progress"
+          d={peerProgressArcGenerator(d)}
+          fill={PEER_PROGRESS_COLORS[d.data.label]}
+          stroke="white"
+          strokeWidth={1}
+        >
+          <title>
+            {d.data.label === "PeerAC"
+              ? `同レート帯の${peerStatisticLabel}AC: ${d.data.value.toFixed(2)}問`
+              : `同レート帯の${peerStatisticLabel}未AC: ${d.data.value.toFixed(2)}問`}
+          </title>
+        </path>
+      ))}
       {progressArcData.map((d) => (
         <path
           key={`progress-${d.data.label}`}
@@ -97,7 +134,7 @@ export default function PieNode({
           strokeWidth={strokeWidth}
         />
       ))}
-      <circle r={outerRadius + 6} fill="transparent" />
+      <circle r={peerOuterRadius + 6} fill="transparent" />
     </g>
   );
 }

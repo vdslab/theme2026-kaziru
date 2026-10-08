@@ -10,6 +10,9 @@ export default function PieBeeswarm({
   showCurrentRate = false,
   progressByAlgorithm = new Map(),
   showProgress = false,
+  peerProgressByAlgorithm = new Map(),
+  showPeerProgress = false,
+  peerStatisticLabel = "平均",
   selectedAlgorithm = null,
   onSelectAlgorithm,
 }) {
@@ -46,11 +49,18 @@ export default function PieBeeswarm({
   const CURRENT_RATE_LABEL_BOTTOM_MARGIN = 84;
   const PROGRESS_RING_GAP = 4;
   const PROGRESS_RING_WIDTH = 12;
+  const PEER_RING_GAP = 3;
+  const PEER_RING_WIDTH = 5;
 
-  const nodeXMin = Math.min(...data.map((d) => d.x - d.r));
-  const nodeXMax = Math.max(...data.map((d) => d.x + d.r));
-  const nodeYMin = Math.min(...data.map((d) => d.y - d.r));
-  const nodeYMax = Math.max(...data.map((d) => d.y + d.r));
+  const getVisualRadius = (item) =>
+    showPeerProgress && peerProgressByAlgorithm.has(item.algo)
+      ? item.r + PEER_RING_GAP + PEER_RING_WIDTH
+      : item.r;
+
+  const nodeXMin = Math.min(...data.map((item) => item.x - getVisualRadius(item)));
+  const nodeXMax = Math.max(...data.map((item) => item.x + getVisualRadius(item)));
+  const nodeYMin = Math.min(...data.map((item) => item.y - getVisualRadius(item)));
+  const nodeYMax = Math.max(...data.map((item) => item.y + getVisualRadius(item)));
 
   const currentRate = rate == null ? null : Number(rate);
   const shouldShowCurrentRate = showCurrentRate && Number.isFinite(currentRate);
@@ -86,7 +96,7 @@ export default function PieBeeswarm({
 
   const axisY = viewBoxY + viewBoxHeight - bottomMargin;
   const viewBoxXMax = viewBoxX + viewBoxWidth;
-  const maxNodeRadius = Math.max(...data.map((item) => item.r));
+  const maxNodeRadius = Math.max(...data.map(getVisualRadius));
   const plotXMin = viewBoxX + Math.max(SIDE_MARGIN, maxNodeRadius);
   const plotXMax = viewBoxXMax - Math.max(RATE_LABEL_SIDE_MARGIN, maxNodeRadius);
   const plotXWidth = Math.max(1, plotXMax - plotXMin);
@@ -96,15 +106,24 @@ export default function PieBeeswarm({
   for (let value = AXIS_MIN; value <= AXIS_MAX; value += TICK_STEP) {
     ticks.push({ value, position: xScale(value) });
   }
-  const renderedData = data.map((item) => ({
-    ...item,
-    x: xScale(item.x),
-    progressSlices: [
-      { label: "AC", value: progressByAlgorithm.get(item.algo)?.ac ?? 0 },
-      { label: "Unsolved", value: progressByAlgorithm.get(item.algo)?.unsolved ?? 0 },
-      { label: "Untried", value: progressByAlgorithm.get(item.algo)?.untried ?? 0 },
-    ],
-  }));
+  const renderedData = data.map((item) => {
+    const peerProgress = peerProgressByAlgorithm.get(item.algo);
+
+    return {
+      ...item,
+      x: xScale(item.x),
+      visualRadius: getVisualRadius(item),
+      progressSlices: [
+        { label: "AC", value: progressByAlgorithm.get(item.algo)?.ac ?? 0 },
+        { label: "Unsolved", value: progressByAlgorithm.get(item.algo)?.unsolved ?? 0 },
+        { label: "Untried", value: progressByAlgorithm.get(item.algo)?.untried ?? 0 },
+      ],
+      peerProgressSlices: [
+        { label: "PeerAC", value: peerProgress?.ac ?? 0 },
+        { label: "PeerRemaining", value: peerProgress?.remaining ?? 0 },
+      ],
+    };
+  });
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
@@ -150,6 +169,11 @@ export default function PieBeeswarm({
             showProgress={showProgress}
             progressRingGap={PROGRESS_RING_GAP}
             progressRingWidth={PROGRESS_RING_WIDTH}
+            peerProgressSlices={item.peerProgressSlices}
+            showPeerProgress={showPeerProgress && peerProgressByAlgorithm.has(item.algo)}
+            peerStatisticLabel={peerStatisticLabel}
+            peerRingGap={PEER_RING_GAP}
+            peerRingWidth={PEER_RING_WIDTH}
             selected={item.algo === selectedAlgorithm}
             dimmed={selectedAlgorithm !== null && item.algo !== selectedAlgorithm}
             onSelect={() => onSelectAlgorithm?.(item.algo)}
@@ -165,7 +189,13 @@ export default function PieBeeswarm({
 
         {showLabels &&
           renderedData.map((item) => (
-            <NodeLabel key={item.algo} x={item.x} y={item.y} r={item.r} text={item.algo} />
+            <NodeLabel
+              key={item.algo}
+              x={item.x}
+              y={item.y}
+              r={item.visualRadius}
+              text={item.algo}
+            />
           ))}
       </svg>
     </div>

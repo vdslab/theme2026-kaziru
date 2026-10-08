@@ -1,24 +1,35 @@
 export default function RateRangeControl({
   lowerFraction,
   onLowerFractionChange,
-  isAutoOptimize = false,
-  optimalLowerFraction = null,
+  onAutoOptimize,
+  isOptimizing = false,
+  isOptimized = false,
+  autoOptimizeDisabled = false,
 }) {
   const lowerFractionPercent = Math.round(lowerFraction * 100);
-  const displayFraction =
-    isAutoOptimize && optimalLowerFraction != null
-      ? Math.round(optimalLowerFraction * 100)
-      : lowerFractionPercent;
+
+  const buttonLabel = isOptimizing ? "計算中..." : isOptimized ? "計算済み" : "自動計算";
 
   return (
     <div className="rate-range-control">
-      <div className="control-label">
-        位置計算に使う易しい問題の割合
-        {isAutoOptimize && <span className="auto-optimize-badge">自動</span>}
+      <div className="rate-range-header">
+        <div>
+          <div className="control-label">配置計算に使用する問題の範囲</div>
+          <p className="control-description">易しい問題から何％までを分析に含めるか調整します</p>
+        </div>
+        <button
+          type="button"
+          className={`auto-optimize-button${isOptimized ? " auto-optimize-button--done" : ""}`}
+          onClick={onAutoOptimize}
+          disabled={autoOptimizeDisabled || isOptimizing || isOptimized}
+          aria-label="自動最適化を計算"
+        >
+          {buttonLabel}
+        </button>
       </div>
 
       <div className="range-slider">
-        <span>0%</span>
+        <span className="range-edge-label">0%</span>
 
         <div className="range-slider-input">
           <input
@@ -26,19 +37,19 @@ export default function RateRangeControl({
             min="0"
             max="100"
             step="1"
-            value={displayFraction}
+            value={lowerFractionPercent}
             onChange={(e) => onLowerFractionChange(Number(e.target.value) / 100)}
-            disabled={isAutoOptimize}
-            aria-label="位置計算に使う易しい問題の割合"
-            aria-valuetext={`易しい順に${displayFraction}%の問題を使用${isAutoOptimize ? "（自動最適化中）" : ""}`}
+            style={{ "--range-progress": `${lowerFractionPercent}%` }}
+            aria-label="配置計算に使用する問題の範囲"
+            aria-valuetext={`易しい順に${lowerFractionPercent}%の問題を使用`}
           />
 
-          <output className="range-slider-value" style={{ left: `${displayFraction}%` }}>
-            {displayFraction}%
+          <output className="range-slider-value" style={{ left: `${lowerFractionPercent}%` }}>
+            {lowerFractionPercent}%
           </output>
         </div>
 
-        <span>100%</span>
+        <span className="range-edge-label">100%</span>
       </div>
     </div>
   );
