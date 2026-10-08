@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import UserIdInput from "./UserIdInput";
-import RateRangeControl from "./RateRangeControl";
+import ControlPannel from "./ControlPannel";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
 import { createPeerProgressMap, getPeerRatingBand } from "../utils/peerBaselines";
@@ -102,132 +101,33 @@ export default function Main({
 
   return (
     <main className="main">
-      <div className="control-pannel">
-        <div className="control-pannel-inner">
-          <div className="top-controls">
-            <UserIdInput
-              username={username}
-              setUsername={onUsernameChange}
-              handleFetchRate={onFetchRate}
-              handleFetchSubmissions={onFetchSubmissions}
-              rateError={rateError}
-              isLoading={rateLoading}
-            />
-
-            <div className="top-controls-tools">
-              <div className="display-options display-options--inline">
-                <div className="control-label">表示オプション</div>
-                <div className="checkboxes">
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={showCurrentRate}
-                      onChange={(e) => setShowCurrentRate(e.target.checked)}
-                    />
-                    <span>現在レート線</span>
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={showProgressRing}
-                      onChange={(e) => setShowProgressRing(e.target.checked)}
-                    />
-                    <span>AC状況</span>
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={showPeerProgressRing}
-                      onChange={(e) => setShowPeerProgressRing(e.target.checked)}
-                    />
-                    <span>同レート帯リング</span>
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={showLabels}
-                      onChange={(e) => setShowLabels(e.target.checked)}
-                    />
-                    <span>ラベル</span>
-                  </label>
-                </div>
-                <div
-                  className={`peer-statistic-control${
-                    showPeerProgressRing ? "" : " peer-statistic-control--disabled"
-                  }`}
-                  role="radiogroup"
-                  aria-label="同レート帯リングの集計方法"
-                >
-                  <span className="peer-statistic-control-label">外周</span>
-                  <div className="peer-statistic-toggle">
-                    <label>
-                      <input
-                        type="radio"
-                        name="peer-statistic"
-                        value="mean"
-                        checked={peerStatistic === "mean"}
-                        disabled={!showPeerProgressRing}
-                        onChange={(e) => setPeerStatistic(e.target.value)}
-                      />
-                      <span>平均</span>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name="peer-statistic"
-                        value="median"
-                        checked={peerStatistic === "median"}
-                        disabled={!showPeerProgressRing}
-                        onChange={(e) => setPeerStatistic(e.target.value)}
-                      />
-                      <span>中央値</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                className={`placement-settings-button${
-                  showPlacementSettings ? " placement-settings-button--open" : ""
-                }`}
-                type="button"
-                aria-expanded={showPlacementSettings}
-                aria-controls="placement-settings"
-                onClick={() => setShowPlacementSettings((current) => !current)}
-              >
-                配置設定
-                <svg
-                  aria-hidden="true"
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-              </button>
-
-            </div>
-          </div>
-
-          {showPlacementSettings && (
-            <div id="placement-settings" className="control-section">
-              <RateRangeControl
-                lowerFraction={lowerFraction}
-                onLowerFractionChange={onLowerFractionChange}
-                onAutoOptimize={onAutoOptimize}
-                isOptimizing={isOptimizing}
-                isOptimized={isOptimized}
-                autoOptimizeDisabled={!rate || !submissionsLoaded}
-              />
-            </div>
-          )}
-        </div>
-      </div>
+      <ControlPannel
+        username={username}
+        onUsernameChange={onUsernameChange}
+        rateLoading={rateLoading}
+        rateError={rateError}
+        onFetchRate={onFetchRate}
+        onFetchSubmissions={onFetchSubmissions}
+        showCurrentRate={showCurrentRate}
+        onShowCurrentRateChange={setShowCurrentRate}
+        showProgressRing={showProgressRing}
+        onShowProgressRingChange={setShowProgressRing}
+        showPeerProgressRing={showPeerProgressRing}
+        onShowPeerProgressRingChange={setShowPeerProgressRing}
+        showLabels={showLabels}
+        onShowLabelsChange={setShowLabels}
+        peerStatistic={peerStatistic}
+        onPeerStatisticChange={setPeerStatistic}
+        showPlacementSettings={showPlacementSettings}
+        onShowPlacementSettingsChange={setShowPlacementSettings}
+        lowerFraction={lowerFraction}
+        onLowerFractionChange={onLowerFractionChange}
+        onAutoOptimize={onAutoOptimize}
+        isOptimizing={isOptimizing}
+        isOptimized={isOptimized}
+        rate={rate}
+        submissionsLoaded={submissionsLoaded}
+      />
 
       <div className="visualization-container">
         <div className="chart-header">
