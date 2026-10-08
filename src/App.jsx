@@ -98,19 +98,25 @@ export default function App() {
   }, [runOptimize]);
 
   // スライダー手動変更時に「計算済み」状態をリセット
-  const handleLowerFractionChange = useCallback((value) => {
-    invalidateOptimization();
-    setLowerFraction(value);
-  }, [invalidateOptimization]);
+  const handleLowerFractionChange = useCallback(
+    (value) => {
+      invalidateOptimization();
+      setLowerFraction(value);
+    },
+    [invalidateOptimization],
+  );
 
-  const handleUsernameChange = useCallback((value) => {
-    invalidateOptimization();
-    setUsername(value);
-    setRate(null);
-    setRateError(null);
-    setSubmissionsMap(new Map());
-    setSubmissionsLoaded(false);
-  }, [invalidateOptimization]);
+  const handleUsernameChange = useCallback(
+    (value) => {
+      invalidateOptimization();
+      setUsername(value);
+      setRate(null);
+      setRateError(null);
+      setSubmissionsMap(new Map());
+      setSubmissionsLoaded(false);
+    },
+    [invalidateOptimization],
+  );
 
   const handleFetchRate = useCallback(async () => {
     invalidateOptimization();
@@ -269,23 +275,26 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header onOpenUsage={openUsageOverlay} />
+      <Header
+        onOpenUsage={openUsageOverlay}
+        username={username}
+        onUsernameChange={handleUsernameChange}
+        rateLoading={rateLoading}
+        rateError={rateError}
+        onFetchRate={handleFetchRate}
+        onFetchSubmissions={handleFetchSubmissions}
+      />
       {showUsageOverlay && <UsageOverlay onClose={handleCloseUsageOverlay} />}
       <Main
         summary={summary}
         allRows={allRows}
         lowerFraction={lowerFraction}
         onLowerFractionChange={handleLowerFractionChange}
-        username={username}
-        onUsernameChange={handleUsernameChange}
         rate={rate}
         rateLoading={rateLoading}
-        rateError={rateError}
-        onFetchRate={handleFetchRate}
         submissionsMap={submissionsMap}
         submissionsLoaded={submissionsLoaded}
         peerBaselines={peerBaselines}
-        onFetchSubmissions={handleFetchSubmissions}
         onAutoOptimize={handleAutoOptimize}
         isOptimizing={isOptimizing}
         isOptimized={isOptimized}

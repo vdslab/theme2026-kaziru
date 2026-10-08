@@ -118,6 +118,18 @@ a:focus-visible,
   align-items: center;
 }
 
+.header .username-bar {
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.header-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
 .logo {
   color: #1d2a48;
   font-size: 20px;
@@ -186,6 +198,7 @@ a:focus-visible,
   flex: 0 0 auto;
   align-items: end;
   gap: 10px;
+  margin-left: auto;
 }
 
 /* User search */
@@ -1284,12 +1297,12 @@ a:focus-visible,
 
   .top-controls-tools {
     align-items: center;
+    margin-left: 0;
   }
 
   .display-options--inline {
     flex: 1;
   }
-
 }
 
 @media (max-aspect-ratio: 1 / 1) {
@@ -1336,6 +1349,14 @@ a:focus-visible,
     padding: 9px 16px;
   }
 
+  .header-user-actions {
+    flex: 1;
+  }
+
+  .header .username-bar {
+    flex: 1;
+  }
+
   .control-pannel {
     padding: 12px 12px 0;
   }
@@ -1354,6 +1375,7 @@ a:focus-visible,
   .top-controls-tools {
     flex-wrap: wrap;
     align-items: flex-end;
+    margin-left: 0;
   }
 
   .display-options--inline {

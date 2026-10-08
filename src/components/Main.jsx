@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import UserIdInput from "./UserIdInput";
 import ControlPannel from "./ControlPannel";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
@@ -13,16 +12,11 @@ export default function Main({
   allRows,
   lowerFraction,
   onLowerFractionChange,
-  username,
-  onUsernameChange,
   rate,
   rateLoading,
-  rateError,
-  onFetchRate,
   submissionsMap,
   submissionsLoaded,
   peerBaselines,
-  onFetchSubmissions,
   onAutoOptimize,
   isOptimizing,
   isOptimized,
@@ -102,21 +96,6 @@ export default function Main({
 
   return (
     <main className="main">
-      <div className="control-pannel">
-        <div className="control-pannel-inner">
-          <div className="top-controls">
-            <UserIdInput
-              username={username}
-              setUsername={onUsernameChange}
-              handleFetchRate={onFetchRate}
-              handleFetchSubmissions={onFetchSubmissions}
-              rateError={rateError}
-              isLoading={rateLoading}
-            />
-          </div>
-        </div>
-      </div>
-
       <div className="visualization-container">
         <div className="chart-header">
           <div>
