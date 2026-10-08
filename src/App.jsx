@@ -8,6 +8,7 @@ import { groupByAlgorithm, countBandsByAlgorithm, createSummary } from "./utils/
 import { fetchUserRate } from "./api/loadUser";
 import { fetchAllUserSubmissions } from "./api/loadUserSubmissions";
 import { buildSubmissionMap } from "./utils/submissions";
+import { loadPeerBaselines } from "./utils/peerBaselines";
 
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -36,6 +37,7 @@ export default function App() {
   const [rateError, setRateError] = useState(null);
   const [submissionsMap, setSubmissionsMap] = useState(new Map());
   const [submissionsLoaded, setSubmissionsLoaded] = useState(false);
+  const [peerBaselines, setPeerBaselines] = useState(null);
 
   // 自動最適化（都度計算）
   const [isOptimizing, setIsOptimizing] = useState(false);
@@ -187,6 +189,24 @@ export default function App() {
   }, [rate, submissionsLoaded, runOptimize]);
 
   useEffect(() => {
+    if (rate == null || peerBaselines) {
+      return;
+    }
+
+    const controller = new AbortController();
+
+    loadPeerBaselines(controller.signal)
+      .then(setPeerBaselines)
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          console.error(error);
+        }
+      });
+
+    return () => controller.abort();
+  }, [peerBaselines, rate]);
+
+  useEffect(() => {
     async function init() {
       try {
         const rows = await loadCsv("/all_problems.csv");
@@ -264,6 +284,7 @@ export default function App() {
         onFetchRate={handleFetchRate}
         submissionsMap={submissionsMap}
         submissionsLoaded={submissionsLoaded}
+        peerBaselines={peerBaselines}
         onFetchSubmissions={handleFetchSubmissions}
         onAutoOptimize={handleAutoOptimize}
         isOptimizing={isOptimizing}

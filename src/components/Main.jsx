@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import UserIdInput from "./UserIdInput";
 import RateRangeControl from "./RateRangeControl";
 import PieBeeswarm from "./PieBeeswarm/PieBeeswarm";
 import AlgorithmCard from "./AlgorithmCard";
+import { createPeerProgressMap, getPeerRatingBand } from "../utils/peerBaselines";
 
 const MAX_CHART_ASPECT_RATIO = 3;
 
@@ -20,6 +21,7 @@ export default function Main({
   onFetchRate,
   submissionsMap,
   submissionsLoaded,
+  peerBaselines,
   onFetchSubmissions,
   onAutoOptimize,
   isOptimizing,
@@ -27,6 +29,8 @@ export default function Main({
 }) {
   const [showCurrentRate, setShowCurrentRate] = useState(true);
   const [showProgressRing, setShowProgressRing] = useState(true);
+  const [showPeerProgressRing, setShowPeerProgressRing] = useState(true);
+  const [peerStatistic, setPeerStatistic] = useState("mean");
   const [showLabels, setShowLabels] = useState(false);
   const [showPlacementSettings, setShowPlacementSettings] = useState(false);
   const [selectedAlgoName, setSelectedAlgoName] = useState(() =>
@@ -65,6 +69,18 @@ export default function Main({
         .filter((row) => row.tag === selectedAlgo.algo)
         .sort((a, b) => (a.diffCalc ?? 0) - (b.diffCalc ?? 0))
     : [];
+  const peerRatingBand = useMemo(
+    () => getPeerRatingBand(peerBaselines, rate),
+    [peerBaselines, rate],
+  );
+  const peerProgressByAlgorithm = useMemo(
+    () => createPeerProgressMap(peerRatingBand, peerStatistic),
+    [peerRatingBand, peerStatistic],
+  );
+  const showPeerProgress = showPeerProgressRing && peerProgressByAlgorithm.size > 0;
+  const peerStatisticLabel = peerStatistic === "median" ? "中央値" : "平均";
+  const showPersonalProgress = submissionsLoaded && showProgressRing;
+  const showProgressLegend = showPersonalProgress || showPeerProgress;
   const progressByAlgorithm = new Map();
   for (const row of allRows) {
     const progress = progressByAlgorithm.get(row.tag) ?? {
@@ -121,11 +137,52 @@ export default function Main({
                   <label>
                     <input
                       type="checkbox"
+                      checked={showPeerProgressRing}
+                      onChange={(e) => setShowPeerProgressRing(e.target.checked)}
+                    />
+                    <span>同レート帯リング</span>
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
                       checked={showLabels}
                       onChange={(e) => setShowLabels(e.target.checked)}
                     />
                     <span>ラベル</span>
                   </label>
+                </div>
+                <div
+                  className={`peer-statistic-control${
+                    showPeerProgressRing ? "" : " peer-statistic-control--disabled"
+                  }`}
+                  role="radiogroup"
+                  aria-label="同レート帯リングの集計方法"
+                >
+                  <span className="peer-statistic-control-label">外周</span>
+                  <div className="peer-statistic-toggle">
+                    <label>
+                      <input
+                        type="radio"
+                        name="peer-statistic"
+                        value="mean"
+                        checked={peerStatistic === "mean"}
+                        disabled={!showPeerProgressRing}
+                        onChange={(e) => setPeerStatistic(e.target.value)}
+                      />
+                      <span>平均</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="peer-statistic"
+                        value="median"
+                        checked={peerStatistic === "median"}
+                        disabled={!showPeerProgressRing}
+                        onChange={(e) => setPeerStatistic(e.target.value)}
+                      />
+                      <span>中央値</span>
+                    </label>
+                  </div>
                 </div>
               </div>
 
@@ -182,20 +239,31 @@ export default function Main({
             </p>
           </div>
           <div className="chart-meta">
-            {submissionsLoaded && (
-              <div className="progress-ring-legend" aria-label="外側の円グラフの凡例">
-                <span>
-                  <i className="progress-ring-legend--ac" />
-                  AC
-                </span>
-                <span>
-                  <i className="progress-ring-legend--unsolved" />
-                  未AC
-                </span>
-                <span>
-                  <i className="progress-ring-legend--untried" />
-                  未挑戦
-                </span>
+            {showProgressLegend && (
+              <div className="progress-ring-legend" aria-label="進捗リングの凡例">
+                {showPersonalProgress && (
+                  <>
+                    <span>
+                      <i className="progress-ring-legend--ac" />
+                      AC
+                    </span>
+                    <span>
+                      <i className="progress-ring-legend--unsolved" />
+                      未AC
+                    </span>
+                    <span>
+                      <i className="progress-ring-legend--untried" />
+                      未挑戦
+                    </span>
+                  </>
+                )}
+                {showPeerProgress && (
+                  <span>
+                    <i className="progress-ring-legend--peer" />
+                    同レート帯{peerStatisticLabel}AC・外周（{peerRatingBand.lower}–
+                    {peerRatingBand.upper}）
+                  </span>
+                )}
               </div>
             )}
             <div className="current-rate">
@@ -221,7 +289,10 @@ export default function Main({
               showCurrentRate={showCurrentRate}
               showLabels={showLabels}
               progressByAlgorithm={progressByAlgorithm}
-              showProgress={submissionsLoaded && showProgressRing}
+              showProgress={showPersonalProgress}
+              peerProgressByAlgorithm={peerProgressByAlgorithm}
+              showPeerProgress={showPeerProgress}
+              peerStatisticLabel={peerStatisticLabel}
               selectedAlgorithm={selectedAlgo?.algo ?? null}
               onSelectAlgorithm={setSelectedAlgoName}
             />
