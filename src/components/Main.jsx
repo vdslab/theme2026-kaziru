@@ -113,32 +113,9 @@ export default function Main({
               rateError={rateError}
               isLoading={rateLoading}
             />
-
-            <ControlPannel
-              showCurrentRate={showCurrentRate}
-              onShowCurrentRateChange={setShowCurrentRate}
-              showProgressRing={showProgressRing}
-              onShowProgressRingChange={setShowProgressRing}
-              showPeerProgressRing={showPeerProgressRing}
-              onShowPeerProgressRingChange={setShowPeerProgressRing}
-              showLabels={showLabels}
-              onShowLabelsChange={setShowLabels}
-              peerStatistic={peerStatistic}
-              onPeerStatisticChange={setPeerStatistic}
-              showPlacementSettings={showPlacementSettings}
-              onShowPlacementSettingsChange={setShowPlacementSettings}
-              lowerFraction={lowerFraction}
-              onLowerFractionChange={onLowerFractionChange}
-              onAutoOptimize={onAutoOptimize}
-              isOptimizing={isOptimizing}
-              isOptimized={isOptimized}
-              rate={rate}
-              submissionsLoaded={submissionsLoaded}
-            />
           </div>
         </div>
       </div>
-
 
       <div className="visualization-container">
         <div className="chart-header">
@@ -194,6 +171,28 @@ export default function Main({
           style={chartMinHeight > 0 ? { minHeight: `${chartMinHeight}px` } : undefined}
         >
           <div ref={chartWrapperRef} className="chart-wrapper">
+            <ControlPannel
+              showCurrentRate={showCurrentRate}
+              onShowCurrentRateChange={setShowCurrentRate}
+              showProgressRing={showProgressRing}
+              onShowProgressRingChange={setShowProgressRing}
+              showPeerProgressRing={showPeerProgressRing}
+              onShowPeerProgressRingChange={setShowPeerProgressRing}
+              showLabels={showLabels}
+              onShowLabelsChange={setShowLabels}
+              peerStatistic={peerStatistic}
+              onPeerStatisticChange={setPeerStatistic}
+              showPlacementSettings={showPlacementSettings}
+              onShowPlacementSettingsChange={setShowPlacementSettings}
+              lowerFraction={lowerFraction}
+              onLowerFractionChange={onLowerFractionChange}
+              onAutoOptimize={onAutoOptimize}
+              isOptimizing={isOptimizing}
+              isOptimized={isOptimized}
+              rate={rate}
+              submissionsLoaded={submissionsLoaded}
+            />
+
             <PieBeeswarm
               data={summary}
               rate={rate}
