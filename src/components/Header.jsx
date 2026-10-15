@@ -15,7 +15,6 @@ export default function Header({
         <div className="header-left">
           <div>
             <div className="logo">AtCompass</div>
-            <p className="tagline">AtCoder 学習ナビゲーション</p>
           </div>
         </div>
         <div className="header-user-actions">
