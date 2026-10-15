@@ -20,7 +20,6 @@ export default function UserIdInput({
       }}
     >
       <label className="username-field">
-        <span className="username-label">AtCoder ユーザーID</span>
         <span className="username-input-wrap">
           <svg
             aria-hidden="true"
@@ -39,39 +38,39 @@ export default function UserIdInput({
           <input
             className={`username-input${rateError ? " username-input--error" : ""}`}
             type="text"
-            placeholder="例：tourist"
+            placeholder="AtCoder ユーザーID"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             aria-invalid={Boolean(rateError)}
             aria-describedby={rateError ? "username-error" : undefined}
             autoComplete="off"
           />
+          <button
+            className={`username-button${isLoading ? " username-button--loading" : ""}`}
+            type="submit"
+            disabled={isLoading || !username.trim()}
+            aria-label="データを読み込む"
+          >
+            {isLoading ? (
+              <svg
+                aria-hidden="true"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="8" />
+              </svg>
+            ) : (
+              <span aria-hidden="true">🔍</span>
+            )}
+          </button>
         </span>
       </label>
-      <button
-        className={`username-button${isLoading ? " username-button--loading" : ""}`}
-        type="submit"
-        disabled={isLoading || !username.trim()}
-      >
-        {isLoading ? "読み込み中" : "データを読み込む"}
-        <svg
-          aria-hidden="true"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {isLoading ? (
-            <circle cx="12" cy="12" r="8" />
-          ) : (
-            <path d="m9 18 6-6-6-6" />
-          )}
-        </svg>
-      </button>
       {rateError && (
         <span id="username-error" className="username-error">
           {rateError}
