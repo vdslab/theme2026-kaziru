@@ -172,19 +172,21 @@ export default function Main({
               submissionsLoaded={submissionsLoaded}
             />
 
-            <PieBeeswarm
-              data={summary}
-              rate={rate}
-              showCurrentRate={showCurrentRate}
-              showLabels={showLabels}
-              progressByAlgorithm={progressByAlgorithm}
-              showProgress={showPersonalProgress}
-              peerProgressByAlgorithm={peerProgressByAlgorithm}
-              showPeerProgress={showPeerProgress}
-              peerStatisticLabel={peerStatisticLabel}
-              selectedAlgorithm={selectedAlgo?.algo ?? null}
-              onSelectAlgorithm={setSelectedAlgoName}
-            />
+            <div className="chart-content">
+              <PieBeeswarm
+                data={summary}
+                rate={rate}
+                showCurrentRate={showCurrentRate}
+                showLabels={showLabels}
+                progressByAlgorithm={progressByAlgorithm}
+                showProgress={showPersonalProgress}
+                peerProgressByAlgorithm={peerProgressByAlgorithm}
+                showPeerProgress={showPeerProgress}
+                peerStatisticLabel={peerStatisticLabel}
+                selectedAlgorithm={selectedAlgo?.algo ?? null}
+                onSelectAlgorithm={setSelectedAlgoName}
+              />
+            </div>
           </div>
 
           <AlgorithmCard algo={selectedAlgo} problems={problems} submissionsMap={submissionsMap} />
