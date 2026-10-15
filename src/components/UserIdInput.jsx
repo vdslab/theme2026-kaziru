@@ -20,7 +20,6 @@ export default function UserIdInput({
       }}
     >
       <label className="username-field">
-        <span className="username-label">AtCoder ユーザーID</span>
         <span className="username-input-wrap">
           <svg
             aria-hidden="true"
@@ -39,7 +38,7 @@ export default function UserIdInput({
           <input
             className={`username-input${rateError ? " username-input--error" : ""}`}
             type="text"
-            placeholder="例：tourist"
+            placeholder="AtCoder ユーザーID"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             aria-invalid={Boolean(rateError)}
